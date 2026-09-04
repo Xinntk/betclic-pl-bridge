@@ -281,6 +281,74 @@ Albo konkretną kategorię:
 
 Znane kategorie piłkarskie: `result`, `goals`, `score_handicap`, `top`, `goalscorers`, `props`.
 
+## Dynamiczne MyCombi / Bet Builder (read-only)
+
+`GET /event/{event_id}/mycombi` pobiera katalog z publicznego
+`MyCombiService/GetMyCombiWithNotifications`, z pustą listą kombinacji.
+Odpowiedź zawiera `event_id`, `name`, `date`, `is_live`, `available`, `markets`,
+`source: "mycombi"`, `errors` i `generated_at_warsaw`.
+Każdy market ma `market_id`, nazwę, `is_betbuilder_eligible` i listę selekcji
+z `selection_id`, `market_id`, nazwą, kursem jednostkowym, `status`
+oraz `is_betbuilder_compatible`. Nie każda para selekcji z katalogu jest łączalna.
+
+`POST /event/{event_id}/mycombi/quote` jest wyłącznie zapytaniem o kurs kombinacji:
+
+```json
+{
+  "selections": [
+    {"market_id": "1211746605895682", "selection_id": "1211746605891589"},
+    {"market_id": "1211747370299421", "selection_id": "1211747370295431"}
+  ]
+}
+```
+
+Przykładowy wynik diagnostyczny dla PSG–Monaco:
+
+```json
+{
+  "valid": true,
+  "odds": 1.69,
+  "selections": [
+    {"market_id": "1211746605895682", "selection_id": "1211746605891589"},
+    {"market_id": "1211747370299421", "selection_id": "1211747370295431"}
+  ],
+  "errors": [],
+  "generated_at_warsaw": "2026-09-04T20:03:43.735262+02:00"
+}
+```
+
+ID i kursy powyżej są historycznym przykładem. **Zawsze pobierz świeże pary ID
+z GET metadanych.** Kontener marketu może zmienić ID, nawet jeśli selection ID
+pozostaje ten sam. Nie używaj `betslip_market_id`. API akceptuje dodatnie ID int64
+jako liczby lub ciągi cyfr; w odpowiedziach ID są stringami, żeby uniknąć utraty
+precyzji w JavaScript. Request wymaga 2–20 różnych selekcji (20 to limit bridge,
+nie deklaracja limitu Betclica). Dodatkowe pola, np. stake/account_id, dają HTTP 422.
+
+Quote najpierw odczytuje aktualny katalog i weryfikuje pary ID, status ONLINE
+oraz eligibility/compatibility, a następnie wysyła je do kalkulatora Betclica.
+Nie mnoży kursów samodzielnie. `valid=false`, `odds=null` i `errors` oznaczają np.
+`NOT_COMBINABLE`, `SELECTION_UNAVAILABLE` lub `UNAVAILABLE` (HTTP 200).
+Po `SELECTION_UNAVAILABLE` odśwież katalog. Awaria upstreamu daje HTTP 502,
+timeout HTTP 504; POST nadal zwraca `valid=false` i `errors`.
+
+`MYCOMBI_UPSTREAM_TIMEOUT` domyślnie wynosi 4 s na odczyt (connect timeout 1 s).
+Quote wykonuje najwyżej dwa zapytania odczytowe i nie jest cache'owany
+(`Cache-Control: no-store`). Strumień gRPC-web zamykamy po pierwszym snapshotcie.
+Żadne cookies ani nagłówki konta klienta bridge nie są przekazywane upstreamowi.
+Nie ma loginu, betslipa, stawki, placement ani operacji na saldzie.
+
+Powtarzalna diagnostyka poza endpointami:
+
+```powershell
+python diagnose_mycombi.py EVENT_ID --output metadata.json
+python diagnose_mycombi.py EVENT_ID --selection MARKET_ID:SELECTION_ID --selection MARKET_ID:SELECTION_ID --output quote.json
+```
+
+Skrypt zwraca exit code 2 dla odrzuconej kombinacji.
+Schemat, źródła bundli i potwierdzenie pre-match przed integracją:
+[diagnostics/mycombi-discovery.md](diagnostics/mycombi-discovery.md).
+Dotychczasowe `/event`, `compact=true` i discovery football/tennis pozostają bez zmian.
+
 ## Lokalny test na Windows
 
 Jeśli masz Pythona 3.10+:

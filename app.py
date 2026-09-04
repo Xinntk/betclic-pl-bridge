@@ -12,8 +12,10 @@ from types import SimpleNamespace
 from typing import Annotated, Any, Literal
 from zoneinfo import ZoneInfo
 
-from fastapi import FastAPI, HTTPException, Query, Response
+from fastapi import FastAPI, HTTPException, Path, Query, Response
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel, ConfigDict, Field, field_validator
+from requests.exceptions import RequestException, Timeout
 
 from betclic_api import BetclicClient
 from betclic_api.client import MARKET_CODES, SPORTS
@@ -22,6 +24,7 @@ from football_scope import (
     club_key, football_team_names, is_allowed_football_competition,
     is_allowed_football_match, is_domestic_league,
 )
+from mycombi import fetch_mycombi, quote_mycombi
 
 
 APP_NAME = "Betclic PL Odds Bridge"
@@ -42,6 +45,7 @@ SLATE_ODDS_WORKERS = int(os.getenv("SLATE_ODDS_WORKERS", "4"))
 DEFAULT_LOCALE = os.getenv("BETCLIC_LOCALE", "pl")
 DEFAULT_REGULATION = os.getenv("BETCLIC_REGULATION", "PL")
 DEFAULT_SITE = os.getenv("BETCLIC_SITE", "https://www.betclic.pl")
+MYCOMBI_UPSTREAM_TIMEOUT = float(os.getenv("MYCOMBI_UPSTREAM_TIMEOUT", "4"))
 
 app = FastAPI(
     title=APP_NAME,
@@ -56,7 +60,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
     allow_credentials=False,
-    allow_methods=["GET"],
+    allow_methods=["GET", "POST"],
     allow_headers=["*"],
 )
 
@@ -667,6 +671,63 @@ def event_football_all(match_id: int):
     base_dict["markets"] = _dedupe_markets(markets)
     base_dict["market_count"] = len(base_dict["markets"])
     return base_dict
+
+
+class MyCombiSelection(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    market_id: int = Field(gt=0, le=2**63 - 1)
+    selection_id: int = Field(gt=0, le=2**63 - 1)
+
+    @field_validator("market_id", "selection_id", mode="before")
+    @classmethod
+    def integer_identifier(cls, value):
+        if isinstance(value, str) and value.isascii() and value.isdigit():
+            return int(value)
+        if type(value) is not int:
+            raise ValueError("Use a positive integer or a decimal ID string")
+        return value
+
+
+class MyCombiQuoteRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    selections: list[MyCombiSelection] = Field(min_length=2, max_length=20)
+
+    @field_validator("selections")
+    @classmethod
+    def distinct_selections(cls, selections):
+        if len({s.selection_id for s in selections}) != len(selections):
+            raise ValueError("Selections must be distinct")
+        return selections
+
+
+@app.get("/event/{event_id}/mycombi")
+def event_mycombi(event_id: Annotated[int, Path(gt=0, le=2**63 - 1)]):
+    """Read public MyCombi metadata; IDs belong to this event's calculator."""
+    try:
+        metadata = fetch_mycombi(_client(timeout=(1, MYCOMBI_UPSTREAM_TIMEOUT)), event_id)
+    except Timeout as exc:
+        raise HTTPException(status_code=504, detail="MyCombi upstream timeout") from exc
+    except (RequestException, RuntimeError, ValueError) as exc:
+        raise HTTPException(status_code=502, detail="MyCombi upstream response unavailable") from exc
+    return {**metadata, "source": "mycombi", "generated_at_warsaw": datetime.now(WARSAW).isoformat()}
+
+
+@app.post("/event/{event_id}/mycombi/quote")
+def event_mycombi_quote(event_id: Annotated[int, Path(gt=0, le=2**63 - 1)],
+                        body: MyCombiQuoteRequest, response: Response):
+    """Read-only price query. No stake, betslip, account or placement operation."""
+    selections = [item.model_dump() for item in body.selections]
+    try:
+        result = quote_mycombi(_client(timeout=(1, MYCOMBI_UPSTREAM_TIMEOUT)), event_id, selections)
+    except (RequestException, RuntimeError, ValueError) as exc:
+        timeout = isinstance(exc, Timeout)
+        response.status_code = 504 if timeout else 502
+        result = {"valid": False, "odds": None,
+                  "selections": [{key: str(value) for key, value in item.items()} for item in selections],
+                  "errors": [{"code": "UPSTREAM_TIMEOUT" if timeout else "UPSTREAM_ERROR",
+                              "detail": "MyCombi upstream timeout" if timeout else "MyCombi upstream response unavailable"}]}
+    response.headers["Cache-Control"] = "no-store"
+    return {**result, "generated_at_warsaw": datetime.now(WARSAW).isoformat()}
 
 
 @app.get("/search")
