@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import os
+import re
 import time
+import unicodedata
 from concurrent.futures import ThreadPoolExecutor, as_completed, wait
 from datetime import datetime
 from threading import Lock
@@ -20,7 +22,9 @@ WARSAW = ZoneInfo("Europe/Warsaw")
 CACHE_TTL = int(os.getenv("CACHE_TTL", "45"))
 TODAY_MAX_PAGES = int(os.getenv("TODAY_MAX_PAGES", "12"))
 TODAY_PAGES_PER_CHUNK = int(os.getenv("TODAY_PAGES_PER_CHUNK", "4"))
+TODAY_TENNIS_PAGES_PER_CHUNK = int(os.getenv("TODAY_TENNIS_PAGES_PER_CHUNK", "2"))
 TODAY_WORKERS = int(os.getenv("TODAY_WORKERS", "4"))
+TODAY_UPSTREAM_TIMEOUT = float(os.getenv("TODAY_UPSTREAM_TIMEOUT", "5"))
 TODAY_PAGE_SIZE = 40
 SLATE_ODDS_LIMIT = int(os.getenv("SLATE_ODDS_LIMIT", "8"))
 SLATE_ODDS_WORKERS = int(os.getenv("SLATE_ODDS_WORKERS", "4"))
@@ -49,9 +53,9 @@ _cache: dict[str, tuple[float, Any]] = {}
 _cache_lock = Lock()
 
 
-def _client() -> BetclicClient:
+def _client(timeout: tuple[float, float] = (5, 12)) -> BetclicClient:
     """Create a client configured for the Polish Betclic offering."""
-    c = BetclicClient(locale=DEFAULT_LOCALE, timeout=(5, 12))
+    c = BetclicClient(locale=DEFAULT_LOCALE, timeout=timeout)
     # The upstream project currently defaults to the French regulation/site.
     # Overriding these request headers switches the public offering to PL.
     c._session.headers.update(  # noqa: SLF001 - intentional compatibility shim
@@ -161,12 +165,47 @@ def _is_compact_market(market) -> bool:
     return any(term in name for term in _IMPORTANT_MARKET_TERMS)
 
 
-def _fetch_matches_page(sport: str, offset: int) -> dict[str, Any]:
+_TENNIS_EXCLUDED = re.compile(
+    r"\b(?:double\w*|debl\w*|debel|podwojn\w*|mixed\w*|mixte\w*|mikst\w*|"
+    r"itf|[mw]\s*-?\s*(?:15|25|35|50|75|100)|junior\w*|juniorsk\w*|"
+    r"boys|girls|chlop\w*|dziewcz\w*|u\s*-?\s*(?:12|14|16|18)|under\s*-?\s*18|"
+    r"utr|college\w*|collegiate|ncaa|university|exhibition\w*|pokazow\w*|"
+    r"amateur\w*|amator\w*|futures|legends|wheelchair|next\s+gen)\b|"
+    r"\bwta\s*(?:125|challenger)\b"
+)
+_TENNIS_ALLOWED = re.compile(
+    r"\b(?:australian\s+open|roland\s+garros|french\s+open|wimbledon|us\s+open|"
+    r"(?:atp|wta)(?:\s+(?:masters|tour))*\s*(?:1000|500|250|finals)|"
+    r"(?:atp\s+)?challenger(?:\s+tour)?)\b"
+)
+
+
+def _is_allowed_tennis_match(match) -> bool:
+    """Allow named professional singles categories; exclusions always win."""
+    def normalized(value):
+        return "".join(
+            char for char in unicodedata.normalize("NFKD", (value or "").casefold())
+            if not unicodedata.combining(char)
+        ).replace("ł", "l")
+
+    competition = normalized(match.competition)
+    name = normalized(match.name)
+    # Pair names can omit 'doubles' but still list multiple players on each side.
+    if any(separator in name for separator in ("/", "&", "+")) or _TENNIS_EXCLUDED.search(f"{competition} {name}"):
+        return False
+    competition = re.sub(r"[-–—/]+", " ", competition)
+    return bool(_TENNIS_ALLOWED.search(competition))
+
+
+def _fetch_matches_page(
+    sport: str, offset: int, *, timeout: tuple[float, float] | None = None,
+) -> dict[str, Any]:
     key = f"matches:{sport}:{offset}"
     if (hit := _cached(key)) is not None:
         return hit
     try:
-        result = _client().get_matches(sport, offset=offset)
+        client = _client() if timeout is None else _client(timeout=timeout)
+        result = client.get_matches(sport, offset=offset)
     except Exception as exc:
         raise HTTPException(status_code=502, detail=f"Betclic upstream error: {exc}") from exc
     return _store(key, result)
@@ -180,14 +219,17 @@ def _fetch_today(sport: str, chunk: int = 0) -> tuple[list[Any], dict[str, Any]]
     upstream_total = 0
     pages_scanned = 0
     batches_scanned = 0
+    filtered_out = 0
     errors: list[dict[str, Any]] = []
     stop = False
     # Retain the legacy per-request safety cap without skipping pages between chunks.
-    pages_per_chunk = max(1, min(TODAY_PAGES_PER_CHUNK, TODAY_MAX_PAGES))
+    chunk_limit = TODAY_TENNIS_PAGES_PER_CHUNK if sport == "tennis" else TODAY_PAGES_PER_CHUNK
+    pages_per_chunk = max(1, min(chunk_limit, TODAY_MAX_PAGES))
     start_page = chunk * pages_per_chunk
     workers = max(1, min(TODAY_WORKERS, pages_per_chunk))
 
-    with ThreadPoolExecutor(max_workers=workers) as executor:
+    executor = ThreadPoolExecutor(max_workers=workers)
+    try:
         while pages_scanned < pages_per_chunk and not stop:
             offsets = range(
                 (start_page + pages_scanned) * TODAY_PAGE_SIZE,
@@ -195,21 +237,29 @@ def _fetch_today(sport: str, chunk: int = 0) -> tuple[list[Any], dict[str, Any]]
                 TODAY_PAGE_SIZE,
             )
             futures = {
-                offset: executor.submit(_fetch_matches_page, sport, offset)
+                offset: executor.submit(
+                    _fetch_matches_page, sport, offset, timeout=(1, TODAY_UPSTREAM_TIMEOUT),
+                )
                 for offset in offsets
                 if not upstream_total or offset < upstream_total
             }
             if not futures:
                 stop = True
                 break
-            wait(futures.values())
+            # Bound the wait too: the client's streaming reads can outlast a
+            # socket timeout if the upstream keeps sending small amounts of data.
+            completed, pending = wait(futures.values(), timeout=TODAY_UPSTREAM_TIMEOUT + 1)
+            for future in pending:
+                future.cancel()
             pages_scanned += len(futures)
             batches_scanned += 1
 
-            # All requests in this batch have finished. Keep their successful
-            # results, even when another page signals the end or fails.
+            # Keep completed results in offset order even if another page
+            # signals the end, fails, or exceeds the batch deadline.
             for offset, future in futures.items():
                 try:
+                    if future not in completed:
+                        raise TimeoutError(f"Betclic upstream timeout after {TODAY_UPSTREAM_TIMEOUT + 1:g}s")
                     result = future.result()
                     page = list(result.get("matches", []))
                     total = int(result.get("total", 0) or 0)
@@ -231,9 +281,15 @@ def _fetch_today(sport: str, chunk: int = 0) -> tuple[list[Any], dict[str, Any]]
                 for identity, match in page_matches:
                     if identity not in seen_ids:
                         seen_ids.add(identity)
+                        if sport == "tennis" and not _is_allowed_tennis_match(match):
+                            filtered_out += 1
+                            continue
                         matches.append(match)
                 if not page or has_future_event or (upstream_total and offset + TODAY_PAGE_SIZE >= upstream_total):
                     stop = True
+    finally:
+        # A slow request must not delay the partial response during pool cleanup.
+        executor.shutdown(wait=False, cancel_futures=True)
 
     return matches, {
         "chunk": chunk,
@@ -242,6 +298,7 @@ def _fetch_today(sport: str, chunk: int = 0) -> tuple[list[Any], dict[str, Any]]
         "upstream_total": upstream_total,
         "pages_scanned": pages_scanned,
         "batches_scanned": batches_scanned,
+        "filtered_out": filtered_out,
         "partial": bool(errors) or not stop,
         "errors": errors,
     }

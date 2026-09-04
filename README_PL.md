@@ -35,17 +35,20 @@ Przykład pełnego adresu:
 ## Szybka lista na dziś (v2)
 
 Endpoint `/today` zwraca jeden fragment (chunk) dzisiejszych wydarzeń według strefy
-`Europe/Warsaw`. Wszystkie sporty, w tym `football` i `tennis`, działają identycznie.
+`Europe/Warsaw`. Wszystkie sporty korzystają z tego samego mechanizmu chunkowania;
+tenis ma dodatkowo filtr profesjonalnego singla i mniejszy domyślny chunk.
 Parametr `chunk` to numer fragmentu od 0 (domyślnie `0`, wartości ujemne są odrzucane).
 
-Każdy request pobiera najwyżej `TODAY_PAGES_PER_CHUNK` stron Betclica (domyślnie 4).
-Strona obejmuje 40 wydarzeń: domyślnie chunk 0 pobiera offsety 0, 40, 80, 120,
-a chunk 1 offsety 160, 200, 240, 280. `TODAY_WORKERS` (domyślnie 4) określa
+Football i pozostałe sporty pobierają najwyżej `TODAY_PAGES_PER_CHUNK` stron
+Betclica (domyślnie 4), a tenis `TODAY_TENNIS_PAGES_PER_CHUNK` (domyślnie 2).
+Oba limity są konfigurowalne przez env. Strona obejmuje 40 wydarzeń: dla football
+chunk 0 domyślnie pobiera offsety 0, 40, 80, 120, a chunk 1: 160, 200, 240, 280.
+Dla tenisa chunk 0 pobiera 0, 40, a chunk 1: 80, 120. `TODAY_WORKERS` (domyślnie 4) określa
 maksymalną liczbę równoległych zapytań wewnątrz chunku. Jeśli jest mniejsza od
 rozmiaru chunku, strony są pobierane w kolejnych partiach.
 
 Zachowany `TODAY_MAX_PAGES` (domyślnie 12) stanowi dodatkowy limit na request.
-Efektywny rozmiar chunku to mniejsza z wartości `TODAY_PAGES_PER_CHUNK` i
+Efektywny rozmiar chunku to mniejsza z wartości limitu stron dla danego sportu i
 `TODAY_MAX_PAGES`; ten sam rozmiar wyznacza offset początkowy kolejnego chunku,
 więc strony nie są pomijane. Ustawiaj dodatnie wartości tych zmiennych env.
 Limit nie ogranicza łącznej liczby stron pobranych przez kolejne requesty.
@@ -64,12 +67,33 @@ Odpowiedź zawiera:
   chunku bez osiągnięcia końca `false` i `chunk + 1`;
 - `pages_scanned` — liczba prób pobrania stron w tym requestcie, także pustych i nieudanych;
 - `batches_scanned` — liczba pobranych partii w tym requestcie;
+- `filtered_out` — liczba unikalnych dzisiejszych wydarzeń odrzuconych przez filtr
+  tenisowy, przed filtrem `competition`; dla innych sportów 0;
 - `partial` — `true`, gdy pozostają kolejne chunki lub wystąpił błąd strony;
 - `errors` — lista błędów z `offset` i `detail`, pusta przy braku błędów.
 
 Błąd strony nie przerywa pobierania pozostałych stron chunku. Przy `errors` można
 ponowić ten sam chunk; `done=true` nie wyklucza brakujących wyników z błędnych stron.
 Endpoint nie wykonuje `get_match()` ani nie pobiera rynków poszczególnych wydarzeń.
+
+Zapytania listy wykonywane przez `/today` mają timeout połączenia 1 s i odczytu
+`TODAY_UPSTREAM_TIMEOUT` (domyślnie 5 s, konfigurowalne przez env). Dodatkowy limit
+oczekiwania na partię wynosi timeout odczytu + 1 s (domyślnie 6 s). Wolna strona
+trafia do `errors`, a odpowiedź z dostępnymi wynikami ma `partial=true`;
+endpoint nie czeka na zakończenie jej wątku. Większa liczba partii w chunku może
+wydłużyć łączny czas requestu. Timeout pozostałych endpointów pozostaje bez zmian.
+
+Tenis dopuszcza tylko rozpoznane kategorie singlowe: Australian Open, Roland Garros /
+French Open, Wimbledon, US Open, ATP Masters 1000 / ATP 1000, WTA 1000,
+ATP/WTA 500 i 250, ATP/WTA Finals oraz ATP Challenger / Challenger Tour, w tym
+kwalifikacje do tych turniejów. Dopasowanie nie rozróżnia wielkości liter.
+Odrzucane są deble (także pary zapisane ze znakiem `/`, `&` lub `+` w nazwie meczu), mixed,
+ITF i kategorie M15/M25 oraz W15/W25/W35/W50/W75/W100, juniorzy, UTR, college,
+exhibition i rozgrywki amatorskie. Wykluczenia w `competition` lub `name` mają
+pierwszeństwo przed dopuszczeniem. Nieznane nazwy bez rozpoznanej kategorii są
+odrzucane; sama nazwa zawodnika/meczu nie może dopuścić nieznanych rozgrywek.
+Filtr nie wpływa na `done`: przyszłe wydarzenie nawet z wykluczonej kategorii
+kończy skanowanie, a pusta lista po odfiltrowaniu dzisiejszych meczów nie oznacza końca.
 
 Przykłady:
 
