@@ -22,7 +22,10 @@ WARSAW = ZoneInfo("Europe/Warsaw")
 CACHE_TTL = int(os.getenv("CACHE_TTL", "45"))
 TODAY_MAX_PAGES = int(os.getenv("TODAY_MAX_PAGES", "12"))
 TODAY_PAGES_PER_CHUNK = int(os.getenv("TODAY_PAGES_PER_CHUNK", "4"))
-TODAY_TENNIS_PAGES_PER_CHUNK = int(os.getenv("TODAY_TENNIS_PAGES_PER_CHUNK", "2"))
+TODAY_TENNIS_SEARCH_TIMEOUT = float(os.getenv("TODAY_TENNIS_SEARCH_TIMEOUT", "4"))
+TODAY_TENNIS_QUERIES = (
+    "ATP", "WTA", "Challenger", "Australian Open", "Roland Garros", "Wimbledon", "US Open",
+)
 TODAY_WORKERS = int(os.getenv("TODAY_WORKERS", "4"))
 TODAY_UPSTREAM_TIMEOUT = float(os.getenv("TODAY_UPSTREAM_TIMEOUT", "5"))
 TODAY_PAGE_SIZE = 40
@@ -211,20 +214,88 @@ def _fetch_matches_page(
     return _store(key, result)
 
 
+def _fetch_today_tennis_search() -> tuple[list[Any], dict[str, Any]]:
+    """Discover today's professional tennis singles through parallel searches."""
+    target = datetime.now(WARSAW).date()
+    matches: list[Any] = []
+    seen_ids: set[Any] = set()
+    filtered_out = 0
+    errors: list[dict[str, Any]] = []
+
+    def search_query(query):
+        client = _client(timeout=(1, TODAY_TENNIS_SEARCH_TIMEOUT))
+        upstream_post = client._post
+        upstream_error = None
+
+        def checked_post(*args, **kwargs):
+            nonlocal upstream_error
+            try:
+                return upstream_post(*args, **kwargs)
+            except Exception as exc:
+                upstream_error = exc
+                raise
+
+        # BetclicClient.search catches upstream exceptions and returns [].
+        # Preserve the error so a failed search is not reported as an empty success.
+        client._post = checked_post
+        result = client.search(query)
+        if upstream_error is not None:
+            raise upstream_error
+        return result
+
+    executor = ThreadPoolExecutor(max_workers=len(TODAY_TENNIS_QUERIES))
+    try:
+        futures = {query: executor.submit(search_query, query) for query in TODAY_TENNIS_QUERIES}
+        completed, pending = wait(futures.values(), timeout=TODAY_TENNIS_SEARCH_TIMEOUT + 1)
+        for future in pending:
+            future.cancel()
+        # Stable query order makes deduplication independent of completion order.
+        for query, future in futures.items():
+            try:
+                if future not in completed:
+                    raise TimeoutError(f"Betclic search timeout after {TODAY_TENNIS_SEARCH_TIMEOUT + 1:g}s")
+                for match in future.result():
+                    identity = match.id if match.id is not None else (match.name, match.date)
+                    if identity in seen_ids:
+                        continue
+                    seen_ids.add(identity)
+                    dt = _parse_dt(match.date)
+                    if not dt or dt.date() != target:
+                        continue
+                    if not _is_allowed_tennis_match(match):
+                        filtered_out += 1
+                        continue
+                    matches.append(match)
+            except Exception as exc:
+                detail = exc.detail if isinstance(exc, HTTPException) else str(exc)
+                errors.append({"query": query, "detail": detail})
+    finally:
+        executor.shutdown(wait=False, cancel_futures=True)
+
+    return matches, {
+        "source": "search",
+        "queries": list(TODAY_TENNIS_QUERIES),
+        "filtered_out": filtered_out,
+        "partial": bool(errors),
+        "errors": errors,
+    }
+
+
 def _fetch_today(sport: str, chunk: int = 0) -> tuple[list[Any], dict[str, Any]]:
-    """Fetch one chunk in parallel batches, scanning each batch in offset order."""
+    """Use search for tennis and bounded page batches for the other sports."""
+    if sport == "tennis":
+        return _fetch_today_tennis_search()
+
     target = datetime.now(WARSAW).date()
     matches: list[Any] = []
     seen_ids: set[Any] = set()
     upstream_total = 0
     pages_scanned = 0
     batches_scanned = 0
-    filtered_out = 0
     errors: list[dict[str, Any]] = []
     stop = False
     # Retain the legacy per-request safety cap without skipping pages between chunks.
-    chunk_limit = TODAY_TENNIS_PAGES_PER_CHUNK if sport == "tennis" else TODAY_PAGES_PER_CHUNK
-    pages_per_chunk = max(1, min(chunk_limit, TODAY_MAX_PAGES))
+    pages_per_chunk = max(1, min(TODAY_PAGES_PER_CHUNK, TODAY_MAX_PAGES))
     start_page = chunk * pages_per_chunk
     workers = max(1, min(TODAY_WORKERS, pages_per_chunk))
 
@@ -281,9 +352,6 @@ def _fetch_today(sport: str, chunk: int = 0) -> tuple[list[Any], dict[str, Any]]
                 for identity, match in page_matches:
                     if identity not in seen_ids:
                         seen_ids.add(identity)
-                        if sport == "tennis" and not _is_allowed_tennis_match(match):
-                            filtered_out += 1
-                            continue
                         matches.append(match)
                 if not page or has_future_event or (upstream_total and offset + TODAY_PAGE_SIZE >= upstream_total):
                     stop = True
@@ -298,7 +366,7 @@ def _fetch_today(sport: str, chunk: int = 0) -> tuple[list[Any], dict[str, Any]]
         "upstream_total": upstream_total,
         "pages_scanned": pages_scanned,
         "batches_scanned": batches_scanned,
-        "filtered_out": filtered_out,
+        "filtered_out": 0,
         "partial": bool(errors) or not stop,
         "errors": errors,
     }
@@ -374,9 +442,9 @@ def sports():
 def today_events(
     sport: str = Query("football"),
     competition: str | None = Query(None, description="Competition name substring"),
-    chunk: Annotated[int, Query(ge=0, description="Zero-based chunk index")] = 0,
+    chunk: Annotated[int, Query(ge=0, description="Zero-based chunk index; ignored for tennis (search discovery)")] = 0,
 ):
-    """Return one chunk of today's lightweight event summaries for any sport."""
+    """Return today's summaries via tennis search or a chunk of another sport."""
     matches, scan = _fetch_today(sport, chunk)
     if competition:
         needle = competition.casefold()

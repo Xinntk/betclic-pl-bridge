@@ -15,13 +15,13 @@ def today_config(monkeypatch):
     monkeypatch.setattr(app, "TODAY_WORKERS", 4)
     monkeypatch.setattr(app, "TODAY_MAX_PAGES", 12)
     monkeypatch.setattr(app, "TODAY_PAGES_PER_CHUNK", 4)
-    monkeypatch.setattr(app, "TODAY_TENNIS_PAGES_PER_CHUNK", 4)
     monkeypatch.setattr(app, "TODAY_UPSTREAM_TIMEOUT", 5)
+    monkeypatch.setattr(app, "TODAY_TENNIS_SEARCH_TIMEOUT", 4)
 
 
-@pytest.fixture(params=["football", "tennis"])
-def sport(request):
-    return request.param
+@pytest.fixture
+def sport():
+    return "football"
 
 
 def match(match_id, date, competition="ATP 250", markets=None):
@@ -82,7 +82,7 @@ def test_today_uses_fixed_offsets_even_for_short_pages(monkeypatch):
     calls = []
     monkeypatch.setattr(app, "_fetch_matches_page", lambda sport, offset, **kwargs: calls.append(offset) or pages[offset])
 
-    matches, scan = app._fetch_today("tennis")
+    matches, scan = app._fetch_today("football")
 
     assert len(matches) == 21
     assert sorted(calls) == [0, 40, 80, 120]
@@ -98,7 +98,6 @@ def test_today_stops_after_page_with_future_events_when_total_is_zero(monkeypatc
 
     monkeypatch.setattr(app, "datetime", FrozenDatetime)
     monkeypatch.setattr(app, "TODAY_PAGES_PER_CHUNK", 8)
-    monkeypatch.setattr(app, "TODAY_TENNIS_PAGES_PER_CHUNK", 8)
     # UTC timestamps cross midnight in Warsaw two hours earlier than in UTC.
     today = "2026-09-04T21:59:00Z"
     tomorrow = "2026-09-04T22:00:00Z"
@@ -152,14 +151,13 @@ def test_today_counts_empty_page(monkeypatch):
     assert data["events"] == []
 
 
-@pytest.mark.parametrize("sport,workers", [("football", 4), ("tennis", 2)])
+@pytest.mark.parametrize("sport,workers", [("football", 4), ("football", 2)])
 def test_today_fetches_parallel_batches_in_offset_order(monkeypatch, sport, workers):
     today = datetime.now(app.WARSAW).isoformat()
     max_pages = workers + 2
     monkeypatch.setattr(app, "TODAY_WORKERS", workers)
     monkeypatch.setattr(app, "TODAY_MAX_PAGES", max_pages)
     monkeypatch.setattr(app, "TODAY_PAGES_PER_CHUNK", max_pages)
-    monkeypatch.setattr(app, "TODAY_TENNIS_PAGES_PER_CHUNK", max_pages)
     barriers = [Barrier(workers), Barrier(2)]
     last_finished = [Event(), Event()]
     lock = Lock()
@@ -244,7 +242,6 @@ def test_today_multiple_chunks_via_http(monkeypatch, sport, pages_per_chunk):
     today = now.isoformat()
     tomorrow = (now + timedelta(days=1)).isoformat()
     monkeypatch.setattr(app, "TODAY_PAGES_PER_CHUNK", pages_per_chunk)
-    monkeypatch.setattr(app, "TODAY_TENNIS_PAGES_PER_CHUNK", pages_per_chunk)
     calls = []
     detail_calls = []
     final_page = pages_per_chunk * 3
@@ -399,53 +396,8 @@ def test_tennis_itf_tiers_override_allowed_labels(category):
     assert not app._is_allowed_tennis_match(match(1, None, f"ITF {category}"))
 
 
-def test_tennis_filter_counts_unique_today_events_without_affecting_done(monkeypatch):
-    now = datetime.now(app.WARSAW)
-    today = now.isoformat()
-    tomorrow = (now + timedelta(days=1)).isoformat()
-    monkeypatch.setattr(app, "TODAY_TENNIS_PAGES_PER_CHUNK", 2)
-    rejected = match(1, today, "ITF W75")
-    pages = {
-        0: {"matches": [rejected, rejected, match(2, today, "ATP 250"), match(3, today, "ATP 500 Doubles")], "total": 0},
-        40: {"matches": [match(4, tomorrow, "ITF W15"), match(5, today, "ATP 250 - kwalifikacje"), match(6, today, "WTA 500")], "total": 0},
-    }
-    monkeypatch.setattr(app, "_fetch_matches_page", lambda sport, offset, **kwargs: pages.get(offset, {"matches": [], "total": 0}))
-
-    data = app.today_events(sport="tennis", competition="ATP 250")
-
-    assert [event["id"] for event in data["events"]] == [2, 5]
-    assert data["filtered_out"] == 2
-    assert data["done"] is True
-    assert data["next_chunk"] is None
-    assert data["errors"] == []
-
-    football = app.today_events(sport="football", competition=None)
-    assert football["filtered_out"] == 0
-    assert football["errors"] == []
-    assert 1 in [event["id"] for event in football["events"]]
-
-
-def test_tennis_only_excluded_events_keeps_next_chunk(monkeypatch):
-    today = datetime.now(app.WARSAW).isoformat()
-    monkeypatch.setattr(app, "TODAY_TENNIS_PAGES_PER_CHUNK", 2)
-    calls = []
-    monkeypatch.setattr(app, "_fetch_matches_page", lambda sport, offset, **kwargs: calls.append(offset) or {
-        "matches": [match(offset, today, "ITF M15")], "total": 0,
-    })
-
-    for chunk in range(2):
-        data = app.today_events(sport="tennis", competition=None, chunk=chunk)
-        assert data["events"] == []
-        assert data["filtered_out"] == 2
-        assert data["pages_scanned"] == 2
-        assert data["done"] is False
-        assert data["next_chunk"] == chunk + 1
-    assert sorted(calls) == [0, 40, 80, 120]
-
-
 def test_today_upstream_read_timeout_returns_http_partial_result(monkeypatch, sport):
     today = datetime.now(app.WARSAW).isoformat()
-    monkeypatch.setattr(app, "TODAY_TENNIS_PAGES_PER_CHUNK", 2)
     monkeypatch.setattr(app, "_cache", {})
     timeouts = []
 
@@ -464,7 +416,7 @@ def test_today_upstream_read_timeout_returns_http_partial_result(monkeypatch, sp
     with TestClient(app.app) as client:
         response = client.get("/today", params={"sport": sport})
 
-    expected_pages = 2 if sport == "tennis" else 4
+    expected_pages = 4
     assert response.status_code == 200
     data = response.json()
     assert data["partial"] is True
@@ -477,8 +429,8 @@ def test_today_upstream_read_timeout_returns_http_partial_result(monkeypatch, sp
 
 def test_today_does_not_wait_for_slow_worker_shutdown(monkeypatch):
     today = datetime.now(app.WARSAW).isoformat()
-    monkeypatch.setattr(app, "TODAY_TENNIS_PAGES_PER_CHUNK", 2)
     monkeypatch.setattr(app, "TODAY_UPSTREAM_TIMEOUT", 0.05)
+    monkeypatch.setattr(app, "TODAY_PAGES_PER_CHUNK", 2)
     release = Event()
     started = Event()
     finished = Event()
@@ -492,7 +444,7 @@ def test_today_does_not_wait_for_slow_worker_shutdown(monkeypatch):
 
     monkeypatch.setattr(app, "_fetch_matches_page", fetch)
     with ThreadPoolExecutor(max_workers=1) as caller:
-        future = caller.submit(app.today_events, sport="tennis", competition=None)
+        future = caller.submit(app.today_events, sport="football", competition=None)
         try:
             assert started.wait(timeout=1)
             data = future.result(timeout=3)
@@ -500,6 +452,183 @@ def test_today_does_not_wait_for_slow_worker_shutdown(monkeypatch):
             assert [event["id"] for event in data["events"]] == [40]
             assert data["partial"] is True
             assert data["errors"] == [{"offset": 0, "detail": "Betclic upstream timeout after 1.05s"}]
+        finally:
+            release.set()
+            assert finished.wait(timeout=1)
+
+
+TENNIS_QUERIES = ["ATP", "WTA", "Challenger", "Australian Open", "Roland Garros", "Wimbledon", "US Open"]
+
+
+@pytest.fixture
+def tennis_backend(monkeypatch):
+    class FrozenDatetime(datetime):
+        @classmethod
+        def now(cls, tz=None):
+            return cls(2026, 9, 4, 12, tzinfo=app.WARSAW).astimezone(tz)
+
+    state = SimpleNamespace(
+        results={query: [] for query in TENNIS_QUERIES}, calls=[], timeouts=[],
+        forbidden_calls=[], barrier=None,
+    )
+
+    def forbidden(*args, **kwargs):
+        state.forbidden_calls.append((args, kwargs))
+        raise AssertionError("Tennis discovery must only use search")
+
+    class FakeClient:
+        def __init__(self, locale, timeout):
+            state.timeouts.append(timeout)
+            self._session = SimpleNamespace(headers={})
+
+        def _post(self, *args, **kwargs):
+            raise AssertionError("No transport needed for this mock")
+
+        def search(self, query):
+            state.calls.append(query)
+            if state.barrier is not None:
+                state.barrier.wait(timeout=2)
+            result = state.results[query]
+            if isinstance(result, Exception):
+                raise result
+            return result() if callable(result) else result
+
+        get_matches = forbidden
+        get_match = forbidden
+
+    monkeypatch.setattr(app, "datetime", FrozenDatetime)
+    monkeypatch.setattr(app, "BetclicClient", FakeClient)
+    monkeypatch.setattr(app, "_fetch_matches_page", forbidden)
+    monkeypatch.setattr(app, "_fetch_event", forbidden)
+    return state
+
+
+@pytest.mark.parametrize("chunk", [None, 9])
+def test_today_tennis_searches_all_queries_in_parallel_without_feed_or_details(tennis_backend, chunk):
+    state = tennis_backend
+    state.barrier = Barrier(7)
+    for index, query in enumerate(TENNIS_QUERIES):
+        # Distinct objects with the same id must deduplicate across searches.
+        state.results[query] = [match(1, "2026-09-04T12:00:00+02:00", "ATP 250")]
+        state.results[query].append(match(index + 2, "2026-09-04T12:00:00+02:00", "WTA 500"))
+
+    params = {"sport": "tennis"}
+    if chunk is not None:
+        params["chunk"] = chunk
+    with TestClient(app.app) as client:
+        response = client.get("/today", params=params)
+
+    assert response.status_code == 200
+    data = response.json()
+    assert data["source"] == "search"
+    assert data["queries"] == TENNIS_QUERIES
+    assert sorted(state.calls) == sorted(TENNIS_QUERIES)
+    assert state.timeouts == [(1, 4)] * 7
+    assert state.forbidden_calls == []
+    assert [event["id"] for event in data["events"]] == list(range(1, 9))
+    assert data["returned"] == 8
+    assert data["filtered_out"] == 0
+    assert data["partial"] is False
+    assert data["errors"] == []
+    assert "chunk" not in data and "pages_scanned" not in data
+    assert all("markets" not in event for event in data["events"])
+
+
+def test_today_tennis_search_filters_dates_tournaments_and_competition(tennis_backend):
+    state = tennis_backend
+    today = "2026-09-04T21:59:00Z"
+    blocked = ["ATP 250 Doubles", "US Open Mixed", "ITF M15", "ITF W100", "ATP 250 Junior",
+               "UTR", "College", "Exhibition", "Local League"]
+    state.results["ATP"] = [match(index + 10, today, competition) for index, competition in enumerate(blocked)]
+    state.results["ATP"] += [
+        match(1, today, "ATP 250"),
+        match(2, "2026-09-03T22:00:00Z", "ATP 500"),  # Today in Warsaw, yesterday in UTC.
+        match(3, "2026-09-04T22:00:00Z", "ATP 250"),  # Tomorrow in Warsaw.
+        match(4, "2026-09-03T21:59:00Z", "ATP 250"),
+        match(5, "invalid", "ATP 250"),
+        match(6, None, "ATP 250"),
+        match(7, today, "WTA 500"),
+    ]
+    state.results["WTA"] = [match(10, today, blocked[0]), match(1, today, "ATP 250")]
+    with TestClient(app.app) as client:
+        response = client.get("/today", params={"sport": "tennis", "competition": "atp"})
+
+    assert response.status_code == 200
+    data = response.json()
+    assert [event["id"] for event in data["events"]] == [1, 2]
+    assert data["returned"] == 2
+    assert data["filtered_out"] == len(blocked)
+    assert data["errors"] == []
+    assert data["partial"] is False
+    assert state.forbidden_calls == []
+
+
+@pytest.mark.parametrize("failure", [ReadTimeout("search read timeout"), RuntimeError("search failed")])
+def test_today_tennis_search_failure_returns_partial_http_result(tennis_backend, failure):
+    state = tennis_backend
+    state.results["ATP"] = failure
+    state.results["WTA"] = [match(1, "2026-09-04T12:00:00+02:00", "WTA 500")]
+    with TestClient(app.app) as client:
+        response = client.get("/today", params={"sport": "tennis"})
+
+    assert response.status_code == 200
+    data = response.json()
+    assert data["returned"] == 1
+    assert data["partial"] is True
+    assert data["errors"] == [{"query": "ATP", "detail": str(failure)}]
+    assert sorted(state.calls) == sorted(TENNIS_QUERIES)
+    assert state.forbidden_calls == []
+
+
+def test_today_tennis_empty_searches_are_not_errors(tennis_backend):
+    data = app.today_events(sport="tennis", competition=None)
+    assert data["events"] == []
+    assert data["returned"] == data["filtered_out"] == 0
+    assert data["partial"] is False
+    assert data["errors"] == []
+
+
+def test_today_tennis_reports_errors_swallowed_by_real_search(monkeypatch):
+    # Exercise the installed client's real search(), which catches _post errors.
+    def failing_post(self, *args, **kwargs):
+        raise ReadTimeout("upstream timeout hidden by search")
+
+    monkeypatch.setattr(app.BetclicClient, "_post", failing_post)
+    with TestClient(app.app) as client:
+        response = client.get("/today", params={"sport": "tennis"})
+
+    assert response.status_code == 200
+    data = response.json()
+    assert data["partial"] is True
+    assert data["returned"] == 0
+    assert data["errors"] == [
+        {"query": query, "detail": "upstream timeout hidden by search"} for query in TENNIS_QUERIES
+    ]
+
+
+def test_today_tennis_search_deadline_does_not_wait_for_slow_worker(monkeypatch, tennis_backend):
+    state = tennis_backend
+    monkeypatch.setattr(app, "TODAY_TENNIS_SEARCH_TIMEOUT", 0.05)
+    release, started, finished = Event(), Event(), Event()
+
+    def slow_search():
+        started.set()
+        release.wait(timeout=10)
+        finished.set()
+        return []
+
+    state.results["ATP"] = slow_search
+    state.results["WTA"] = [match(1, "2026-09-04T12:00:00+02:00", "WTA 500")]
+    with ThreadPoolExecutor(max_workers=1) as caller:
+        future = caller.submit(app.today_events, sport="tennis", competition=None)
+        try:
+            assert started.wait(timeout=1)
+            data = future.result(timeout=3)
+            assert not finished.is_set()
+            assert data["returned"] == 1
+            assert data["partial"] is True
+            assert data["errors"] == [{"query": "ATP", "detail": "Betclic search timeout after 1.05s"}]
+            assert sorted(state.calls) == sorted(TENNIS_QUERIES)
         finally:
             release.set()
             assert finished.wait(timeout=1)

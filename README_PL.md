@@ -34,16 +34,18 @@ Przykład pełnego adresu:
 
 ## Szybka lista na dziś (v2)
 
-Endpoint `/today` zwraca jeden fragment (chunk) dzisiejszych wydarzeń według strefy
-`Europe/Warsaw`. Wszystkie sporty korzystają z tego samego mechanizmu chunkowania;
-tenis ma dodatkowo filtr profesjonalnego singla i mniejszy domyślny chunk.
-Parametr `chunk` to numer fragmentu od 0 (domyślnie `0`, wartości ujemne są odrzucane).
+Endpoint `/today` zwraca dzisiejsze wydarzenia według strefy `Europe/Warsaw`.
+Football i pozostałe sporty korzystają z chunkowania stron. Tenis korzysta
+wyłącznie z wyszukiwania opisanego poniżej. Żadna lista `/today` nie wykonuje
+`get_match()` ani nie pobiera szczegółowych rynków wydarzeń.
 
-Football i pozostałe sporty pobierają najwyżej `TODAY_PAGES_PER_CHUNK` stron
-Betclica (domyślnie 4), a tenis `TODAY_TENNIS_PAGES_PER_CHUNK` (domyślnie 2).
-Oba limity są konfigurowalne przez env. Strona obejmuje 40 wydarzeń: dla football
+Dla football parametr `chunk` to numer fragmentu od 0 (domyślnie `0`, wartości
+ujemne są odrzucane).
+
+Football i pozostałe sporty poza tenisem pobierają najwyżej `TODAY_PAGES_PER_CHUNK`
+stron Betclica (domyślnie 4, konfigurowalne przez env). Strona obejmuje 40 wydarzeń: dla football
 chunk 0 domyślnie pobiera offsety 0, 40, 80, 120, a chunk 1: 160, 200, 240, 280.
-Dla tenisa chunk 0 pobiera 0, 40, a chunk 1: 80, 120. `TODAY_WORKERS` (domyślnie 4) określa
+`TODAY_WORKERS` (domyślnie 4) określa
 maksymalną liczbę równoległych zapytań wewnątrz chunku. Jeśli jest mniejsza od
 rozmiaru chunku, strony są pobierane w kolejnych partiach.
 
@@ -60,15 +62,14 @@ wydarzeniem na tej samej stronie. Pusta strona lub osiągnięcie znanej liczby
 wydarzeń upstream również kończy skanowanie. Filtr `competition` działa niezależnie:
 brak pasujących wydarzeń nie oznacza końca danych.
 
-Odpowiedź zawiera:
+Odpowiedź football i pozostałych sportów poza tenisem zawiera:
 
 - `chunk` — numer bieżącego fragmentu;
 - `done` i `next_chunk` — przy końcu danych `true` i `null`; po wykorzystaniu
   chunku bez osiągnięcia końca `false` i `chunk + 1`;
 - `pages_scanned` — liczba prób pobrania stron w tym requestcie, także pustych i nieudanych;
 - `batches_scanned` — liczba pobranych partii w tym requestcie;
-- `filtered_out` — liczba unikalnych dzisiejszych wydarzeń odrzuconych przez filtr
-  tenisowy, przed filtrem `competition`; dla innych sportów 0;
+- `filtered_out` — 0 (te sporty nie korzystają z filtra tenisowego);
 - `partial` — `true`, gdy pozostają kolejne chunki lub wystąpił błąd strony;
 - `errors` — lista błędów z `offset` i `detail`, pusta przy braku błędów.
 
@@ -76,12 +77,40 @@ Błąd strony nie przerywa pobierania pozostałych stron chunku. Przy `errors` m
 ponowić ten sam chunk; `done=true` nie wyklucza brakujących wyników z błędnych stron.
 Endpoint nie wykonuje `get_match()` ani nie pobiera rynków poszczególnych wydarzeń.
 
-Zapytania listy wykonywane przez `/today` mają timeout połączenia 1 s i odczytu
+Zapytania stron wykonywane przez `/today` mają timeout połączenia 1 s i odczytu
 `TODAY_UPSTREAM_TIMEOUT` (domyślnie 5 s, konfigurowalne przez env). Dodatkowy limit
 oczekiwania na partię wynosi timeout odczytu + 1 s (domyślnie 6 s). Wolna strona
 trafia do `errors`, a odpowiedź z dostępnymi wynikami ma `partial=true`;
 endpoint nie czeka na zakończenie jej wątku. Większa liczba partii w chunku może
 wydłużyć łączny czas requestu. Timeout pozostałych endpointów pozostaje bez zmian.
+
+### Tenis: discovery przez search
+
+`/today?sport=tennis` wywołuje równolegle `BetclicClient.search()` dla siedmiu
+zapytań: `ATP`, `WTA`, `Challenger`, `Australian Open`, `Roland Garros`,
+`Wimbledon`, `US Open`. Nie korzysta z `_fetch_matches_page()` ani
+`get_matches("tennis")`. Wyniki wszystkich zapytań są łączone w kolejności zapytań,
+deduplikowane po `match.id`, ograniczane do dzisiejszej daty w Warszawie i
+przepuszczane przez `_is_allowed_tennis_match()`. Filtr `competition` nadal działa.
+
+Timeout połączenia to 1 s, a odczytu `TODAY_TENNIS_SEARCH_TIMEOUT` (domyślnie 4 s).
+Cała równoległa partia ma limit oczekiwania równy timeoutowi odczytu + 1 s
+(domyślnie 5 s). Timeout lub błąd jednego wyszukiwania nie usuwa wyników pozostałych.
+Błędy upstream, które klient `search()` zamienia na pustą listę, są przechwytywane
+przed ich ukryciem i raportowane w odpowiedzi.
+
+Odpowiedź tenisowa zawiera `source: "search"`, `queries` (listę siedmiu zapytań),
+`returned`, `events`, `filtered_out`, `partial` i `errors`. `filtered_out` liczy
+unikalne dzisiejsze wydarzenia odrzucone przez filtr tenisowy, przed filtrem
+`competition`. `errors` zawiera wpisy `{ "query": "ATP", "detail": "..." }`;
+`partial=true` oznacza co najmniej jedno nieudane wyszukiwanie. Wtedy można ponowić
+ten sam request. Puste, poprawnie wykonane wyszukiwanie nie jest błędem.
+
+Parametr `chunk` jest dla tenisa przestarzały i ignorowany. Odpowiedź nie zawiera
+pól paginacji (`chunk`, `next_chunk`, `done`, `pages_scanned`, `batches_scanned`).
+`TODAY_TENNIS_PAGES_PER_CHUNK` nie jest już używane, a limity stron i `TODAY_WORKERS`
+nie dotyczą discovery tenisowego. Wyniki obejmują wydarzenia zwrócone przez search;
+nie stanowią gwarancji kompletności całej oferty Betclica.
 
 Tenis dopuszcza tylko rozpoznane kategorie singlowe: Australian Open, Roland Garros /
 French Open, Wimbledon, US Open, ATP Masters 1000 / ATP 1000, WTA 1000,
@@ -92,18 +121,17 @@ ITF i kategorie M15/M25 oraz W15/W25/W35/W50/W75/W100, juniorzy, UTR, college,
 exhibition i rozgrywki amatorskie. Wykluczenia w `competition` lub `name` mają
 pierwszeństwo przed dopuszczeniem. Nieznane nazwy bez rozpoznanej kategorii są
 odrzucane; sama nazwa zawodnika/meczu nie może dopuścić nieznanych rozgrywek.
-Filtr nie wpływa na `done`: przyszłe wydarzenie nawet z wykluczonej kategorii
-kończy skanowanie, a pusta lista po odfiltrowaniu dzisiejszych meczów nie oznacza końca.
+Przyszłe wydarzenia są pomijane, ale nie przerywają przetwarzania kolejnych wyników search.
 
 Przykłady:
 
 - `/today?sport=football&chunk=0`
 - `/today?sport=football&chunk=1`
-- `/today?sport=tennis&chunk=0`
-- `/today?sport=tennis&chunk=1`
+- `/today?sport=tennis`
+- `/today?sport=tennis&competition=ATP`
 - `/today?sport=football&competition=Ekstraklasa&chunk=0`
 
-Zaczynaj od chunku 0 i pobieraj numer wskazany przez `next_chunk`, aż `done=true`.
+Dla football zaczynaj od chunku 0 i pobieraj numer wskazany przez `next_chunk`, aż `done=true`.
 Zachowuj te same `sport` i `competition` we wszystkich requestach. Przy łączeniu
 odpowiedzi deduplikuj wydarzenia po `id`, ponieważ lista upstream może się zmieniać.
 
