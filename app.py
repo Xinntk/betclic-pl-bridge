@@ -7,6 +7,7 @@ import unicodedata
 from concurrent.futures import ThreadPoolExecutor, as_completed, wait
 from datetime import datetime
 from threading import Lock
+from types import SimpleNamespace
 from typing import Annotated, Any
 from zoneinfo import ZoneInfo
 
@@ -15,6 +16,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from betclic_api import BetclicClient
 from betclic_api.client import MARKET_CODES, SPORTS
+from tennis_competitions import TennisCompetition, fetch_sport_menu, fetch_competition_matches
 
 
 APP_NAME = "Betclic PL Odds Bridge"
@@ -22,10 +24,9 @@ WARSAW = ZoneInfo("Europe/Warsaw")
 CACHE_TTL = int(os.getenv("CACHE_TTL", "45"))
 TODAY_MAX_PAGES = int(os.getenv("TODAY_MAX_PAGES", "12"))
 TODAY_PAGES_PER_CHUNK = int(os.getenv("TODAY_PAGES_PER_CHUNK", "4"))
-TODAY_TENNIS_SEARCH_TIMEOUT = float(os.getenv("TODAY_TENNIS_SEARCH_TIMEOUT", "4"))
-TODAY_TENNIS_QUERIES = (
-    "ATP", "WTA", "Challenger", "Australian Open", "Roland Garros", "Wimbledon", "US Open",
-)
+TODAY_TENNIS_TIMEOUT = float(os.getenv("TODAY_TENNIS_TIMEOUT", "4"))
+TODAY_TENNIS_WORKERS = int(os.getenv("TODAY_TENNIS_WORKERS", "4"))
+SPORT_MENU_CACHE_TTL = max(300, int(os.getenv("SPORT_MENU_CACHE_TTL", "600")))
 TODAY_WORKERS = int(os.getenv("TODAY_WORKERS", "4"))
 TODAY_UPSTREAM_TIMEOUT = float(os.getenv("TODAY_UPSTREAM_TIMEOUT", "5"))
 TODAY_PAGE_SIZE = 40
@@ -54,6 +55,8 @@ app.add_middleware(
 
 _cache: dict[str, tuple[float, Any]] = {}
 _cache_lock = Lock()
+_tennis_menu_cache: tuple[float, list[TennisCompetition]] | None = None
+_tennis_menu_lock = Lock()
 
 
 def _client(timeout: tuple[float, float] = (5, 12)) -> BetclicClient:
@@ -214,46 +217,60 @@ def _fetch_matches_page(
     return _store(key, result)
 
 
-def _fetch_today_tennis_search() -> tuple[list[Any], dict[str, Any]]:
-    """Discover today's professional tennis singles through parallel searches."""
+def _fetch_tennis_menu() -> list[TennisCompetition]:
+    global _tennis_menu_cache
+    with _tennis_menu_lock:
+        if _tennis_menu_cache and time.monotonic() - _tennis_menu_cache[0] < SPORT_MENU_CACHE_TTL:
+            return _tennis_menu_cache[1]
+        menu = fetch_sport_menu(_client(timeout=(1, TODAY_TENNIS_TIMEOUT)))
+        _tennis_menu_cache = (time.monotonic(), menu)
+        return menu
+
+
+def _is_allowed_tennis_competition(competition: TennisCompetition) -> bool:
+    if competition.category.casefold() in ("zwycięzca", "zwyciezca", "outright", "winner"):
+        return False
+    return _is_allowed_tennis_match(SimpleNamespace(
+        competition=f"{competition.category} {competition.name}", name="",
+    ))
+
+
+def _fetch_tennis_competition(competition_id: int):
+    key = f"tennis_competition:{competition_id}"
+    if (hit := _cached(key)) is not None:
+        return hit
+    matches = fetch_competition_matches(_client(timeout=(1, TODAY_TENNIS_TIMEOUT)), competition_id)
+    return _store(key, matches)
+
+
+def _fetch_today_tennis_competitions() -> tuple[list[Any], dict[str, Any]]:
+    """Discover allowed competition IDs via SportMenu, then fetch their snapshots."""
     target = datetime.now(WARSAW).date()
+    deadline = time.monotonic() + TODAY_TENNIS_TIMEOUT + 1
     matches: list[Any] = []
     seen_ids: set[Any] = set()
     filtered_out = 0
     errors: list[dict[str, Any]] = []
-
-    def search_query(query):
-        client = _client(timeout=(1, TODAY_TENNIS_SEARCH_TIMEOUT))
-        upstream_post = client._post
-        upstream_error = None
-
-        def checked_post(*args, **kwargs):
-            nonlocal upstream_error
-            try:
-                return upstream_post(*args, **kwargs)
-            except Exception as exc:
-                upstream_error = exc
-                raise
-
-        # BetclicClient.search catches upstream exceptions and returns [].
-        # Preserve the error so a failed search is not reported as an empty success.
-        client._post = checked_post
-        result = client.search(query)
-        if upstream_error is not None:
-            raise upstream_error
-        return result
-
-    executor = ThreadPoolExecutor(max_workers=len(TODAY_TENNIS_QUERIES))
+    competitions: list[TennisCompetition] = []
+    executor = ThreadPoolExecutor(max_workers=max(1, TODAY_TENNIS_WORKERS))
     try:
-        futures = {query: executor.submit(search_query, query) for query in TODAY_TENNIS_QUERIES}
-        completed, pending = wait(futures.values(), timeout=TODAY_TENNIS_SEARCH_TIMEOUT + 1)
+        menu_future = executor.submit(_fetch_tennis_menu)
+        try:
+            menu = menu_future.result(timeout=max(0, deadline - time.monotonic()))
+            competitions = [item for item in menu if _is_allowed_tennis_competition(item)]
+        except Exception as exc:
+            menu_future.cancel()
+            errors.append({"stage": "sport_menu", "detail": str(exc) or "SportMenu timeout"})
+
+        futures = {item.id: executor.submit(_fetch_tennis_competition, item.id) for item in competitions}
+        completed, pending = wait(futures.values(), timeout=max(0, deadline - time.monotonic()))
         for future in pending:
             future.cancel()
-        # Stable query order makes deduplication independent of completion order.
-        for query, future in futures.items():
+        for item in competitions:
+            future = futures[item.id]
             try:
                 if future not in completed:
-                    raise TimeoutError(f"Betclic search timeout after {TODAY_TENNIS_SEARCH_TIMEOUT + 1:g}s")
+                    raise TimeoutError(f"Competition discovery timeout after {TODAY_TENNIS_TIMEOUT + 1:g}s")
                 for match in future.result():
                     identity = match.id if match.id is not None else (match.name, match.date)
                     if identity in seen_ids:
@@ -262,19 +279,20 @@ def _fetch_today_tennis_search() -> tuple[list[Any], dict[str, Any]]:
                     dt = _parse_dt(match.date)
                     if not dt or dt.date() != target:
                         continue
-                    if not _is_allowed_tennis_match(match):
+                    candidate = SimpleNamespace(
+                        competition=f"{item.category} {match.competition or item.name}", name=match.name,
+                    )
+                    if match.competition_id not in (None, item.id) or not _is_allowed_tennis_match(candidate):
                         filtered_out += 1
                         continue
                     matches.append(match)
             except Exception as exc:
-                detail = exc.detail if isinstance(exc, HTTPException) else str(exc)
-                errors.append({"query": query, "detail": detail})
+                errors.append({"competition_id": item.id, "detail": str(exc)})
     finally:
         executor.shutdown(wait=False, cancel_futures=True)
-
     return matches, {
-        "source": "search",
-        "queries": list(TODAY_TENNIS_QUERIES),
+        "source": "competitions",
+        "competition_ids": [item.id for item in competitions],
         "filtered_out": filtered_out,
         "partial": bool(errors),
         "errors": errors,
@@ -282,9 +300,9 @@ def _fetch_today_tennis_search() -> tuple[list[Any], dict[str, Any]]:
 
 
 def _fetch_today(sport: str, chunk: int = 0) -> tuple[list[Any], dict[str, Any]]:
-    """Use search for tennis and bounded page batches for the other sports."""
+    """Use competitions for tennis and bounded page batches for the other sports."""
     if sport == "tennis":
-        return _fetch_today_tennis_search()
+        return _fetch_today_tennis_competitions()
 
     target = datetime.now(WARSAW).date()
     matches: list[Any] = []
@@ -442,9 +460,9 @@ def sports():
 def today_events(
     sport: str = Query("football"),
     competition: str | None = Query(None, description="Competition name substring"),
-    chunk: Annotated[int, Query(ge=0, description="Zero-based chunk index; ignored for tennis (search discovery)")] = 0,
+    chunk: Annotated[int, Query(ge=0, description="Zero-based chunk index; ignored for tennis (competition discovery)")] = 0,
 ):
-    """Return today's summaries via tennis search or a chunk of another sport."""
+    """Return today's tennis competition matches or a chunk of another sport."""
     matches, scan = _fetch_today(sport, chunk)
     if competition:
         needle = competition.casefold()

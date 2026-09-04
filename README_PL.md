@@ -36,7 +36,7 @@ Przykład pełnego adresu:
 
 Endpoint `/today` zwraca dzisiejsze wydarzenia według strefy `Europe/Warsaw`.
 Football i pozostałe sporty korzystają z chunkowania stron. Tenis korzysta
-wyłącznie z wyszukiwania opisanego poniżej. Żadna lista `/today` nie wykonuje
+wyłącznie z menu i list konkretnych rozgrywek opisanych poniżej. Żadna lista `/today` nie wykonuje
 `get_match()` ani nie pobiera szczegółowych rynków wydarzeń.
 
 Dla football parametr `chunk` to numer fragmentu od 0 (domyślnie `0`, wartości
@@ -84,33 +84,46 @@ trafia do `errors`, a odpowiedź z dostępnymi wynikami ma `partial=true`;
 endpoint nie czeka na zakończenie jej wątku. Większa liczba partii w chunku może
 wydłużyć łączny czas requestu. Timeout pozostałych endpointów pozostaje bez zmian.
 
-### Tenis: discovery przez search
+### Tenis: discovery według competition_id
 
-`/today?sport=tennis` wywołuje równolegle `BetclicClient.search()` dla siedmiu
-zapytań: `ATP`, `WTA`, `Challenger`, `Australian Open`, `Roland Garros`,
-`Wimbledon`, `US Open`. Nie korzysta z `_fetch_matches_page()` ani
-`get_matches("tennis")`. Wyniki wszystkich zapytań są łączone w kolejności zapytań,
-deduplikowane po `match.id`, ograniczane do dzisiejszej daty w Warszawie i
-przepuszczane przez `_is_allowed_tennis_match()`. Filtr `competition` nadal działa.
+`/today?sport=tennis` pobiera publiczne menu przez
+`offering.access.api.SportMenuService/GetSportMenu` i wybiera dozwolone rozgrywki
+z gałęzi `tennis`. Rozpoznaje zarówno nazwy rozgrywek, jak i kategorię menu
+(np. Challenger). Pomija deble, ITF i pozostałe wykluczone kategorie oraz pozycje
+menu dotyczące wyłącznie zwycięzcy turnieju.
 
-Timeout połączenia to 1 s, a odczytu `TODAY_TENNIS_SEARCH_TIMEOUT` (domyślnie 4 s).
-Cała równoległa partia ma limit oczekiwania równy timeoutowi odczytu + 1 s
-(domyślnie 5 s). Timeout lub błąd jednego wyszukiwania nie usuwa wyników pozostałych.
-Błędy upstream, które klient `search()` zamienia na pustą listę, są przechwytywane
-przed ich ukryciem i raportowane w odpowiedzi.
+Dla wybranych ID wywołuje
+`offering.access.api.MatchService/GetMatchesByCompetitionWithNotifications`.
+Schemat metody został odczytany z aktualnego frontendu i potwierdzony na US Open.
+Odczyt kończy się po pierwszej kompletnej odpowiedzi, bez oczekiwania na dalsze
+powiadomienia strumienia. Ta ścieżka nie korzysta z SearchService,
+`_fetch_matches_page()` ani `get_matches("tennis")`.
 
-Odpowiedź tenisowa zawiera `source: "search"`, `queries` (listę siedmiu zapytań),
-`returned`, `events`, `filtered_out`, `partial` i `errors`. `filtered_out` liczy
-unikalne dzisiejsze wydarzenia odrzucone przez filtr tenisowy, przed filtrem
-`competition`. `errors` zawiera wpisy `{ "query": "ATP", "detail": "..." }`;
-`partial=true` oznacza co najmniej jedno nieudane wyszukiwanie. Wtedy można ponowić
-ten sam request. Puste, poprawnie wykonane wyszukiwanie nie jest błędem.
+`TODAY_TENNIS_WORKERS` (domyślnie 4) ogranicza równoległe pobieranie rozgrywek.
+`SPORT_MENU_CACHE_TTL` (domyślnie 600 s, minimum 300 s) określa czas cache menu
+w danym procesie aplikacji. Cache list meczów rozgrywek używa `CACHE_TTL`.
+Timeout połączenia to 1 s, a odczytu `TODAY_TENNIS_TIMEOUT` (domyślnie 4 s).
+Całe discovery, łącznie z pobraniem menu, ma limit oczekiwania równy timeoutowi
+odczytu + 1 s (domyślnie 5 s). Błąd lub timeout jednej rozgrywki nie usuwa
+poprawnych wyników pozostałych.
+
+Wyniki są deduplikowane po `match.id`, ograniczane do dzisiejszej daty w Warszawie
+i filtrowane przez `_is_allowed_tennis_match()`. Daty z siedmioma cyframi ułamka
+sekundy są normalizowane do formatu obsługiwanego przez Python 3.10.
+Filtr `competition` nadal działa.
+
+Odpowiedź zawiera `source: "competitions"`, `competition_ids` (wybrane ID, także
+te zakończone błędem), `returned`, `events`, `filtered_out`, `partial` i `errors`.
+`filtered_out` liczy unikalne dzisiejsze wydarzenia odrzucone przez filtr tenisowy
+przed filtrem `competition`. Błąd rozgrywki ma postać
+`{ "competition_id": 196, "detail": "..." }`, a błąd menu
+`{ "stage": "sport_menu", "detail": "..." }`. `partial=true` sygnalizuje błędy;
+można wtedy ponowić request. Przy błędzie menu nie ma zastępczego zapytania search/feed.
 
 Parametr `chunk` jest dla tenisa przestarzały i ignorowany. Odpowiedź nie zawiera
 pól paginacji (`chunk`, `next_chunk`, `done`, `pages_scanned`, `batches_scanned`).
-`TODAY_TENNIS_PAGES_PER_CHUNK` nie jest już używane, a limity stron i `TODAY_WORKERS`
-nie dotyczą discovery tenisowego. Wyniki obejmują wydarzenia zwrócone przez search;
-nie stanowią gwarancji kompletności całej oferty Betclica.
+`TODAY_TENNIS_PAGES_PER_CHUNK` i `TODAY_TENNIS_SEARCH_TIMEOUT` nie są już używane;
+limity stron i `TODAY_WORKERS` nie dotyczą discovery tenisowego.
 
 Tenis dopuszcza tylko rozpoznane kategorie singlowe: Australian Open, Roland Garros /
 French Open, Wimbledon, US Open, ATP Masters 1000 / ATP 1000, WTA 1000,
@@ -121,7 +134,17 @@ ITF i kategorie M15/M25 oraz W15/W25/W35/W50/W75/W100, juniorzy, UTR, college,
 exhibition i rozgrywki amatorskie. Wykluczenia w `competition` lub `name` mają
 pierwszeństwo przed dopuszczeniem. Nieznane nazwy bez rozpoznanej kategorii są
 odrzucane; sama nazwa zawodnika/meczu nie może dopuścić nieznanych rozgrywek.
-Przyszłe wydarzenia są pomijane, ale nie przerywają przetwarzania kolejnych wyników search.
+Przyszłe wydarzenia są pomijane, ale nie przerywają przetwarzania kolejnych meczów.
+
+Diagnostyka aktualnego US Open (wykonuje publiczne zapytania sieciowe):
+
+```powershell
+python diagnose_tennis.py --output us-open-diagnostic.json
+```
+
+Skrypt kończy się błędem, jeśli nie znajdzie dzisiejszych meczów US Open.
+Przed zmianą endpointu potwierdzono 13 takich meczów: 6 dla ID `196` i 7 dla `211`.
+Szczegóły schematu i pomiarów: [diagnostics/tennis-discovery.md](diagnostics/tennis-discovery.md).
 
 Przykłady:
 
