@@ -5,7 +5,7 @@ import time
 from concurrent.futures import ThreadPoolExecutor, as_completed, wait
 from datetime import datetime
 from threading import Lock
-from typing import Any
+from typing import Annotated, Any
 from zoneinfo import ZoneInfo
 
 from fastapi import FastAPI, HTTPException, Query, Response
@@ -19,6 +19,7 @@ APP_NAME = "Betclic PL Odds Bridge"
 WARSAW = ZoneInfo("Europe/Warsaw")
 CACHE_TTL = int(os.getenv("CACHE_TTL", "45"))
 TODAY_MAX_PAGES = int(os.getenv("TODAY_MAX_PAGES", "12"))
+TODAY_PAGES_PER_CHUNK = int(os.getenv("TODAY_PAGES_PER_CHUNK", "4"))
 TODAY_WORKERS = int(os.getenv("TODAY_WORKERS", "4"))
 TODAY_PAGE_SIZE = 40
 SLATE_ODDS_LIMIT = int(os.getenv("SLATE_ODDS_LIMIT", "8"))
@@ -171,8 +172,8 @@ def _fetch_matches_page(sport: str, offset: int) -> dict[str, Any]:
     return _store(key, result)
 
 
-def _fetch_today(sport: str) -> tuple[list[Any], dict[str, Any]]:
-    """Fetch bounded parallel batches, then scan each batch in offset order."""
+def _fetch_today(sport: str, chunk: int = 0) -> tuple[list[Any], dict[str, Any]]:
+    """Fetch one chunk in parallel batches, scanning each batch in offset order."""
     target = datetime.now(WARSAW).date()
     matches: list[Any] = []
     seen_ids: set[Any] = set()
@@ -181,13 +182,16 @@ def _fetch_today(sport: str) -> tuple[list[Any], dict[str, Any]]:
     batches_scanned = 0
     errors: list[dict[str, Any]] = []
     stop = False
-    workers = max(1, min(TODAY_WORKERS, TODAY_MAX_PAGES))
+    # Retain the legacy per-request safety cap without skipping pages between chunks.
+    pages_per_chunk = max(1, min(TODAY_PAGES_PER_CHUNK, TODAY_MAX_PAGES))
+    start_page = chunk * pages_per_chunk
+    workers = max(1, min(TODAY_WORKERS, pages_per_chunk))
 
     with ThreadPoolExecutor(max_workers=workers) as executor:
-        while pages_scanned < TODAY_MAX_PAGES and not stop:
+        while pages_scanned < pages_per_chunk and not stop:
             offsets = range(
-                pages_scanned * TODAY_PAGE_SIZE,
-                min(pages_scanned + workers, TODAY_MAX_PAGES) * TODAY_PAGE_SIZE,
+                (start_page + pages_scanned) * TODAY_PAGE_SIZE,
+                (start_page + min(pages_scanned + workers, pages_per_chunk)) * TODAY_PAGE_SIZE,
                 TODAY_PAGE_SIZE,
             )
             futures = {
@@ -232,6 +236,9 @@ def _fetch_today(sport: str) -> tuple[list[Any], dict[str, Any]]:
                     stop = True
 
     return matches, {
+        "chunk": chunk,
+        "next_chunk": None if stop else chunk + 1,
+        "done": stop,
         "upstream_total": upstream_total,
         "pages_scanned": pages_scanned,
         "batches_scanned": batches_scanned,
@@ -310,9 +317,10 @@ def sports():
 def today_events(
     sport: str = Query("football"),
     competition: str | None = Query(None, description="Competition name substring"),
+    chunk: Annotated[int, Query(ge=0, description="Zero-based chunk index")] = 0,
 ):
-    """Return today's lightweight event summaries from a bounded page scan."""
-    matches, scan = _fetch_today(sport)
+    """Return one chunk of today's lightweight event summaries for any sport."""
+    matches, scan = _fetch_today(sport, chunk)
     if competition:
         needle = competition.casefold()
         matches = [m for m in matches if needle in (m.competition or "").casefold()]

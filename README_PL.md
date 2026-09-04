@@ -34,25 +34,54 @@ Przykład pełnego adresu:
 
 ## Szybka lista na dziś (v2)
 
-Endpoint `/today` zwraca dzisiejsze wydarzenia według strefy `Europe/Warsaw`.
-Strony po 40 wydarzeń są pobierane równolegle, w partiach po maksymalnie 4 strony
-(`TODAY_WORKERS`, konfigurowalne przez env), np. offsety 0, 40, 80, 120.
-Po pobraniu partii wyniki są przetwarzane w kolejności offsetów, z deduplikacją.
-Jeśli strona zawiera wydarzenie z późniejszą datą, następna partia nie jest
-uruchamiana. Wszystkie dzisiejsze wydarzenia z już pobranej partii są zachowane.
-Awaryjny limit to 12 stron, konfigurowalny przez zmienną środowiskową
-`TODAY_MAX_PAGES`. Po osiągnięciu limitu lista może być niepełna.
-Pole `pages_scanned` podaje liczbę prób pobrania stron (także pustych i nieudanych),
-a `batches_scanned` liczbę pobranych partii. Błąd pojedynczej strony nie przerywa
-skanowania: odpowiedź zawiera dostępne wydarzenia oraz `errors` z offsetem i opisem
-błędu. `partial=true` oznacza błąd strony lub osiągnięcie limitu bez potwierdzenia
-końca dzisiejszych wydarzeń.
-Endpoint nie pobiera osobno szczegółów ani rynków każdego meczu,
-dzięki czemu jest preferowanym, szybkim punktem startowym:
+Endpoint `/today` zwraca jeden fragment (chunk) dzisiejszych wydarzeń według strefy
+`Europe/Warsaw`. Wszystkie sporty, w tym `football` i `tennis`, działają identycznie.
+Parametr `chunk` to numer fragmentu od 0 (domyślnie `0`, wartości ujemne są odrzucane).
 
-- `/today?sport=football`
-- `/today?sport=tennis`
-- `/today?sport=football&competition=Ekstraklasa` — opcjonalny filtr nazwy rozgrywek
+Każdy request pobiera najwyżej `TODAY_PAGES_PER_CHUNK` stron Betclica (domyślnie 4).
+Strona obejmuje 40 wydarzeń: domyślnie chunk 0 pobiera offsety 0, 40, 80, 120,
+a chunk 1 offsety 160, 200, 240, 280. `TODAY_WORKERS` (domyślnie 4) określa
+maksymalną liczbę równoległych zapytań wewnątrz chunku. Jeśli jest mniejsza od
+rozmiaru chunku, strony są pobierane w kolejnych partiach.
+
+Zachowany `TODAY_MAX_PAGES` (domyślnie 12) stanowi dodatkowy limit na request.
+Efektywny rozmiar chunku to mniejsza z wartości `TODAY_PAGES_PER_CHUNK` i
+`TODAY_MAX_PAGES`; ten sam rozmiar wyznacza offset początkowy kolejnego chunku,
+więc strony nie są pomijane. Ustawiaj dodatnie wartości tych zmiennych env.
+Limit nie ogranicza łącznej liczby stron pobranych przez kolejne requesty.
+
+Po pobraniu partii wyniki są przetwarzane w kolejności offsetów i deduplikowane
+w obrębie odpowiedzi. Przyszła data kończy skanowanie (`done=true`), przy zachowaniu
+wszystkich dzisiejszych wydarzeń z już pobranej partii, także tych za przyszłym
+wydarzeniem na tej samej stronie. Pusta strona lub osiągnięcie znanej liczby
+wydarzeń upstream również kończy skanowanie. Filtr `competition` działa niezależnie:
+brak pasujących wydarzeń nie oznacza końca danych.
+
+Odpowiedź zawiera:
+
+- `chunk` — numer bieżącego fragmentu;
+- `done` i `next_chunk` — przy końcu danych `true` i `null`; po wykorzystaniu
+  chunku bez osiągnięcia końca `false` i `chunk + 1`;
+- `pages_scanned` — liczba prób pobrania stron w tym requestcie, także pustych i nieudanych;
+- `batches_scanned` — liczba pobranych partii w tym requestcie;
+- `partial` — `true`, gdy pozostają kolejne chunki lub wystąpił błąd strony;
+- `errors` — lista błędów z `offset` i `detail`, pusta przy braku błędów.
+
+Błąd strony nie przerywa pobierania pozostałych stron chunku. Przy `errors` można
+ponowić ten sam chunk; `done=true` nie wyklucza brakujących wyników z błędnych stron.
+Endpoint nie wykonuje `get_match()` ani nie pobiera rynków poszczególnych wydarzeń.
+
+Przykłady:
+
+- `/today?sport=football&chunk=0`
+- `/today?sport=football&chunk=1`
+- `/today?sport=tennis&chunk=0`
+- `/today?sport=tennis&chunk=1`
+- `/today?sport=football&competition=Ekstraklasa&chunk=0`
+
+Zaczynaj od chunku 0 i pobieraj numer wskazany przez `next_chunk`, aż `done=true`.
+Zachowuj te same `sport` i `competition` we wszystkich requestach. Przy łączeniu
+odpowiedzi deduplikuj wydarzenia po `id`, ponieważ lista upstream może się zmieniać.
 
 `/slate` pozostaje dostępny. Przy `odds=true` wzbogaca szczegółami maksymalnie 8
 wydarzeń (konfigurowalne przez `SLATE_ODDS_LIMIT`) i robi to równolegle, maksymalnie
@@ -93,6 +122,13 @@ Jeśli masz Pythona 3.10+:
 2. wejdź na `http://127.0.0.1:8000/docs`.
 
 Do użycia przez ChatGPT potrzebny jest jednak publiczny HTTPS URL, więc lokalny tryb służy głównie do testu.
+
+Testy automatyczne (w aktywnym środowisku Python):
+
+```powershell
+python -m pip install -r requirements.txt pytest httpx tzdata
+python -m pytest -q
+```
 
 ## Co potem
 
