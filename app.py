@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import os
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from threading import Lock
 from typing import Any
@@ -17,13 +18,15 @@ from betclic_api.client import MARKET_CODES, SPORTS
 APP_NAME = "Betclic PL Odds Bridge"
 WARSAW = ZoneInfo("Europe/Warsaw")
 CACHE_TTL = int(os.getenv("CACHE_TTL", "45"))
+SLATE_ODDS_LIMIT = int(os.getenv("SLATE_ODDS_LIMIT", "8"))
+SLATE_ODDS_WORKERS = int(os.getenv("SLATE_ODDS_WORKERS", "4"))
 DEFAULT_LOCALE = os.getenv("BETCLIC_LOCALE", "pl")
 DEFAULT_REGULATION = os.getenv("BETCLIC_REGULATION", "PL")
 DEFAULT_SITE = os.getenv("BETCLIC_SITE", "https://www.betclic.pl")
 
 app = FastAPI(
     title=APP_NAME,
-    version="0.1.0",
+    version="2.0.0",
     description=(
         "Read-only bridge for Betclic's public offering data. "
         "Unofficial and not affiliated with Betclic."
@@ -100,7 +103,13 @@ def _market_to_dict(market) -> dict[str, Any]:
     }
 
 
-def _match_to_dict(match, include_markets: bool = True) -> dict[str, Any]:
+def _match_to_dict(
+    match,
+    include_markets: bool = True,
+    *,
+    include_suspended: bool = False,
+    compact: bool = False,
+) -> dict[str, Any]:
     dt = _parse_dt(match.date)
     out = {
         "id": match.id,
@@ -116,8 +125,36 @@ def _match_to_dict(match, include_markets: bool = True) -> dict[str, Any]:
         ],
     }
     if include_markets:
-        out["markets"] = [_market_to_dict(m) for m in (match.markets or [])]
+        markets = [m for m in (match.markets or []) if include_suspended or not m.suspended]
+        if compact:
+            markets = [m for m in markets if _is_compact_market(m)]
+        out["markets"] = [_market_to_dict(m) for m in markets]
     return out
+
+
+# Compact mode deliberately uses both a deny-list and a size guard. The names
+# returned by Betclic are localized and can change, whereas very large player
+# proposition markets are consistently identifiable by their selection count.
+_HEAVY_MARKET_TERMS = (
+    "strzelec", "strzelcy", "gole zawodnik", "asyst", "dokładny wynik",
+    "dokladny wynik", "correct score", "goalscorer", "player to score",
+    "player shots", "zawodnik strza", "kartki zawodnik", "player card",
+)
+_IMPORTANT_MARKET_TERMS = (
+    "wynik meczu", "zwycięzca", "zwyciezca", "match winner", "moneyline",
+    "podwójna szansa", "podwojna szansa", "double chance", "liczba goli",
+    "suma goli", "total", "powyżej", "poniżej", "powyzej", "ponizej",
+    "obie drużyny", "obie druzyny", "both teams", "handicap", "set",
+)
+
+
+def _is_compact_market(market) -> bool:
+    name = (market.name or "").casefold()
+    if market.suspended or len(market.selections or []) > 12:
+        return False
+    if any(term in name for term in _HEAVY_MARKET_TERMS):
+        return False
+    return any(term in name for term in _IMPORTANT_MARKET_TERMS)
 
 
 def _fetch_matches_page(sport: str, offset: int) -> dict[str, Any]:
@@ -129,6 +166,35 @@ def _fetch_matches_page(sport: str, offset: int) -> dict[str, Any]:
     except Exception as exc:
         raise HTTPException(status_code=502, detail=f"Betclic upstream error: {exc}") from exc
     return _store(key, result)
+
+
+def _fetch_today(sport: str) -> tuple[list[Any], int]:
+    """Collect today's matches from every upstream list page, without details."""
+    target = datetime.now(WARSAW).date()
+    matches: list[Any] = []
+    seen_ids: set[Any] = set()
+    offset = 0
+    upstream_total = 0
+
+    while True:
+        result = _fetch_matches_page(sport, offset)
+        page = list(result.get("matches", []))
+        upstream_total = max(upstream_total, int(result.get("total", 0) or 0))
+        if not page:
+            break
+
+        for match in page:
+            dt = _parse_dt(match.date)
+            identity = match.id if match.id is not None else (match.name, match.date)
+            if dt and dt.date() == target and identity not in seen_ids:
+                seen_ids.add(identity)
+                matches.append(match)
+
+        offset += len(page)
+        if upstream_total and offset >= upstream_total:
+            break
+
+    return matches, upstream_total
 
 
 def _fetch_event(match_id: int, category: str | None = None):
@@ -178,7 +244,8 @@ def root():
         "timezone": "Europe/Warsaw",
         "routes": {
             "slate": "/slate?sport=football&limit=15&offset=0&today=true",
-            "event": "/event/{match_id}",
+            "today": "/today?sport=football&competition=Ekstraklasa",
+            "event": "/event/{match_id}?compact=true",
             "event_all_football_markets": "/event/{match_id}/football-all",
             "search": "/search?q=Lech",
             "docs": "/docs",
@@ -194,6 +261,26 @@ def health():
 @app.get("/sports")
 def sports():
     return {"sports": sorted(SPORTS.keys())}
+
+
+@app.get("/today")
+def today_events(
+    sport: str = Query("football"),
+    competition: str | None = Query(None, description="Competition name substring"),
+):
+    """Return all of today's lightweight event summaries across every list page."""
+    matches, upstream_total = _fetch_today(sport)
+    if competition:
+        needle = competition.casefold()
+        matches = [m for m in matches if needle in (m.competition or "").casefold()]
+    return {
+        "sport": sport,
+        "competition": competition,
+        "returned": len(matches),
+        "upstream_total": upstream_total,
+        "generated_at_warsaw": datetime.now(WARSAW).isoformat(),
+        "events": [_match_to_dict(m, include_markets=False) for m in matches],
+    }
 
 
 @app.get("/slate")
@@ -227,23 +314,25 @@ def slate(
         ]
 
     matches = matches[:limit]
-    output = []
-
-    for idx, match in enumerate(matches):
-        if odds and match.id:
-            detail = _fetch_event(int(match.id))
-            output.append(_match_to_dict(detail, include_markets=True))
-            # Be gentle with the upstream service when a full slate is requested.
-            if idx + 1 < len(matches):
-                time.sleep(0.08)
-        else:
-            output.append(_match_to_dict(match, include_markets=False))
+    output = [_match_to_dict(match, include_markets=False) for match in matches]
+    detail_indexes = [i for i, match in enumerate(matches) if match.id][:SLATE_ODDS_LIMIT] if odds else []
+    if detail_indexes:
+        workers = max(1, min(SLATE_ODDS_WORKERS, len(detail_indexes)))
+        with ThreadPoolExecutor(max_workers=workers) as executor:
+            futures = {
+                executor.submit(_fetch_event, int(matches[i].id)): i
+                for i in detail_indexes
+            }
+            for future in as_completed(futures):
+                output[futures[future]] = _match_to_dict(future.result(), include_markets=True)
 
     return {
         "sport": sport,
         "today_only": today,
         "offset": offset,
         "returned": len(output),
+        "odds_enriched": len(detail_indexes),
+        "odds_limit": SLATE_ODDS_LIMIT if odds else 0,
         "upstream_total": result.get("total", 0),
         "generated_at_warsaw": datetime.now(WARSAW).isoformat(),
         "events": output,
@@ -251,7 +340,12 @@ def slate(
 
 
 @app.get("/event/{match_id}")
-def event(match_id: int, category: str | None = Query(None)):
+def event(
+    match_id: int,
+    category: str | None = Query(None),
+    compact: bool = Query(False),
+    include_suspended: bool = Query(False),
+):
     """
     Return detailed markets for one event.
 
@@ -260,7 +354,12 @@ def event(match_id: int, category: str | None = Query(None)):
     Without a category, Betclic's default market bundle is returned.
     """
     match = _fetch_event(match_id, category=category)
-    return _match_to_dict(match, include_markets=True)
+    return _match_to_dict(
+        match,
+        include_markets=True,
+        compact=compact,
+        include_suspended=include_suspended,
+    )
 
 
 @app.get("/event/{match_id}/football-all")
@@ -272,7 +371,7 @@ def event_football_all(match_id: int):
 
     for category in MARKET_CODES:
         match = _fetch_event(match_id, category=category)
-        markets.extend(_market_to_dict(m) for m in (match.markets or []))
+        markets.extend(_market_to_dict(m) for m in (match.markets or []) if not m.suspended)
         time.sleep(0.05)
 
     base_dict["markets"] = _dedupe_markets(markets)
@@ -294,7 +393,12 @@ def search(
     output = []
     for match in matches:
         if detail and match.id:
-            output.append(_match_to_dict(_fetch_event(int(match.id)), include_markets=True))
+            # Preserve the legacy /search?detail=true representation.
+            output.append(_match_to_dict(
+                _fetch_event(int(match.id)),
+                include_markets=True,
+                include_suspended=True,
+            ))
         else:
             output.append(_match_to_dict(match, include_markets=False))
 

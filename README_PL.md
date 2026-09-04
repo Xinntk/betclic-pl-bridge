@@ -20,6 +20,9 @@ Vercel Hobby jest wystarczający do prywatnego/hobbystycznego użycia tego mostk
 Otwórz w przeglądarce:
 
 - `/health`
+- `/today?sport=football`
+- `/today?sport=tennis`
+- `/today?sport=football&competition=Ekstraklasa`
 - `/slate?sport=football&limit=10&today=true&odds=true`
 - `/slate?sport=tennis&limit=10&today=true&odds=true`
 - `/search?q=Lech`
@@ -27,13 +30,38 @@ Otwórz w przeglądarce:
 
 Przykład pełnego adresu:
 
-`https://TWOJ-ADRES.vercel.app/slate?sport=football&limit=10&today=true&odds=true`
+`https://TWOJ-ADRES.vercel.app/today?sport=football`
+
+## Szybka lista na dziś (v2)
+
+Endpoint `/today` pobiera wszystkie strony listy dyscypliny i zwraca wyłącznie
+dzisiejsze wydarzenia. Nie pobiera osobno szczegółów ani rynków każdego meczu,
+dzięki czemu jest preferowanym, szybkim punktem startowym:
+
+- `/today?sport=football`
+- `/today?sport=tennis`
+- `/today?sport=football&competition=Ekstraklasa` — opcjonalny filtr nazwy rozgrywek
+
+`/slate` pozostaje dostępny. Przy `odds=true` wzbogaca szczegółami maksymalnie 8
+wydarzeń (konfigurowalne przez `SLATE_ODDS_LIMIT`) i robi to równolegle, maksymalnie
+w 4 wątkach (`SLATE_ODDS_WORKERS`), aby ograniczyć ryzyko timeoutu na Vercelu.
 
 ## Dokładne rynki jednego meczu
 
 Każdy event ma `id`. Potem:
 
 `/event/ID`
+
+Domyślnie zawieszone rynki (`suspended=true`) są pomijane. Można je jawnie
+dołączyć przez `/event/ID?include_suspended=true`.
+
+Do szybkiego pobrania tylko najważniejszych aktywnych rynków użyj:
+
+`/event/ID?compact=true`
+
+Tryb compact odrzuca ciężkie rynki (m.in. strzelców, asyst, dokładnego wyniku i
+duże listy wyborów). Zwykły `/event/ID` nadal zwraca pełny zestaw aktywnych
+rynków z domyślnej paczki Betclic.
 
 Dla piłki można pobrać/połączyć wszystkie znane kategorie:
 
