@@ -35,11 +35,18 @@ Przykład pełnego adresu:
 ## Szybka lista na dziś (v2)
 
 Endpoint `/today` zwraca dzisiejsze wydarzenia według strefy `Europe/Warsaw`.
-Paginacja kończy się po przetworzeniu całej strony zawierającej pierwsze wydarzenie
-z późniejszą datą; wszystkie dzisiejsze wydarzenia z tej strony są zachowane.
+Strony po 40 wydarzeń są pobierane równolegle, w partiach po maksymalnie 4 strony
+(`TODAY_WORKERS`, konfigurowalne przez env), np. offsety 0, 40, 80, 120.
+Po pobraniu partii wyniki są przetwarzane w kolejności offsetów, z deduplikacją.
+Jeśli strona zawiera wydarzenie z późniejszą datą, następna partia nie jest
+uruchamiana. Wszystkie dzisiejsze wydarzenia z już pobranej partii są zachowane.
 Awaryjny limit to 12 stron, konfigurowalny przez zmienną środowiskową
 `TODAY_MAX_PAGES`. Po osiągnięciu limitu lista może być niepełna.
-Pole `pages_scanned` w odpowiedzi podaje liczbę sprawdzonych stron, wliczając pustą.
+Pole `pages_scanned` podaje liczbę prób pobrania stron (także pustych i nieudanych),
+a `batches_scanned` liczbę pobranych partii. Błąd pojedynczej strony nie przerywa
+skanowania: odpowiedź zawiera dostępne wydarzenia oraz `errors` z offsetem i opisem
+błędu. `partial=true` oznacza błąd strony lub osiągnięcie limitu bez potwierdzenia
+końca dzisiejszych wydarzeń.
 Endpoint nie pobiera osobno szczegółów ani rynków każdego meczu,
 dzięki czemu jest preferowanym, szybkim punktem startowym:
 

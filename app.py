@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import os
 import time
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from concurrent.futures import ThreadPoolExecutor, as_completed, wait
 from datetime import datetime
 from threading import Lock
 from typing import Any
@@ -19,6 +19,8 @@ APP_NAME = "Betclic PL Odds Bridge"
 WARSAW = ZoneInfo("Europe/Warsaw")
 CACHE_TTL = int(os.getenv("CACHE_TTL", "45"))
 TODAY_MAX_PAGES = int(os.getenv("TODAY_MAX_PAGES", "12"))
+TODAY_WORKERS = int(os.getenv("TODAY_WORKERS", "4"))
+TODAY_PAGE_SIZE = 40
 SLATE_ODDS_LIMIT = int(os.getenv("SLATE_ODDS_LIMIT", "8"))
 SLATE_ODDS_WORKERS = int(os.getenv("SLATE_ODDS_WORKERS", "4"))
 DEFAULT_LOCALE = os.getenv("BETCLIC_LOCALE", "pl")
@@ -169,38 +171,73 @@ def _fetch_matches_page(sport: str, offset: int) -> dict[str, Any]:
     return _store(key, result)
 
 
-def _fetch_today(sport: str) -> tuple[list[Any], int, int]:
-    """Collect today's matches until a future date or the page limit is reached."""
+def _fetch_today(sport: str) -> tuple[list[Any], dict[str, Any]]:
+    """Fetch bounded parallel batches, then scan each batch in offset order."""
     target = datetime.now(WARSAW).date()
     matches: list[Any] = []
     seen_ids: set[Any] = set()
-    offset = 0
     upstream_total = 0
     pages_scanned = 0
+    batches_scanned = 0
+    errors: list[dict[str, Any]] = []
+    stop = False
+    workers = max(1, min(TODAY_WORKERS, TODAY_MAX_PAGES))
 
-    while pages_scanned < TODAY_MAX_PAGES:
-        result = _fetch_matches_page(sport, offset)
-        pages_scanned += 1
-        page = list(result.get("matches", []))
-        upstream_total = max(upstream_total, int(result.get("total", 0) or 0))
-        if not page:
-            break
+    with ThreadPoolExecutor(max_workers=workers) as executor:
+        while pages_scanned < TODAY_MAX_PAGES and not stop:
+            offsets = range(
+                pages_scanned * TODAY_PAGE_SIZE,
+                min(pages_scanned + workers, TODAY_MAX_PAGES) * TODAY_PAGE_SIZE,
+                TODAY_PAGE_SIZE,
+            )
+            futures = {
+                offset: executor.submit(_fetch_matches_page, sport, offset)
+                for offset in offsets
+                if not upstream_total or offset < upstream_total
+            }
+            if not futures:
+                stop = True
+                break
+            wait(futures.values())
+            pages_scanned += len(futures)
+            batches_scanned += 1
 
-        has_future_event = False
-        for match in page:
-            dt = _parse_dt(match.date)
-            if dt and dt.date() > target:
-                has_future_event = True
-            identity = match.id if match.id is not None else (match.name, match.date)
-            if dt and dt.date() == target and identity not in seen_ids:
-                seen_ids.add(identity)
-                matches.append(match)
+            # All requests in this batch have finished. Keep their successful
+            # results, even when another page signals the end or fails.
+            for offset, future in futures.items():
+                try:
+                    result = future.result()
+                    page = list(result.get("matches", []))
+                    total = int(result.get("total", 0) or 0)
+                    page_matches = []
+                    has_future_event = False
+                    for match in page:
+                        dt = _parse_dt(match.date)
+                        if dt and dt.date() > target:
+                            has_future_event = True
+                        if dt and dt.date() == target:
+                            identity = match.id if match.id is not None else (match.name, match.date)
+                            page_matches.append((identity, match))
+                except Exception as exc:
+                    detail = exc.detail if isinstance(exc, HTTPException) else str(exc)
+                    errors.append({"offset": offset, "detail": detail})
+                    continue
 
-        offset += len(page)
-        if has_future_event or (upstream_total and offset >= upstream_total):
-            break
+                upstream_total = max(upstream_total, total)
+                for identity, match in page_matches:
+                    if identity not in seen_ids:
+                        seen_ids.add(identity)
+                        matches.append(match)
+                if not page or has_future_event or (upstream_total and offset + TODAY_PAGE_SIZE >= upstream_total):
+                    stop = True
 
-    return matches, upstream_total, pages_scanned
+    return matches, {
+        "upstream_total": upstream_total,
+        "pages_scanned": pages_scanned,
+        "batches_scanned": batches_scanned,
+        "partial": bool(errors) or not stop,
+        "errors": errors,
+    }
 
 
 def _fetch_event(match_id: int, category: str | None = None):
@@ -275,7 +312,7 @@ def today_events(
     competition: str | None = Query(None, description="Competition name substring"),
 ):
     """Return today's lightweight event summaries from a bounded page scan."""
-    matches, upstream_total, pages_scanned = _fetch_today(sport)
+    matches, scan = _fetch_today(sport)
     if competition:
         needle = competition.casefold()
         matches = [m for m in matches if needle in (m.competition or "").casefold()]
@@ -283,8 +320,7 @@ def today_events(
         "sport": sport,
         "competition": competition,
         "returned": len(matches),
-        "upstream_total": upstream_total,
-        "pages_scanned": pages_scanned,
+        **scan,
         "generated_at_warsaw": datetime.now(WARSAW).isoformat(),
         "events": [_match_to_dict(m, include_markets=False) for m in matches],
     }
