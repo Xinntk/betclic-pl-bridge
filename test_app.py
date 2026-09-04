@@ -51,7 +51,7 @@ def test_today_paginates_without_fetching_event(monkeypatch):
     monkeypatch.setattr(app, "_fetch_matches_page", lambda sport, offset, **kwargs: calls.append(offset) or pages[offset])
     monkeypatch.setattr(app, "_fetch_event", lambda *_, **kwargs: (_ for _ in ()).throw(AssertionError("unexpected detail call")))
 
-    data = app.today_events(sport="football", competition=None)
+    data = app.today_events(scope="all", sport="football", competition=None)
 
     assert data["returned"] == 41
     assert sorted(calls) == [0, 40, 80, 120]
@@ -65,7 +65,7 @@ def test_today_competition_filter(monkeypatch):
     page = {"matches": [match(1, today, "Ekstraklasa"), match(2, today, "La Liga")], "total": 2}
     monkeypatch.setattr(app, "_fetch_matches_page", lambda *_, **kwargs: page)
 
-    data = app.today_events(sport="football", competition="ekstra")
+    data = app.today_events(scope="all", sport="football", competition="ekstra")
 
     assert data["returned"] == 1
     assert data["events"][0]["competition"] == "Ekstraklasa"
@@ -82,7 +82,7 @@ def test_today_uses_fixed_offsets_even_for_short_pages(monkeypatch):
     calls = []
     monkeypatch.setattr(app, "_fetch_matches_page", lambda sport, offset, **kwargs: calls.append(offset) or pages[offset])
 
-    matches, scan = app._fetch_today("football")
+    matches, scan = app._fetch_today("football", scope="all")
 
     assert len(matches) == 21
     assert sorted(calls) == [0, 40, 80, 120]
@@ -110,7 +110,7 @@ def test_today_stops_after_page_with_future_events_when_total_is_zero(monkeypatc
     calls = []
     monkeypatch.setattr(app, "_fetch_matches_page", lambda sport, offset, **kwargs: calls.append(offset) or pages[offset])
 
-    data = app.today_events(sport=sport, competition=None)
+    data = app.today_events(scope="all", sport=sport, competition=None)
 
     assert sorted(calls) == [0, 40, 80, 120]
     assert data["pages_scanned"] == 4
@@ -132,7 +132,7 @@ def test_today_stops_at_page_limit_when_total_is_zero(monkeypatch):
         "matches": [match(offset, today)], "total": 0,
     })
 
-    data = app.today_events(sport="football", competition=None)
+    data = app.today_events(scope="all", sport="football", competition=None)
 
     assert sorted(calls) == [0, 40, 80]
     assert data["pages_scanned"] == 3
@@ -144,7 +144,7 @@ def test_today_stops_at_page_limit_when_total_is_zero(monkeypatch):
 def test_today_counts_empty_page(monkeypatch):
     monkeypatch.setattr(app, "_fetch_matches_page", lambda *_, **kwargs: {"matches": [], "total": 0})
 
-    data = app.today_events(sport="football", competition=None)
+    data = app.today_events(scope="all", sport="football", competition=None)
 
     assert data["pages_scanned"] == 4
     assert data["batches_scanned"] == 1
@@ -184,7 +184,7 @@ def test_today_fetches_parallel_batches_in_offset_order(monkeypatch, sport, work
 
     monkeypatch.setattr(app, "_fetch_matches_page", fetch)
 
-    data = app.today_events(sport=sport, competition=None)
+    data = app.today_events(scope="all", sport=sport, competition=None)
 
     assert data["errors"] == []
     assert data["pages_scanned"] == max_pages
@@ -210,7 +210,7 @@ def test_today_returns_partial_results_after_page_error(monkeypatch, failed_offs
 
     monkeypatch.setattr(app, "_fetch_matches_page", fetch)
 
-    data = app.today_events(sport="football", competition=None)
+    data = app.today_events(scope="all", sport="football", competition=None)
 
     assert sorted(calls) == [0, 40, 80, 120]
     assert data["pages_scanned"] == 4
@@ -228,7 +228,7 @@ def test_today_stops_at_known_total_before_next_batch(monkeypatch):
         "matches": [match(offset, today)], "total": 81,
     })
 
-    data = app.today_events(sport="football", competition=None)
+    data = app.today_events(scope="all", sport="football", competition=None)
 
     assert sorted(calls) == [0, 40, 80]
     assert data["pages_scanned"] == 3
@@ -272,7 +272,7 @@ def test_today_multiple_chunks_via_http(monkeypatch, sport, pages_per_chunk):
     with TestClient(app.app) as client:
         for chunk in range(4):
             calls.clear()
-            params = {"sport": sport, "competition": "SELECTED"}
+            params = {"scope": "all", "sport": sport, "competition": "SELECTED"}
             if chunk:
                 params["chunk"] = chunk
             response = client.get("/today", params=params)
@@ -302,7 +302,7 @@ def test_today_legacy_cap_keeps_chunks_contiguous(monkeypatch, sport):
     })
 
     for chunk in range(2):
-        data = app.today_events(sport=sport, competition=None, chunk=chunk)
+        data = app.today_events(scope="all", sport=sport, competition=None, chunk=chunk)
         assert data["pages_scanned"] == 3
         assert data["done"] is False
         assert data["next_chunk"] == chunk + 1
@@ -315,7 +315,7 @@ def test_today_empty_competition_result_does_not_end_chunks(monkeypatch, sport):
         "matches": [match(1, today, "ATP 250 Other League")], "total": 0,
     })
 
-    data = app.today_events(sport=sport, competition="Selected", chunk=2)
+    data = app.today_events(scope="all", sport=sport, competition="Selected", chunk=2)
 
     assert data["events"] == []
     assert data["done"] is False
@@ -331,7 +331,7 @@ def test_today_failed_chunk_does_not_signal_end(monkeypatch, sport):
 
     monkeypatch.setattr(app, "_fetch_matches_page", fetch)
 
-    data = app.today_events(sport=sport, competition=None, chunk=1)
+    data = app.today_events(scope="all", sport=sport, competition=None, chunk=1)
 
     assert sorted(calls) == [160, 200, 240, 280]
     assert data["pages_scanned"] == 4
@@ -348,7 +348,7 @@ def test_today_rejects_invalid_chunk(monkeypatch, sport, chunk):
     monkeypatch.setattr(app, "_fetch_matches_page", lambda *args, **kwargs: calls.append(args))
 
     with TestClient(app.app) as client:
-        response = client.get("/today", params={"sport": sport, "chunk": chunk})
+        response = client.get("/today", params={"scope": "all", "sport": sport, "chunk": chunk})
 
     assert response.status_code == 422
     assert calls == []
@@ -414,7 +414,7 @@ def test_today_upstream_read_timeout_returns_http_partial_result(monkeypatch, sp
 
     monkeypatch.setattr(app, "BetclicClient", FakeClient)
     with TestClient(app.app) as client:
-        response = client.get("/today", params={"sport": sport})
+        response = client.get("/today", params={"scope": "all", "sport": sport})
 
     expected_pages = 4
     assert response.status_code == 200
@@ -444,7 +444,7 @@ def test_today_does_not_wait_for_slow_worker_shutdown(monkeypatch):
 
     monkeypatch.setattr(app, "_fetch_matches_page", fetch)
     with ThreadPoolExecutor(max_workers=1) as caller:
-        future = caller.submit(app.today_events, sport="football", competition=None)
+        future = caller.submit(app.today_events, scope="all", sport="football", competition=None)
         try:
             assert started.wait(timeout=1)
             data = future.result(timeout=3)

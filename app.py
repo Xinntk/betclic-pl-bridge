@@ -5,10 +5,11 @@ import re
 import time
 import unicodedata
 from concurrent.futures import ThreadPoolExecutor, as_completed, wait
+from dataclasses import asdict
 from datetime import datetime
 from threading import Lock
 from types import SimpleNamespace
-from typing import Annotated, Any
+from typing import Annotated, Any, Literal
 from zoneinfo import ZoneInfo
 
 from fastapi import FastAPI, HTTPException, Query, Response
@@ -16,7 +17,8 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from betclic_api import BetclicClient
 from betclic_api.client import MARKET_CODES, SPORTS
-from tennis_competitions import TennisCompetition, fetch_sport_menu, fetch_competition_matches
+from tennis_competitions import FootballCompetition, TennisCompetition, fetch_sport_menu, fetch_competition_matches
+from football_scope import is_allowed_football_competition
 
 
 APP_NAME = "Betclic PL Odds Bridge"
@@ -26,6 +28,8 @@ TODAY_MAX_PAGES = int(os.getenv("TODAY_MAX_PAGES", "12"))
 TODAY_PAGES_PER_CHUNK = int(os.getenv("TODAY_PAGES_PER_CHUNK", "4"))
 TODAY_TENNIS_TIMEOUT = float(os.getenv("TODAY_TENNIS_TIMEOUT", "4"))
 TODAY_TENNIS_WORKERS = int(os.getenv("TODAY_TENNIS_WORKERS", "4"))
+TODAY_FOOTBALL_TIMEOUT = float(os.getenv("TODAY_FOOTBALL_TIMEOUT", "4"))
+TODAY_FOOTBALL_WORKERS = int(os.getenv("TODAY_FOOTBALL_WORKERS", "4"))
 SPORT_MENU_CACHE_TTL = max(300, int(os.getenv("SPORT_MENU_CACHE_TTL", "600")))
 TODAY_WORKERS = int(os.getenv("TODAY_WORKERS", "4"))
 TODAY_UPSTREAM_TIMEOUT = float(os.getenv("TODAY_UPSTREAM_TIMEOUT", "5"))
@@ -57,6 +61,8 @@ _cache: dict[str, tuple[float, Any]] = {}
 _cache_lock = Lock()
 _tennis_menu_cache: tuple[float, list[TennisCompetition]] | None = None
 _tennis_menu_lock = Lock()
+_football_menu_cache: tuple[float, list[FootballCompetition]] | None = None
+_football_menu_lock = Lock()
 
 
 def _client(timeout: tuple[float, float] = (5, 12)) -> BetclicClient:
@@ -299,10 +305,86 @@ def _fetch_today_tennis_competitions() -> tuple[list[Any], dict[str, Any]]:
     }
 
 
-def _fetch_today(sport: str, chunk: int = 0) -> tuple[list[Any], dict[str, Any]]:
-    """Use competitions for tennis and bounded page batches for the other sports."""
+def _fetch_football_menu() -> list[FootballCompetition]:
+    global _football_menu_cache
+    with _football_menu_lock:
+        if _football_menu_cache and time.monotonic() - _football_menu_cache[0] < SPORT_MENU_CACHE_TTL:
+            return _football_menu_cache[1]
+        menu = fetch_sport_menu(_client(timeout=(1, TODAY_FOOTBALL_TIMEOUT)), sport_code="football")
+        _football_menu_cache = (time.monotonic(), menu)
+        return menu
+
+
+def _fetch_football_competition(competition_id: int):
+    key = f"football_competition:{competition_id}"
+    if (hit := _cached(key)) is not None:
+        return hit
+    matches = fetch_competition_matches(_client(timeout=(1, TODAY_FOOTBALL_TIMEOUT)), competition_id)
+    return _store(key, matches)
+
+
+def _fetch_today_football_competitions() -> tuple[list[Any], dict[str, Any]]:
+    target = datetime.now(WARSAW).date()
+    deadline = time.monotonic() + TODAY_FOOTBALL_TIMEOUT + 1
+    matches: list[Any] = []
+    seen_ids: set[Any] = set()
+    selected: list[FootballCompetition] = []
+    errors: list[dict[str, Any]] = []
+    filtered_out = 0
+    executor = ThreadPoolExecutor(max_workers=max(1, TODAY_FOOTBALL_WORKERS))
+    try:
+        menu_future = executor.submit(_fetch_football_menu)
+        try:
+            menu = menu_future.result(timeout=max(0, deadline - time.monotonic()))
+            selected = list({item.id: item for item in menu if is_allowed_football_competition(item)}.values())
+        except Exception as exc:
+            menu_future.cancel()
+            errors.append({"stage": "sport_menu", "detail": str(exc) or "SportMenu timeout"})
+
+        futures = {item.id: executor.submit(_fetch_football_competition, item.id) for item in selected}
+        completed, pending = wait(futures.values(), timeout=max(0, deadline - time.monotonic()))
+        for future in pending:
+            future.cancel()
+        for item in selected:
+            future = futures[item.id]
+            try:
+                if future not in completed:
+                    raise TimeoutError(f"Football competition discovery timeout after {TODAY_FOOTBALL_TIMEOUT + 1:g}s")
+                for match in future.result():
+                    identity = match.id if match.id is not None else (match.name, match.date)
+                    if identity in seen_ids:
+                        continue
+                    seen_ids.add(identity)
+                    dt = _parse_dt(match.date)
+                    if not dt or dt.date() != target:
+                        continue
+                    actual_competition = FootballCompetition(
+                        item.id, match.competition or item.name, item.category, item.country_code, item.country_name,
+                    )
+                    if match.competition_id not in (None, item.id) or not is_allowed_football_competition(actual_competition):
+                        filtered_out += 1
+                        continue
+                    matches.append(match)
+            except Exception as exc:
+                errors.append({"competition_id": item.id, "detail": str(exc)})
+    finally:
+        executor.shutdown(wait=False, cancel_futures=True)
+    return matches, {
+        "source": "competitions",
+        "selected_competitions": [asdict(item) for item in selected],
+        "selected_competition_ids": [item.id for item in selected],
+        "filtered_out": filtered_out,
+        "partial": bool(errors),
+        "errors": errors,
+    }
+
+
+def _fetch_today(sport: str, chunk: int = 0, *, scope: str = "curated") -> tuple[list[Any], dict[str, Any]]:
+    """Default football/tennis use competitions; football scope=all uses pages."""
     if sport == "tennis":
         return _fetch_today_tennis_competitions()
+    if sport == "football" and scope != "all":
+        return _fetch_today_football_competitions()
 
     target = datetime.now(WARSAW).date()
     matches: list[Any] = []
@@ -460,10 +542,11 @@ def sports():
 def today_events(
     sport: str = Query("football"),
     competition: str | None = Query(None, description="Competition name substring"),
-    chunk: Annotated[int, Query(ge=0, description="Zero-based chunk index; ignored for tennis (competition discovery)")] = 0,
+    chunk: Annotated[int, Query(ge=0, description="Page chunk for scope=all; ignored by football/tennis competition discovery")] = 0,
+    scope: Annotated[Literal["curated", "all"], Query(description="Football scope: curated competitions or debug global feed")] = "curated",
 ):
-    """Return today's tennis competition matches or a chunk of another sport."""
-    matches, scan = _fetch_today(sport, chunk)
+    """Return lightweight daily summaries; football defaults to curated competitions."""
+    matches, scan = _fetch_today(sport, chunk, scope=scope)
     if competition:
         needle = competition.casefold()
         matches = [m for m in matches if needle in (m.competition or "").casefold()]

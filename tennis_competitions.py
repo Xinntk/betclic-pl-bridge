@@ -22,29 +22,41 @@ class TennisCompetition:
     category: str = ""
 
 
+@dataclass(frozen=True)
+class FootballCompetition(TennisCompetition):
+    country_code: str = ""
+    country_name: str = ""
+
+
 def _text(fields, number):
     value = fields.get(number, [b""])[0]
     return value.decode("utf-8") if isinstance(value, bytes) else ""
 
 
-def parse_sport_menu(payload: bytes) -> list[TennisCompetition]:
-    """SportMenu: sports=2; tennis categories=6; competition id/name=1/2."""
+def parse_sport_menu(payload: bytes, sport_code: str = "tennis") -> list[TennisCompetition]:
+    """SportMenu: sports=2; categories=6; countries=7; competition id/name=1/2."""
     competitions = {}
 
-    def add(raw, category=""):
+    def add(raw, category="", country_code="", country_name=""):
         item = decode_protobuf(raw)
-        if _text(item, 3) not in ("", "tennis") or item.get(6, [0])[0]:
+        if _text(item, 3) not in ("", sport_code) or item.get(6, [0])[0]:
             return  # Multi-competition menu links are not individual IDs.
         identity = item.get(1, [0])[0]
         if isinstance(identity, int) and identity > 0:
             previous = competitions.get(identity)
-            if previous is None or category:
+            if sport_code == "football":
+                competitions[identity] = FootballCompetition(
+                    identity, _text(item, 2), category or (previous.category if previous else ""),
+                    country_code or _text(item, 4) or (previous.country_code if previous else ""),
+                    country_name or (previous.country_name if previous else ""),
+                )
+            elif previous is None or category:
                 competitions[identity] = TennisCompetition(identity, _text(item, 2), category)
 
     menu = decode_protobuf(payload)
     for raw_sport in menu.get(2, []):
         sport = decode_protobuf(raw_sport)
-        if _text(sport, 2) != "tennis":
+        if _text(sport, 2) != sport_code:
             continue
         for raw in sport.get(1, []) + sport.get(5, []):
             add(raw)
@@ -55,7 +67,7 @@ def parse_sport_menu(payload: bytes) -> list[TennisCompetition]:
         for raw_country in sport.get(7, []):
             country = decode_protobuf(raw_country)
             for raw in country.get(3, []):
-                add(raw)
+                add(raw, country_code=_text(country, 1), country_name=_text(country, 2))
     return list(competitions.values())
 
 
@@ -110,11 +122,11 @@ def _initial_payload(client, service, method, request, payload_field):
                 return root[payload_field][0]
 
 
-def fetch_sport_menu(client):
+def fetch_sport_menu(client, sport_code: str = "tennis"):
     payload = _initial_payload(
         client, MENU_SERVICE, MENU_METHOD, encode_field_string(1, client.locale), 3,
     )
-    return parse_sport_menu(payload)
+    return parse_sport_menu(payload, sport_code)
 
 
 def fetch_competition_matches(client, competition_id: int):

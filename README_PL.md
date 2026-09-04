@@ -35,14 +35,81 @@ Przykład pełnego adresu:
 ## Szybka lista na dziś (v2)
 
 Endpoint `/today` zwraca dzisiejsze wydarzenia według strefy `Europe/Warsaw`.
-Football i pozostałe sporty korzystają z chunkowania stron. Tenis korzysta
-wyłącznie z menu i list konkretnych rozgrywek opisanych poniżej. Żadna lista `/today` nie wykonuje
+Football domyślnie wybiera męskie seniorskie rozgrywki z menu, a tenis korzysta
+z własnego filtra singla. Obie ścieżki pobierają mecze po aktualnych competition IDs.
+Żadna lista `/today` nie wykonuje
 `get_match()` ani nie pobiera szczegółowych rynków wydarzeń.
 
-Dla football parametr `chunk` to numer fragmentu od 0 (domyślnie `0`, wartości
+### Football: domyślny scope rozgrywek
+
+`/today?sport=football` (także `scope=curated`) korzysta z SportMenu oraz
+`GetMatchesByCompetitionWithNotifications`. ID są odkrywane dynamicznie; reguły
+w `football_scope.py` opisują nazwy, kategorie i kraje, a nie stałe competition IDs.
+Selekcja odbywa się **przed** zapytaniami o mecze. Nie ma automatycznego przejścia
+na globalny feed, również gdy menu zwróci błąd.
+
+Domyślny zakres lig:
+
+| Kraj | Dopuszczone ligi |
+| --- | --- |
+| Anglia | Premier League, Championship, League One |
+| Hiszpania | La Liga, Segunda División |
+| Włochy | Serie A, Serie B |
+| Niemcy | Bundesliga, 2. Bundesliga, 3. Liga |
+| Francja | Ligue 1, Ligue 2 |
+| Polska | Ekstraklasa, I Liga, II Liga (także nazwy Betclic 1./2. Liga) |
+| Portugalia | Primeira Liga / Liga Betclic, Segunda Liga |
+| Holandia | Eredivisie, Eerste Divisie |
+| Belgia | Pro League, Challenger Pro League |
+| Turcja | Süper Lig, TFF 1. Lig |
+| Szkocja | Premiership, Championship |
+| Austria | Bundesliga, 2. Liga |
+| Szwajcaria | Super League, Challenge League |
+| Czechy | Pierwszy i drugi poziom |
+| Dania | Superliga, 1st Division |
+| Norwegia | Eliteserien, 1. divisjon |
+| Szwecja | Allsvenskan, Superettan |
+| Grecja | Super League, Super League 2 |
+
+Ponadto: Liga Mistrzów, Liga Europy, Liga Konferencji i ich kwalifikacje,
+Superpuchar UEFA, MŚ, EURO, kwalifikacje MŚ/EURO, Liga Narodów UEFA oraz główne
+oficjalne turnieje reprezentacyjne: Copa América, Puchar Narodów Afryki,
+Gold Cup, Puchar Azji, Liga Narodów CONCACAF i Puchar Konfederacji.
+To wyjątki dla oficjalnych turniejów reprezentacyjnych, nie dopuszczenie lig azjatyckich.
+Uwzględniane są główne krajowe puchary powyższych państw, m.in. FA Cup,
+Copa del Rey, Coppa Italia, DFB-Pokal, Coupe de France i Puchar Polski.
+Poziom ligowy uczestnika pucharu nie jest kryterium odrzucenia meczu.
+
+Rozgrywki kobiece, młodzieżowe (w tym U19/U20/U21), rezerw, akademii, amatorskie,
+regionalne i pokazowe są odrzucane. Ligi spoza wymienionych krajów i poziomów
+również nie są pobierane. Numery lig są interpretowane według kraju: polska
+II Liga jest dozwolona, angielska League Two i polska III Liga już nie.
+Nieznana lub niejednoznaczna nazwa nie jest automatycznie dopuszczana.
+
+Cache menu i metadanych trwa `SPORT_MENU_CACHE_TTL` (domyślnie 600 s, minimum 300 s)
+w danym procesie aplikacji. `TODAY_FOOTBALL_WORKERS` (domyślnie 4) ogranicza liczbę
+równoległych zapytań o mecze. Timeout połączenia wynosi 1 s, odczytu
+`TODAY_FOOTBALL_TIMEOUT` (domyślnie 4 s), a limit oczekiwania na całe discovery,
+łącznie z menu, to timeout + 1 s. Pomyślne listy rozgrywek korzystają z `CACHE_TTL`.
+
+Odpowiedź zawiera `source: "competitions"`, `selected_competitions`
+(obiekty `id`, `name`, `category`, `country_code`, `country_name`),
+`selected_competition_ids`, `returned`, `events`, `partial`, `errors`,
+`filtered_out` i `generated_at_warsaw`. Lista selected obejmuje również wybrane
+rozgrywki zakończone błędem. Błąd pojedynczej rozgrywki trafia do `errors` pod
+`competition_id`, a odpowiedź z pozostałymi meczami ma `partial=true`.
+Błąd menu ma `stage: "sport_menu"`. Wyniki są deduplikowane po `match.id`
+i ograniczane do dzisiejszej daty w Warszawie. `competition` nadal filtruje nazwę
+rozgrywek w wynikach. Parametr `chunk` nie wpływa na domyślne discovery football.
+
+### Globalny feed: tylko debug/fallback dla football
+
+Stare zachowanie jest dostępne jawnie przez
+`/today?sport=football&scope=all&chunk=0`. Ten tryb obejmuje również rozgrywki
+spoza domyślnego zakresu. Dla football `scope=all` parametr `chunk` to numer fragmentu od 0 (domyślnie `0`, wartości
 ujemne są odrzucane).
 
-Football i pozostałe sporty poza tenisem pobierają najwyżej `TODAY_PAGES_PER_CHUNK`
+Football z `scope=all` i pozostałe sporty poza tenisem pobierają najwyżej `TODAY_PAGES_PER_CHUNK`
 stron Betclica (domyślnie 4, konfigurowalne przez env). Strona obejmuje 40 wydarzeń: dla football
 chunk 0 domyślnie pobiera offsety 0, 40, 80, 120, a chunk 1: 160, 200, 240, 280.
 `TODAY_WORKERS` (domyślnie 4) określa
@@ -62,7 +129,7 @@ wydarzeniem na tej samej stronie. Pusta strona lub osiągnięcie znanej liczby
 wydarzeń upstream również kończy skanowanie. Filtr `competition` działa niezależnie:
 brak pasujących wydarzeń nie oznacza końca danych.
 
-Odpowiedź football i pozostałych sportów poza tenisem zawiera:
+Odpowiedź globalnego feedu zawiera:
 
 - `chunk` — numer bieżącego fragmentu;
 - `done` i `next_chunk` — przy końcu danych `true` i `null`; po wykorzystaniu
@@ -148,13 +215,15 @@ Szczegóły schematu i pomiarów: [diagnostics/tennis-discovery.md](diagnostics/
 
 Przykłady:
 
-- `/today?sport=football&chunk=0`
-- `/today?sport=football&chunk=1`
+- `/today?sport=football`
+- `/today?sport=football&competition=Ligue%201`
+- `/today?sport=football&scope=all&chunk=0`
+- `/today?sport=football&scope=all&chunk=1`
 - `/today?sport=tennis`
 - `/today?sport=tennis&competition=ATP`
-- `/today?sport=football&competition=Ekstraklasa&chunk=0`
+- `/today?sport=football&competition=Ekstraklasa`
 
-Dla football zaczynaj od chunku 0 i pobieraj numer wskazany przez `next_chunk`, aż `done=true`.
+Dla football **tylko z `scope=all`** zaczynaj od chunku 0 i pobieraj numer wskazany przez `next_chunk`, aż `done=true`.
 Zachowuj te same `sport` i `competition` we wszystkich requestach. Przy łączeniu
 odpowiedzi deduplikuj wydarzenia po `id`, ponieważ lista upstream może się zmieniać.
 
