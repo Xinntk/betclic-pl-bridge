@@ -18,7 +18,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from betclic_api import BetclicClient
 from betclic_api.client import MARKET_CODES, SPORTS
 from tennis_competitions import FootballCompetition, TennisCompetition, fetch_sport_menu, fetch_competition_matches
-from football_scope import is_allowed_football_competition
+from football_scope import (
+    club_key, football_team_names, is_allowed_football_competition,
+    is_allowed_football_match, is_domestic_league,
+)
 
 
 APP_NAME = "Betclic PL Odds Bridge"
@@ -331,6 +334,8 @@ def _fetch_today_football_competitions() -> tuple[list[Any], dict[str, Any]]:
     selected: list[FootballCompetition] = []
     errors: list[dict[str, Any]] = []
     filtered_out = 0
+    candidates = []
+    league_teams: set[str] = set()
     executor = ThreadPoolExecutor(max_workers=max(1, TODAY_FOOTBALL_WORKERS))
     try:
         menu_future = executor.submit(_fetch_football_menu)
@@ -351,6 +356,12 @@ def _fetch_today_football_competitions() -> tuple[list[Any], dict[str, Any]]:
                 if future not in completed:
                     raise TimeoutError(f"Football competition discovery timeout after {TODAY_FOOTBALL_TIMEOUT + 1:g}s")
                 for match in future.result():
+                    actual_competition = FootballCompetition(
+                        item.id, match.competition or item.name, item.category, item.country_code, item.country_name,
+                    )
+                    valid_competition = match.competition_id in (None, item.id) and is_allowed_football_competition(actual_competition)
+                    if valid_competition and is_domestic_league(actual_competition):
+                        league_teams.update(club_key(name) for name in football_team_names(match))
                     identity = match.id if match.id is not None else (match.name, match.date)
                     if identity in seen_ids:
                         continue
@@ -358,17 +369,19 @@ def _fetch_today_football_competitions() -> tuple[list[Any], dict[str, Any]]:
                     dt = _parse_dt(match.date)
                     if not dt or dt.date() != target:
                         continue
-                    actual_competition = FootballCompetition(
-                        item.id, match.competition or item.name, item.category, item.country_code, item.country_name,
-                    )
-                    if match.competition_id not in (None, item.id) or not is_allowed_football_competition(actual_competition):
+                    if not valid_competition:
                         filtered_out += 1
                         continue
-                    matches.append(match)
+                    candidates.append((match, actual_competition))
             except Exception as exc:
                 errors.append({"competition_id": item.id, "detail": str(exc)})
     finally:
         executor.shutdown(wait=False, cancel_futures=True)
+    for match, competition in candidates:
+        if is_allowed_football_match(match, competition, league_teams):
+            matches.append(match)
+        else:
+            filtered_out += 1
     return matches, {
         "source": "competitions",
         "selected_competitions": [asdict(item) for item in selected],

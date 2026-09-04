@@ -8,9 +8,9 @@ import pytest
 from requests.exceptions import ReadTimeout
 
 import app
-from betclic_api.models import Match
+from betclic_api.models import Match, Team
 from betclic_api.proto import encode_field_string as string, encode_field_varint as integer
-from football_scope import is_allowed_football_competition
+from football_scope import is_allowed_football_competition, is_allowed_football_match, is_reserve_team
 from tennis_competitions import FootballCompetition, parse_sport_menu
 
 
@@ -112,7 +112,7 @@ def backend(monkeypatch):
     )
     state.results = {item.id: [Match(id=item.id, name="A - B", competition_id=item.id, competition=item.name,
                                     date="2026-09-04T18:00:00Z")] for item in state.menu}
-    state.results[902][0].name = "Regional Club - Manchester City B"
+    state.results[902][0].name = "Regional Club - Manchester City"
 
     def menu(client, sport_code="tennis"):
         assert sport_code == "football"
@@ -162,7 +162,7 @@ def test_default_football_fetches_dynamic_curated_ids_in_parallel_and_keeps_cup_
     assert data["returned"] == 4
     assert data["partial"] is False
     assert data["errors"] == []
-    assert data["events"][1]["name"] == "Regional Club - Manchester City B"
+    assert data["events"][1]["name"] == "Regional Club - Manchester City"
     assert all("markets" not in item for item in data["events"])
     assert data["generated_at_warsaw"].endswith("+02:00")
 
@@ -267,3 +267,68 @@ def test_menu_parser_preserves_country_and_merges_pinned_duplicates():
     football = string(2, "football") + string(1, competition) + string(7, country)
     result = parse_sport_menu(string(2, football), sport_code="football")
     assert result == [FootballCompetition(999, "Ligue 1", country_code="FR", country_name="Francja")]
+
+
+@pytest.mark.parametrize("name", ["CAF Confederation Cup", "CAF Confederations Cup", "Puchar Konfederacji",
+    "Puchar Konfederacji CAF", "Puchar Konfederacji - Afryka", "Confederations Cup"])
+def test_caf_and_ambiguous_confederation_cups_are_excluded(name):
+    assert not is_allowed_football_competition(FootballCompetition(1, name, country_code="ZZ"))
+
+
+@pytest.mark.parametrize("name", ["FIFA Confederations Cup", "Puchar Konfederacji FIFA", "FIFA Puchar Konfederacji"])
+def test_explicit_historical_fifa_cup_is_distinct(name):
+    assert is_allowed_football_competition(FootballCompetition(1, name, country_code="ZZ"))
+
+
+@pytest.mark.parametrize("name", ["Slavia Praha B", "Jong Ajax Amsterdam", "Bayern München II", "Chelsea U23",
+    "Chelsea U 21", "Arsenal Reserves", "Roma Primavera", "Legia rezerwy", "slavia praha b (FC)"])
+def test_reserve_team_markers(name):
+    assert is_reserve_team(name)
+
+
+@pytest.mark.parametrize("name", ["Willem II", "Willem II FC", "B 1903", "B.93", "Bayern München",
+    "B-SAD", "Barnsley", "IIves", "Ajax Amsterdam", "Primaveras FC"])
+def test_reserve_team_false_positives(name):
+    assert not is_reserve_team(name)
+
+
+@pytest.mark.parametrize("name", ["Ossett United - Pontefract Collieries", "Quorn FC - Shepshed Dynamo FC"])
+def test_obvious_low_cup_pairs_are_removed_but_main_round_is_retained(name):
+    match = Match(name=name)
+    assert not is_allowed_football_match(match, FootballCompetition(1, "Anglia FA Cup", country_code="EN"))
+    assert is_allowed_football_match(match, FootballCompetition(1, "Anglia FA Cup", "Quarter-finals", "EN"))
+    assert not is_allowed_football_match(match, FootballCompetition(1, "Anglia FA Cup", "First qualifying round", "EN"))
+
+
+@pytest.mark.parametrize("name", ["Quorn FC - Manchester City", "Unknown FC - Another Unknown",
+    "Ossett United - Arsenal", "Paris-Saint-Germain - Monaco"])
+def test_unknown_or_large_club_cup_pairs_are_retained(name):
+    assert is_allowed_football_match(Match(name=name), FootballCompetition(1, "FA Cup", country_code="EN"))
+
+
+def test_event_filters_count_unique_today_matches_and_use_structured_teams(backend):
+    base = dict(competition_id=902, competition="FA Cup", date="2026-09-04T18:00:00Z")
+    rejected = [Match(id=10, name="Ossett United - Pontefract Collieries", **base),
+        Match(id=11, name="Quorn FC - Shepshed Dynamo FC", **base),
+        Match(id=12, name="Slavia Praha B - Sparta Praha", **base),
+        Match(id=13, name="Other display label", teams=[Team("Opponent"), Team("Jong Ajax Amsterdam")], **base)]
+    backend.results[902] += rejected + [rejected[0], Match(id=14, name="Willem II - B.93", **base)]
+    backend.menu.append(FootballCompetition(908, "Puchar Konfederacji", country_code="ZZ"))
+    with TestClient(app.app) as client:
+        data = client.get("/today", params={"sport": "football"}).json()
+    assert data["filtered_out"] == 4
+    assert data["returned"] == 5
+    assert data["partial"] is False and data["errors"] == []
+    assert 908 not in backend.calls
+    assert not {10, 11, 12, 13} & {event["id"] for event in data["events"]}
+
+
+def test_allowed_league_evidence_overrides_low_cup_fallback_independent_of_order(backend):
+    # A club may move tiers: use fixtures already fetched, including future dates.
+    backend.results[902][0].name = "Quorn FC - Shepshed Dynamo FC"
+    backend.results[903][0].name = "Quorn - Arsenal"
+    backend.results[903][0].date = "2026-09-05T18:00:00Z"
+    data = app.today_events(sport="football", competition=None)
+    assert data["filtered_out"] == 0
+    assert 902 in {event["id"] for event in data["events"]}
+    assert backend.forbidden == []

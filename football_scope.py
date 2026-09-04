@@ -85,7 +85,7 @@ INTERNATIONAL = {
     "european championship", "mistrzostwa europy", "nations league", "liga narodow",
     "copa america", "africa cup of nations", "puchar narodow afryki", "afcon",
     "concacaf gold cup", "gold cup", "zloty puchar concacaf",
-    "afc asian cup", "asian cup", "puchar azji", "confederations cup", "puchar konfederacji",
+    "afc asian cup", "asian cup", "puchar azji", "fifa confederations cup", "puchar konfederacji fifa",
     "concacaf nations league",
 }
 EXCLUDED = re.compile(
@@ -109,6 +109,14 @@ def is_allowed_football_competition(competition) -> bool:
     if EXCLUDED.search(f"{name} {category} {normalize(competition.country_name)}") or category in {"zwyciezca", "winner", "outright", "b teams", "second teams"}:
         return False
     name = _without_suffixes(name)
+    # The unqualified Polish label in SportMenu denotes CAF's club cup.
+    # Only an explicit FIFA label identifies the historical national-team cup.
+    if "confederation" in name or "konfederacji" in name:
+        if name not in {"fifa confederations cup", "puchar konfederacji fifa", "fifa puchar konfederacji"}:
+            return False
+        if re.search(r"\b(?:caf|afryka|africa|afrykanski)\b", f"{category} {normalize(competition.country_name)}"):
+            return False
+        name = "fifa confederations cup"
     code = (competition.country_code or "").upper()
     code = CODE_ALIASES.get(code, code)
     country_name = normalize(competition.country_name)
@@ -137,3 +145,74 @@ def is_allowed_football_competition(competition) -> bool:
         if name in LEAGUES[country] | CUPS[country] or local_name in LEAGUES[country] | CUPS[country]:
             allowed.append(country)
     return len(allowed) == 1
+
+
+def _domestic_kind(competition, names) -> bool:
+    name = _without_suffixes(normalize(competition.name))
+    return any(
+        name in aliases or any(name == prefix + " " + alias for prefix in COUNTRIES[country] for alias in aliases)
+        for country, aliases in names.items()
+    )
+
+
+def is_domestic_cup(competition) -> bool:
+    """Called only for competitions which passed the curated allowlist."""
+    return _domestic_kind(competition, CUPS)
+
+
+def is_domestic_league(competition) -> bool:
+    return _domestic_kind(competition, LEAGUES)
+
+
+def football_team_names(match) -> list[str]:
+    teams = [team.name for team in match.teams if team.name]
+    if len(teams) == 2:
+        return teams
+    # Require a spaced separator; never split Paris-Saint-Germain, etc.
+    parts = re.split(r"\s+(?:[-–—]|vs\.?|v\.)\s+", match.name or "", flags=re.IGNORECASE)
+    return parts if len(parts) == 2 else teams
+
+
+def is_reserve_team(name: str) -> bool:
+    name = club_key(name)
+    return bool(
+        re.search(r"\b(?:reserves?|rezerwy|primavera|u\s*(?:21|23))\b", name)
+        or re.match(r"jong\s+", name)
+        # B and II must be suffixes, not substrings (B 1903, B.93, Willem II).
+        or (re.search(r"\S+\s+(?:b|ii)$", name) and name != "willem ii")
+    )
+
+
+# Explicit conservative fallback requested for the early English cup fixtures.
+# This is not a general inference of league level from a club's name. Unknown
+# clubs stay eligible; evidence from fetched allowed leagues takes precedence.
+EARLY_CUP_CLUBS = {
+    "ossett united", "pontefract collieries", "quorn", "shepshed dynamo",
+}
+
+
+def club_key(name: str) -> str:
+    return re.sub(r"^(?:fc|afc)\s+|\s+(?:fc|afc)$", "", normalize(name))
+
+
+def is_allowed_football_match(match, competition, league_teams=frozenset()) -> bool:
+    teams = football_team_names(match)
+    if any(is_reserve_team(team) for team in teams):
+        return False
+    if not is_domestic_cup(competition) or len(teams) != 2:
+        return True
+    keys = {club_key(team) for team in teams}
+    if keys & league_teams:
+        return True
+    # Only explicit late-round category labels establish a main cup phase.
+    # Do not infer it from an ambiguous 'round 1' or a calendar date.
+    if normalize(competition.category) in {
+        "final", "finals", "final pucharu",
+        "semi final", "semi finals", "semifinal", "semifinals", "polfinal", "polfinaly",
+        "quarter final", "quarter finals", "quarterfinal", "quarterfinals", "cwiercfinal", "cwiercfinaly",
+        "round of 16", "1 8 finalu", "1 4 finalu", "1 2 finalu",
+    }:
+        return True
+    # No reliable round/club-tier metadata is exposed by the list API. Keep
+    # uncertain pairs, especially a large club against a lower-league opponent.
+    return not keys.issubset(EARLY_CUP_CLUBS)

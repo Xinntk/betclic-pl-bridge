@@ -74,11 +74,25 @@ Domyślny zakres lig:
 Ponadto: Liga Mistrzów, Liga Europy, Liga Konferencji i ich kwalifikacje,
 Superpuchar UEFA, MŚ, EURO, kwalifikacje MŚ/EURO, Liga Narodów UEFA oraz główne
 oficjalne turnieje reprezentacyjne: Copa América, Puchar Narodów Afryki,
-Gold Cup, Puchar Azji, Liga Narodów CONCACAF i Puchar Konfederacji.
+Gold Cup, Puchar Azji, Liga Narodów CONCACAF i historyczny FIFA Confederations Cup
+(tylko z jednoznacznym oznaczeniem FIFA). CAF Confederation Cup oraz niejednoznaczny
+„Puchar Konfederacji” są wykluczone.
 To wyjątki dla oficjalnych turniejów reprezentacyjnych, nie dopuszczenie lig azjatyckich.
 Uwzględniane są główne krajowe puchary powyższych państw, m.in. FA Cup,
 Copa del Rey, Coppa Italia, DFB-Pokal, Coupe de France i Puchar Polski.
-Poziom ligowy uczestnika pucharu nie jest kryterium odrzucenia meczu.
+Puchary zachowują mecze dużych klubów z niższymi ligami. Przy braku informacji
+o poziomie obu drużyn stosujemy ostrożny fallback: odrzucamy pary złożone wyłącznie
+z Ossett United, Pontefract Collieries, Quorn lub Shepshed Dynamo (także z sufiksem FC).
+Potwierdzenie udziału drużyny w dozwolonej lidze z już pobranych list meczów
+ma pierwszeństwo przed tym fallbackiem. Zachowujemy również mecze z jednoznaczną
+kategorią późnej fazy pucharu (od 1/8 finału). Obecny model listy nie udostępnia
+osobnego pola rundy ani poziomu ligowego drużyny: nie zgadujemy ich na podstawie
+daty czy samego „round 1”. Pozostałe nieznane pary pozostają w odpowiedzi.
+
+Filtr wydarzeń odrzuca rezerwy i zespoły młodzieżowe rozpoznane po nazwie drużyny:
+sufiksy B/II, U23/U21, Reserves, Jong, Primavera i rezerwy. Oznaczenia są sprawdzane
+jako całe słowa; Willem II, B.93 i B 1903 nie są uznawane za rezerwy.
+Te filtry dotyczą domyślnego football; debug `scope=all` pozostaje bez zmian.
 
 Rozgrywki kobiece, młodzieżowe (w tym U19/U20/U21), rezerw, akademii, amatorskie,
 regionalne i pokazowe są odrzucane. Ligi spoza wymienionych krajów i poziomów
@@ -98,6 +112,8 @@ Odpowiedź zawiera `source: "competitions"`, `selected_competitions`
 `filtered_out` i `generated_at_warsaw`. Lista selected obejmuje również wybrane
 rozgrywki zakończone błędem. Błąd pojedynczej rozgrywki trafia do `errors` pod
 `competition_id`, a odpowiedź z pozostałymi meczami ma `partial=true`.
+`filtered_out` liczy unikalne dzisiejsze wydarzenia usunięte przez filtry rozgrywek,
+rezerw lub niskopoziomowych par pucharowych. Odrzucenie przez filtr nie jest błędem upstreamu.
 Błąd menu ma `stage: "sport_menu"`. Wyniki są deduplikowane po `match.id`
 i ograniczane do dzisiejszej daty w Warszawie. `competition` nadal filtruje nazwę
 rozgrywek w wynikach. Parametr `chunk` nie wpływa na domyślne discovery football.
