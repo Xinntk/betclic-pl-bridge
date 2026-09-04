@@ -80,14 +80,21 @@ Gold Cup, Puchar Azji, Liga Narodów CONCACAF i historyczny FIFA Confederations 
 To wyjątki dla oficjalnych turniejów reprezentacyjnych, nie dopuszczenie lig azjatyckich.
 Uwzględniane są główne krajowe puchary powyższych państw, m.in. FA Cup,
 Copa del Rey, Coppa Italia, DFB-Pokal, Coupe de France i Puchar Polski.
-Puchary zachowują mecze dużych klubów z niższymi ligami. Przy braku informacji
-o poziomie obu drużyn stosujemy ostrożny fallback: odrzucamy pary złożone wyłącznie
-z Ossett United, Pontefract Collieries, Quorn lub Shepshed Dynamo (także z sufiksem FC).
+Osobny filtr `_is_allowed_cup_match` odrzuca jednoznaczne etykiety `preliminary`,
+`extra preliminary`, `qualifying` i ich warianty rund w nazwie rozgrywek lub kategorii.
+Obsługuje też tekstowe `round_name`/`round`, jeśli dostarczy je adapter upstreamu;
+obecny model listy nie udostępnia tych pól ani poziomu ligowego drużyny.
+Filtr dotyczy krajowych pucharów, nie kwalifikacji UEFA ani zwykłych lig.
+
+Przy braku informacji o rundzie stosujemy ostrożny fallback: odrzucamy pary
+złożone wyłącznie z Ossett United, Pontefract Collieries, Quorn, Shepshed Dynamo,
+Flackwell Heath, Hanwell Town, Aveley, Cheshunt, Three Bridges lub Kingstonian
+(także z sufiksem FC). Sprawdzamy dokładne nazwy, bez zgadywania poziomu z fragmentów nazwy.
 Potwierdzenie udziału drużyny w dozwolonej lidze z już pobranych list meczów
-ma pierwszeństwo przed tym fallbackiem. Zachowujemy również mecze z jednoznaczną
-kategorią późnej fazy pucharu (od 1/8 finału). Obecny model listy nie udostępnia
-osobnego pola rundy ani poziomu ligowego drużyny: nie zgadujemy ich na podstawie
-daty czy samego „round 1”. Pozostałe nieznane pary pozostają w odpowiedzi.
+lub jednoznaczna etykieta głównej/późnej fazy (`Third Round Proper`, `Quarter-finals` itd.)
+ma pierwszeństwo przed tym fallbackiem. Jawna etykieta rundy wstępnej oznacza odrzucenie.
+Samo „round 1” ani data nie określają fazy. Pozostałe nieznane pary pozostają
+w odpowiedzi, w tym duży klub przeciwko klubowi non-league.
 
 Filtr wydarzeń odrzuca rezerwy i zespoły młodzieżowe rozpoznane po nazwie drużyny:
 sufiksy B/II, U23/U21, Reserves, Jong, Primavera i rezerwy. Oznaczenia są sprawdzane

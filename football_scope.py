@@ -95,6 +95,27 @@ EXCLUDED = re.compile(
     r"exhibition\w*|pokazow\w*|friendly|friendlies|towarzyski\w*|futsal|beach|esoccer|virtual)\b"
 )
 
+# Only explicit phase labels; bare 'round 1' does not establish the main draw.
+EARLY_CUP_ROUND = re.compile(
+    r"\b(?:(?:extra|first|second|third|fourth|1st|2nd|3rd|4th|\d+)\s+)?"
+    r"(?:preliminary|qualifying|qualification|qualifications|qualifier|qualifiers)"
+    r"(?:\s+rounds?)?\b|\b(?:kwalifikacje|eliminacje|runda wstepna|runda przedwstepna)\b"
+)
+MAIN_CUP_ROUND = re.compile(
+    r"\b(?:round of 16|1 [842] finalu|"
+    r"(?:(?:first|second|third|fourth|fifth|sixth|1st|2nd|3rd|4th|5th|6th)\s+)?round proper|"
+    r"main draw|(?:quarter|semi)[ -]?finals?|cwiercfinaly?|polfinaly?|finals?)\b"
+)
+
+
+def _cup_base_name(name):
+    # Strip a trailing phase only; keep unknown text so the allowlist stays exact.
+    for pattern in (EARLY_CUP_ROUND, MAIN_CUP_ROUND):
+        found = pattern.search(name)
+        if found and found.end() == len(name):
+            return name[:found.start()].strip()
+    return name
+
 
 def _without_suffixes(name):
     name = re.sub(r"\b20\d{2}(?:\s+\d{2,4})?\b", "", name)
@@ -138,17 +159,26 @@ def is_allowed_football_competition(competition) -> bool:
     allowed = []
     for country in candidates:
         local_name = name
+        cup_name = _without_suffixes(_cup_base_name(normalize(competition.name)))
+        local_cup_name = cup_name
         for prefix in COUNTRIES[country]:
             if local_name.startswith(prefix + " "):
                 local_name = local_name[len(prefix) + 1:]
                 break
-        if name in LEAGUES[country] | CUPS[country] or local_name in LEAGUES[country] | CUPS[country]:
+        for prefix in COUNTRIES[country]:
+            if local_cup_name.startswith(prefix + " "):
+                local_cup_name = local_cup_name[len(prefix) + 1:]
+                break
+        if name in LEAGUES[country] or local_name in LEAGUES[country] or cup_name in CUPS[country] or local_cup_name in CUPS[country]:
             allowed.append(country)
     return len(allowed) == 1
 
 
 def _domestic_kind(competition, names) -> bool:
-    name = _without_suffixes(normalize(competition.name))
+    name = normalize(competition.name)
+    if names is CUPS:
+        name = _cup_base_name(name)
+    name = _without_suffixes(name)
     return any(
         name in aliases or any(name == prefix + " " + alias for prefix in COUNTRIES[country] for alias in aliases)
         for country, aliases in names.items()
@@ -188,6 +218,7 @@ def is_reserve_team(name: str) -> bool:
 # clubs stay eligible; evidence from fetched allowed leagues takes precedence.
 EARLY_CUP_CLUBS = {
     "ossett united", "pontefract collieries", "quorn", "shepshed dynamo",
+    "flackwell heath", "hanwell town", "aveley", "cheshunt", "three bridges", "kingstonian",
 }
 
 
@@ -199,19 +230,27 @@ def is_allowed_football_match(match, competition, league_teams=frozenset()) -> b
     teams = football_team_names(match)
     if any(is_reserve_team(team) for team in teams):
         return False
-    if not is_domestic_cup(competition) or len(teams) != 2:
+    return _is_allowed_cup_match(match, competition, league_teams)
+
+
+def _is_allowed_cup_match(match, competition, league_teams=frozenset()) -> bool:
+    """Conservative cup-only filtering, without fetching details or guessing tiers."""
+    if not is_domestic_cup(competition):
+        return True
+    # Match currently has no round field. Accept textual labels if supplied by
+    # an upstream adapter; do not interpret numeric IDs or stringify objects.
+    labels = [competition.name, competition.category, match.competition,
+              getattr(match, "round_name", None), getattr(match, "round", None)]
+    labels = [normalize(label) for label in labels if isinstance(label, str)]
+    if any(EARLY_CUP_ROUND.search(label) for label in labels):
+        return False
+    teams = football_team_names(match)
+    if len(teams) != 2:
         return True
     keys = {club_key(team) for team in teams}
     if keys & league_teams:
         return True
-    # Only explicit late-round category labels establish a main cup phase.
-    # Do not infer it from an ambiguous 'round 1' or a calendar date.
-    if normalize(competition.category) in {
-        "final", "finals", "final pucharu",
-        "semi final", "semi finals", "semifinal", "semifinals", "polfinal", "polfinaly",
-        "quarter final", "quarter finals", "quarterfinal", "quarterfinals", "cwiercfinal", "cwiercfinaly",
-        "round of 16", "1 8 finalu", "1 4 finalu", "1 2 finalu",
-    }:
+    if any(MAIN_CUP_ROUND.search(label) for label in labels):
         return True
     # No reliable round/club-tier metadata is exposed by the list API. Keep
     # uncertain pairs, especially a large club against a lower-league opponent.

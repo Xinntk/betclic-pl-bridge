@@ -10,7 +10,7 @@ from requests.exceptions import ReadTimeout
 import app
 from betclic_api.models import Match, Team
 from betclic_api.proto import encode_field_string as string, encode_field_varint as integer
-from football_scope import is_allowed_football_competition, is_allowed_football_match, is_reserve_team
+from football_scope import _is_allowed_cup_match, is_allowed_football_competition, is_allowed_football_match, is_reserve_team
 from tennis_competitions import FootballCompetition, parse_sport_menu
 
 
@@ -331,4 +331,76 @@ def test_allowed_league_evidence_overrides_low_cup_fallback_independent_of_order
     data = app.today_events(sport="football", competition=None)
     assert data["filtered_out"] == 0
     assert 902 in {event["id"] for event in data["events"]}
+    assert backend.forbidden == []
+
+
+@pytest.mark.parametrize("name", ["Flackwell Heath - Hanwell Town", "Aveley FC - Cheshunt FC",
+    "Three Bridges - Kingstonian"])
+def test_additional_non_league_cup_pairs(name):
+    match = Match(name=name)
+    cup = FootballCompetition(1, "FA Cup", country_code="EN")
+    assert not _is_allowed_cup_match(match, cup)
+    assert _is_allowed_cup_match(match, FootballCompetition(2, "League One", country_code="EN"))
+    assert _is_allowed_cup_match(match, FootballCompetition(1, "FA Cup", "Third Round Proper", "EN"))
+
+
+@pytest.mark.parametrize("stage", ["preliminary", "extra preliminary", "preliminary round",
+    "First Qualifying Round", "Qualifying", "Fourth Qualification Round", "runda wstępna"])
+@pytest.mark.parametrize("location", ["competition_name", "category", "round_name", "round"])
+def test_explicit_early_rounds_are_rejected_for_unknown_clubs(stage, location):
+    match = Match(name="Unknown FC - Other Unknown")
+    cup = FootballCompetition(1, "FA Cup", country_code="EN")
+    if location == "competition_name":
+        cup = FootballCompetition(1, f"FA Cup - {stage}", country_code="EN")
+    elif location == "category":
+        cup = FootballCompetition(1, "FA Cup", stage, "EN")
+    else:
+        setattr(match, location, stage)
+    assert is_allowed_football_competition(cup)
+    assert not _is_allowed_cup_match(match, cup)
+
+
+@pytest.mark.parametrize("name,cup,country", [
+    ("Manchester United - Hanwell Town", "FA Cup", "EN"),
+    ("Bayern München - Unknown FC", "DFB-Pokal", "DE"),
+    ("Legia Warszawa - Unknown FC", "Puchar Polski", "PL"),
+    ("Aveley Town - Cheshunt FC", "FA Cup", "EN"),  # exact aliases only
+])
+def test_large_or_uncertain_clubs_are_not_removed_by_cup_filter(name, cup, country):
+    assert _is_allowed_cup_match(Match(name=name), FootballCompetition(1, cup, country_code=country))
+
+
+def test_cup_round_filter_does_not_apply_to_leagues_or_uefa_qualifying():
+    match = Match(name="Flackwell Heath - Hanwell Town")
+    match.round_name = "Qualifying round"
+    for cup in [FootballCompetition(1, "Premier League", country_code="EN"),
+                FootballCompetition(2, "UEFA Champions League - Qualification", country_code="EU")]:
+        assert is_allowed_football_competition(cup)
+        assert _is_allowed_cup_match(match, cup)
+
+
+def test_main_phase_in_competition_name_preserves_low_clubs():
+    cup = FootballCompetition(1, "FA Cup - Third Round Proper", country_code="EN")
+    assert is_allowed_football_competition(cup)
+    assert _is_allowed_cup_match(Match(name="Aveley FC - Cheshunt FC"), cup)
+
+
+def test_new_cup_exclusions_increment_filtered_out_once_per_today_event(backend):
+    base = dict(competition_id=902, competition="FA Cup", date="2026-09-04T18:00:00Z")
+    rejected = [Match(id=30, name="Flackwell Heath - Hanwell Town", **base),
+        Match(id=31, name="Aveley FC - Cheshunt FC", **base),
+        Match(id=32, name="Three Bridges - Kingstonian", **base)]
+    qualifying = Match(id=33, name="Unknown FC - Other Unknown", **base)
+    qualifying.competition = "FA Cup - Extra Preliminary Round"
+    tomorrow = Match(id=34, name="Three Bridges - Kingstonian", **base)
+    tomorrow.date = "2026-09-05T18:00:00Z"
+    backend.results[902] += rejected + [rejected[0], qualifying, tomorrow,
+        Match(id=35, name="Manchester United - Cheshunt FC", **base)]
+    with TestClient(app.app) as client:
+        data = client.get("/today", params={"sport": "football"}).json()
+    assert data["filtered_out"] == 4
+    assert data["returned"] == 5
+    assert data["partial"] is False and data["errors"] == []
+    assert 35 in {event["id"] for event in data["events"]}
+    assert data["source"] == "competitions"
     assert backend.forbidden == []
