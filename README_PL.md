@@ -34,8 +34,13 @@ Przykład pełnego adresu:
 
 ## Szybka lista na dziś (v2)
 
-Endpoint `/today` pobiera wszystkie strony listy dyscypliny i zwraca wyłącznie
-dzisiejsze wydarzenia. Nie pobiera osobno szczegółów ani rynków każdego meczu,
+Endpoint `/today` zwraca dzisiejsze wydarzenia według strefy `Europe/Warsaw`.
+Paginacja kończy się po przetworzeniu całej strony zawierającej pierwsze wydarzenie
+z późniejszą datą; wszystkie dzisiejsze wydarzenia z tej strony są zachowane.
+Awaryjny limit to 12 stron, konfigurowalny przez zmienną środowiskową
+`TODAY_MAX_PAGES`. Po osiągnięciu limitu lista może być niepełna.
+Pole `pages_scanned` w odpowiedzi podaje liczbę sprawdzonych stron, wliczając pustą.
+Endpoint nie pobiera osobno szczegółów ani rynków każdego meczu,
 dzięki czemu jest preferowanym, szybkim punktem startowym:
 
 - `/today?sport=football`

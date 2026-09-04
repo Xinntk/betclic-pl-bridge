@@ -18,6 +18,7 @@ from betclic_api.client import MARKET_CODES, SPORTS
 APP_NAME = "Betclic PL Odds Bridge"
 WARSAW = ZoneInfo("Europe/Warsaw")
 CACHE_TTL = int(os.getenv("CACHE_TTL", "45"))
+TODAY_MAX_PAGES = int(os.getenv("TODAY_MAX_PAGES", "12"))
 SLATE_ODDS_LIMIT = int(os.getenv("SLATE_ODDS_LIMIT", "8"))
 SLATE_ODDS_WORKERS = int(os.getenv("SLATE_ODDS_WORKERS", "4"))
 DEFAULT_LOCALE = os.getenv("BETCLIC_LOCALE", "pl")
@@ -168,33 +169,38 @@ def _fetch_matches_page(sport: str, offset: int) -> dict[str, Any]:
     return _store(key, result)
 
 
-def _fetch_today(sport: str) -> tuple[list[Any], int]:
-    """Collect today's matches from every upstream list page, without details."""
+def _fetch_today(sport: str) -> tuple[list[Any], int, int]:
+    """Collect today's matches until a future date or the page limit is reached."""
     target = datetime.now(WARSAW).date()
     matches: list[Any] = []
     seen_ids: set[Any] = set()
     offset = 0
     upstream_total = 0
+    pages_scanned = 0
 
-    while True:
+    while pages_scanned < TODAY_MAX_PAGES:
         result = _fetch_matches_page(sport, offset)
+        pages_scanned += 1
         page = list(result.get("matches", []))
         upstream_total = max(upstream_total, int(result.get("total", 0) or 0))
         if not page:
             break
 
+        has_future_event = False
         for match in page:
             dt = _parse_dt(match.date)
+            if dt and dt.date() > target:
+                has_future_event = True
             identity = match.id if match.id is not None else (match.name, match.date)
             if dt and dt.date() == target and identity not in seen_ids:
                 seen_ids.add(identity)
                 matches.append(match)
 
         offset += len(page)
-        if upstream_total and offset >= upstream_total:
+        if has_future_event or (upstream_total and offset >= upstream_total):
             break
 
-    return matches, upstream_total
+    return matches, upstream_total, pages_scanned
 
 
 def _fetch_event(match_id: int, category: str | None = None):
@@ -268,8 +274,8 @@ def today_events(
     sport: str = Query("football"),
     competition: str | None = Query(None, description="Competition name substring"),
 ):
-    """Return all of today's lightweight event summaries across every list page."""
-    matches, upstream_total = _fetch_today(sport)
+    """Return today's lightweight event summaries from a bounded page scan."""
+    matches, upstream_total, pages_scanned = _fetch_today(sport)
     if competition:
         needle = competition.casefold()
         matches = [m for m in matches if needle in (m.competition or "").casefold()]
@@ -278,6 +284,7 @@ def today_events(
         "competition": competition,
         "returned": len(matches),
         "upstream_total": upstream_total,
+        "pages_scanned": pages_scanned,
         "generated_at_warsaw": datetime.now(WARSAW).isoformat(),
         "events": [_match_to_dict(m, include_markets=False) for m in matches],
     }
