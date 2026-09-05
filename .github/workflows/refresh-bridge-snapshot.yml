@@ -74,7 +74,7 @@ jobs:
           print(json.dumps(status, ensure_ascii=False))
           PY
 
-      - name: Commit refreshed odds safely
+      - name: Publish rolling odds snapshot safely
         if: always()
         run: |
           set -euo pipefail
@@ -91,6 +91,8 @@ jobs:
           for attempt in 1 2 3; do
             git fetch origin main
             git reset --hard origin/main
+            remote_sha="$(git rev-parse origin/main)"
+
             mkdir -p snapshots
             for file in /tmp/betclic-odds/*; do
               [ -e "$file" ] || continue
@@ -98,15 +100,36 @@ jobs:
             done
             git add -A -- snapshots/latest.json snapshots/status.json
             if git diff --cached --quiet; then
-              echo "No odds changes to commit"
+              echo "No odds changes to publish"
               exit 0
             fi
-            git commit -m "Refresh Betclic direct odds"
-            if git push origin HEAD:main; then
-              exit 0
+
+            last_author="$(git log -1 --pretty=%an)"
+            last_subject="$(git log -1 --pretty=%s)"
+            rolling_snapshot=false
+            if [ "$last_author" = "github-actions[bot]" ]; then
+              case "$last_subject" in
+                "Refresh Betclic live snapshots"|"Refresh Betclic direct odds"|"Refresh Betclic MyCombi")
+                  rolling_snapshot=true
+                  ;;
+              esac
             fi
-            echo "Push raced with another writer; retry $attempt/3"
+
+            if [ "$rolling_snapshot" = true ]; then
+              git commit --amend -m "Refresh Betclic live snapshots"
+              if git push --force-with-lease=refs/heads/main:"$remote_sha" origin HEAD:main; then
+                exit 0
+              fi
+            else
+              git commit -m "Refresh Betclic live snapshots"
+              if git push origin HEAD:main; then
+                exit 0
+              fi
+            fi
+
+            echo "Publish raced with another writer; retry $attempt/3"
             sleep $((attempt * 2))
           done
-          echo "Could not publish odds results after 3 attempts"
+
+          echo "Could not publish odds snapshot after 3 attempts"
           exit 1
