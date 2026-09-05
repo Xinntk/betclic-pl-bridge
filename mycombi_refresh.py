@@ -4,6 +4,7 @@ import json
 import time
 from pathlib import Path
 
+import snapshot_refresh as core
 from snapshot_refresh import (
     MYCOMBI_PATH,
     MYCOMBI_QUOTES_PATH,
@@ -13,7 +14,6 @@ from snapshot_refresh import (
     now_warsaw,
     raw_requests,
     refresh_mycombi,
-    refresh_quotes,
 )
 from snapshot_resilience import (
     MYCOMBI_FALLBACK_MAX_AGE_SECONDS,
@@ -24,6 +24,84 @@ from snapshot_resilience import (
 )
 
 MYCOMBI_STATUS_PATH = Path("snapshots/mycombi_status.json")
+
+
+def refresh_quotes_with_identity(today: str, football_event_ids: set[int]) -> dict:
+    """Quote MyCombi while preserving combination identity on upstream failure.
+
+    The original helper intentionally returned a minimal error object. That is fine for
+    reporting but insufficient for last-good fallback because a failed result must still
+    carry event_id + selections so it can be matched to the exact cached combination.
+    """
+    quote_requests = [
+        item for item in core.raw_requests()
+        if core.request_action(item) == "quote"
+    ][:core.MAX_QUOTE_REQUESTS]
+    results = []
+    seen_request_ids = set()
+
+    for raw_request in quote_requests:
+        request = None
+        try:
+            request = core.normalize_quote_request(raw_request)
+            if request["request_id"] in seen_request_ids:
+                raise ValueError("duplicate request_id")
+            seen_request_ids.add(request["request_id"])
+            if request["event_id"] not in football_event_ids:
+                raise ValueError("event_id is not available for direct MyCombi query")
+            quote = core.retry(
+                f"MyCombi quote {request['request_id']}",
+                lambda req=request: core.quote_mycombi(
+                    core._client(timeout=(2, 8)), req["event_id"], req["selections"]
+                ),
+                core.MYCOMBI_ATTEMPTS,
+            )
+            results.append({
+                **request,
+                "quoted_at_warsaw": core.now_warsaw().isoformat(),
+                **quote,
+            })
+        except Exception as exc:
+            # Preserve normalized identity whenever normalization succeeded. If it did not,
+            # retain safe raw identity fields so diagnostics remain useful, but malformed
+            # requests still cannot accidentally match a valid cached quote.
+            if request is not None:
+                identity = dict(request)
+            elif isinstance(raw_request, dict):
+                identity = {
+                    "request_id": str(raw_request.get("request_id") or ""),
+                    "action": "quote",
+                }
+                if raw_request.get("event_id") is not None:
+                    identity["event_id"] = raw_request.get("event_id")
+                if isinstance(raw_request.get("selections"), list):
+                    identity["selections"] = raw_request.get("selections")
+                if raw_request.get("label") is not None:
+                    identity["label"] = raw_request.get("label")
+            else:
+                identity = {"request_id": "", "action": "quote"}
+
+            results.append({
+                **identity,
+                "quoted_at_warsaw": core.now_warsaw().isoformat(),
+                "valid": False,
+                "odds": None,
+                "errors": [{
+                    "code": "REQUEST_OR_UPSTREAM_ERROR",
+                    "detail": str(exc),
+                }],
+            })
+
+    payload = {
+        "schema_version": 3,
+        "source": "direct_betclic_mycombi_quote",
+        "date_warsaw": today,
+        "generated_at_warsaw": core.now_warsaw().isoformat(),
+        "request_count": len(quote_requests),
+        "results": results,
+    }
+    core.atomic_write_json(core.MYCOMBI_QUOTES_PATH, payload)
+    return payload
 
 
 def main() -> int:
@@ -57,7 +135,7 @@ def main() -> int:
         atomic_write_json(MYCOMBI_PATH, metadata)
 
         previous_last_good = load_json(MYCOMBI_LAST_GOOD_QUOTES_PATH, {})
-        live_quotes = refresh_quotes(today, event_ids)
+        live_quotes = refresh_quotes_with_identity(today, event_ids)
         quotes, last_good, fallback_quote_count = reconcile_quotes_with_last_good(
             live_quotes,
             previous_last_good,
