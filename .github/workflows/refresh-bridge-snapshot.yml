@@ -2,12 +2,19 @@ name: Refresh Betclic daily snapshot
 
 on:
   schedule:
-    # GitHub Actions' shortest supported cron interval is 5 minutes.
     - cron: '*/5 * * * *'
   workflow_dispatch:
   push:
     paths:
       - '.github/workflows/refresh-bridge-snapshot.yml'
+      - 'snapshot_refresh.py'
+      - 'test_snapshot_refresh.py'
+      - 'app.py'
+      - 'mycombi.py'
+      - 'football_scope.py'
+      - 'tennis_competitions.py'
+      - 'requirements.txt'
+      - 'snapshots/mycombi_requests.json'
 
 permissions:
   contents: write
@@ -19,180 +26,74 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 4
-    steps:
-      - uses: actions/checkout@v4
+    timeout-minutes: 8
+    env:
+      PYTHONUNBUFFERED: '1'
+      TODAY_FOOTBALL_TIMEOUT: '7'
+      TODAY_TENNIS_TIMEOUT: '7'
+      TODAY_FOOTBALL_WORKERS: '6'
+      TODAY_TENNIS_WORKERS: '6'
+      SNAPSHOT_EVENT_WORKERS: '10'
+      SNAPSHOT_MYCOMBI_WORKERS: '6'
+      SNAPSHOT_EVENT_ATTEMPTS: '2'
+      SNAPSHOT_DISCOVERY_ATTEMPTS: '2'
+      SNAPSHOT_MYCOMBI_ATTEMPTS: '2'
+      MYCOMBI_REFRESH_SECONDS: '900'
 
-      - name: Fetch today's Betclic football and tennis markets
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 2
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check -r requirements.txt pytest
+
+      - name: Run snapshot unit tests
+        if: github.event_name != 'schedule'
+        run: python -m pytest -q test_snapshot_refresh.py
+
+      - name: Refresh directly from Betclic
+        run: python snapshot_refresh.py
+
+      - name: Validate generated files
         run: |
           python - <<'PY'
-          import copy
           import json
-          import time
-          import urllib.request
-          from concurrent.futures import ThreadPoolExecutor, as_completed
-          from datetime import datetime
           from pathlib import Path
-          from zoneinfo import ZoneInfo
 
-          BASE = 'https://betclic-pl-bridge.vercel.app'
-          WARSAW = ZoneInfo('Europe/Warsaw')
-          now = datetime.now(WARSAW)
-          today = now.date().isoformat()
-          snapshot_path = Path('snapshots/latest.json')
-
-          try:
-              previous = json.loads(snapshot_path.read_text(encoding='utf-8'))
-          except Exception:
-              previous = {}
-          previous_is_today = previous.get('date_warsaw') == today
-
-          def get_json(url, timeout=12, attempts=2):
-              last_error = None
-              for attempt in range(attempts):
-                  try:
-                      req = urllib.request.Request(
-                          url,
-                          headers={
-                              'User-Agent': 'betclic-project-snapshot/2.1',
-                              'Accept': 'application/json',
-                          },
-                      )
-                      with urllib.request.urlopen(req, timeout=timeout) as response:
-                          return json.loads(response.read().decode('utf-8'))
-                  except Exception as exc:
-                      last_error = exc
-                      if attempt + 1 < attempts:
-                          time.sleep(1.0 * (attempt + 1))
-              raise last_error
-
-          def previous_sport(name):
-              if not previous_is_today:
-                  return None
-              value = previous.get('sports', {}).get(name)
-              return copy.deepcopy(value) if isinstance(value, dict) else None
-
-          def refresh_sport(name, discovery_path):
-              old = previous_sport(name)
-              discovery_url = BASE + discovery_path
-              try:
-                  discovery = get_json(discovery_url, timeout=18, attempts=2)
-              except Exception as exc:
-                  if old is not None:
-                      old['stale'] = True
-                      old.setdefault('refresh_errors', []).append({
-                          'stage': 'discovery',
-                          'detail': repr(exc),
-                      })
-                      return old
-                  return {
-                      'sport': name,
-                      'stale': True,
-                      'event_count': 0,
-                      'events': [],
-                      'stale_event_ids': [],
-                      'errors': [{'stage': 'discovery', 'detail': repr(exc)}],
-                  }
-
-              summaries = discovery.get('events', [])
-              old_events = {}
-              if old:
-                  for event in old.get('events', []):
-                      if event.get('id') is not None:
-                          old_events[str(event['id'])] = event
-
-              errors = []
-              stale_event_ids = []
-              details = [None] * len(summaries)
-
-              def fetch_one(index, summary):
-                  event_id = summary.get('id')
-                  if event_id is None:
-                      return index, summary, None
-                  url = f"{BASE}/event/{event_id}?compact=true"
-                  try:
-                      return index, get_json(url, timeout=10, attempts=1), None
-                  except Exception as exc:
-                      cached = old_events.get(str(event_id))
-                      if cached is not None:
-                          return index, cached, {
-                              'event_id': event_id,
-                              'detail': repr(exc),
-                              'reused_previous': True,
-                          }
-                      return index, summary, {
-                          'event_id': event_id,
-                          'detail': repr(exc),
-                          'reused_previous': False,
-                      }
-
-              workers = min(8, max(1, len(summaries)))
-              with ThreadPoolExecutor(max_workers=workers) as pool:
-                  futures = [pool.submit(fetch_one, i, summary) for i, summary in enumerate(summaries)]
-                  for future in as_completed(futures):
-                      index, event, error = future.result()
-                      details[index] = event
-                      if error:
-                          errors.append({'stage': 'detail', **error})
-                          if error['reused_previous']:
-                              stale_event_ids.append(error['event_id'])
-
-              details = [event for event in details if event is not None]
-              details.sort(key=lambda event: event.get('date_warsaw') or event.get('date') or '')
-              discovery_meta = {key: value for key, value in discovery.items() if key != 'events'}
-
-              return {
-                  'sport': name,
-                  'stale': False,
-                  'event_count': len(details),
-                  'stale_event_ids': stale_event_ids,
-                  'discovery': discovery_meta,
-                  'errors': errors,
-                  'events': details,
-              }
-
-          sport_jobs = {
-              'football': '/today?sport=football&scope=curated',
-              'tennis': '/today?sport=tennis',
-          }
-          sports = {}
-          with ThreadPoolExecutor(max_workers=2) as pool:
-              futures = {
-                  pool.submit(refresh_sport, name, path): name
-                  for name, path in sport_jobs.items()
-              }
-              for future in as_completed(futures):
-                  name = futures[future]
-                  sports[name] = future.result()
-
-          if all(sport.get('stale') and not sport.get('events') for sport in sports.values()):
-              raise RuntimeError(
-                  'Bridge unavailable and no usable same-day snapshot exists; '
-                  'keeping previous file unchanged'
-              )
-
-          out = {
-              'schema_version': 2,
-              'generated_at_warsaw': datetime.now(WARSAW).isoformat(),
-              'date_warsaw': today,
-              'bridge': BASE,
-              'sports': {
-                  'football': sports['football'],
-                  'tennis': sports['tennis'],
-              },
-          }
-
-          Path('snapshots').mkdir(exist_ok=True)
-          snapshot_path.write_text(
-              json.dumps(out, ensure_ascii=False, indent=2),
-              encoding='utf-8',
-          )
+          required = [
+              Path('snapshots/latest.json'),
+              Path('snapshots/status.json'),
+              Path('snapshots/mycombi.json'),
+              Path('snapshots/mycombi_quotes.json'),
+          ]
+          for path in required:
+              data = json.loads(path.read_text(encoding='utf-8'))
+              if not isinstance(data, dict):
+                  raise SystemExit(f'{path}: expected JSON object')
+          status = json.loads(Path('snapshots/status.json').read_text(encoding='utf-8'))
+          if status.get('ok') is not True:
+              raise SystemExit(f"snapshot status is not healthy: {status}")
+          print(json.dumps(status, ensure_ascii=False))
           PY
 
-      - name: Commit snapshot
+      - name: Commit refreshed data
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add snapshots/latest.json
-          git diff --cached --quiet || git commit -m "Refresh Betclic daily snapshot"
-          git push
+          git add -A -- snapshots
+          if git diff --cached --quiet; then
+            echo "No snapshot changes to commit"
+            exit 0
+          fi
+          git commit -m "Refresh Betclic direct snapshot"
+          git pull --rebase origin main
+          git push origin main
