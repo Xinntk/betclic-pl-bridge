@@ -8,6 +8,8 @@ on:
       - '.github/workflows/refresh-mycombi.yml'
       - 'mycombi_refresh.py'
       - 'snapshot_refresh.py'
+      - 'snapshot_resilience.py'
+      - 'test_snapshot_resilience.py'
       - 'mycombi.py'
       - 'requirements.txt'
 
@@ -26,6 +28,7 @@ jobs:
       PYTHONUNBUFFERED: '1'
       SNAPSHOT_MYCOMBI_ATTEMPTS: '2'
       MYCOMBI_REFRESH_SECONDS: '900'
+      MYCOMBI_FALLBACK_MAX_AGE_SECONDS: '5400'
       MAX_MYCOMBI_INSPECT_REQUESTS: '10'
       MAX_MYCOMBI_QUOTE_REQUESTS: '40'
 
@@ -43,7 +46,11 @@ jobs:
           cache: pip
 
       - name: Install dependencies
-        run: python -m pip install --disable-pip-version-check -r requirements.txt
+        run: python -m pip install --disable-pip-version-check -r requirements.txt pytest==9.1.1
+
+      - name: Run resilience unit tests
+        if: github.event_name != 'workflow_dispatch'
+        run: python -m pytest -q test_snapshot_resilience.py
 
       - name: Refresh requested MyCombi data
         run: python mycombi_refresh.py
@@ -54,7 +61,7 @@ jobs:
           import json
           from pathlib import Path
 
-          for name in ('mycombi.json', 'mycombi_quotes.json', 'mycombi_status.json'):
+          for name in ('mycombi.json', 'mycombi_quotes.json', 'mycombi_status.json', 'mycombi_last_good_quotes.json'):
               data = json.loads((Path('snapshots') / name).read_text(encoding='utf-8'))
               if not isinstance(data, dict):
                   raise SystemExit(f'{name}: expected JSON object')
@@ -69,7 +76,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p /tmp/betclic-mycombi
-          for file in mycombi.json mycombi_quotes.json mycombi_status.json; do
+          for file in mycombi.json mycombi_quotes.json mycombi_status.json mycombi_last_good_quotes.json; do
             if [ -f "snapshots/$file" ]; then
               cp "snapshots/$file" "/tmp/betclic-mycombi/$file"
             fi
@@ -88,7 +95,7 @@ jobs:
               [ -e "$file" ] || continue
               cp "$file" snapshots/
             done
-            git add -A -- snapshots/mycombi.json snapshots/mycombi_quotes.json snapshots/mycombi_status.json
+            git add -A -- snapshots/mycombi.json snapshots/mycombi_quotes.json snapshots/mycombi_status.json snapshots/mycombi_last_good_quotes.json
             if git diff --cached --quiet; then
               echo "No MyCombi changes to publish"
               exit 0
