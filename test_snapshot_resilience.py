@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from datetime import datetime, timedelta
 
+import mycombi_refresh
 import snapshot_resilience as resilience
 
 
@@ -179,3 +180,40 @@ def test_old_quote_is_not_used_as_fallback():
     assert fallback_count == 0
     assert output["results"][0]["valid"] is False
     assert cache_output["results"] == []
+
+
+def test_live_quote_failure_keeps_exact_combination_identity(monkeypatch):
+    request = {
+        "request_id": "quote-failure",
+        "action": "quote",
+        "event_id": 123,
+        "label": "A + over 1.5",
+        "selections": [
+            {"market_id": 10, "selection_id": 101},
+            {"market_id": 20, "selection_id": 202},
+        ],
+    }
+
+    monkeypatch.setattr(mycombi_refresh.core, "raw_requests", lambda: [request])
+    monkeypatch.setattr(mycombi_refresh.core, "request_action", lambda item: "quote")
+    monkeypatch.setattr(mycombi_refresh.core, "normalize_quote_request", lambda item: dict(request))
+    monkeypatch.setattr(mycombi_refresh.core, "_client", lambda timeout=None: object())
+    monkeypatch.setattr(
+        mycombi_refresh.core,
+        "quote_mycombi",
+        lambda *args, **kwargs: (_ for _ in ()).throw(RuntimeError("temporary upstream failure")),
+    )
+    monkeypatch.setattr(
+        mycombi_refresh.core,
+        "retry",
+        lambda label, fn, attempts: fn(),
+    )
+    monkeypatch.setattr(mycombi_refresh.core, "atomic_write_json", lambda *args, **kwargs: None)
+
+    payload = mycombi_refresh.refresh_quotes_with_identity("2026-09-05", {123})
+    result = payload["results"][0]
+    assert result["valid"] is False
+    assert result["event_id"] == 123
+    assert result["selections"] == request["selections"]
+    assert result["label"] == request["label"]
+    assert result["errors"][0]["code"] == "REQUEST_OR_UPSTREAM_ERROR"
