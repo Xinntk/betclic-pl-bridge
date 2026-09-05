@@ -2,7 +2,10 @@ name: Refresh Betclic daily odds
 
 on:
   schedule:
-    - cron: '*/10 * * * *'
+    # GitHub scheduled workflows can occasionally be delayed or skipped.
+    # Use a 5-minute staggered heartbeat, but only do the expensive Betclic
+    # refresh when the latest healthy snapshot is at least 8 minutes old.
+    - cron: '3,8,13,18,23,28,33,38,43,48,53,58 * * * *'
   workflow_dispatch:
   push:
     paths:
@@ -39,6 +42,7 @@ jobs:
       SNAPSHOT_DISCOVERY_ATTEMPTS: '2'
       SNAPSHOT_FALLBACK_MAX_AGE_SECONDS: '5400'
       SNAPSHOT_EVENT_GRACE_AFTER_START_SECONDS: '1800'
+      SNAPSHOT_REFRESH_DUE_SECONDS: '480'
 
     steps:
       - name: Checkout latest main
@@ -47,23 +51,80 @@ jobs:
           ref: main
           fetch-depth: 2
 
+      - name: Decide whether a full refresh is due
+        id: gate
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          def emit(value: bool, reason: str) -> None:
+              print(f"run_refresh={'true' if value else 'false'}")
+              print(f"reason={reason}")
+              with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as fh:
+                  fh.write(f"run_refresh={'true' if value else 'false'}\n")
+                  fh.write(f"reason={reason}\n")
+
+          event_name = os.environ.get('GITHUB_EVENT_NAME', '')
+          if event_name != 'schedule':
+              emit(True, f"{event_name or 'manual'} event always refreshes")
+              raise SystemExit
+
+          status_path = Path('snapshots/status.json')
+          try:
+              status = json.loads(status_path.read_text(encoding='utf-8'))
+          except Exception as exc:
+              emit(True, f"status unavailable: {type(exc).__name__}")
+              raise SystemExit
+
+          if status.get('ok') is not True:
+              emit(True, 'last snapshot is unhealthy')
+              raise SystemExit
+
+          raw = status.get('last_attempt_at_warsaw')
+          try:
+              stamp = datetime.fromisoformat(str(raw).replace('Z', '+00:00'))
+              if stamp.tzinfo is None:
+                  raise ValueError('timestamp has no timezone')
+              age = (datetime.now(timezone.utc) - stamp.astimezone(timezone.utc)).total_seconds()
+          except Exception as exc:
+              emit(True, f"invalid snapshot timestamp: {type(exc).__name__}")
+              raise SystemExit
+
+          due = float(os.environ.get('SNAPSHOT_REFRESH_DUE_SECONDS', '480'))
+          if age >= due:
+              emit(True, f"snapshot age {age:.0f}s >= {due:.0f}s")
+          else:
+              emit(False, f"snapshot still fresh: {age:.0f}s < {due:.0f}s")
+          PY
+
+      - name: Show scheduler decision
+        run: echo "${{ steps.gate.outputs.reason }}"
+
       - name: Set up Python
+        if: steps.gate.outputs.run_refresh == 'true'
         uses: actions/setup-python@v6
         with:
           python-version: '3.12'
           cache: pip
 
       - name: Install dependencies
+        if: steps.gate.outputs.run_refresh == 'true'
         run: python -m pip install --disable-pip-version-check -r requirements.txt pytest==9.1.1
 
       - name: Run snapshot unit tests
-        if: github.event_name != 'schedule'
+        if: steps.gate.outputs.run_refresh == 'true' && github.event_name != 'schedule'
         run: python -m pytest -q test_snapshot_refresh.py test_snapshot_resilience.py
 
       - name: Refresh odds directly from Betclic
+        if: steps.gate.outputs.run_refresh == 'true'
         run: python odds_refresh.py
 
       - name: Validate generated files
+        if: steps.gate.outputs.run_refresh == 'true'
         run: |
           python - <<'PY'
           import json
@@ -83,7 +144,7 @@ jobs:
           PY
 
       - name: Publish rolling odds snapshot safely
-        if: always()
+        if: always() && steps.gate.outputs.run_refresh == 'true'
         run: |
           set -euo pipefail
           mkdir -p /tmp/betclic-odds
