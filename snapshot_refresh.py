@@ -21,12 +21,12 @@ MYCOMBI_REQUESTS_PATH = Path(os.getenv("MYCOMBI_REQUESTS_PATH", "snapshots/mycom
 MYCOMBI_QUOTES_PATH = Path(os.getenv("MYCOMBI_QUOTES_PATH", "snapshots/mycombi_quotes.json"))
 
 EVENT_WORKERS = max(1, int(os.getenv("SNAPSHOT_EVENT_WORKERS", "10")))
-MYCOMBI_WORKERS = max(1, int(os.getenv("SNAPSHOT_MYCOMBI_WORKERS", "6")))
 EVENT_ATTEMPTS = max(1, int(os.getenv("SNAPSHOT_EVENT_ATTEMPTS", "2")))
 DISCOVERY_ATTEMPTS = max(1, int(os.getenv("SNAPSHOT_DISCOVERY_ATTEMPTS", "2")))
 MYCOMBI_ATTEMPTS = max(1, int(os.getenv("SNAPSHOT_MYCOMBI_ATTEMPTS", "2")))
 MYCOMBI_REFRESH_SECONDS = max(300, int(os.getenv("MYCOMBI_REFRESH_SECONDS", "900")))
 MAX_QUOTE_REQUESTS = max(1, int(os.getenv("MAX_MYCOMBI_QUOTE_REQUESTS", "40")))
+MAX_INSPECT_REQUESTS = max(1, int(os.getenv("MAX_MYCOMBI_INSPECT_REQUESTS", "10")))
 
 
 class SnapshotUnavailable(RuntimeError):
@@ -66,7 +66,7 @@ def retry(label: str, fn: Callable[[], Any], attempts: int) -> Any:
     for attempt in range(1, attempts + 1):
         try:
             return fn()
-        except Exception as exc:  # upstream libraries raise several exception types
+        except Exception as exc:
             last = exc
             if attempt < attempts:
                 time.sleep(min(3.0, 0.6 * (2 ** (attempt - 1))) + random.random() * 0.25)
@@ -107,10 +107,9 @@ def direct_event_detail(event_id: int) -> dict[str, Any]:
 
 
 def discover_sport(sport: str) -> tuple[list[Any], dict[str, Any]]:
-    scope = "curated" if sport == "football" else "curated"
     return retry(
         f"{sport} discovery",
-        lambda: _fetch_today(sport, 0, scope=scope),
+        lambda: _fetch_today(sport, 0, scope="curated"),
         DISCOVERY_ATTEMPTS,
     )
 
@@ -207,75 +206,27 @@ def direct_mycombi(event_id: int) -> dict[str, Any]:
     )
 
 
-def refresh_mycombi(football_events: list[dict[str, Any]], today: str) -> dict[str, Any]:
-    now = now_warsaw()
-    previous_all = previous_today(load_json(MYCOMBI_PATH, {}), today)
-    old_by_id = {
-        str(item.get("event_id")): item
-        for item in previous_all.get("events", [])
-        if isinstance(item, dict) and item.get("event_id") is not None
+def request_action(item: Any) -> str:
+    if not isinstance(item, dict):
+        return "invalid"
+    return str(item.get("action") or "quote").strip().casefold()
+
+
+def normalize_inspect_request(item: Any) -> dict[str, Any]:
+    if not isinstance(item, dict):
+        raise ValueError("request must be an object")
+    request_id = str(item.get("request_id") or "").strip()
+    if not request_id or len(request_id) > 120:
+        raise ValueError("request_id is required and must be <= 120 characters")
+    event_id = int(item.get("event_id"))
+    if event_id <= 0:
+        raise ValueError("event_id must be positive")
+    return {
+        "request_id": request_id,
+        "action": "inspect",
+        "event_id": event_id,
+        "label": str(item.get("label") or "")[:240],
     }
-    event_ids = [int(event["id"]) for event in football_events if event.get("id") is not None]
-    output: dict[int, dict[str, Any]] = {}
-    errors: list[dict[str, Any]] = []
-
-    def one(event_id: int):
-        old = old_by_id.get(str(event_id))
-        if not should_refresh_mycombi(old, now):
-            item = copy.deepcopy(old)
-            item["cached"] = True
-            item["stale"] = False
-            return event_id, item, None
-        try:
-            data = direct_mycombi(event_id)
-            return event_id, {
-                "event_id": str(event_id),
-                "fetched_at_warsaw": now_warsaw().isoformat(),
-                "cached": False,
-                "stale": False,
-                **data,
-            }, None
-        except Exception as exc:
-            if old:
-                item = copy.deepcopy(old)
-                item["cached"] = True
-                item["stale"] = True
-                return event_id, item, {"event_id": event_id, "detail": str(exc), "reused_previous": True}
-            return event_id, {
-                "event_id": str(event_id),
-                "fetched_at_warsaw": now_warsaw().isoformat(),
-                "cached": False,
-                "stale": True,
-                "available": False,
-                "markets": [],
-                "odds": None,
-                "errors": [{"code": "UPSTREAM_ERROR", "detail": str(exc)}],
-            }, {"event_id": event_id, "detail": str(exc), "reused_previous": False}
-
-    workers = min(MYCOMBI_WORKERS, max(1, len(event_ids)))
-    with ThreadPoolExecutor(max_workers=workers) as pool:
-        futures = [pool.submit(one, event_id) for event_id in event_ids]
-        for future in as_completed(futures):
-            event_id, item, error = future.result()
-            output[event_id] = item
-            if error:
-                errors.append(error)
-
-    items = [output[event_id] for event_id in event_ids if event_id in output]
-    available_count = sum(bool(item.get("available")) for item in items)
-    payload = {
-        "schema_version": 1,
-        "source": "direct_betclic_mycombi",
-        "date_warsaw": today,
-        "generated_at_warsaw": now_warsaw().isoformat(),
-        "refresh_interval_seconds": MYCOMBI_REFRESH_SECONDS,
-        "event_count": len(items),
-        "available_count": available_count,
-        "errors": errors,
-        "events": items,
-    }
-    atomic_write_json(MYCOMBI_PATH, payload)
-    return payload
 
 
 def normalize_quote_request(item: Any) -> dict[str, Any]:
@@ -305,25 +256,110 @@ def normalize_quote_request(item: Any) -> dict[str, Any]:
         normalized.append({"market_id": market_id, "selection_id": selection_id})
     return {
         "request_id": request_id,
+        "action": "quote",
         "event_id": event_id,
         "label": str(item.get("label") or "")[:240],
         "selections": normalized,
     }
 
 
-def refresh_quotes(today: str) -> dict[str, Any]:
+def raw_requests() -> list[Any]:
     raw = load_json(MYCOMBI_REQUESTS_PATH, {"requests": []})
-    requests = raw.get("requests", []) if isinstance(raw, dict) else []
-    requests = requests[:MAX_QUOTE_REQUESTS]
+    return raw.get("requests", []) if isinstance(raw, dict) and isinstance(raw.get("requests", []), list) else []
+
+
+def refresh_mycombi(today: str, football_event_ids: set[int]) -> dict[str, Any]:
+    now = now_warsaw()
+    previous_all = previous_today(load_json(MYCOMBI_PATH, {}), today)
+    old_by_id = {
+        str(item.get("event_id")): item
+        for item in previous_all.get("results", [])
+        if isinstance(item, dict) and item.get("event_id") is not None
+    }
+    inspect_requests = [item for item in raw_requests() if request_action(item) == "inspect"][:MAX_INSPECT_REQUESTS]
+    results: list[dict[str, Any]] = []
+    errors: list[dict[str, Any]] = []
+    seen_request_ids: set[str] = set()
+
+    for raw_request in inspect_requests:
+        try:
+            request = normalize_inspect_request(raw_request)
+            if request["request_id"] in seen_request_ids:
+                raise ValueError("duplicate request_id")
+            seen_request_ids.add(request["request_id"])
+            if request["event_id"] not in football_event_ids:
+                raise ValueError("event_id is not in today's football snapshot")
+
+            old = old_by_id.get(str(request["event_id"]))
+            if old and not should_refresh_mycombi(old, now):
+                results.append({**copy.deepcopy(old), **request, "cached": True, "stale": False})
+                continue
+
+            try:
+                data = direct_mycombi(request["event_id"])
+                results.append({
+                    **request,
+                    "fetched_at_warsaw": now_warsaw().isoformat(),
+                    "cached": False,
+                    "stale": False,
+                    **data,
+                })
+            except Exception as exc:
+                if old:
+                    results.append({**copy.deepcopy(old), **request, "cached": True, "stale": True})
+                    errors.append({"request_id": request["request_id"], "event_id": request["event_id"], "detail": str(exc), "reused_previous": True})
+                else:
+                    results.append({
+                        **request,
+                        "fetched_at_warsaw": now_warsaw().isoformat(),
+                        "cached": False,
+                        "stale": True,
+                        "available": False,
+                        "markets": [],
+                        "odds": None,
+                        "errors": [{"code": "UPSTREAM_ERROR", "detail": str(exc)}],
+                    })
+                    errors.append({"request_id": request["request_id"], "event_id": request["event_id"], "detail": str(exc), "reused_previous": False})
+        except Exception as exc:
+            request_id = str(raw_request.get("request_id") if isinstance(raw_request, dict) else "")
+            results.append({
+                "request_id": request_id,
+                "action": "inspect",
+                "valid": False,
+                "available": False,
+                "markets": [],
+                "errors": [{"code": "INVALID_REQUEST", "detail": str(exc)}],
+            })
+            errors.append({"request_id": request_id, "detail": str(exc), "reused_previous": False})
+
+    payload = {
+        "schema_version": 2,
+        "source": "direct_betclic_mycombi_on_demand",
+        "date_warsaw": today,
+        "generated_at_warsaw": now_warsaw().isoformat(),
+        "refresh_interval_seconds": MYCOMBI_REFRESH_SECONDS,
+        "request_count": len(inspect_requests),
+        "available_count": sum(bool(item.get("available")) for item in results),
+        "errors": errors,
+        "results": results,
+    }
+    atomic_write_json(MYCOMBI_PATH, payload)
+    return payload
+
+
+def refresh_quotes(today: str, football_event_ids: set[int]) -> dict[str, Any]:
+    quote_requests = [item for item in raw_requests() if request_action(item) == "quote"][:MAX_QUOTE_REQUESTS]
     results = []
     seen_request_ids = set()
 
-    for raw_request in requests:
+    for raw_request in quote_requests:
         try:
             request = normalize_quote_request(raw_request)
             if request["request_id"] in seen_request_ids:
                 raise ValueError("duplicate request_id")
             seen_request_ids.add(request["request_id"])
+            if request["event_id"] not in football_event_ids:
+                raise ValueError("event_id is not in today's football snapshot")
             quote = retry(
                 f"MyCombi quote {request['request_id']}",
                 lambda req=request: quote_mycombi(
@@ -335,6 +371,7 @@ def refresh_quotes(today: str) -> dict[str, Any]:
         except Exception as exc:
             results.append({
                 "request_id": str(raw_request.get("request_id") if isinstance(raw_request, dict) else ""),
+                "action": "quote",
                 "quoted_at_warsaw": now_warsaw().isoformat(),
                 "valid": False,
                 "odds": None,
@@ -342,11 +379,11 @@ def refresh_quotes(today: str) -> dict[str, Any]:
             })
 
     payload = {
-        "schema_version": 1,
+        "schema_version": 2,
         "source": "direct_betclic_mycombi_quote",
         "date_warsaw": today,
         "generated_at_warsaw": now_warsaw().isoformat(),
-        "request_count": len(requests),
+        "request_count": len(quote_requests),
         "results": results,
     }
     atomic_write_json(MYCOMBI_QUOTES_PATH, payload)
@@ -424,14 +461,19 @@ def build_snapshot() -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
     validate_snapshot(snapshot, today)
     atomic_write_json(SNAPSHOT_PATH, snapshot)
 
-    mycombi = refresh_mycombi(sports["football"].get("events", []), today)
-    quotes = refresh_quotes(today)
+    football_event_ids = {
+        int(event["id"])
+        for event in sports["football"].get("events", [])
+        if event.get("id") is not None
+    }
+    mycombi = refresh_mycombi(today, football_event_ids)
+    quotes = refresh_quotes(today, football_event_ids)
 
     error_count = sum(len(payload.get("errors", [])) for payload in sports.values()) + len(mycombi.get("errors", []))
     stale_count = sum(len(payload.get("stale_event_ids", [])) for payload in sports.values())
     summary_only_count = sum(len(payload.get("summary_only_event_ids", [])) for payload in sports.values())
     status = {
-        "schema_version": 1,
+        "schema_version": 2,
         "ok": True,
         "degraded": bool(failures or error_count or stale_count or summary_only_count),
         "source": "direct_betclic",
@@ -441,7 +483,7 @@ def build_snapshot() -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
         "event_counts": {sport: payload.get("event_count", len(payload.get("events", []))) for sport, payload in sports.items()},
         "stale_event_count": stale_count,
         "summary_only_event_count": summary_only_count,
-        "mycombi_event_count": mycombi.get("event_count", 0),
+        "mycombi_inspect_request_count": mycombi.get("request_count", 0),
         "mycombi_available_count": mycombi.get("available_count", 0),
         "quote_request_count": quotes.get("request_count", 0),
         "error_count": error_count,
@@ -460,14 +502,14 @@ def main() -> int:
             "date": snapshot["date_warsaw"],
             "football": snapshot["sports"]["football"]["event_count"],
             "tennis": snapshot["sports"]["tennis"]["event_count"],
-            "mycombi": mycombi["available_count"],
+            "mycombi_inspect": mycombi["request_count"],
             "quotes": quotes["request_count"],
             "seconds": round(time.monotonic() - started, 2),
         }, ensure_ascii=False))
         return 0
     except Exception as exc:
         status = {
-            "schema_version": 1,
+            "schema_version": 2,
             "ok": False,
             "degraded": True,
             "source": "direct_betclic",
