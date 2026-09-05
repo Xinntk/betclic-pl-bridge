@@ -21,7 +21,7 @@ permissions:
 
 concurrency:
   group: betclic-daily-snapshot
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   refresh:
@@ -34,7 +34,6 @@ jobs:
       TODAY_FOOTBALL_WORKERS: '6'
       TODAY_TENNIS_WORKERS: '6'
       SNAPSHOT_EVENT_WORKERS: '10'
-      SNAPSHOT_MYCOMBI_WORKERS: '6'
       SNAPSHOT_EVENT_ATTEMPTS: '2'
       SNAPSHOT_DISCOVERY_ATTEMPTS: '2'
       SNAPSHOT_MYCOMBI_ATTEMPTS: '2'
@@ -53,7 +52,7 @@ jobs:
           cache: pip
 
       - name: Install dependencies
-        run: python -m pip install --disable-pip-version-check -r requirements.txt pytest
+        run: python -m pip install --disable-pip-version-check -r requirements.txt pytest==9.1.1
 
       - name: Run snapshot unit tests
         if: github.event_name != 'schedule'
