@@ -9,7 +9,9 @@ on:
       - '.github/workflows/refresh-bridge-snapshot.yml'
       - 'odds_refresh.py'
       - 'snapshot_refresh.py'
+      - 'snapshot_resilience.py'
       - 'test_snapshot_refresh.py'
+      - 'test_snapshot_resilience.py'
       - 'app.py'
       - 'football_scope.py'
       - 'tennis_competitions.py'
@@ -35,6 +37,8 @@ jobs:
       SNAPSHOT_EVENT_WORKERS: '10'
       SNAPSHOT_EVENT_ATTEMPTS: '2'
       SNAPSHOT_DISCOVERY_ATTEMPTS: '2'
+      SNAPSHOT_FALLBACK_MAX_AGE_SECONDS: '5400'
+      SNAPSHOT_EVENT_GRACE_AFTER_START_SECONDS: '1800'
 
     steps:
       - name: Checkout latest main
@@ -54,7 +58,7 @@ jobs:
 
       - name: Run snapshot unit tests
         if: github.event_name != 'schedule'
-        run: python -m pytest -q test_snapshot_refresh.py
+        run: python -m pytest -q test_snapshot_refresh.py test_snapshot_resilience.py
 
       - name: Refresh odds directly from Betclic
         run: python odds_refresh.py
@@ -71,6 +75,10 @@ jobs:
               raise SystemExit('latest snapshot is not direct_betclic')
           if status.get('ok') is not True:
               raise SystemExit(f"snapshot status is not healthy: {status}")
+          for sport in ('football', 'tennis'):
+              for event in latest.get('sports', {}).get(sport, {}).get('events', []):
+                  if not event.get('id') or not event.get('name'):
+                      raise SystemExit(f"malformed event leaked into {sport} snapshot: {event}")
           print(json.dumps(status, ensure_ascii=False))
           PY
 
