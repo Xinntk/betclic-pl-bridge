@@ -1,0 +1,158 @@
+name: Betclic snapshot watchdog
+
+on:
+  schedule:
+    # Independent recovery heartbeat. It is offset from the primary workflow
+    # and only performs a full refresh when the last good attempt is stale.
+    - cron: '1,6,11,16,21,26,31,36,41,46,51,56 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: betclic-daily-odds
+  cancel-in-progress: false
+
+jobs:
+  recover-if-stale:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      PYTHONUNBUFFERED: '1'
+      TODAY_FOOTBALL_TIMEOUT: '7'
+      TODAY_TENNIS_TIMEOUT: '7'
+      TODAY_FOOTBALL_WORKERS: '6'
+      TODAY_TENNIS_WORKERS: '6'
+      SNAPSHOT_EVENT_WORKERS: '10'
+      SNAPSHOT_EVENT_ATTEMPTS: '2'
+      SNAPSHOT_DISCOVERY_ATTEMPTS: '2'
+      SNAPSHOT_FALLBACK_MAX_AGE_SECONDS: '5400'
+      SNAPSHOT_EVENT_GRACE_AFTER_START_SECONDS: '1800'
+      WATCHDOG_STALE_SECONDS: '420'
+
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 2
+
+      - name: Check snapshot age
+        id: gate
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          def emit(run: bool, reason: str) -> None:
+              print(reason)
+              with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as fh:
+                  fh.write(f"run_refresh={'true' if run else 'false'}\n")
+                  fh.write(f"reason={reason}\n")
+
+          if os.environ.get('GITHUB_EVENT_NAME') != 'schedule':
+              emit(True, 'manual watchdog run')
+              raise SystemExit
+
+          try:
+              status = json.loads(Path('snapshots/status.json').read_text(encoding='utf-8'))
+          except Exception as exc:
+              emit(True, f'status unavailable: {type(exc).__name__}')
+              raise SystemExit
+
+          if status.get('ok') is not True:
+              emit(True, 'snapshot unhealthy')
+              raise SystemExit
+
+          try:
+              raw = status['last_attempt_at_warsaw']
+              stamp = datetime.fromisoformat(str(raw).replace('Z', '+00:00'))
+              if stamp.tzinfo is None:
+                  raise ValueError('timestamp has no timezone')
+              age = (datetime.now(timezone.utc) - stamp.astimezone(timezone.utc)).total_seconds()
+          except Exception as exc:
+              emit(True, f'invalid timestamp: {type(exc).__name__}')
+              raise SystemExit
+
+          limit = float(os.environ.get('WATCHDOG_STALE_SECONDS', '420'))
+          emit(age >= limit, f'snapshot age {age:.0f}s; watchdog threshold {limit:.0f}s')
+          PY
+
+      - name: Show watchdog decision
+        run: echo "${{ steps.gate.outputs.reason }}"
+
+      - name: Set up Python
+        if: steps.gate.outputs.run_refresh == 'true'
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        if: steps.gate.outputs.run_refresh == 'true'
+        run: python -m pip install --disable-pip-version-check -r requirements.txt
+
+      - name: Recover stale snapshot from Betclic
+        if: steps.gate.outputs.run_refresh == 'true'
+        run: python odds_refresh.py
+
+      - name: Validate recovery
+        if: steps.gate.outputs.run_refresh == 'true'
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          latest = json.loads(Path('snapshots/latest.json').read_text(encoding='utf-8'))
+          status = json.loads(Path('snapshots/status.json').read_text(encoding='utf-8'))
+          if latest.get('source') != 'direct_betclic':
+              raise SystemExit('latest snapshot is not direct_betclic')
+          if status.get('ok') is not True:
+              raise SystemExit(f'watchdog recovery unhealthy: {status}')
+          print(json.dumps(status, ensure_ascii=False))
+          PY
+
+      - name: Publish recovered snapshot safely
+        if: always() && steps.gate.outputs.run_refresh == 'true'
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/betclic-watchdog
+          for file in latest.json status.json; do
+            if [ -f "snapshots/$file" ]; then
+              cp "snapshots/$file" "/tmp/betclic-watchdog/$file"
+            fi
+          done
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git reset --hard origin/main
+
+            mkdir -p snapshots
+            for file in /tmp/betclic-watchdog/*; do
+              [ -e "$file" ] || continue
+              cp "$file" snapshots/
+            done
+            git add -A -- snapshots/latest.json snapshots/status.json
+            if git diff --cached --quiet; then
+              echo "No recovered snapshot changes to publish"
+              exit 0
+            fi
+
+            git commit -m "Recover stale Betclic snapshot"
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+
+            echo "Watchdog publish raced with another writer; retry $attempt/3"
+            sleep $((attempt * 2))
+          done
+
+          echo "Could not publish watchdog snapshot after 3 attempts"
+          exit 1
