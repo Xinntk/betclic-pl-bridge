@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "source": "direct_betclic",
-  "generated_at_warsaw": "2026-09-10T11:03:06.309039+02:00",
+  "generated_at_warsaw": "2026-09-10T12:05:03.024298+02:00",
   "date_warsaw": "2026-09-10",
   "fallback_max_age_seconds": 5400,
   "sports": {
@@ -10,7 +10,9 @@
       "source": "direct_betclic",
       "stale": false,
       "event_count": 16,
-      "stale_event_ids": [],
+      "stale_event_ids": [
+        1210872556978176
+      ],
       "summary_only_event_ids": [],
       "discovery": {
         "source": "competitions",
@@ -478,7 +480,20 @@
         "partial": false,
         "errors": []
       },
-      "errors": [],
+      "errors": [
+        {
+          "stage": "validation",
+          "detail": "dropped 1 malformed event row(s)",
+          "malformed_event_count": 1
+        },
+        {
+          "stage": "discovery_missing",
+          "event_id": 1210872556978176,
+          "detail": "event missing from current discovery; reused recent same-day snapshot",
+          "reused_previous": true,
+          "fallback_age_seconds": 3716.7
+        }
+      ],
       "events": [
         {
           "id": 1218935350398976,
@@ -505,15 +520,15 @@
               "selections": [
                 {
                   "name": "Asteras Tripoli",
-                  "odds": 2.9
+                  "odds": 3.32
                 },
                 {
                   "name": "Remis ",
-                  "odds": 3.27
+                  "odds": 3.32
                 },
                 {
                   "name": "Aris Thessaloniki",
-                  "odds": 2.33
+                  "odds": 2.1
                 }
               ]
             },
@@ -523,15 +538,15 @@
               "selections": [
                 {
                   "name": "Asteras Tripoli lub remis",
-                  "odds": 1.53
+                  "odds": 1.65
                 },
                 {
                   "name": "Asteras Tripoli lub Aris Thessaloniki",
-                  "odds": 1.29
+                  "odds": 1.28
                 },
                 {
                   "name": "Remis lub Aris Thessaloniki",
-                  "odds": 1.37
+                  "odds": 1.29
                 }
               ]
             },
@@ -549,39 +564,39 @@
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.26
+                  "odds": 1.27
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 3.5
+                  "odds": 3.4
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 1.84
-                },
-                {
-                  "name": "Poniżej 2,5",
                   "odds": 1.87
                 },
                 {
+                  "name": "Poniżej 2,5",
+                  "odds": 1.84
+                },
+                {
                   "name": "Powyżej 3,5",
-                  "odds": 3.0
+                  "odds": 3.08
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 1.34
+                  "odds": 1.32
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 5.4
+                  "odds": 5.6
                 },
                 {
                   "name": "Poniżej 4,5",
-                  "odds": 1.12
+                  "odds": 1.11
                 },
                 {
                   "name": "Powyżej 5,5",
-                  "odds": 9.0
+                  "odds": 9.25
                 },
                 {
                   "name": "Poniżej 5,5",
@@ -595,42 +610,34 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.31
+                  "odds": 1.37
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 3.12
+                  "odds": 2.78
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 2.43
+                  "odds": 2.7
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.45
+                  "odds": 1.37
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 6.4
+                  "odds": 7.75
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.1
+                  "odds": 1.07
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 8.75
+                  "odds": 9.25
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 1.01
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 10.0
-                },
-                {
-                  "name": "Poniżej 4,5",
                   "odds": 1.01
                 }
               ]
@@ -641,31 +648,31 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.24
+                  "odds": 1.21
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 3.65
+                  "odds": 3.93
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 2.15
+                  "odds": 2.03
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.58
+                  "odds": 1.65
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 5.0
+                  "odds": 4.55
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.15
+                  "odds": 1.17
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 8.0
+                  "odds": 7.5
                 },
                 {
                   "name": "Poniżej 3,5",
@@ -752,7 +759,7 @@
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 3.02
+                  "odds": 3.03
                 },
                 {
                   "name": "Powyżej 3,5",
@@ -786,7 +793,7 @@
               "selections": [
                 {
                   "name": "Sundby BK lub remis",
-                  "odds": 8.5
+                  "odds": 8.75
                 },
                 {
                   "name": "Sundby BK lub Midtjylland",
@@ -804,7 +811,7 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 2.7
+                  "odds": 2.73
                 },
                 {
                   "name": "Poniżej 0,5",
@@ -826,11 +833,11 @@
               "selections": [
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 1.42
+                  "odds": 1.41
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 2.42
+                  "odds": 2.43
                 },
                 {
                   "name": "Powyżej 3,5",
@@ -842,7 +849,7 @@
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 3.22
+                  "odds": 3.2
                 },
                 {
                   "name": "Poniżej 4,5",
@@ -1312,7 +1319,14 @@
                 }
               ]
             }
-          ]
+          ],
+          "_snapshot_meta": {
+            "stale": true,
+            "reason": "missing_from_discovery",
+            "stale_since_warsaw": "2026-09-10T11:03:06.309039+02:00",
+            "fallback_age_seconds": 3716.7,
+            "max_fallback_age_seconds": 5400
+          }
         },
         {
           "id": 1220748708450304,
@@ -1339,15 +1353,15 @@
               "selections": [
                 {
                   "name": "IFK Haninge",
-                  "odds": 18.75
+                  "odds": 21.0
                 },
                 {
                   "name": "Remis ",
-                  "odds": 9.0
+                  "odds": 9.25
                 },
                 {
                   "name": "Djurgardens",
-                  "odds": 1.05
+                  "odds": 1.04
                 }
               ]
             },
@@ -1371,43 +1385,43 @@
               "selections": [
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 1.11
+                  "odds": 1.1
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 5.1
+                  "odds": 5.25
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 1.33
+                  "odds": 1.3
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 2.88
+                  "odds": 3.0
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 1.75
+                  "odds": 1.69
                 },
                 {
                   "name": "Poniżej 4,5",
-                  "odds": 1.9
+                  "odds": 1.96
                 },
                 {
                   "name": "Powyżej 5,5",
-                  "odds": 2.5
+                  "odds": 2.4
                 },
                 {
                   "name": "Poniżej 5,5",
-                  "odds": 1.43
+                  "odds": 1.47
                 },
                 {
                   "name": "Powyżej 6,5",
-                  "odds": 3.78
+                  "odds": 3.6
                 },
                 {
                   "name": "Poniżej 6,5",
-                  "odds": 1.2
+                  "odds": 1.22
                 }
               ]
             },
@@ -1417,7 +1431,7 @@
               "selections": [
                 {
                   "name": "IFK Haninge lub remis",
-                  "odds": 7.75
+                  "odds": 8.5
                 },
                 {
                   "name": "Haninge lub Djurgardens",
@@ -1435,23 +1449,23 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.72
+                  "odds": 1.78
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 1.88
+                  "odds": 1.81
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 4.35
+                  "odds": 4.45
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.08
+                  "odds": 1.12
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 21.0
+                  "odds": 24.0
                 },
                 {
                   "name": "Poniżej 2,5",
@@ -1464,28 +1478,28 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.22
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 3.32
-                },
-                {
                   "name": "Powyżej 3,5",
-                  "odds": 1.59
+                  "odds": 1.53
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 2.05
+                  "odds": 2.15
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 2.28
+                  "odds": 2.15
                 },
                 {
                   "name": "Poniżej 4,5",
-                  "odds": 1.47
+                  "odds": 1.53
+                },
+                {
+                  "name": "Powyżej 5,5",
+                  "odds": 3.27
+                },
+                {
+                  "name": "Poniżej 5,5",
+                  "odds": 1.23
                 }
               ]
             }
@@ -1556,39 +1570,39 @@
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 8.25
+                  "odds": 8.5
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.17
+                  "odds": 1.16
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 4.1
+                  "odds": 4.2
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 1.58
+                  "odds": 1.56
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 2.15
+                  "odds": 2.18
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 2.38
+                  "odds": 2.35
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 1.47
+                  "odds": 1.49
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 4.0
+                  "odds": 3.93
                 },
                 {
                   "name": "Poniżej 4,5",
-                  "odds": 1.17
+                  "odds": 1.18
                 }
               ]
             },
@@ -1598,23 +1612,23 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.28
+                  "odds": 1.27
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 3.22
+                  "odds": 3.28
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 2.3
+                  "odds": 2.27
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.46
+                  "odds": 1.47
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 6.1
+                  "odds": 5.9
                 },
                 {
                   "name": "Poniżej 2,5",
@@ -1632,23 +1646,23 @@
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 4.85
+                  "odds": 4.95
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.74
+                  "odds": 1.72
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.83
+                  "odds": 1.85
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 3.5
+                  "odds": 3.45
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.24
+                  "odds": 1.25
                 }
               ]
             }
@@ -2005,7 +2019,7 @@
               "selections": [
                 {
                   "name": "GIF Sundsvall",
-                  "odds": 3.5
+                  "odds": 3.42
                 },
                 {
                   "name": "Remis ",
@@ -2013,7 +2027,7 @@
                 },
                 {
                   "name": "Orebro SK",
-                  "odds": 1.86
+                  "odds": 1.89
                 }
               ]
             },
@@ -2023,7 +2037,7 @@
               "selections": [
                 {
                   "name": "GIF Sundsvall lub remis",
-                  "odds": 1.76
+                  "odds": 1.73
                 },
                 {
                   "name": "GIF Sundsvall lub Orebro SK",
@@ -2031,7 +2045,7 @@
                 },
                 {
                   "name": "Remis lub Orebro SK",
-                  "odds": 1.24
+                  "odds": 1.25
                 }
               ]
             },
@@ -2045,39 +2059,39 @@
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 7.75
+                  "odds": 7.5
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.21
+                  "odds": 1.24
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 3.63
+                  "odds": 3.38
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 1.71
+                  "odds": 1.79
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.95
+                  "odds": 1.85
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 2.68
+                  "odds": 2.9
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 1.37
+                  "odds": 1.32
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 4.65
+                  "odds": 5.0
                 },
                 {
                   "name": "Poniżej 4,5",
-                  "odds": 1.13
+                  "odds": 1.11
                 }
               ]
             },
@@ -2087,27 +2101,27 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.35
+                  "odds": 1.38
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 2.78
+                  "odds": 2.68
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 2.63
+                  "odds": 2.73
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.35
+                  "odds": 1.33
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 8.0
+                  "odds": 8.5
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.07
+                  "odds": 1.06
                 }
               ]
             },
@@ -2117,27 +2131,27 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.16
+                  "odds": 1.18
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 4.6
+                  "odds": 4.25
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.8
+                  "odds": 1.88
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.77
+                  "odds": 1.7
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 3.73
+                  "odds": 4.1
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.22
+                  "odds": 1.19
                 }
               ]
             }
@@ -2516,7 +2530,7 @@
               "selections": [
                 {
                   "name": "Como",
-                  "odds": 1.75
+                  "odds": 1.77
                 },
                 {
                   "name": "Remis ",
@@ -2524,7 +2538,7 @@
                 },
                 {
                   "name": "RB Leipzig",
-                  "odds": 4.25
+                  "odds": 4.1
                 }
               ]
             },
@@ -2534,11 +2548,11 @@
               "selections": [
                 {
                   "name": "Como",
-                  "odds": 1.39
+                  "odds": 1.41
                 },
                 {
                   "name": "RB Leipzig",
-                  "odds": 3.22
+                  "odds": 3.1
                 }
               ]
             },
@@ -2548,7 +2562,7 @@
               "selections": [
                 {
                   "name": "Como lub remis",
-                  "odds": 1.24
+                  "odds": 1.25
                 },
                 {
                   "name": "Como lub RB Leipzig",
@@ -2556,7 +2570,7 @@
                 },
                 {
                   "name": "Remis lub RB Leipzig",
-                  "odds": 2.1
+                  "odds": 2.07
                 }
               ]
             },
@@ -2574,7 +2588,7 @@
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.14
+                  "odds": 1.13
                 },
                 {
                   "name": "Poniżej 1,5",
@@ -2582,35 +2596,35 @@
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 1.47
+                  "odds": 1.45
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 2.65
+                  "odds": 2.7
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 2.13
+                  "odds": 2.1
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 1.69
+                  "odds": 1.72
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 3.53
+                  "odds": 3.45
                 },
                 {
                   "name": "Poniżej 4,5",
-                  "odds": 1.29
+                  "odds": 1.3
                 },
                 {
                   "name": "Powyżej 5,5",
-                  "odds": 6.1
+                  "odds": 6.0
                 },
                 {
                   "name": "Poniżej 5,5",
-                  "odds": 1.11
+                  "odds": 1.12
                 }
               ]
             },
@@ -2680,31 +2694,31 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.33
+                  "odds": 1.31
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 3.28
+                  "odds": 3.4
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 2.52
+                  "odds": 2.45
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.51
+                  "odds": 1.54
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 6.5
+                  "odds": 6.1
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.12
+                  "odds": 1.13
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 12.5
+                  "odds": 12.0
                 },
                 {
                   "name": "Poniżej 3,5",
@@ -2797,43 +2811,43 @@
               "selections": [
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 1.27
+                  "odds": 1.26
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 3.68
+                  "odds": 3.73
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 1.68
+                  "odds": 1.67
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 2.15
+                  "odds": 2.18
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 2.5
+                  "odds": 2.45
                 },
                 {
                   "name": "Poniżej 4,5",
-                  "odds": 1.52
+                  "odds": 1.53
                 },
                 {
                   "name": "Powyżej 5,5",
-                  "odds": 4.05
+                  "odds": 3.98
                 },
                 {
                   "name": "Poniżej 5,5",
-                  "odds": 1.23
+                  "odds": 1.24
                 },
                 {
                   "name": "Powyżej 6,5",
-                  "odds": 6.9
+                  "odds": 6.75
                 },
                 {
                   "name": "Poniżej 6,5",
-                  "odds": 1.09
+                  "odds": 1.1
                 }
               ]
             },
@@ -2843,23 +2857,23 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.64
+                  "odds": 1.63
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 2.22
+                  "odds": 2.23
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 4.05
+                  "odds": 3.98
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.23
+                  "odds": 1.24
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 15.25
+                  "odds": 14.75
                 },
                 {
                   "name": "Poniżej 2,5",
@@ -2914,11 +2928,11 @@
                 },
                 {
                   "name": "Remis ",
-                  "odds": 3.47
+                  "odds": 3.58
                 },
                 {
                   "name": "RC Lens",
-                  "odds": 2.6
+                  "odds": 2.55
                 }
               ]
             },
@@ -2932,7 +2946,7 @@
                 },
                 {
                   "name": "RC Lens",
-                  "odds": 2.0
+                  "odds": 1.97
                 }
               ]
             },
@@ -2970,11 +2984,11 @@
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 1.52
+                  "odds": 1.51
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 4.4
+                  "odds": 4.45
                 },
                 {
                   "name": "Poniżej 4,5",
@@ -2982,7 +2996,7 @@
                 },
                 {
                   "name": "Powyżej 5,5",
-                  "odds": 7.75
+                  "odds": 8.0
                 },
                 {
                   "name": "Poniżej 5,5",
@@ -2996,11 +3010,11 @@
               "selections": [
                 {
                   "name": "Slavia Praga lub remis",
-                  "odds": 1.51
+                  "odds": 1.53
                 },
                 {
                   "name": "Slavia Praga lub Lens",
-                  "odds": 1.33
+                  "odds": 1.31
                 },
                 {
                   "name": "Remis lub RC Lens",
@@ -3028,27 +3042,27 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.23
+                  "odds": 1.24
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 4.15
+                  "odds": 4.1
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 2.1
+                  "odds": 2.12
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.71
+                  "odds": 1.7
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 4.65
+                  "odds": 4.7
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.2
+                  "odds": 1.19
                 },
                 {
                   "name": "Powyżej 3,5",
@@ -3056,7 +3070,7 @@
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 1.05
+                  "odds": 1.04
                 },
                 {
                   "name": "Powyżej 4,5",
@@ -3082,7 +3096,7 @@
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 2.08
+                  "odds": 2.07
                 },
                 {
                   "name": "Poniżej 1,5",
@@ -3090,7 +3104,7 @@
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 4.6
+                  "odds": 4.55
                 },
                 {
                   "name": "Poniżej 2,5",
@@ -3106,7 +3120,7 @@
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 15.25
+                  "odds": 15.0
                 },
                 {
                   "name": "Poniżej 4,5",
@@ -3376,47 +3390,47 @@
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 9.5
+                  "odds": 9.75
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.29
+                  "odds": 1.28
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 3.5
+                  "odds": 3.6
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 1.9
+                  "odds": 1.86
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.87
+                  "odds": 1.91
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 3.22
+                  "odds": 3.12
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 1.34
+                  "odds": 1.35
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 6.0
+                  "odds": 5.75
                 },
                 {
                   "name": "Poniżej 4,5",
-                  "odds": 1.12
+                  "odds": 1.13
                 },
                 {
                   "name": "Powyżej 5,5",
-                  "odds": 10.75
+                  "odds": 10.5
                 },
                 {
                   "name": "Poniżej 5,5",
-                  "odds": 1.03
+                  "odds": 1.04
                 }
               ]
             },
@@ -3440,31 +3454,31 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.65
+                  "odds": 1.63
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 2.2
+                  "odds": 2.23
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 4.1
+                  "odds": 4.0
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.22
+                  "odds": 1.23
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 15.5
+                  "odds": 15.0
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.03
+                  "odds": 1.04
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 16.25
+                  "odds": 16.0
                 },
                 {
                   "name": "Poniżej 3,5",
@@ -3482,27 +3496,27 @@
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 5.4
+                  "odds": 5.5
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.77
+                  "odds": 1.75
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 2.02
+                  "odds": 2.05
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 3.4
+                  "odds": 3.33
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.31
+                  "odds": 1.32
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 7.0
+                  "odds": 6.9
                 },
                 {
                   "name": "Poniżej 3,5",
@@ -3510,7 +3524,7 @@
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 13.0
+                  "odds": 12.75
                 },
                 {
                   "name": "Poniżej 4,5",
@@ -3527,7 +3541,7 @@
       "sport": "tennis",
       "source": "direct_betclic",
       "stale": false,
-      "event_count": 22,
+      "event_count": 17,
       "stale_event_ids": [],
       "summary_only_event_ids": [],
       "discovery": {
@@ -3550,561 +3564,10 @@
       "errors": [],
       "events": [
         {
-          "id": 1219960278904832,
-          "name": "Max Basing - Mert Alkaya",
-          "date": "2026-09-10T07:00:00.0000000Z",
-          "date_warsaw": "2026-09-10T09:00:00+02:00",
-          "competition": "Istanbul 3 Challenger",
-          "competition_id": 41040,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Max Basing",
-              "short": "M. Basing"
-            },
-            {
-              "name": "Mert Alkaya",
-              "short": "M. Alkaya"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Max Basing",
-                  "odds": 1.03
-                },
-                {
-                  "name": "Mert Alkaya",
-                  "odds": 6.25
-                }
-              ]
-            },
-            {
-              "name": "2. set - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Max Basing",
-                  "odds": 1.1
-                },
-                {
-                  "name": "Mert Alkaya",
-                  "odds": 4.2
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 1.1
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 8.5
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 7.0
-                }
-              ]
-            },
-            {
-              "name": "Mert Alkaya wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 4.2
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.1
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Max Basing (-1,5)",
-                  "odds": 1.12
-                },
-                {
-                  "name": "Mert Alkaya (+1.5)",
-                  "odds": 4.3
-                }
-              ]
-            },
-            {
-              "name": "Czy obaj zawodnicy wygrają seta w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 4.2
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.1
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1219865846255616,
-          "name": "Bernard Tomic - Ilya Ivashka",
-          "date": "2026-09-10T07:00:00.0000000Z",
-          "date_warsaw": "2026-09-10T09:00:00+02:00",
-          "competition": "Szanghaj Challenger",
-          "competition_id": 18024,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Bernard Tomic",
-              "short": "B. Tomic"
-            },
-            {
-              "name": "Ilya Ivashka",
-              "short": "I. Ivashka"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Bernard Tomic",
-                  "odds": 7.25
-                },
-                {
-                  "name": "Ilya Ivashka",
-                  "odds": 1.01
-                }
-              ]
-            },
-            {
-              "name": "3. set - Gem 7 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Bernard Tomic",
-                  "odds": 6.25
-                }
-              ]
-            },
-            {
-              "name": "3. set - Gem 8 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Bernard Tomic",
-                  "odds": 1.18
-                },
-                {
-                  "name": "Ilya Ivashka",
-                  "odds": 3.2
-                }
-              ]
-            },
-            {
-              "name": "3. set - Gem 7 - Punkt 4 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Bernard Tomic",
-                  "odds": 2.6
-                },
-                {
-                  "name": "Ilya Ivashka",
-                  "odds": 1.3
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1219883248418816,
-          "name": "Philip Sekulic - Koki Matsuda",
-          "date": "2026-09-10T08:25:00.0000000Z",
-          "date_warsaw": "2026-09-10T10:25:00+02:00",
-          "competition": "Phan Thiet 3 Challenger",
-          "competition_id": 41074,
-          "is_live": false,
-          "teams": [
-            {
-              "name": "Philip Sekulic",
-              "short": "P. Sekulic"
-            },
-            {
-              "name": "Koki Matsuda",
-              "short": "K. Matsuda"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Philip Sekulic",
-                  "odds": 1.72
-                },
-                {
-                  "name": "Koki Matsuda",
-                  "odds": 2.0
-                }
-              ]
-            },
-            {
-              "name": "3. set - Gem 12 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Philip Sekulic",
-                  "odds": 3.55
-                },
-                {
-                  "name": "Koki Matsuda",
-                  "odds": 1.15
-                }
-              ]
-            },
-            {
-              "name": "3. set - Gem 12 - Punkt 2 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Philip Sekulic",
-                  "odds": 2.3
-                },
-                {
-                  "name": "Koki Matsuda",
-                  "odds": 1.4
-                }
-              ]
-            },
-            {
-              "name": "3. set - Gem 12 - Punkt 3 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Philip Sekulic",
-                  "odds": 2.3
-                },
-                {
-                  "name": "Koki Matsuda",
-                  "odds": 1.4
-                }
-              ]
-            },
-            {
-              "name": "3. set - Gem 12 - Punkt 4 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Philip Sekulic",
-                  "odds": 2.3
-                },
-                {
-                  "name": "Koki Matsuda",
-                  "odds": 1.4
-                }
-              ]
-            },
-            {
-              "name": "3. set - Zwycięzca punktu 1 w tie-breaku",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Philip Sekulic",
-                  "odds": 1.53
-                },
-                {
-                  "name": "Koki Matsuda",
-                  "odds": 2.15
-                }
-              ]
-            },
-            {
-              "name": "3. set - Zwycięzca punktu 2 w tie-breaku",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Philip Sekulic",
-                  "odds": 2.4
-                },
-                {
-                  "name": "Koki Matsuda",
-                  "odds": 1.42
-                }
-              ]
-            },
-            {
-              "name": "3. set - Zwycięzca punktu 3 w tie-breaku",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Philip Sekulic",
-                  "odds": 2.4
-                },
-                {
-                  "name": "Koki Matsuda",
-                  "odds": 1.42
-                }
-              ]
-            },
-            {
-              "name": "3. set Tie Break - Liczba Punktów",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 10,5",
-                  "odds": 1.45
-                },
-                {
-                  "name": "Poniżej 10,5",
-                  "odds": 2.3
-                },
-                {
-                  "name": "Powyżej 11,5",
-                  "odds": 2.05
-                },
-                {
-                  "name": "Poniżej 11,5",
-                  "odds": 1.58
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1219161148649472,
-          "name": "Moez Echargui - Billy Harris",
-          "date": "2026-09-10T09:20:00.0000000Z",
-          "date_warsaw": "2026-09-10T11:20:00+02:00",
-          "competition": "Cassis Challenger",
-          "competition_id": 23564,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Moez Echargui",
-              "short": "M. Echargui"
-            },
-            {
-              "name": "Billy Harris",
-              "short": "B. Harris"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Moez Echargui",
-                  "odds": 1.9
-                },
-                {
-                  "name": "Billy Harris",
-                  "odds": 1.78
-                }
-              ]
-            },
-            {
-              "name": "Moez Echargui wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.37
-                },
-                {
-                  "name": "Nie",
-                  "odds": 2.7
-                }
-              ]
-            },
-            {
-              "name": "Billy Harris wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.32
-                },
-                {
-                  "name": "Nie",
-                  "odds": 2.95
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 3.0
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 2.75
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 4.4
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 4.2
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Moez Echargui (-1,5)",
-                  "odds": 3.0
-                },
-                {
-                  "name": "Billy Harris (+1.5)",
-                  "odds": 1.32
-                },
-                {
-                  "name": "Moez Echargui (+1,5)",
-                  "odds": 1.37
-                },
-                {
-                  "name": "Billy Harris (-1.5)",
-                  "odds": 2.75
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1219990414979072,
-          "name": "Nicolai Budkov Kjaer - Yanis Ghazouani Durand",
-          "date": "2026-09-10T09:20:00.0000000Z",
-          "date_warsaw": "2026-09-10T11:20:00+02:00",
-          "competition": "Cassis Challenger",
-          "competition_id": 23564,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Nicolai Budkov Kjaer",
-              "short": "N. Budkov Kjaer"
-            },
-            {
-              "name": "Yanis Ghazouani Durand",
-              "short": "Y. Ghazouani Durand"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Nicolai Budkov Kjaer",
-                  "odds": 1.16
-                },
-                {
-                  "name": "Yanis Ghazouani Durand",
-                  "odds": 4.4
-                }
-              ]
-            },
-            {
-              "name": "Nicolai Budkov Kjaer wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.05
-                },
-                {
-                  "name": "Nie",
-                  "odds": 6.6
-                }
-              ]
-            },
-            {
-              "name": "Yanis Ghazouani Durand wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 2.32
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.49
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 1.49
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 8.8
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 3.95
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 9.0
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Nicolai Budkov Kjaer (-1,5)",
-                  "odds": 1.49
-                },
-                {
-                  "name": "Yanis Ghazouani Durand (+1.5)",
-                  "odds": 2.32
-                },
-                {
-                  "name": "Nicolai Budkov Kjaer (+1,5)",
-                  "odds": 1.05
-                },
-                {
-                  "name": "Yanis Ghazouani Durand (-1.5)",
-                  "odds": 8.8
-                }
-              ]
-            }
-          ]
-        },
-        {
           "id": 1219984209485824,
           "name": "Yanki Erel - Radu Albot",
-          "date": "2026-09-10T09:20:00.0000000Z",
-          "date_warsaw": "2026-09-10T11:20:00+02:00",
+          "date": "2026-09-10T09:10:00.0000000Z",
+          "date_warsaw": "2026-09-10T11:10:00+02:00",
           "competition": "Istanbul 3 Challenger",
           "competition_id": 41040,
           "is_live": true,
@@ -4125,39 +3588,39 @@
               "selections": [
                 {
                   "name": "Yanki Erel",
-                  "odds": 1.49
+                  "odds": 1.16
                 },
                 {
                   "name": "Radu Albot",
-                  "odds": 2.39
+                  "odds": 3.8
                 }
               ]
             },
             {
-              "name": "Yanki Erel wygra seta",
+              "name": "1. set - Gem 10 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
-                  "name": "Tak",
-                  "odds": 1.2
+                  "name": "Yanki Erel",
+                  "odds": 1.02
                 },
                 {
-                  "name": "Nie",
-                  "odds": 3.7
+                  "name": "Radu Albot",
+                  "odds": 5.5
                 }
               ]
             },
             {
-              "name": "Radu Albot wygra seta",
+              "name": "1. set - Gem 11 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
-                  "name": "Tak",
-                  "odds": 1.57
+                  "name": "Yanki Erel",
+                  "odds": 2.4
                 },
                 {
-                  "name": "Nie",
-                  "odds": 2.16
+                  "name": "Radu Albot",
+                  "odds": 1.35
                 }
               ]
             },
@@ -4167,19 +3630,57 @@
               "selections": [
                 {
                   "name": "2 - 0",
-                  "odds": 2.16
+                  "odds": 1.37
                 },
                 {
                   "name": "0 - 2",
-                  "odds": 3.95
+                  "odds": 45.0
                 },
                 {
                   "name": "2 - 1",
-                  "odds": 3.95
+                  "odds": 4.1
                 },
                 {
                   "name": "1 - 2",
-                  "odds": 5.2
+                  "odds": 4.05
+                }
+              ]
+            },
+            {
+              "name": "1. set - Gem 10 - Punkt 4 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Yanki Erel",
+                  "odds": 1.45
+                },
+                {
+                  "name": "Radu Albot",
+                  "odds": 2.1
+                }
+              ]
+            },
+            {
+              "name": "Yanki Erel wygra seta",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Nie",
+                  "odds": 7.0
+                }
+              ]
+            },
+            {
+              "name": "Radu Albot wygra seta",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 2.3
+                },
+                {
+                  "name": "Nie",
+                  "odds": 1.42
                 }
               ]
             },
@@ -4189,19 +3690,146 @@
               "selections": [
                 {
                   "name": "Yanki Erel (-1,5)",
-                  "odds": 2.16
+                  "odds": 1.45
                 },
                 {
                   "name": "Radu Albot (+1.5)",
-                  "odds": 1.57
-                },
-                {
-                  "name": "Yanki Erel (+1,5)",
-                  "odds": 1.2
+                  "odds": 2.3
                 },
                 {
                   "name": "Radu Albot (-1.5)",
-                  "odds": 3.95
+                  "odds": 7.5
+                }
+              ]
+            },
+            {
+              "name": "Czy obaj zawodnicy wygrają seta w meczu",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 2.35
+                },
+                {
+                  "name": "Nie",
+                  "odds": 1.4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1219161148649472,
+          "name": "Moez Echargui - Billy Harris",
+          "date": "2026-09-10T09:15:00.0000000Z",
+          "date_warsaw": "2026-09-10T11:15:00+02:00",
+          "competition": "Cassis Challenger",
+          "competition_id": 23564,
+          "is_live": true,
+          "teams": [
+            {
+              "name": "Moez Echargui",
+              "short": "M. Echargui"
+            },
+            {
+              "name": "Billy Harris",
+              "short": "B. Harris"
+            }
+          ],
+          "markets": [
+            {
+              "name": "Zwycięzca meczu",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Moez Echargui",
+                  "odds": 3.35
+                },
+                {
+                  "name": "Billy Harris",
+                  "odds": 1.2
+                }
+              ]
+            },
+            {
+              "name": "1. set - Gem 10 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Moez Echargui",
+                  "odds": 3.0
+                },
+                {
+                  "name": "Billy Harris",
+                  "odds": 1.2
+                }
+              ]
+            },
+            {
+              "name": "Wynik w setach",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "2 - 0",
+                  "odds": 45.0
+                },
+                {
+                  "name": "0 - 2",
+                  "odds": 1.45
+                },
+                {
+                  "name": "2 - 1",
+                  "odds": 3.55
+                },
+                {
+                  "name": "1 - 2",
+                  "odds": 4.05
+                }
+              ]
+            },
+            {
+              "name": "Moez Echargui wygra seta",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 2.1
+                },
+                {
+                  "name": "Nie",
+                  "odds": 1.5
+                }
+              ]
+            },
+            {
+              "name": "Handicap setowy",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Moez Echargui (-1,5)",
+                  "odds": 7.5
+                },
+                {
+                  "name": "Moez Echargui (+1,5)",
+                  "odds": 2.1
+                },
+                {
+                  "name": "Billy Harris (-1.5)",
+                  "odds": 1.52
+                }
+              ]
+            },
+            {
+              "name": "Czy obaj zawodnicy wygrają seta w meczu",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 2.15
+                },
+                {
+                  "name": "Nie",
+                  "odds": 1.47
                 }
               ]
             }
@@ -4210,8 +3838,8 @@
         {
           "id": 1219857352781824,
           "name": "Jie Cui - Yi Zhou",
-          "date": "2026-09-10T09:20:00.0000000Z",
-          "date_warsaw": "2026-09-10T11:20:00+02:00",
+          "date": "2026-09-10T09:15:00.0000000Z",
+          "date_warsaw": "2026-09-10T11:15:00+02:00",
           "competition": "Szanghaj Challenger",
           "competition_id": 18024,
           "is_live": true,
@@ -4232,11 +3860,33 @@
               "selections": [
                 {
                   "name": "Jie Cui",
-                  "odds": 2.6
+                  "odds": 2.35
                 },
                 {
                   "name": "Yi Zhou",
                   "odds": 1.42
+                }
+              ]
+            },
+            {
+              "name": "Wynik w setach",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "2 - 0",
+                  "odds": 3.95
+                },
+                {
+                  "name": "0 - 2",
+                  "odds": 2.15
+                },
+                {
+                  "name": "2 - 1",
+                  "odds": 4.95
+                },
+                {
+                  "name": "1 - 2",
+                  "odds": 3.15
                 }
               ]
             },
@@ -4246,11 +3896,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.63
+                  "odds": 1.47
                 },
                 {
                   "name": "Nie",
-                  "odds": 2.05
+                  "odds": 2.15
                 }
               ]
             },
@@ -4260,33 +3910,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.17
+                  "odds": 1.16
                 },
                 {
                   "name": "Nie",
-                  "odds": 4.0
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 4.4
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 2.05
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 5.6
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 3.85
+                  "odds": 3.6
                 }
               ]
             },
@@ -4296,147 +3924,68 @@
               "selections": [
                 {
                   "name": "Jie Cui (-1,5)",
-                  "odds": 4.4
+                  "odds": 3.7
                 },
                 {
                   "name": "Yi Zhou (+1.5)",
-                  "odds": 1.17
+                  "odds": 1.16
                 },
                 {
                   "name": "Jie Cui (+1,5)",
-                  "odds": 1.63
+                  "odds": 1.5
                 },
                 {
                   "name": "Yi Zhou (-1.5)",
-                  "odds": 2.05
+                  "odds": 2.2
                 }
               ]
-            }
-          ]
-        },
-        {
-          "id": 1219971625525248,
-          "name": "Filip Misolic - Mika Brunold",
-          "date": "2026-09-10T09:30:00.0000000Z",
-          "date_warsaw": "2026-09-10T11:30:00+02:00",
-          "competition": "Tulln Challenger",
-          "competition_id": 29388,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Filip Misolic",
-              "short": "F. Misolic"
             },
             {
-              "name": "Mika Brunold",
-              "short": "M. Brunold"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
+              "name": "Czy obaj zawodnicy wygrają seta w meczu",
               "suspended": false,
               "selections": [
                 {
-                  "name": "Filip Misolic",
-                  "odds": 1.63
-                },
-                {
-                  "name": "Mika Brunold",
+                  "name": "Tak",
                   "odds": 2.1
-                }
-              ]
-            },
-            {
-              "name": "Filip Misolic wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.26
                 },
                 {
                   "name": "Nie",
-                  "odds": 3.25
+                  "odds": 1.52
                 }
               ]
             },
             {
-              "name": "Mika Brunold wygra seta",
+              "name": "1. set Tie Break - Liczba Punktów",
               "suspended": false,
               "selections": [
                 {
-                  "name": "Tak",
-                  "odds": 1.46
+                  "name": "Powyżej 11,5",
+                  "odds": 1.7
                 },
                 {
-                  "name": "Nie",
-                  "odds": 2.41
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 2.42
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 3.4
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 4.1
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 4.8
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Filip Misolic (-1,5)",
-                  "odds": 2.42
-                },
-                {
-                  "name": "Mika Brunold (+1.5)",
-                  "odds": 1.46
-                },
-                {
-                  "name": "Filip Misolic (+1,5)",
-                  "odds": 1.26
-                },
-                {
-                  "name": "Mika Brunold (-1.5)",
-                  "odds": 3.4
+                  "name": "Poniżej 11,5",
+                  "odds": 1.8
                 }
               ]
             }
           ]
         },
         {
-          "id": 1220045155868674,
-          "name": "Diego Dedura-Palomero - Gustavo Heide",
-          "date": "2026-09-10T09:30:00.0000000Z",
-          "date_warsaw": "2026-09-10T11:30:00+02:00",
-          "competition": "Tulln Challenger",
-          "competition_id": 29388,
+          "id": 1219990414979072,
+          "name": "Nicolai Budkov Kjaer - Yanis Ghazouani Durand",
+          "date": "2026-09-10T09:50:00.0000000Z",
+          "date_warsaw": "2026-09-10T11:50:00+02:00",
+          "competition": "Cassis Challenger",
+          "competition_id": 23564,
           "is_live": true,
           "teams": [
             {
-              "name": "Diego Dedura-Palomero",
-              "short": "D. Dedura-Palomero"
+              "name": "Nicolai Budkov Kjaer",
+              "short": "N. Budkov Kjaer"
             },
             {
-              "name": "Gustavo Heide",
-              "short": "G. Heide"
+              "name": "Yanis Ghazouani Durand",
+              "short": "Y. Ghazouani Durand"
             }
           ],
           "markets": [
@@ -4445,40 +3994,26 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "Diego Dedura-Palomero",
-                  "odds": 2.14
+                  "name": "Nicolai Budkov Kjaer",
+                  "odds": 1.07
                 },
                 {
-                  "name": "Gustavo Heide",
-                  "odds": 1.61
+                  "name": "Yanis Ghazouani Durand",
+                  "odds": 5.2
                 }
               ]
             },
             {
-              "name": "Diego Dedura-Palomero wygra seta",
+              "name": "1. set - Gem 4 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
-                  "name": "Tak",
-                  "odds": 1.47
+                  "name": "Nicolai Budkov Kjaer",
+                  "odds": 1.09
                 },
                 {
-                  "name": "Nie",
-                  "odds": 2.39
-                }
-              ]
-            },
-            {
-              "name": "Gustavo Heide wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.25
-                },
-                {
-                  "name": "Nie",
-                  "odds": 3.3
+                  "name": "Yanis Ghazouani Durand",
+                  "odds": 4.05
                 }
               ]
             },
@@ -4488,19 +4023,61 @@
               "selections": [
                 {
                   "name": "2 - 0",
-                  "odds": 3.45
+                  "odds": 1.25
                 },
                 {
                   "name": "0 - 2",
-                  "odds": 2.39
+                  "odds": 12.5
                 },
                 {
                   "name": "2 - 1",
-                  "odds": 4.8
+                  "odds": 3.85
                 },
                 {
                   "name": "1 - 2",
-                  "odds": 4.1
+                  "odds": 10.0
+                }
+              ]
+            },
+            {
+              "name": "1. set - Gem 3 - Punkt 3 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Nicolai Budkov Kjaer",
+                  "odds": 1.9
+                },
+                {
+                  "name": "Yanis Ghazouani Durand",
+                  "odds": 1.57
+                }
+              ]
+            },
+            {
+              "name": "Nicolai Budkov Kjaer wygra seta",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 1.02
+                },
+                {
+                  "name": "Nie",
+                  "odds": 6.5
+                }
+              ]
+            },
+            {
+              "name": "Yanis Ghazouani Durand wygra seta",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 2.75
+                },
+                {
+                  "name": "Nie",
+                  "odds": 1.3
                 }
               ]
             },
@@ -4509,20 +4086,34 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "Diego Dedura-Palomero (-1,5)",
-                  "odds": 3.45
+                  "name": "Nicolai Budkov Kjaer (-1,5)",
+                  "odds": 1.3
                 },
                 {
-                  "name": "Gustavo Heide (+1.5)",
-                  "odds": 1.25
+                  "name": "Yanis Ghazouani Durand (+1.5)",
+                  "odds": 2.8
                 },
                 {
-                  "name": "Diego Dedura-Palomero (+1,5)",
-                  "odds": 1.47
+                  "name": "Nicolai Budkov Kjaer (+1,5)",
+                  "odds": 1.02
                 },
                 {
-                  "name": "Gustavo Heide (-1.5)",
-                  "odds": 2.39
+                  "name": "Yanis Ghazouani Durand (-1.5)",
+                  "odds": 6.75
+                }
+              ]
+            },
+            {
+              "name": "Czy obaj zawodnicy wygrają seta w meczu",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 3.15
+                },
+                {
+                  "name": "Nie",
+                  "odds": 1.22
                 }
               ]
             }
@@ -4531,8 +4122,8 @@
         {
           "id": 1219985466753024,
           "name": "Genaro Alberto Olivieri - Tiago Pereira",
-          "date": "2026-09-10T10:10:00.0000000Z",
-          "date_warsaw": "2026-09-10T12:10:00+02:00",
+          "date": "2026-09-10T10:20:00.0000000Z",
+          "date_warsaw": "2026-09-10T12:20:00+02:00",
           "competition": "Sewilla Challenger",
           "competition_id": 18057,
           "is_live": true,
@@ -4553,11 +4144,11 @@
               "selections": [
                 {
                   "name": "Genaro Alberto Olivieri",
-                  "odds": 1.67
+                  "odds": 1.65
                 },
                 {
                   "name": "Tiago Pereira",
-                  "odds": 2.04
+                  "odds": 2.07
                 }
               ]
             },
@@ -4567,11 +4158,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.28
+                  "odds": 1.27
                 },
                 {
                   "name": "Nie",
-                  "odds": 3.15
+                  "odds": 3.2
                 }
               ]
             },
@@ -4581,11 +4172,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.44
+                  "odds": 1.45
                 },
                 {
                   "name": "Nie",
-                  "odds": 2.46
+                  "odds": 2.43
                 }
               ]
             },
@@ -4595,11 +4186,11 @@
               "selections": [
                 {
                   "name": "2 - 0",
-                  "odds": 2.48
+                  "odds": 2.44
                 },
                 {
                   "name": "0 - 2",
-                  "odds": 3.25
+                  "odds": 3.3
                 },
                 {
                   "name": "2 - 1",
@@ -4617,126 +4208,19 @@
               "selections": [
                 {
                   "name": "Genaro Alberto Olivieri (-1,5)",
-                  "odds": 2.48
+                  "odds": 2.44
                 },
                 {
                   "name": "Tiago Pereira (+1.5)",
-                  "odds": 1.44
+                  "odds": 1.45
                 },
                 {
                   "name": "Genaro Alberto Olivieri (+1,5)",
-                  "odds": 1.28
+                  "odds": 1.27
                 },
                 {
                   "name": "Tiago Pereira (-1.5)",
-                  "odds": 3.25
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1219926960398336,
-          "name": "Sascha Gueymard Wayenburg - Mark Lajal",
-          "date": "2026-09-10T10:30:00.0000000Z",
-          "date_warsaw": "2026-09-10T12:30:00+02:00",
-          "competition": "Cassis Challenger",
-          "competition_id": 23564,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Sascha Gueymard Wayenburg",
-              "short": "S. Gueymard Wayenburg"
-            },
-            {
-              "name": "Mark Lajal",
-              "short": "M. Lajal"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Sascha Gueymard Wayenburg",
-                  "odds": 2.75
-                },
-                {
-                  "name": "Mark Lajal",
-                  "odds": 1.37
-                }
-              ]
-            },
-            {
-              "name": "Sascha Gueymard Wayenburg wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.69
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.97
-                }
-              ]
-            },
-            {
-              "name": "Mark Lajal wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.14
-                },
-                {
-                  "name": "Nie",
-                  "odds": 4.4
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 4.9
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 1.97
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 5.8
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 3.7
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Sascha Gueymard Wayenburg (-1,5)",
-                  "odds": 4.9
-                },
-                {
-                  "name": "Mark Lajal (+1.5)",
-                  "odds": 1.14
-                },
-                {
-                  "name": "Sascha Gueymard Wayenburg (+1,5)",
-                  "odds": 1.69
-                },
-                {
-                  "name": "Mark Lajal (-1.5)",
-                  "odds": 1.97
+                  "odds": 3.3
                 }
               ]
             }
@@ -4745,8 +4229,8 @@
         {
           "id": 1219978545106944,
           "name": "Raphael Perot - Robin Bertrand",
-          "date": "2026-09-10T10:30:00.0000000Z",
-          "date_warsaw": "2026-09-10T12:30:00+02:00",
+          "date": "2026-09-10T10:25:00.0000000Z",
+          "date_warsaw": "2026-09-10T12:25:00+02:00",
           "competition": "Cassis Challenger",
           "competition_id": 23564,
           "is_live": true,
@@ -4852,8 +4336,8 @@
         {
           "id": 1219848932716544,
           "name": "Tung-Lin Wu - Luca Castelnuovo",
-          "date": "2026-09-10T10:30:00.0000000Z",
-          "date_warsaw": "2026-09-10T12:30:00+02:00",
+          "date": "2026-09-10T10:25:00.0000000Z",
+          "date_warsaw": "2026-09-10T12:25:00+02:00",
           "competition": "Szanghaj Challenger",
           "competition_id": 18024,
           "is_live": true,
@@ -5164,6 +4648,113 @@
                 },
                 {
                   "name": "Thiago Moura Monteiro (-1.5)",
+                  "odds": 1.97
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1219926960398336,
+          "name": "Sascha Gueymard Wayenburg - Mark Lajal",
+          "date": "2026-09-10T11:00:00.0000000Z",
+          "date_warsaw": "2026-09-10T13:00:00+02:00",
+          "competition": "Cassis Challenger",
+          "competition_id": 23564,
+          "is_live": true,
+          "teams": [
+            {
+              "name": "Sascha Gueymard Wayenburg",
+              "short": "S. Gueymard Wayenburg"
+            },
+            {
+              "name": "Mark Lajal",
+              "short": "M. Lajal"
+            }
+          ],
+          "markets": [
+            {
+              "name": "Zwycięzca meczu",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Sascha Gueymard Wayenburg",
+                  "odds": 2.75
+                },
+                {
+                  "name": "Mark Lajal",
+                  "odds": 1.37
+                }
+              ]
+            },
+            {
+              "name": "Sascha Gueymard Wayenburg wygra seta",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 1.69
+                },
+                {
+                  "name": "Nie",
+                  "odds": 1.97
+                }
+              ]
+            },
+            {
+              "name": "Mark Lajal wygra seta",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 1.14
+                },
+                {
+                  "name": "Nie",
+                  "odds": 4.4
+                }
+              ]
+            },
+            {
+              "name": "Wynik w setach",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "2 - 0",
+                  "odds": 4.9
+                },
+                {
+                  "name": "0 - 2",
+                  "odds": 1.97
+                },
+                {
+                  "name": "2 - 1",
+                  "odds": 5.8
+                },
+                {
+                  "name": "1 - 2",
+                  "odds": 3.7
+                }
+              ]
+            },
+            {
+              "name": "Handicap setowy",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Sascha Gueymard Wayenburg (-1,5)",
+                  "odds": 4.9
+                },
+                {
+                  "name": "Mark Lajal (+1.5)",
+                  "odds": 1.14
+                },
+                {
+                  "name": "Sascha Gueymard Wayenburg (+1,5)",
+                  "odds": 1.69
+                },
+                {
+                  "name": "Mark Lajal (-1.5)",
                   "odds": 1.97
                 }
               ]
@@ -5887,11 +5478,11 @@
               "selections": [
                 {
                   "name": "Francesco Passaro",
-                  "odds": 1.5
+                  "odds": 1.47
                 },
                 {
                   "name": "Juan Pablo Varillas",
-                  "odds": 2.36
+                  "odds": 2.44
                 }
               ]
             },
@@ -5901,11 +5492,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.2
+                  "odds": 1.19
                 },
                 {
                   "name": "Nie",
-                  "odds": 3.75
+                  "odds": 3.85
                 }
               ]
             },
@@ -5915,11 +5506,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.54
+                  "odds": 1.57
                 },
                 {
                   "name": "Nie",
-                  "odds": 2.21
+                  "odds": 2.16
                 }
               ]
             },
@@ -5929,19 +5520,19 @@
               "selections": [
                 {
                   "name": "2 - 0",
-                  "odds": 2.21
+                  "odds": 2.16
                 },
                 {
                   "name": "0 - 2",
-                  "odds": 4.0
+                  "odds": 4.1
                 },
                 {
                   "name": "2 - 1",
-                  "odds": 3.85
+                  "odds": 3.8
                 },
                 {
                   "name": "1 - 2",
-                  "odds": 5.0
+                  "odds": 5.2
                 }
               ]
             },
@@ -5951,19 +5542,19 @@
               "selections": [
                 {
                   "name": "Francesco Passaro (-1,5)",
-                  "odds": 2.21
+                  "odds": 2.16
                 },
                 {
                   "name": "Juan Pablo Varillas (+1.5)",
-                  "odds": 1.54
+                  "odds": 1.57
                 },
                 {
                   "name": "Francesco Passaro (+1,5)",
-                  "odds": 1.2
+                  "odds": 1.19
                 },
                 {
                   "name": "Juan Pablo Varillas (-1.5)",
-                  "odds": 4.0
+                  "odds": 4.1
                 }
               ]
             }
