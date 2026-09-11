@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "source": "direct_betclic",
-  "generated_at_warsaw": "2026-09-11T23:03:39.753564+02:00",
+  "generated_at_warsaw": "2026-09-11T23:54:42.416419+02:00",
   "date_warsaw": "2026-09-11",
   "fallback_max_age_seconds": 5400,
   "sports": {
@@ -9,25 +9,25 @@
       "sport": "football",
       "source": "direct_betclic",
       "stale": false,
-      "event_count": 1,
+      "event_count": 0,
       "stale_event_ids": [],
       "summary_only_event_ids": [],
       "discovery": {
         "source": "competitions",
         "selected_competitions": [
           {
-            "id": 7,
-            "name": "La Liga",
-            "category": "",
-            "country_code": "ES",
-            "country_name": "Hiszpania"
-          },
-          {
             "id": 3,
             "name": "Premier League",
             "category": "",
             "country_code": "EN",
             "country_name": "Anglia"
+          },
+          {
+            "id": 7,
+            "name": "La Liga",
+            "category": "",
+            "country_code": "ES",
+            "country_name": "Hiszpania"
           },
           {
             "id": 5,
@@ -395,8 +395,8 @@
           }
         ],
         "selected_competition_ids": [
-          7,
           3,
+          7,
           5,
           221,
           4,
@@ -450,72 +450,12 @@
           6,
           30
         ],
-        "filtered_out": 1,
+        "filtered_out": 0,
         "partial": false,
         "errors": []
       },
       "errors": [],
-      "events": [
-        {
-          "id": 1211917145247750,
-          "name": "Sevilla - Valencia",
-          "date": "2026-09-11T19:00:00.0000000Z",
-          "date_warsaw": "2026-09-11T21:00:00+02:00",
-          "competition": "La Liga",
-          "competition_id": 7,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Sevilla",
-              "short": "Sevilla"
-            },
-            {
-              "name": "Valencia",
-              "short": "Valencia"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Remis ",
-                  "odds": 27.0
-                },
-                {
-                  "name": "Valencia",
-                  "odds": 100.0
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Remis lub Valencia",
-                  "odds": 18.0
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 11.0
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.01
-                }
-              ]
-            }
-          ]
-        }
-      ],
+      "events": [],
       "fallback_max_age_seconds": 5400
     },
     "tennis": {
@@ -569,11 +509,49 @@
               "selections": [
                 {
                   "name": "Alexander Zverev",
-                  "odds": 1.13
+                  "odds": 1.02
                 },
                 {
                   "name": "Karen Khachanov",
-                  "odds": 3.73
+                  "odds": 7.25
+                }
+              ]
+            },
+            {
+              "name": "3. set - Gem 10 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Alexander Zverev",
+                  "odds": 6.75
+                }
+              ]
+            },
+            {
+              "name": "3. set - Gem 11 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Alexander Zverev",
+                  "odds": 1.07
+                },
+                {
+                  "name": "Karen Khachanov",
+                  "odds": 4.7
+                }
+              ]
+            },
+            {
+              "name": "3. set - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Alexander Zverev",
+                  "odds": 1.57
+                },
+                {
+                  "name": "Karen Khachanov",
+                  "odds": 2.05
                 }
               ]
             },
@@ -583,23 +561,19 @@
               "selections": [
                 {
                   "name": "3 - 0",
-                  "odds": 4.8
-                },
-                {
-                  "name": "1 - 3",
-                  "odds": 7.75
-                },
-                {
-                  "name": "3 - 1",
-                  "odds": 2.15
+                  "odds": 1.57
                 },
                 {
                   "name": "2 - 3",
-                  "odds": 6.75
+                  "odds": 11.0
+                },
+                {
+                  "name": "3 - 1",
+                  "odds": 3.25
                 },
                 {
                   "name": "3 - 2",
-                  "odds": 4.1
+                  "odds": 7.75
                 }
               ]
             },
@@ -609,11 +583,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.12
+                  "odds": 2.0
                 },
                 {
                   "name": "Nie",
-                  "odds": 4.0
+                  "odds": 1.55
                 }
               ]
             },
@@ -623,27 +597,19 @@
               "selections": [
                 {
                   "name": "Alexander Zverev (-2,5)",
-                  "odds": 4.0
-                },
-                {
-                  "name": "Karen Khachanov (+2.5)",
-                  "odds": 1.12
-                },
-                {
-                  "name": "Alexander Zverev (-1,5)",
                   "odds": 1.55
                 },
                 {
+                  "name": "Karen Khachanov (+2.5)",
+                  "odds": 2.0
+                },
+                {
+                  "name": "Alexander Zverev (-1,5)",
+                  "odds": 1.12
+                },
+                {
                   "name": "Karen Khachanov (+1.5)",
-                  "odds": 2.05
-                },
-                {
-                  "name": "Alexander Zverev (+1,5)",
-                  "odds": 1.05
-                },
-                {
-                  "name": "Karen Khachanov (-1.5)",
-                  "odds": 5.2
+                  "odds": 4.0
                 }
               ]
             },
@@ -653,25 +619,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.12
+                  "odds": 2.0
                 },
                 {
                   "name": "Nie",
-                  "odds": 4.0
-                }
-              ]
-            },
-            {
-              "name": "2. set Tie Break - Liczba Punktów",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 11,5",
-                  "odds": 1.42
-                },
-                {
-                  "name": "Poniżej 11,5",
-                  "odds": 2.3
+                  "odds": 1.55
                 }
               ]
             }
@@ -702,25 +654,25 @@
               "selections": [
                 {
                   "name": "Juan Pablo Varillas",
-                  "odds": 4.15
+                  "odds": 3.0
                 },
                 {
                   "name": "Thiago Wild",
-                  "odds": 1.1
+                  "odds": 1.22
                 }
               ]
             },
             {
-              "name": "1. set - Gem 8 - Zwycięzca",
+              "name": "2. set - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
                   "name": "Juan Pablo Varillas",
-                  "odds": 1.3
+                  "odds": 1.55
                 },
                 {
                   "name": "Thiago Wild",
-                  "odds": 2.5
+                  "odds": 1.95
                 }
               ]
             },
@@ -729,20 +681,16 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "2 - 0",
-                  "odds": 50.0
-                },
-                {
                   "name": "0 - 2",
-                  "odds": 1.27
+                  "odds": 2.0
                 },
                 {
                   "name": "2 - 1",
-                  "odds": 4.75
+                  "odds": 3.25
                 },
                 {
                   "name": "1 - 2",
-                  "odds": 4.1
+                  "odds": 2.7
                 }
               ]
             },
@@ -752,21 +700,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 2.5
+                  "odds": 1.55
                 },
                 {
                   "name": "Nie",
-                  "odds": 1.32
-                }
-              ]
-            },
-            {
-              "name": "Thiago Wild wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Nie",
-                  "odds": 6.25
+                  "odds": 1.95
                 }
               ]
             },
@@ -775,16 +713,12 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "Juan Pablo Varillas (-1,5)",
-                  "odds": 6.75
-                },
-                {
                   "name": "Juan Pablo Varillas (+1,5)",
-                  "odds": 2.55
+                  "odds": 1.57
                 },
                 {
                   "name": "Thiago Wild (-1.5)",
-                  "odds": 1.32
+                  "odds": 1.95
                 }
               ]
             },
@@ -794,11 +728,25 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 2.6
+                  "odds": 1.55
                 },
                 {
                   "name": "Nie",
-                  "odds": 1.3
+                  "odds": 1.95
+                }
+              ]
+            },
+            {
+              "name": "2. set Tie Break - Liczba Punktów",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Powyżej 11,5",
+                  "odds": 1.45
+                },
+                {
+                  "name": "Poniżej 11,5",
+                  "odds": 2.1
                 }
               ]
             }
