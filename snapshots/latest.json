@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "source": "direct_betclic",
-  "generated_at_warsaw": "2026-09-15T07:07:25.646322+02:00",
+  "generated_at_warsaw": "2026-09-15T07:15:36.230584+02:00",
   "date_warsaw": "2026-09-15",
   "fallback_max_age_seconds": 5400,
   "sports": {
@@ -10,7 +10,15 @@
       "source": "direct_betclic",
       "stale": false,
       "event_count": 32,
-      "stale_event_ids": [],
+      "stale_event_ids": [
+        1220079457935360,
+        1220080706789390,
+        1220088385527808,
+        1221898040016896,
+        1223386900467712,
+        1223386940317696,
+        1223672666820609
+      ],
       "summary_only_event_ids": [],
       "discovery": {
         "source": "competitions",
@@ -168,13 +176,6 @@
             "category": "",
             "country_code": "EU",
             "country_name": "Europa"
-          },
-          {
-            "id": 36,
-            "name": "Francja Puchar",
-            "category": "",
-            "country_code": "FR",
-            "country_name": "Francja"
           },
           {
             "id": 4,
@@ -438,7 +439,6 @@
           22676,
           28946,
           122,
-          36,
           4,
           19,
           38,
@@ -475,14 +475,163 @@
           30
         ],
         "filtered_out": 0,
-        "partial": false,
-        "errors": []
+        "partial": true,
+        "errors": [
+          {
+            "competition_id": 551,
+            "detail": "Football competition discovery timeout after 8s"
+          },
+          {
+            "competition_id": 56,
+            "detail": "Football competition discovery timeout after 8s"
+          },
+          {
+            "competition_id": 27,
+            "detail": "Football competition discovery timeout after 8s"
+          },
+          {
+            "competition_id": 1690,
+            "detail": "Football competition discovery timeout after 8s"
+          },
+          {
+            "competition_id": 145,
+            "detail": "Football competition discovery timeout after 8s"
+          },
+          {
+            "competition_id": 493,
+            "detail": "Football competition discovery timeout after 8s"
+          },
+          {
+            "competition_id": 37,
+            "detail": "Football competition discovery timeout after 8s"
+          },
+          {
+            "competition_id": 4625,
+            "detail": "Football competition discovery timeout after 8s"
+          },
+          {
+            "competition_id": 6,
+            "detail": "Football competition discovery timeout after 8s"
+          },
+          {
+            "competition_id": 50,
+            "detail": "Football competition discovery timeout after 8s"
+          },
+          {
+            "competition_id": 30,
+            "detail": "Football competition discovery timeout after 8s"
+          }
+        ]
       },
       "errors": [
+        {
+          "stage": "discovery",
+          "competition_id": 551,
+          "detail": "Football competition discovery timeout after 8s"
+        },
+        {
+          "stage": "discovery",
+          "competition_id": 56,
+          "detail": "Football competition discovery timeout after 8s"
+        },
+        {
+          "stage": "discovery",
+          "competition_id": 27,
+          "detail": "Football competition discovery timeout after 8s"
+        },
+        {
+          "stage": "discovery",
+          "competition_id": 1690,
+          "detail": "Football competition discovery timeout after 8s"
+        },
+        {
+          "stage": "discovery",
+          "competition_id": 145,
+          "detail": "Football competition discovery timeout after 8s"
+        },
+        {
+          "stage": "discovery",
+          "competition_id": 493,
+          "detail": "Football competition discovery timeout after 8s"
+        },
+        {
+          "stage": "discovery",
+          "competition_id": 37,
+          "detail": "Football competition discovery timeout after 8s"
+        },
+        {
+          "stage": "discovery",
+          "competition_id": 4625,
+          "detail": "Football competition discovery timeout after 8s"
+        },
+        {
+          "stage": "discovery",
+          "competition_id": 6,
+          "detail": "Football competition discovery timeout after 8s"
+        },
+        {
+          "stage": "discovery",
+          "competition_id": 50,
+          "detail": "Football competition discovery timeout after 8s"
+        },
+        {
+          "stage": "discovery",
+          "competition_id": 30,
+          "detail": "Football competition discovery timeout after 8s"
+        },
         {
           "stage": "validation",
           "detail": "dropped 1 malformed event row(s)",
           "malformed_event_count": 1
+        },
+        {
+          "stage": "discovery_missing",
+          "event_id": 1223386900467712,
+          "detail": "event missing from current discovery; reused recent same-day snapshot",
+          "reused_previous": true,
+          "fallback_age_seconds": 486.2
+        },
+        {
+          "stage": "discovery_missing",
+          "event_id": 1223672666820609,
+          "detail": "event missing from current discovery; reused recent same-day snapshot",
+          "reused_previous": true,
+          "fallback_age_seconds": 486.2
+        },
+        {
+          "stage": "discovery_missing",
+          "event_id": 1220079457935360,
+          "detail": "event missing from current discovery; reused recent same-day snapshot",
+          "reused_previous": true,
+          "fallback_age_seconds": 486.2
+        },
+        {
+          "stage": "discovery_missing",
+          "event_id": 1220080706789390,
+          "detail": "event missing from current discovery; reused recent same-day snapshot",
+          "reused_previous": true,
+          "fallback_age_seconds": 486.2
+        },
+        {
+          "stage": "discovery_missing",
+          "event_id": 1220088385527808,
+          "detail": "event missing from current discovery; reused recent same-day snapshot",
+          "reused_previous": true,
+          "fallback_age_seconds": 486.2
+        },
+        {
+          "stage": "discovery_missing",
+          "event_id": 1221898040016896,
+          "detail": "event missing from current discovery; reused recent same-day snapshot",
+          "reused_previous": true,
+          "fallback_age_seconds": 486.2
+        },
+        {
+          "stage": "discovery_missing",
+          "event_id": 1223386940317696,
+          "detail": "event missing from current discovery; reused recent same-day snapshot",
+          "reused_previous": true,
+          "fallback_age_seconds": 486.2
         }
       ],
       "events": [
@@ -1504,7 +1653,14 @@
                 }
               ]
             }
-          ]
+          ],
+          "_snapshot_meta": {
+            "stale": true,
+            "reason": "missing_from_discovery",
+            "stale_since_warsaw": "2026-09-15T07:07:25.646322+02:00",
+            "fallback_age_seconds": 486.2,
+            "max_fallback_age_seconds": 5400
+          }
         },
         {
           "id": 1217980178391040,
@@ -2619,43 +2775,43 @@
               "selections": [
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.09
+                  "odds": 1.07
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 4.95
+                  "odds": 5.25
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 1.36
+                  "odds": 1.32
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 2.6
+                  "odds": 2.75
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 1.9
+                  "odds": 1.8
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 1.69
+                  "odds": 1.77
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 2.95
+                  "odds": 2.77
                 },
                 {
                   "name": "Poniżej 4,5",
-                  "odds": 1.28
+                  "odds": 1.32
                 },
                 {
                   "name": "Powyżej 5,5",
-                  "odds": 4.65
+                  "odds": 4.3
                 },
                 {
                   "name": "Poniżej 5,5",
-                  "odds": 1.11
+                  "odds": 1.13
                 }
               ]
             },
@@ -2665,27 +2821,27 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.12
+                  "odds": 1.11
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 5.5
+                  "odds": 5.9
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.64
+                  "odds": 1.59
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.96
+                  "odds": 2.05
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 3.12
+                  "odds": 2.95
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.29
+                  "odds": 1.32
                 }
               ]
             },
@@ -2695,27 +2851,27 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.17
+                  "odds": 1.15
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 4.4
+                  "odds": 4.7
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.84
+                  "odds": 1.78
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.73
+                  "odds": 1.79
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 3.95
+                  "odds": 3.68
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.2
+                  "odds": 1.22
                 }
               ]
             }
@@ -2928,7 +3084,14 @@
                 }
               ]
             }
-          ]
+          ],
+          "_snapshot_meta": {
+            "stale": true,
+            "reason": "missing_from_discovery",
+            "stale_since_warsaw": "2026-09-15T07:07:25.646322+02:00",
+            "fallback_age_seconds": 486.2,
+            "max_fallback_age_seconds": 5400
+          }
         },
         {
           "id": 1220079457935360,
@@ -3091,7 +3254,14 @@
                 }
               ]
             }
-          ]
+          ],
+          "_snapshot_meta": {
+            "stale": true,
+            "reason": "missing_from_discovery",
+            "stale_since_warsaw": "2026-09-15T07:07:25.646322+02:00",
+            "fallback_age_seconds": 486.2,
+            "max_fallback_age_seconds": 5400
+          }
         },
         {
           "id": 1220080706789390,
@@ -3254,7 +3424,14 @@
                 }
               ]
             }
-          ]
+          ],
+          "_snapshot_meta": {
+            "stale": true,
+            "reason": "missing_from_discovery",
+            "stale_since_warsaw": "2026-09-15T07:07:25.646322+02:00",
+            "fallback_age_seconds": 486.2,
+            "max_fallback_age_seconds": 5400
+          }
         },
         {
           "id": 1220088385527808,
@@ -3417,7 +3594,14 @@
                 }
               ]
             }
-          ]
+          ],
+          "_snapshot_meta": {
+            "stale": true,
+            "reason": "missing_from_discovery",
+            "stale_since_warsaw": "2026-09-15T07:07:25.646322+02:00",
+            "fallback_age_seconds": 486.2,
+            "max_fallback_age_seconds": 5400
+          }
         },
         {
           "id": 1217979603783680,
@@ -5698,7 +5882,14 @@
                 }
               ]
             }
-          ]
+          ],
+          "_snapshot_meta": {
+            "stale": true,
+            "reason": "missing_from_discovery",
+            "stale_since_warsaw": "2026-09-15T07:07:25.646322+02:00",
+            "fallback_age_seconds": 486.2,
+            "max_fallback_age_seconds": 5400
+          }
         },
         {
           "id": 1215217753153536,
@@ -6337,7 +6528,14 @@
                 }
               ]
             }
-          ]
+          ],
+          "_snapshot_meta": {
+            "stale": true,
+            "reason": "missing_from_discovery",
+            "stale_since_warsaw": "2026-09-15T07:07:25.646322+02:00",
+            "fallback_age_seconds": 486.2,
+            "max_fallback_age_seconds": 5400
+          }
         },
         {
           "id": 1217979902627840,
@@ -6609,137 +6807,137 @@
               "selections": [
                 {
                   "name": "Matthew Dellavedova",
-                  "odds": 1.25
-                },
-                {
-                  "name": "Grigoriy Lomakin",
-                  "odds": 3.3
-                }
-              ]
-            },
-            {
-              "name": "3. set - Gem 4 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Matthew Dellavedova",
-                  "odds": 1.06
-                },
-                {
-                  "name": "Grigoriy Lomakin",
-                  "odds": 4.4
-                }
-              ]
-            },
-            {
-              "name": "3. set - Gem 5 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Matthew Dellavedova",
-                  "odds": 2.25
-                },
-                {
-                  "name": "Grigoriy Lomakin",
                   "odds": 1.38
+                },
+                {
+                  "name": "Grigoriy Lomakin",
+                  "odds": 2.65
                 }
               ]
             },
             {
-              "name": "3. set - Gem 4 - Punkt 2 - Zwycięzca",
+              "name": "3. set - Gem 6 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
                   "name": "Matthew Dellavedova",
-                  "odds": 1.3
+                  "odds": 1.08
                 },
                 {
                   "name": "Grigoriy Lomakin",
-                  "odds": 2.5
+                  "odds": 4.1
                 }
               ]
             },
             {
-              "name": "3. set - Gem 4 - Punkt 3 - Zwycięzca",
+              "name": "3. set - Gem 7 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
                   "name": "Matthew Dellavedova",
-                  "odds": 1.3
+                  "odds": 2.45
                 },
                 {
                   "name": "Grigoriy Lomakin",
-                  "odds": 2.5
+                  "odds": 1.32
                 }
               ]
             },
             {
-              "name": "3. set - Gem 4 - Punkt 4 - Zwycięzca",
+              "name": "3. set - Gem 6 - Punkt 2 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
                   "name": "Matthew Dellavedova",
-                  "odds": 1.3
+                  "odds": 1.33
                 },
                 {
                   "name": "Grigoriy Lomakin",
-                  "odds": 2.5
+                  "odds": 2.4
                 }
               ]
             },
             {
-              "name": "3. set - Gem 5 - Punkt 1 - Zwycięzca",
+              "name": "3. set - Gem 6 - Punkt 3 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
                   "name": "Matthew Dellavedova",
-                  "odds": 1.9
+                  "odds": 1.32
                 },
                 {
                   "name": "Grigoriy Lomakin",
-                  "odds": 1.55
+                  "odds": 2.45
                 }
               ]
             },
             {
-              "name": "3. set - Gem 5 - Punkt 2 - Zwycięzca",
+              "name": "3. set - Gem 6 - Punkt 4 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
                   "name": "Matthew Dellavedova",
-                  "odds": 1.9
+                  "odds": 1.32
                 },
                 {
                   "name": "Grigoriy Lomakin",
-                  "odds": 1.55
+                  "odds": 2.45
                 }
               ]
             },
             {
-              "name": "3. set - Gem 5 - Punkt 3 - Zwycięzca",
+              "name": "3. set - Gem 7 - Punkt 1 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
                   "name": "Matthew Dellavedova",
-                  "odds": 1.9
+                  "odds": 1.95
                 },
                 {
                   "name": "Grigoriy Lomakin",
-                  "odds": 1.55
+                  "odds": 1.52
                 }
               ]
             },
             {
-              "name": "3. set - Gem 5 - Punkt 4 - Zwycięzca",
+              "name": "3. set - Gem 7 - Punkt 2 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
                   "name": "Matthew Dellavedova",
-                  "odds": 1.9
+                  "odds": 1.95
                 },
                 {
                   "name": "Grigoriy Lomakin",
-                  "odds": 1.55
+                  "odds": 1.52
+                }
+              ]
+            },
+            {
+              "name": "3. set - Gem 7 - Punkt 3 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Matthew Dellavedova",
+                  "odds": 1.95
+                },
+                {
+                  "name": "Grigoriy Lomakin",
+                  "odds": 1.52
+                }
+              ]
+            },
+            {
+              "name": "3. set - Gem 7 - Punkt 4 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Matthew Dellavedova",
+                  "odds": 2.0
+                },
+                {
+                  "name": "Grigoriy Lomakin",
+                  "odds": 1.5
                 }
               ]
             }
@@ -6770,35 +6968,39 @@
               "selections": [
                 {
                   "name": "Dominik Palan",
-                  "odds": 2.55
+                  "odds": 1.92
                 },
                 {
                   "name": "Martin Borisiouk",
-                  "odds": 1.4
+                  "odds": 1.74
                 }
               ]
             },
             {
-              "name": "1. set - Gem 9 - Zwycięzca",
+              "name": "1. set - Gem 11 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
                   "name": "Dominik Palan",
-                  "odds": 10.0
+                  "odds": 2.25
+                },
+                {
+                  "name": "Martin Borisiouk",
+                  "odds": 1.38
                 }
               ]
             },
             {
-              "name": "1. set - Gem 10 - Zwycięzca",
+              "name": "1. set - Gem 12 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
                   "name": "Dominik Palan",
-                  "odds": 1.14
+                  "odds": 1.13
                 },
                 {
                   "name": "Martin Borisiouk",
-                  "odds": 3.4
+                  "odds": 3.5
                 }
               ]
             },
@@ -6808,66 +7010,52 @@
               "selections": [
                 {
                   "name": "2 - 0",
-                  "odds": 4.4
+                  "odds": 2.9
                 },
                 {
                   "name": "0 - 2",
-                  "odds": 2.0
+                  "odds": 2.95
                 },
                 {
                   "name": "2 - 1",
-                  "odds": 4.5
+                  "odds": 4.2
                 },
                 {
                   "name": "1 - 2",
-                  "odds": 3.5
+                  "odds": 3.25
                 }
               ]
             },
             {
-              "name": "1. set - Gem 9 - Punkt 6 - Zwycięzca",
+              "name": "1. set - Gem 11 - Punkt 5 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
                   "name": "Dominik Palan",
-                  "odds": 2.45
+                  "odds": 2.35
                 },
                 {
                   "name": "Martin Borisiouk",
-                  "odds": 1.32
+                  "odds": 1.35
                 }
               ]
             },
             {
-              "name": "1. set - Gem 9 - Punkt 7 - Zwycięzca",
+              "name": "1. set - Gem 11 - Punkt 6 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
                   "name": "Dominik Palan",
-                  "odds": 2.45
+                  "odds": 2.35
                 },
                 {
                   "name": "Martin Borisiouk",
-                  "odds": 1.32
+                  "odds": 1.35
                 }
               ]
             },
             {
-              "name": "1. set - Gem 10 - Punkt 1 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Dominik Palan",
-                  "odds": 1.38
-                },
-                {
-                  "name": "Martin Borisiouk",
-                  "odds": 2.25
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 10 - Punkt 2 - Zwycięzca",
+              "name": "1. set - Gem 12 - Punkt 1 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
@@ -6881,7 +7069,7 @@
               ]
             },
             {
-              "name": "1. set - Gem 10 - Punkt 3 - Zwycięzca",
+              "name": "1. set - Gem 12 - Punkt 2 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
@@ -6895,7 +7083,21 @@
               ]
             },
             {
-              "name": "1. set - Gem 10 - Punkt 4 - Zwycięzca",
+              "name": "1. set - Gem 12 - Punkt 3 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Dominik Palan",
+                  "odds": 1.38
+                },
+                {
+                  "name": "Martin Borisiouk",
+                  "odds": 2.25
+                }
+              ]
+            },
+            {
+              "name": "1. set - Gem 12 - Punkt 4 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
@@ -6914,11 +7116,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.57
+                  "odds": 1.27
                 },
                 {
                   "name": "Nie",
-                  "odds": 2.0
+                  "odds": 2.85
                 }
               ]
             },
@@ -6928,11 +7130,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.13
+                  "odds": 1.28
                 },
                 {
                   "name": "Nie",
-                  "odds": 3.9
+                  "odds": 2.8
                 }
               ]
             },
@@ -6942,19 +7144,19 @@
               "selections": [
                 {
                   "name": "Dominik Palan (-1,5)",
-                  "odds": 3.9
+                  "odds": 2.8
                 },
                 {
                   "name": "Martin Borisiouk (+1.5)",
-                  "odds": 1.13
+                  "odds": 1.28
                 },
                 {
                   "name": "Dominik Palan (+1,5)",
-                  "odds": 1.57
+                  "odds": 1.27
                 },
                 {
                   "name": "Martin Borisiouk (-1.5)",
-                  "odds": 2.0
+                  "odds": 2.85
                 }
               ]
             }
@@ -6985,35 +7187,39 @@
               "selections": [
                 {
                   "name": "Cruz Hewitt",
-                  "odds": 1.12
+                  "odds": 1.1
                 },
                 {
                   "name": "Digvijay Pratap Singh",
-                  "odds": 4.75
+                  "odds": 5.25
                 }
               ]
             },
             {
-              "name": "1. set - Gem 5 - Zwycięzca",
+              "name": "1. set - Gem 7 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
                   "name": "Cruz Hewitt",
-                  "odds": 5.9
+                  "odds": 4.25
+                },
+                {
+                  "name": "Digvijay Pratap Singh",
+                  "odds": 1.07
                 }
               ]
             },
             {
-              "name": "1. set - Gem 6 - Zwycięzca",
+              "name": "1. set - Gem 8 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
                   "name": "Cruz Hewitt",
-                  "odds": 1.08
+                  "odds": 1.06
                 },
                 {
                   "name": "Digvijay Pratap Singh",
-                  "odds": 4.1
+                  "odds": 4.4
                 }
               ]
             },
@@ -7023,11 +7229,11 @@
               "selections": [
                 {
                   "name": "2 - 0",
-                  "odds": 1.35
+                  "odds": 1.32
                 },
                 {
                   "name": "0 - 2",
-                  "odds": 12.0
+                  "odds": 15.0
                 },
                 {
                   "name": "2 - 1",
@@ -7035,12 +7241,12 @@
                 },
                 {
                   "name": "1 - 2",
-                  "odds": 6.25
+                  "odds": 6.5
                 }
               ]
             },
             {
-              "name": "1. set - Gem 5 - Punkt 6 - Zwycięzca",
+              "name": "1. set - Gem 7 - Punkt 9 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
@@ -7054,7 +7260,7 @@
               ]
             },
             {
-              "name": "1. set - Gem 5 - Punkt 7 - Zwycięzca",
+              "name": "1. set - Gem 7 - Punkt 10 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
@@ -7068,21 +7274,7 @@
               ]
             },
             {
-              "name": "1. set - Gem 6 - Punkt 1 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Cruz Hewitt",
-                  "odds": 1.33
-                },
-                {
-                  "name": "Digvijay Pratap Singh",
-                  "odds": 2.4
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 6 - Punkt 2 - Zwycięzca",
+              "name": "1. set - Gem 8 - Punkt 1 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
@@ -7096,30 +7288,44 @@
               ]
             },
             {
-              "name": "1. set - Gem 6 - Punkt 3 - Zwycięzca",
+              "name": "1. set - Gem 8 - Punkt 2 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
                   "name": "Cruz Hewitt",
-                  "odds": 1.32
+                  "odds": 1.3
                 },
                 {
                   "name": "Digvijay Pratap Singh",
-                  "odds": 2.45
+                  "odds": 2.5
                 }
               ]
             },
             {
-              "name": "1. set - Gem 6 - Punkt 4 - Zwycięzca",
+              "name": "1. set - Gem 8 - Punkt 3 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
                   "name": "Cruz Hewitt",
-                  "odds": 1.32
+                  "odds": 1.3
                 },
                 {
                   "name": "Digvijay Pratap Singh",
-                  "odds": 2.45
+                  "odds": 2.5
+                }
+              ]
+            },
+            {
+              "name": "1. set - Gem 8 - Punkt 4 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Cruz Hewitt",
+                  "odds": 1.3
+                },
+                {
+                  "name": "Digvijay Pratap Singh",
+                  "odds": 2.5
                 }
               ]
             },
@@ -7129,7 +7335,7 @@
               "selections": [
                 {
                   "name": "Nie",
-                  "odds": 7.25
+                  "odds": 8.0
                 }
               ]
             },
@@ -7139,11 +7345,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 2.45
+                  "odds": 2.6
                 },
                 {
                   "name": "Nie",
-                  "odds": 1.37
+                  "odds": 1.33
                 }
               ]
             },
@@ -7153,122 +7359,15 @@
               "selections": [
                 {
                   "name": "Cruz Hewitt (-1,5)",
-                  "odds": 1.37
+                  "odds": 1.33
                 },
                 {
                   "name": "Digvijay Pratap Singh (+1.5)",
-                  "odds": 2.45
+                  "odds": 2.6
                 },
                 {
                   "name": "Digvijay Pratap Singh (-1.5)",
-                  "odds": 7.25
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1225218196533248,
-          "name": "Filip Peliwo - Tai Leonard Sach",
-          "date": "2026-09-15T05:20:00.0000000Z",
-          "date_warsaw": "2026-09-15T07:20:00+02:00",
-          "competition": "Phan Thiet 4 Challenger",
-          "competition_id": 41134,
-          "is_live": false,
-          "teams": [
-            {
-              "name": "Filip Peliwo",
-              "short": "F. Peliwo"
-            },
-            {
-              "name": "Tai Leonard Sach",
-              "short": "T. Sach"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Filip Peliwo",
-                  "odds": 1.54
-                },
-                {
-                  "name": "Tai Leonard Sach",
-                  "odds": 2.17
-                }
-              ]
-            },
-            {
-              "name": "Filip Peliwo wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.24
-                },
-                {
-                  "name": "Nie",
-                  "odds": 3.45
-                }
-              ]
-            },
-            {
-              "name": "Tai Leonard Sach wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.51
-                },
-                {
-                  "name": "Nie",
-                  "odds": 2.28
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 2.25
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 3.6
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 4.1
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 5.0
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Filip Peliwo (-1,5)",
-                  "odds": 2.25
-                },
-                {
-                  "name": "Tai Leonard Sach (+1.5)",
-                  "odds": 1.52
-                },
-                {
-                  "name": "Filip Peliwo (+1,5)",
-                  "odds": 1.24
-                },
-                {
-                  "name": "Tai Leonard Sach (-1.5)",
-                  "odds": 3.6
+                  "odds": 8.0
                 }
               ]
             }
@@ -7277,8 +7376,8 @@
         {
           "id": 1225218239533056,
           "name": "Khumoun Sultanov - Hunter Heck",
-          "date": "2026-09-15T05:20:00.0000000Z",
-          "date_warsaw": "2026-09-15T07:20:00+02:00",
+          "date": "2026-09-15T05:15:00.0000000Z",
+          "date_warsaw": "2026-09-15T07:15:00+02:00",
           "competition": "Phan Thiet 4 Challenger",
           "competition_id": 41134,
           "is_live": false,
@@ -7292,94 +7391,7 @@
               "short": "H. Heck"
             }
           ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Khumoun Sultanov",
-                  "odds": 1.24
-                },
-                {
-                  "name": "Hunter Heck",
-                  "odds": 3.25
-                }
-              ]
-            },
-            {
-              "name": "Khumoun Sultanov wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.1
-                },
-                {
-                  "name": "Nie",
-                  "odds": 5.2
-                }
-              ]
-            },
-            {
-              "name": "Hunter Heck wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.97
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.69
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 1.69
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 6.0
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 3.95
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 7.2
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Khumoun Sultanov (-1,5)",
-                  "odds": 1.69
-                },
-                {
-                  "name": "Hunter Heck (+1.5)",
-                  "odds": 1.97
-                },
-                {
-                  "name": "Khumoun Sultanov (+1,5)",
-                  "odds": 1.1
-                },
-                {
-                  "name": "Hunter Heck (-1.5)",
-                  "odds": 6.0
-                }
-              ]
-            }
-          ]
+          "markets": []
         },
         {
           "id": 1224207892496384,
@@ -7489,6 +7501,113 @@
           ]
         },
         {
+          "id": 1225218196533248,
+          "name": "Filip Peliwo - Tai Leonard Sach",
+          "date": "2026-09-15T05:30:00.0000000Z",
+          "date_warsaw": "2026-09-15T07:30:00+02:00",
+          "competition": "Phan Thiet 4 Challenger",
+          "competition_id": 41134,
+          "is_live": false,
+          "teams": [
+            {
+              "name": "Filip Peliwo",
+              "short": "F. Peliwo"
+            },
+            {
+              "name": "Tai Leonard Sach",
+              "short": "T. Sach"
+            }
+          ],
+          "markets": [
+            {
+              "name": "Zwycięzca meczu",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Filip Peliwo",
+                  "odds": 1.54
+                },
+                {
+                  "name": "Tai Leonard Sach",
+                  "odds": 2.17
+                }
+              ]
+            },
+            {
+              "name": "Filip Peliwo wygra seta",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 1.24
+                },
+                {
+                  "name": "Nie",
+                  "odds": 3.45
+                }
+              ]
+            },
+            {
+              "name": "Tai Leonard Sach wygra seta",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 1.51
+                },
+                {
+                  "name": "Nie",
+                  "odds": 2.28
+                }
+              ]
+            },
+            {
+              "name": "Wynik w setach",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "2 - 0",
+                  "odds": 2.25
+                },
+                {
+                  "name": "0 - 2",
+                  "odds": 3.6
+                },
+                {
+                  "name": "2 - 1",
+                  "odds": 4.1
+                },
+                {
+                  "name": "1 - 2",
+                  "odds": 5.0
+                }
+              ]
+            },
+            {
+              "name": "Handicap setowy",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Filip Peliwo (-1,5)",
+                  "odds": 2.25
+                },
+                {
+                  "name": "Tai Leonard Sach (+1.5)",
+                  "odds": 1.52
+                },
+                {
+                  "name": "Filip Peliwo (+1,5)",
+                  "odds": 1.24
+                },
+                {
+                  "name": "Tai Leonard Sach (-1.5)",
+                  "odds": 3.6
+                }
+              ]
+            }
+          ]
+        },
+        {
           "id": 1224204979544064,
           "name": "Thanh Minh Truong - Florent Bax",
           "date": "2026-09-15T05:55:00.0000000Z",
@@ -7584,8 +7703,8 @@
         {
           "id": 1225218256293888,
           "name": "Timofei Derepasko - Ilia Simakin",
-          "date": "2026-09-15T06:30:00.0000000Z",
-          "date_warsaw": "2026-09-15T08:30:00+02:00",
+          "date": "2026-09-15T06:25:00.0000000Z",
+          "date_warsaw": "2026-09-15T08:25:00+02:00",
           "competition": "Phan Thiet 4 Challenger",
           "competition_id": 41134,
           "is_live": false,
@@ -7683,113 +7802,6 @@
                 {
                   "name": "Ilia Simakin (-1.5)",
                   "odds": 1.34
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1225218256310272,
-          "name": "Moise Kouamé - Ryuki Matsuda",
-          "date": "2026-09-15T06:30:00.0000000Z",
-          "date_warsaw": "2026-09-15T08:30:00+02:00",
-          "competition": "Phan Thiet 4 Challenger",
-          "competition_id": 41134,
-          "is_live": false,
-          "teams": [
-            {
-              "name": "Moise Kouamé",
-              "short": "M. Kouamé"
-            },
-            {
-              "name": "Ryuki Matsuda",
-              "short": "R. Matsuda"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Moise Kouamé",
-                  "odds": 1.09
-                },
-                {
-                  "name": "Ryuki Matsuda",
-                  "odds": 5.2
-                }
-              ]
-            },
-            {
-              "name": "Moise Kouamé wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.03
-                },
-                {
-                  "name": "Nie",
-                  "odds": 8.0
-                }
-              ]
-            },
-            {
-              "name": "Ryuki Matsuda wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 2.8
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.34
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 1.34
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 13.0
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 4.2
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 12.0
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Moise Kouamé (-1,5)",
-                  "odds": 1.34
-                },
-                {
-                  "name": "Ryuki Matsuda (+1.5)",
-                  "odds": 2.8
-                },
-                {
-                  "name": "Moise Kouamé (+1,5)",
-                  "odds": 1.03
-                },
-                {
-                  "name": "Ryuki Matsuda (-1.5)",
-                  "odds": 13.0
                 }
               ]
             }
@@ -7897,6 +7909,113 @@
                 {
                   "name": "Hiroki Moriya (-1.5)",
                   "odds": 2.6
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1225218256310272,
+          "name": "Moise Kouamé - Ryuki Matsuda",
+          "date": "2026-09-15T06:40:00.0000000Z",
+          "date_warsaw": "2026-09-15T08:40:00+02:00",
+          "competition": "Phan Thiet 4 Challenger",
+          "competition_id": 41134,
+          "is_live": false,
+          "teams": [
+            {
+              "name": "Moise Kouamé",
+              "short": "M. Kouamé"
+            },
+            {
+              "name": "Ryuki Matsuda",
+              "short": "R. Matsuda"
+            }
+          ],
+          "markets": [
+            {
+              "name": "Zwycięzca meczu",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Moise Kouamé",
+                  "odds": 1.09
+                },
+                {
+                  "name": "Ryuki Matsuda",
+                  "odds": 5.2
+                }
+              ]
+            },
+            {
+              "name": "Moise Kouamé wygra seta",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 1.03
+                },
+                {
+                  "name": "Nie",
+                  "odds": 8.0
+                }
+              ]
+            },
+            {
+              "name": "Ryuki Matsuda wygra seta",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 2.8
+                },
+                {
+                  "name": "Nie",
+                  "odds": 1.34
+                }
+              ]
+            },
+            {
+              "name": "Wynik w setach",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "2 - 0",
+                  "odds": 1.34
+                },
+                {
+                  "name": "0 - 2",
+                  "odds": 13.0
+                },
+                {
+                  "name": "2 - 1",
+                  "odds": 4.2
+                },
+                {
+                  "name": "1 - 2",
+                  "odds": 12.0
+                }
+              ]
+            },
+            {
+              "name": "Handicap setowy",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Moise Kouamé (-1,5)",
+                  "odds": 1.34
+                },
+                {
+                  "name": "Ryuki Matsuda (+1.5)",
+                  "odds": 2.8
+                },
+                {
+                  "name": "Moise Kouamé (+1,5)",
+                  "odds": 1.03
+                },
+                {
+                  "name": "Ryuki Matsuda (-1.5)",
+                  "odds": 13.0
                 }
               ]
             }
