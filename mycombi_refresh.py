@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import itertools
 import json
 import time
 from pathlib import Path
@@ -26,17 +27,77 @@ from snapshot_resilience import (
 MYCOMBI_STATUS_PATH = Path("snapshots/mycombi_status.json")
 
 
-def refresh_quotes_with_identity(today: str, football_event_ids: set[int]) -> dict:
-    """Quote MyCombi while preserving combination identity on upstream failure.
+def _auto_quote_requests(metadata: dict, max_requests: int) -> list[dict]:
+    """Build a small set of live Betclic MyCombi candidates when no queue is supplied.
 
-    The original helper intentionally returned a minimal error object. That is fine for
-    reporting but insufficient for last-good fallback because a failed result must still
-    carry event_id + selections so it can be matched to the exact cached combination.
+    MyCombi uses its own market/selection ids, so candidates must be built from the
+    live MyCombi metadata rather than from the ordinary odds snapshot (whose compact
+    selection ids may be unavailable). Prefer pairs from different eligible markets and
+    keep the set bounded so the scheduled refresh remains cheap.
     """
-    quote_requests = [
+    candidates = []
+    for event in metadata.get("results", []):
+        if not isinstance(event, dict) or not event.get("available"):
+            continue
+        event_id = event.get("event_id")
+        if event_id is None:
+            continue
+        markets = []
+        for market in event.get("markets", []):
+            if not isinstance(market, dict) or not market.get("is_betbuilder_eligible"):
+                continue
+            online = [
+                s for s in market.get("selections", [])
+                if isinstance(s, dict)
+                and s.get("status") == "ONLINE"
+                and s.get("is_betbuilder_compatible") is True
+                and s.get("market_id") is not None
+                and s.get("selection_id") is not None
+                and isinstance(s.get("odds"), (int, float))
+                and s.get("odds") > 1
+            ]
+            if online:
+                # Keep a few sensible prices from each market; avoid huge combinatorics.
+                online.sort(key=lambda s: (abs(float(s["odds"]) - 1.7), str(s.get("name", ""))))
+                markets.append(online[:3])
+        for left, right in itertools.combinations(markets, 2):
+            for a, b in itertools.product(left, right):
+                pair = [
+                    {"market_id": int(a["market_id"]), "selection_id": int(a["selection_id"])},
+                    {"market_id": int(b["market_id"]), "selection_id": int(b["selection_id"])},
+                ]
+                combined_hint = float(a["odds"]) * float(b["odds"])
+                candidates.append({
+                    "request_id": f"auto-{event_id}-{a['market_id']}-{a['selection_id']}-{b['market_id']}-{b['selection_id']}",
+                    "action": "quote",
+                    "event_id": int(event_id),
+                    "label": f"Auto MyCombi: {a.get('name','')} + {b.get('name','')}",
+                    "selections": pair,
+                    "_hint": combined_hint,
+                })
+
+    # Prefer useful, non-trivial combined prices, then diversify across events.
+    candidates.sort(key=lambda x: (abs(x.pop("_hint") - 2.5), x["event_id"], x["request_id"]))
+    selected = []
+    per_event = {}
+    for candidate in candidates:
+        event_id = candidate["event_id"]
+        if per_event.get(event_id, 0) >= 2:
+            continue
+        selected.append(candidate)
+        per_event[event_id] = per_event.get(event_id, 0) + 1
+        if len(selected) >= max_requests:
+            break
+    return selected
+
+
+def refresh_quotes_with_identity(today: str, football_event_ids: set[int], metadata: dict | None = None) -> dict:
+    """Quote MyCombi while preserving combination identity on upstream failure."""
+    explicit_quotes = [
         item for item in core.raw_requests()
         if core.request_action(item) == "quote"
     ][:core.MAX_QUOTE_REQUESTS]
+    quote_requests = explicit_quotes or _auto_quote_requests(metadata or {}, core.MAX_QUOTE_REQUESTS)
     results = []
     seen_request_ids = set()
 
@@ -62,9 +123,6 @@ def refresh_quotes_with_identity(today: str, football_event_ids: set[int]) -> di
                 **quote,
             })
         except Exception as exc:
-            # Preserve normalized identity whenever normalization succeeded. If it did not,
-            # retain safe raw identity fields so diagnostics remain useful, but malformed
-            # requests still cannot accidentally match a valid cached quote.
             if request is not None:
                 identity = dict(request)
             elif isinstance(raw_request, dict):
@@ -122,9 +180,6 @@ def main() -> int:
         if not snapshot_event_ids:
             raise RuntimeError("today's football snapshot contains no event ids")
 
-        # The explicit on-demand queue is trusted as an instruction to query Betclic directly.
-        # Snapshot membership is advisory, not a hard gate: one degraded discovery pass must not
-        # prevent a live MyCombi query for an event we already selected moments earlier.
         requests = raw_requests()
         queued_event_ids = requested_event_ids(requests)
         event_ids = snapshot_event_ids | queued_event_ids
@@ -135,7 +190,7 @@ def main() -> int:
         atomic_write_json(MYCOMBI_PATH, metadata)
 
         previous_last_good = load_json(MYCOMBI_LAST_GOOD_QUOTES_PATH, {})
-        live_quotes = refresh_quotes_with_identity(today, event_ids)
+        live_quotes = refresh_quotes_with_identity(today, event_ids, metadata)
         quotes, last_good, fallback_quote_count = reconcile_quotes_with_last_good(
             live_quotes,
             previous_last_good,
