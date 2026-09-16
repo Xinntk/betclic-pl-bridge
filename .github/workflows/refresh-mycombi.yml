@@ -1,6 +1,8 @@
 name: Refresh Betclic MyCombi
 
 on:
+  schedule:
+    - cron: '3,8,13,18,23,28,33,38,43,48,53,58 * * * *'
   workflow_dispatch:
   push:
     paths:
@@ -23,13 +25,13 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 4
+    timeout-minutes: 8
     env:
       PYTHONUNBUFFERED: '1'
       SNAPSHOT_MYCOMBI_ATTEMPTS: '2'
       MYCOMBI_REFRESH_SECONDS: '900'
       MYCOMBI_FALLBACK_MAX_AGE_SECONDS: '5400'
-      MAX_MYCOMBI_INSPECT_REQUESTS: '10'
+      MAX_MYCOMBI_INSPECT_REQUESTS: '40'
       MAX_MYCOMBI_QUOTE_REQUESTS: '40'
 
     steps:
@@ -52,22 +54,25 @@ jobs:
         if: github.event_name != 'workflow_dispatch'
         run: python -m pytest -q test_snapshot_resilience.py
 
-      - name: Refresh requested MyCombi data
+      - name: Refresh MyCombi directly from Betclic
         run: python mycombi_refresh.py
 
       - name: Validate MyCombi outputs
         run: |
           python - <<'PY'
           import json
+          from datetime import datetime
           from pathlib import Path
-
           for name in ('mycombi.json', 'mycombi_quotes.json', 'mycombi_status.json', 'mycombi_last_good_quotes.json'):
               data = json.loads((Path('snapshots') / name).read_text(encoding='utf-8'))
               if not isinstance(data, dict):
                   raise SystemExit(f'{name}: expected JSON object')
           status = json.loads(Path('snapshots/mycombi_status.json').read_text(encoding='utf-8'))
           if status.get('ok') is not True:
-              raise SystemExit(f"MyCombi status is not healthy: {status}")
+              raise SystemExit(f'MyCombi status is not healthy: {status}')
+          today = datetime.now().astimezone().date().isoformat()
+          if status.get('date_warsaw') != today:
+              raise SystemExit(f"MyCombi snapshot is not current: {status.get('date_warsaw')} != {today}")
           print(json.dumps(status, ensure_ascii=False))
           PY
 
@@ -77,56 +82,27 @@ jobs:
           set -euo pipefail
           mkdir -p /tmp/betclic-mycombi
           for file in mycombi.json mycombi_quotes.json mycombi_status.json mycombi_last_good_quotes.json; do
-            if [ -f "snapshots/$file" ]; then
-              cp "snapshots/$file" "/tmp/betclic-mycombi/$file"
-            fi
+            if [ -f "snapshots/$file" ]; then cp "snapshots/$file" "/tmp/betclic-mycombi/$file"; fi
           done
-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
           for attempt in 1 2 3; do
             git fetch origin main
             git reset --hard origin/main
             remote_sha="$(git rev-parse origin/main)"
-
             mkdir -p snapshots
-            for file in /tmp/betclic-mycombi/*; do
-              [ -e "$file" ] || continue
-              cp "$file" snapshots/
-            done
+            for file in /tmp/betclic-mycombi/*; do [ -e "$file" ] && cp "$file" snapshots/; done
             git add -A -- snapshots/mycombi.json snapshots/mycombi_quotes.json snapshots/mycombi_status.json snapshots/mycombi_last_good_quotes.json
-            if git diff --cached --quiet; then
-              echo "No MyCombi changes to publish"
-              exit 0
-            fi
-
+            if git diff --cached --quiet; then echo 'No MyCombi changes to publish'; exit 0; fi
             last_author="$(git log -1 --pretty=%an)"
             last_subject="$(git log -1 --pretty=%s)"
-            rolling_snapshot=false
-            if [ "$last_author" = "github-actions[bot]" ]; then
-              case "$last_subject" in
-                "Refresh Betclic live snapshots"|"Refresh Betclic direct odds"|"Refresh Betclic MyCombi")
-                  rolling_snapshot=true
-                  ;;
-              esac
-            fi
-
-            if [ "$rolling_snapshot" = true ]; then
-              git commit --amend -m "Refresh Betclic live snapshots"
-              if git push --force-with-lease=refs/heads/main:"$remote_sha" origin HEAD:main; then
-                exit 0
-              fi
+            if [ "$last_author" = "github-actions[bot]" ] && [ "$last_subject" = "Refresh Betclic live snapshots" ]; then
+              git commit --amend -m 'Refresh Betclic live snapshots'
+              if git push --force-with-lease=refs/heads/main:"$remote_sha" origin HEAD:main; then exit 0; fi
             else
-              git commit -m "Refresh Betclic live snapshots"
-              if git push origin HEAD:main; then
-                exit 0
-              fi
+              git commit -m 'Refresh Betclic live MyCombi'
+              if git push origin HEAD:main; then exit 0; fi
             fi
-
-            echo "Publish raced with another writer; retry $attempt/3"
             sleep $((attempt * 2))
           done
-
-          echo "Could not publish MyCombi snapshot after 3 attempts"
           exit 1
