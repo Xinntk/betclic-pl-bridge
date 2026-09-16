@@ -9,6 +9,7 @@ import snapshot_refresh as core
 from snapshot_refresh import (
     MYCOMBI_PATH,
     MYCOMBI_QUOTES_PATH,
+    MYCOMBI_REQUESTS_PATH,
     SNAPSHOT_PATH,
     atomic_write_json,
     load_json,
@@ -28,13 +29,7 @@ MYCOMBI_STATUS_PATH = Path("snapshots/mycombi_status.json")
 
 
 def _auto_quote_requests(metadata: dict, max_requests: int) -> list[dict]:
-    """Build a small set of live Betclic MyCombi candidates when no queue is supplied.
-
-    MyCombi uses its own market/selection ids, so candidates must be built from the
-    live MyCombi metadata rather than from the ordinary odds snapshot (whose compact
-    selection ids may be unavailable). Prefer pairs from different eligible markets and
-    keep the set bounded so the scheduled refresh remains cheap.
-    """
+    """Build a small set of live Betclic MyCombi candidates when no queue is supplied."""
     candidates = []
     for event in metadata.get("results", []):
         if not isinstance(event, dict) or not event.get("available"):
@@ -57,26 +52,22 @@ def _auto_quote_requests(metadata: dict, max_requests: int) -> list[dict]:
                 and s.get("odds") > 1
             ]
             if online:
-                # Keep a few sensible prices from each market; avoid huge combinatorics.
                 online.sort(key=lambda s: (abs(float(s["odds"]) - 1.7), str(s.get("name", ""))))
                 markets.append(online[:3])
         for left, right in itertools.combinations(markets, 2):
             for a, b in itertools.product(left, right):
-                pair = [
-                    {"market_id": int(a["market_id"]), "selection_id": int(a["selection_id"])},
-                    {"market_id": int(b["market_id"]), "selection_id": int(b["selection_id"])},
-                ]
-                combined_hint = float(a["odds"]) * float(b["odds"])
                 candidates.append({
                     "request_id": f"auto-{event_id}-{a['market_id']}-{a['selection_id']}-{b['market_id']}-{b['selection_id']}",
                     "action": "quote",
                     "event_id": int(event_id),
                     "label": f"Auto MyCombi: {a.get('name','')} + {b.get('name','')}",
-                    "selections": pair,
-                    "_hint": combined_hint,
+                    "selections": [
+                        {"market_id": int(a["market_id"]), "selection_id": int(a["selection_id"])},
+                        {"market_id": int(b["market_id"]), "selection_id": int(b["selection_id"])},
+                    ],
+                    "_hint": float(a["odds"]) * float(b["odds"]),
                 })
 
-    # Prefer useful, non-trivial combined prices, then diversify across events.
     candidates.sort(key=lambda x: (abs(x.pop("_hint") - 2.5), x["event_id"], x["request_id"]))
     selected = []
     per_event = {}
@@ -89,6 +80,34 @@ def _auto_quote_requests(metadata: dict, max_requests: int) -> list[dict]:
         if len(selected) >= max_requests:
             break
     return selected
+
+
+def _refresh_metadata(today: str, event_ids: set[int]) -> dict:
+    """Run the existing inspector, but synthesize a temporary inspect queue when empty."""
+    current = raw_requests()
+    if any(core.request_action(item) == "inspect" for item in current):
+        return refresh_mycombi(today, event_ids)
+
+    # Preserve the user's queue exactly; the generated requests exist only for this run.
+    original_exists = MYCOMBI_REQUESTS_PATH.exists()
+    original_text = MYCOMBI_REQUESTS_PATH.read_text(encoding="utf-8") if original_exists else None
+    auto_requests = [
+        {
+            "request_id": f"auto-inspect-{event_id}",
+            "action": "inspect",
+            "event_id": int(event_id),
+            "label": "Automatic MyCombi discovery",
+        }
+        for event_id in sorted(event_ids)[:core.MAX_INSPECT_REQUESTS]
+    ]
+    try:
+        atomic_write_json(MYCOMBI_REQUESTS_PATH, {"requests": auto_requests})
+        return refresh_mycombi(today, event_ids)
+    finally:
+        if original_exists and original_text is not None:
+            MYCOMBI_REQUESTS_PATH.write_text(original_text, encoding="utf-8")
+        elif MYCOMBI_REQUESTS_PATH.exists():
+            MYCOMBI_REQUESTS_PATH.unlink()
 
 
 def refresh_quotes_with_identity(today: str, football_event_ids: set[int], metadata: dict | None = None) -> dict:
@@ -185,7 +204,7 @@ def main() -> int:
         event_ids = snapshot_event_ids | queued_event_ids
         requested_missing_from_snapshot = queued_event_ids - snapshot_event_ids
 
-        metadata = refresh_mycombi(today, event_ids)
+        metadata = _refresh_metadata(today, event_ids)
         metadata, expired_metadata_count = expire_old_metadata_fallbacks(metadata, now_warsaw())
         atomic_write_json(MYCOMBI_PATH, metadata)
 
