@@ -2,105 +2,17 @@
   "schema_version": 3,
   "source": "direct_betclic_mycombi_quote",
   "date_warsaw": "2026-09-21",
-  "generated_at_warsaw": "2026-09-21T03:21:31.868596+02:00",
+  "generated_at_warsaw": "2026-09-21T08:32:04.721757+02:00",
   "request_count": 6,
   "results": [
     {
-      "request_id": "auto-1225568502697984-1225873767297043-1225873768341577-1225873767297049-1225873768341583",
-      "action": "quote",
-      "event_id": 1225568502697984,
-      "label": "Auto MyCombi: Powyżej 2,5 + Powyżej 0,5",
-      "selections": [
-        {
-          "market_id": "1225873767297043",
-          "selection_id": "1225873768341577"
-        },
-        {
-          "market_id": "1225873767297049",
-          "selection_id": "1225873768341583"
-        }
-      ],
-      "quoted_at_warsaw": "2026-09-21T03:21:27.984993+02:00",
-      "valid": true,
-      "odds": 2.03,
-      "errors": [],
-      "stale": false,
-      "fallback": false
-    },
-    {
-      "request_id": "auto-1225568502697984-1225873767297049-1225873768341583-1225873767297027-1225873768341532",
-      "action": "quote",
-      "event_id": 1225568502697984,
-      "label": "Auto MyCombi: Powyżej 0,5 + Powyżej 1,5",
-      "selections": [
-        {
-          "market_id": "1225873767297049",
-          "selection_id": "1225873768341583"
-        },
-        {
-          "market_id": "1225873767297027",
-          "selection_id": "1225873768341532"
-        }
-      ],
-      "quoted_at_warsaw": "2026-09-21T03:21:28.724298+02:00",
-      "valid": true,
-      "odds": 2.08,
-      "errors": [],
-      "stale": false,
-      "fallback": false
-    },
-    {
-      "request_id": "auto-1223564538683392-1223571652251668-1223571652214887-1223571652251701-1223571652214987",
-      "action": "quote",
-      "event_id": 1223564538683392,
-      "label": "Auto MyCombi: Poniżej 2,5 + Nie",
-      "selections": [
-        {
-          "market_id": "1223571652251668",
-          "selection_id": "1223571652214887"
-        },
-        {
-          "market_id": "1223571652251701",
-          "selection_id": "1223571652214987"
-        }
-      ],
-      "quoted_at_warsaw": "2026-09-21T03:21:29.678476+02:00",
-      "valid": true,
-      "odds": 2.1,
-      "errors": [],
-      "stale": false,
-      "fallback": false
-    },
-    {
-      "request_id": "auto-1223564538683392-1223571652251668-1223571652214887-1223571652251771-1223571653263422",
-      "action": "quote",
-      "event_id": 1223564538683392,
-      "label": "Auto MyCombi: Poniżej 2,5 + HB Køge",
-      "selections": [
-        {
-          "market_id": "1223571652251668",
-          "selection_id": "1223571652214887"
-        },
-        {
-          "market_id": "1223571652251771",
-          "selection_id": "1223571653263422"
-        }
-      ],
-      "quoted_at_warsaw": "2026-09-21T03:21:30.443581+02:00",
-      "valid": true,
-      "odds": 3.0,
-      "errors": [],
-      "stale": false,
-      "fallback": false
-    },
-    {
-      "request_id": "auto-1225866767003648-1225873713827887-1225873714860307-1225873715912779-1225873716969744",
+      "request_id": "auto-1225866767003648-1225873713827886-1225873714860307-1225873715912779-1225873716969744",
       "action": "quote",
       "event_id": 1225866767003648,
       "label": "Auto MyCombi: Poniżej 2,5 + Niki Volou / Niki Volou",
       "selections": [
         {
-          "market_id": "1225873713827887",
+          "market_id": "1225873713827886",
           "selection_id": "1225873714860307"
         },
         {
@@ -108,9 +20,60 @@
           "selection_id": "1225873716969744"
         }
       ],
-      "quoted_at_warsaw": "2026-09-21T03:21:31.152702+02:00",
+      "quoted_at_warsaw": "2026-09-21T08:32:01.657725+02:00",
       "valid": true,
       "odds": 2.7,
+      "errors": [],
+      "stale": false,
+      "fallback": false
+    },
+    {
+      "request_id": "auto-1225568502697984-1225873767297056-1225873768341605-1225873767297047-1225873768341586",
+      "action": "quote",
+      "event_id": 1225568502697984,
+      "label": "Auto MyCombi: Nie + Poniżej 1,5",
+      "selections": [
+        {
+          "market_id": "1225873767297056",
+          "selection_id": "1225873768341605"
+        },
+        {
+          "market_id": "1225873767297047",
+          "selection_id": "1225873768341586"
+        }
+      ],
+      "quoted_at_warsaw": "2026-09-21T08:32:01.938561+02:00",
+      "valid": false,
+      "odds": null,
+      "errors": [
+        {
+          "code": "SELECTION_UNAVAILABLE",
+          "market_id": "1225873767297047",
+          "selection_id": "1225873768341586",
+          "detail": "Selection is not available for this event's MyCombi"
+        }
+      ],
+      "stale": false,
+      "fallback": false
+    },
+    {
+      "request_id": "auto-1225568502697984-1225873767297063-1225873768341633-1225873767297056-1225873768341605",
+      "action": "quote",
+      "event_id": 1225568502697984,
+      "label": "Auto MyCombi: Pas Pyrgos lub Larissa + Nie",
+      "selections": [
+        {
+          "market_id": "1225873767297063",
+          "selection_id": "1225873768341633"
+        },
+        {
+          "market_id": "1225873767297056",
+          "selection_id": "1225873768341605"
+        }
+      ],
+      "quoted_at_warsaw": "2026-09-21T08:32:02.601714+02:00",
+      "valid": true,
+      "odds": 2.85,
       "errors": [],
       "stale": false,
       "fallback": false
@@ -130,9 +93,53 @@
           "selection_id": "1225873714860309"
         }
       ],
-      "quoted_at_warsaw": "2026-09-21T03:21:31.868579+02:00",
+      "quoted_at_warsaw": "2026-09-21T08:32:03.329546+02:00",
       "valid": true,
       "odds": 2.48,
+      "errors": [],
+      "stale": false,
+      "fallback": false
+    },
+    {
+      "request_id": "auto-1223564538683392-1223571652251660-1223571652214858-1223571652251748-1223571652215175",
+      "action": "quote",
+      "event_id": 1223564538683392,
+      "label": "Auto MyCombi: Nieparzyste + HB Køge (+1)",
+      "selections": [
+        {
+          "market_id": "1223571652251660",
+          "selection_id": "1223571652214858"
+        },
+        {
+          "market_id": "1223571652251748",
+          "selection_id": "1223571652215175"
+        }
+      ],
+      "quoted_at_warsaw": "2026-09-21T08:32:04.029878+02:00",
+      "valid": true,
+      "odds": 2.67,
+      "errors": [],
+      "stale": false,
+      "fallback": false
+    },
+    {
+      "request_id": "auto-1223564538683392-1223571652251662-1223571652214866-1223571652251660-1223571652214858",
+      "action": "quote",
+      "event_id": 1223564538683392,
+      "label": "Auto MyCombi: Powyżej 0,5 + Nieparzyste",
+      "selections": [
+        {
+          "market_id": "1223571652251662",
+          "selection_id": "1223571652214866"
+        },
+        {
+          "market_id": "1223571652251660",
+          "selection_id": "1223571652214858"
+        }
+      ],
+      "quoted_at_warsaw": "2026-09-21T08:32:04.721737+02:00",
+      "valid": true,
+      "odds": 1.94,
       "errors": [],
       "stale": false,
       "fallback": false
