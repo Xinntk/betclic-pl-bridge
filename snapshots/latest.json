@@ -1,14 +1,14 @@
 {
   "schema_version": 3,
   "source": "direct_betclic",
-  "generated_at_warsaw": "2026-09-23T20:27:22.634315+02:00",
+  "generated_at_warsaw": "2026-09-23T23:39:16.783702+02:00",
   "date_warsaw": "2026-09-23",
   "fallback_max_age_seconds": 5400,
   "sports": {
     "football": {
       "sport": "football",
-      "source": "direct_betclic",
-      "stale": false,
+      "source": "previous_same_day",
+      "stale": true,
       "event_count": 4,
       "stale_event_ids": [],
       "summary_only_event_ids": [],
@@ -406,7 +406,13 @@
         "partial": false,
         "errors": []
       },
-      "errors": [],
+      "errors": [
+        {
+          "stage": "discovery",
+          "competition_id": 62,
+          "detail": "Incomplete gRPC-web frame"
+        }
+      ],
       "events": [
         {
           "id": 1232504292913152,
@@ -1145,7 +1151,7 @@
       "sport": "tennis",
       "source": "direct_betclic",
       "stale": false,
-      "event_count": 8,
+      "event_count": 3,
       "stale_event_ids": [],
       "summary_only_event_ids": [],
       "discovery": {
@@ -1164,602 +1170,10 @@
       "errors": [],
       "events": [
         {
-          "id": 1230709919342717,
-          "name": "Abedallah Shelbayh - Andres Andrade",
-          "date": "2026-09-23T18:05:00.0000000Z",
-          "date_warsaw": "2026-09-23T20:05:00+02:00",
-          "competition": "San Diego 2 Challenger",
-          "competition_id": 41201,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Abedallah Shelbayh",
-              "short": "A. Shelbayh"
-            },
-            {
-              "name": "Andres Andrade",
-              "short": "A. Andrade"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Abedallah Shelbayh",
-                  "odds": 1.45
-                },
-                {
-                  "name": "Andres Andrade",
-                  "odds": 2.2
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 3 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Andres Andrade",
-                  "odds": 5.5
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 4 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Abedallah Shelbayh",
-                  "odds": 2.6
-                },
-                {
-                  "name": "Andres Andrade",
-                  "odds": 1.25
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 2.0
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 3.7
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 3.75
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 4.5
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 4 - Punkt 1 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Abedallah Shelbayh",
-                  "odds": 2.0
-                },
-                {
-                  "name": "Andres Andrade",
-                  "odds": 1.47
-                }
-              ]
-            },
-            {
-              "name": "Abedallah Shelbayh wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.16
-                },
-                {
-                  "name": "Nie",
-                  "odds": 3.35
-                }
-              ]
-            },
-            {
-              "name": "Andres Andrade wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.52
-                },
-                {
-                  "name": "Nie",
-                  "odds": 2.0
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Abedallah Shelbayh (-1,5)",
-                  "odds": 2.0
-                },
-                {
-                  "name": "Andres Andrade (+1.5)",
-                  "odds": 1.52
-                },
-                {
-                  "name": "Abedallah Shelbayh (+1,5)",
-                  "odds": 1.16
-                },
-                {
-                  "name": "Andres Andrade (-1.5)",
-                  "odds": 3.4
-                }
-              ]
-            },
-            {
-              "name": "Czy obaj zawodnicy wygrają seta w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 2.2
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.42
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1232847055626240,
-          "name": "Patrick Maloney - Igor Ribeiro Marcondes",
-          "date": "2026-09-23T18:05:00.0000000Z",
-          "date_warsaw": "2026-09-23T20:05:00+02:00",
-          "competition": "San Diego 2 Challenger",
-          "competition_id": 41201,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Patrick Maloney",
-              "short": "P. Maloney"
-            },
-            {
-              "name": "Igor Ribeiro Marcondes",
-              "short": "I. Ribeiro Marcondes"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Patrick Maloney",
-                  "odds": 1.45
-                },
-                {
-                  "name": "Igor Ribeiro Marcondes",
-                  "odds": 2.15
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 7 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Patrick Maloney",
-                  "odds": 3.6
-                },
-                {
-                  "name": "Igor Ribeiro Marcondes",
-                  "odds": 1.1
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 1.95
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 6.25
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 4.05
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 2.95
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 6 - Punkt 2 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Patrick Maloney",
-                  "odds": 1.35
-                },
-                {
-                  "name": "Igor Ribeiro Marcondes",
-                  "odds": 2.3
-                }
-              ]
-            },
-            {
-              "name": "Patrick Maloney wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.07
-                },
-                {
-                  "name": "Nie",
-                  "odds": 4.5
-                }
-              ]
-            },
-            {
-              "name": "Igor Ribeiro Marcondes wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.55
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.95
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Patrick Maloney (-1,5)",
-                  "odds": 2.0
-                },
-                {
-                  "name": "Igor Ribeiro Marcondes (+1.5)",
-                  "odds": 1.55
-                },
-                {
-                  "name": "Patrick Maloney (+1,5)",
-                  "odds": 1.07
-                },
-                {
-                  "name": "Igor Ribeiro Marcondes (-1.5)",
-                  "odds": 4.65
-                }
-              ]
-            },
-            {
-              "name": "Czy obaj zawodnicy wygrają seta w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.85
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.6
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1232963565002752,
-          "name": "Henry Searle - Liam Draxl",
-          "date": "2026-09-23T18:05:00.0000000Z",
-          "date_warsaw": "2026-09-23T20:05:00+02:00",
-          "competition": "San Diego 2 Challenger",
-          "competition_id": 41201,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Henry Searle",
-              "short": "H. Searle"
-            },
-            {
-              "name": "Liam Draxl",
-              "short": "L. Draxl"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Henry Searle",
-                  "odds": 2.1
-                },
-                {
-                  "name": "Liam Draxl",
-                  "odds": 1.47
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 8 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Henry Searle",
-                  "odds": 1.14
-                },
-                {
-                  "name": "Liam Draxl",
-                  "odds": 3.35
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 3.45
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 2.3
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 4.55
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 3.25
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 7 - Punkt 3 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Henry Searle",
-                  "odds": 2.35
-                },
-                {
-                  "name": "Liam Draxl",
-                  "odds": 1.32
-                }
-              ]
-            },
-            {
-              "name": "Henry Searle wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.4
-                },
-                {
-                  "name": "Nie",
-                  "odds": 2.25
-                }
-              ]
-            },
-            {
-              "name": "Liam Draxl wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.18
-                },
-                {
-                  "name": "Nie",
-                  "odds": 3.15
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Henry Searle (-1,5)",
-                  "odds": 3.2
-                },
-                {
-                  "name": "Liam Draxl (+1.5)",
-                  "odds": 1.2
-                },
-                {
-                  "name": "Henry Searle (+1,5)",
-                  "odds": 1.4
-                },
-                {
-                  "name": "Liam Draxl (-1.5)",
-                  "odds": 2.3
-                }
-              ]
-            },
-            {
-              "name": "Czy obaj zawodnicy wygrają seta w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 2.0
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.5
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1232710095867904,
-          "name": "Facundo Mena - Guido Ivan Justo",
-          "date": "2026-09-23T18:10:00.0000000Z",
-          "date_warsaw": "2026-09-23T20:10:00+02:00",
-          "competition": "Buenos Aires 2 Challenger",
-          "competition_id": 30560,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Facundo Mena",
-              "short": "F. Mena"
-            },
-            {
-              "name": "Guido Ivan Justo",
-              "short": "GI. Justo"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Facundo Mena",
-                  "odds": 1.27
-                },
-                {
-                  "name": "Guido Ivan Justo",
-                  "odds": 2.75
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 3 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Facundo Mena",
-                  "odds": 2.15
-                },
-                {
-                  "name": "Guido Ivan Justo",
-                  "odds": 1.4
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 1.6
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 5.8
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 4.0
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 4.6
-                }
-              ]
-            },
-            {
-              "name": "Facundo Mena wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.07
-                },
-                {
-                  "name": "Nie",
-                  "odds": 4.45
-                }
-              ]
-            },
-            {
-              "name": "Guido Ivan Justo wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.8
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.65
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Facundo Mena (-1,5)",
-                  "odds": 1.65
-                },
-                {
-                  "name": "Guido Ivan Justo (+1.5)",
-                  "odds": 1.85
-                },
-                {
-                  "name": "Facundo Mena (+1,5)",
-                  "odds": 1.07
-                },
-                {
-                  "name": "Guido Ivan Justo (-1.5)",
-                  "odds": 4.6
-                }
-              ]
-            },
-            {
-              "name": "Czy obaj zawodnicy wygrają seta w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 2.35
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.37
-                }
-              ]
-            }
-          ]
-        },
-        {
           "id": 1232901279588352,
           "name": "Trevor Svajda - Federico Agustin Gomez",
-          "date": "2026-09-23T19:15:00.0000000Z",
-          "date_warsaw": "2026-09-23T21:15:00+02:00",
+          "date": "2026-09-23T20:35:00.0000000Z",
+          "date_warsaw": "2026-09-23T22:35:00+02:00",
           "competition": "San Diego 2 Challenger",
           "competition_id": 41201,
           "is_live": true,
@@ -1780,11 +1194,71 @@
               "selections": [
                 {
                   "name": "Trevor Svajda",
-                  "odds": 1.34
+                  "odds": 1.9
                 },
                 {
                   "name": "Federico Agustin Gomez",
-                  "odds": 2.75
+                  "odds": 1.6
+                }
+              ]
+            },
+            {
+              "name": "2. set - Gem 5 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Trevor Svajda",
+                  "odds": 1.1
+                },
+                {
+                  "name": "Federico Agustin Gomez",
+                  "odds": 3.65
+                }
+              ]
+            },
+            {
+              "name": "2. set - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Trevor Svajda",
+                  "odds": 1.35
+                },
+                {
+                  "name": "Federico Agustin Gomez",
+                  "odds": 2.4
+                }
+              ]
+            },
+            {
+              "name": "Wynik w setach",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "0 - 2",
+                  "odds": 2.5
+                },
+                {
+                  "name": "2 - 1",
+                  "odds": 1.95
+                },
+                {
+                  "name": "1 - 2",
+                  "odds": 3.8
+                }
+              ]
+            },
+            {
+              "name": "2. set - Gem 4 - Punkt 6 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Trevor Svajda",
+                  "odds": 2.1
+                },
+                {
+                  "name": "Federico Agustin Gomez",
+                  "odds": 1.42
                 }
               ]
             },
@@ -1794,47 +1268,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.14
+                  "odds": 1.35
                 },
                 {
                   "name": "Nie",
-                  "odds": 4.5
-                }
-              ]
-            },
-            {
-              "name": "Federico Agustin Gomez wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.73
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.92
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 1.92
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 5.0
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 3.8
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 6.0
+                  "odds": 2.4
                 }
               ]
             },
@@ -1843,20 +1281,26 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "Trevor Svajda (-1,5)",
-                  "odds": 1.92
-                },
-                {
-                  "name": "Federico Agustin Gomez (+1.5)",
-                  "odds": 1.73
-                },
-                {
                   "name": "Trevor Svajda (+1,5)",
-                  "odds": 1.14
+                  "odds": 1.35
                 },
                 {
                   "name": "Federico Agustin Gomez (-1.5)",
-                  "odds": 5.0
+                  "odds": 2.4
+                }
+              ]
+            },
+            {
+              "name": "Czy obaj zawodnicy wygrają seta w meczu",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 1.35
+                },
+                {
+                  "name": "Nie",
+                  "odds": 2.4
                 }
               ]
             }
@@ -1865,8 +1309,8 @@
         {
           "id": 1232750801596416,
           "name": "Nicolas Kicker - Hugo Dellien",
-          "date": "2026-09-23T19:25:00.0000000Z",
-          "date_warsaw": "2026-09-23T21:25:00+02:00",
+          "date": "2026-09-23T20:40:00.0000000Z",
+          "date_warsaw": "2026-09-23T22:40:00+02:00",
           "competition": "Buenos Aires 2 Challenger",
           "competition_id": 30560,
           "is_live": true,
@@ -1887,11 +1331,71 @@
               "selections": [
                 {
                   "name": "Nicolas Kicker",
-                  "odds": 3.65
+                  "odds": 5.7
                 },
                 {
                   "name": "Hugo Dellien",
-                  "odds": 1.19
+                  "odds": 1.02
+                }
+              ]
+            },
+            {
+              "name": "2. set - Gem 2 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Nicolas Kicker",
+                  "odds": 3.4
+                },
+                {
+                  "name": "Hugo Dellien",
+                  "odds": 1.14
+                }
+              ]
+            },
+            {
+              "name": "2. set - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Nicolas Kicker",
+                  "odds": 3.5
+                },
+                {
+                  "name": "Hugo Dellien",
+                  "odds": 1.14
+                }
+              ]
+            },
+            {
+              "name": "Wynik w setach",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "0 - 2",
+                  "odds": 1.14
+                },
+                {
+                  "name": "2 - 1",
+                  "odds": 9.25
+                },
+                {
+                  "name": "1 - 2",
+                  "odds": 5.1
+                }
+              ]
+            },
+            {
+              "name": "2. set - Gem 1 - Punkt 2 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Nicolas Kicker",
+                  "odds": 1.6
+                },
+                {
+                  "name": "Hugo Dellien",
+                  "odds": 1.8
                 }
               ]
             },
@@ -1901,47 +1405,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 2.14
+                  "odds": 3.5
                 },
                 {
                   "name": "Nie",
-                  "odds": 1.58
-                }
-              ]
-            },
-            {
-              "name": "Hugo Dellien wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.08
-                },
-                {
-                  "name": "Nie",
-                  "odds": 5.8
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 7.2
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 1.58
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 8.0
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 4.0
+                  "odds": 1.14
                 }
               ]
             },
@@ -1950,20 +1418,26 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "Nicolas Kicker (-1,5)",
-                  "odds": 7.2
-                },
-                {
-                  "name": "Hugo Dellien (+1.5)",
-                  "odds": 1.08
-                },
-                {
                   "name": "Nicolas Kicker (+1,5)",
-                  "odds": 2.14
+                  "odds": 3.6
                 },
                 {
                   "name": "Hugo Dellien (-1.5)",
-                  "odds": 1.58
+                  "odds": 1.15
+                }
+              ]
+            },
+            {
+              "name": "Czy obaj zawodnicy wygrają seta w meczu",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 3.5
+                },
+                {
+                  "name": "Nie",
+                  "odds": 1.14
                 }
               ]
             }
@@ -1972,8 +1446,8 @@
         {
           "id": 1232835848450048,
           "name": "Francisco Comesana - Joaquin Aguilar Cardozo",
-          "date": "2026-09-23T21:30:00.0000000Z",
-          "date_warsaw": "2026-09-23T23:30:00+02:00",
+          "date": "2026-09-23T21:55:00.0000000Z",
+          "date_warsaw": "2026-09-23T23:55:00+02:00",
           "competition": "Buenos Aires 2 Challenger",
           "competition_id": 30560,
           "is_live": true,
@@ -1994,11 +1468,11 @@
               "selections": [
                 {
                   "name": "Francisco Comesana",
-                  "odds": 1.42
+                  "odds": 1.38
                 },
                 {
                   "name": "Joaquin Aguilar Cardozo",
-                  "odds": 2.48
+                  "odds": 2.6
                 }
               ]
             },
@@ -2008,11 +1482,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.18
+                  "odds": 1.16
                 },
                 {
                   "name": "Nie",
-                  "odds": 3.95
+                  "odds": 4.2
                 }
               ]
             },
@@ -2022,11 +1496,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.64
+                  "odds": 1.69
                 },
                 {
                   "name": "Nie",
-                  "odds": 2.04
+                  "odds": 1.97
                 }
               ]
             },
@@ -2036,19 +1510,19 @@
               "selections": [
                 {
                   "name": "2 - 0",
-                  "odds": 2.04
+                  "odds": 1.97
                 },
                 {
                   "name": "0 - 2",
-                  "odds": 4.3
+                  "odds": 4.5
                 },
                 {
                   "name": "2 - 1",
-                  "odds": 3.95
+                  "odds": 3.9
                 },
                 {
                   "name": "1 - 2",
-                  "odds": 5.6
+                  "odds": 5.8
                 }
               ]
             },
@@ -2058,126 +1532,19 @@
               "selections": [
                 {
                   "name": "Francisco Comesana (-1,5)",
-                  "odds": 2.04
+                  "odds": 1.97
                 },
                 {
                   "name": "Joaquin Aguilar Cardozo (+1.5)",
-                  "odds": 1.64
+                  "odds": 1.69
                 },
                 {
                   "name": "Francisco Comesana (+1,5)",
-                  "odds": 1.18
+                  "odds": 1.16
                 },
                 {
                   "name": "Joaquin Aguilar Cardozo (-1.5)",
-                  "odds": 4.3
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1232512774836224,
-          "name": "Keegan Smith - Dylan Dietrich",
-          "date": "2026-09-23T21:35:00.0000000Z",
-          "date_warsaw": "2026-09-23T23:35:00+02:00",
-          "competition": "San Diego 2 Challenger",
-          "competition_id": 41201,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Keegan Smith",
-              "short": "K. Smith"
-            },
-            {
-              "name": "Dylan Dietrich",
-              "short": "D. Dietrich"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Keegan Smith",
-                  "odds": 2.1
-                },
-                {
-                  "name": "Dylan Dietrich",
-                  "odds": 1.58
-                }
-              ]
-            },
-            {
-              "name": "Keegan Smith wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.46
-                },
-                {
-                  "name": "Nie",
-                  "odds": 2.41
-                }
-              ]
-            },
-            {
-              "name": "Dylan Dietrich wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.24
-                },
-                {
-                  "name": "Nie",
-                  "odds": 3.4
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 3.55
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 2.43
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 4.7
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 3.95
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Keegan Smith (-1,5)",
-                  "odds": 3.55
-                },
-                {
-                  "name": "Dylan Dietrich (+1.5)",
-                  "odds": 1.24
-                },
-                {
-                  "name": "Keegan Smith (+1,5)",
-                  "odds": 1.46
-                },
-                {
-                  "name": "Dylan Dietrich (-1.5)",
-                  "odds": 2.43
+                  "odds": 4.5
                 }
               ]
             }
