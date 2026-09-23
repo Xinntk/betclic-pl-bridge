@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "source": "direct_betclic",
-  "generated_at_warsaw": "2026-09-23T16:21:37.562353+02:00",
+  "generated_at_warsaw": "2026-09-23T20:27:22.634315+02:00",
   "date_warsaw": "2026-09-23",
   "fallback_max_age_seconds": 5400,
   "sports": {
@@ -9,7 +9,7 @@
       "sport": "football",
       "source": "direct_betclic",
       "stale": false,
-      "event_count": 6,
+      "event_count": 4,
       "stale_event_ids": [],
       "summary_only_event_ids": [],
       "discovery": {
@@ -21,6 +21,13 @@
             "category": "",
             "country_code": "EU",
             "country_name": "Europa"
+          },
+          {
+            "id": 62,
+            "name": "Holandia Puchar",
+            "category": "",
+            "country_code": "NL",
+            "country_name": "Holandia"
           },
           {
             "id": 3,
@@ -81,13 +88,6 @@
           {
             "id": 220,
             "name": "Czechy 1. liga",
-            "category": "",
-            "country_code": "CZ",
-            "country_name": "Czechy"
-          },
-          {
-            "id": 1238,
-            "name": "Czechy Puchar",
             "category": "",
             "country_code": "CZ",
             "country_name": "Czechy"
@@ -179,13 +179,6 @@
           {
             "id": 21,
             "name": "Holandia Eredivisie",
-            "category": "",
-            "country_code": "NL",
-            "country_name": "Holandia"
-          },
-          {
-            "id": 62,
-            "name": "Holandia Puchar",
             "category": "",
             "country_code": "NL",
             "country_name": "Holandia"
@@ -361,6 +354,7 @@
         ],
         "selected_competition_ids": [
           22676,
+          62,
           3,
           44,
           41,
@@ -370,7 +364,6 @@
           1875,
           26,
           220,
-          1238,
           88,
           8,
           3453,
@@ -384,7 +377,6 @@
           47,
           7,
           21,
-          62,
           539,
           1,
           5,
@@ -417,203 +409,6 @@
       "errors": [],
       "events": [
         {
-          "id": 1226325954162688,
-          "name": "Kladno - Banik Ostrava",
-          "date": "2026-09-23T14:00:00.0000000Z",
-          "date_warsaw": "2026-09-23T16:00:00+02:00",
-          "competition": "Czechy Puchar",
-          "competition_id": 1238,
-          "is_live": false,
-          "teams": [
-            {
-              "name": "Kladno",
-              "short": "Kladno"
-            },
-            {
-              "name": "Banik Ostrava",
-              "short": "Banik Ostrava"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Kladno",
-                  "odds": 3.1
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 3.05
-                },
-                {
-                  "name": "Banik Ostrava",
-                  "odds": 1.85
-                }
-              ]
-            },
-            {
-              "name": "Zwycięzca rywalizacji",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Kladno",
-                  "odds": 2.15
-                },
-                {
-                  "name": "Banik Ostrava",
-                  "odds": 1.42
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Kladno lub remis",
-                  "odds": 1.5
-                },
-                {
-                  "name": "Kladno lub Banik Ostrava",
-                  "odds": 1.17
-                },
-                {
-                  "name": "Remis lub Banik Ostrava",
-                  "odds": 1.16
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 9.25
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.19
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 3.05
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.63
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.8
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 2.6
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.27
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 4.25
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.07
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 5.9
-                },
-                {
-                  "name": "Powyżej 6,5",
-                  "odds": 15.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Kladno",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.3
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 2.5
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 2.4
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.3
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 4.6
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.03
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 10.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Banik Ostrava",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.13
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 3.5
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.75
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.62
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 3.2
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.14
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 5.0
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.01
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 15.0
-                }
-              ]
-            }
-          ]
-        },
-        {
           "id": 1232504292913152,
           "name": "Grorud - Moss",
           "date": "2026-09-23T16:00:00.0000000Z",
@@ -633,158 +428,52 @@
           ],
           "markets": [
             {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Grorud",
-                  "odds": 2.48
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 3.38
-                },
-                {
-                  "name": "Moss",
-                  "odds": 2.27
-                }
-              ]
-            },
-            {
               "name": "Zwycięzca rywalizacji",
               "suspended": false,
               "selections": [
                 {
                   "name": "Grorud",
-                  "odds": 1.84
+                  "odds": 1.7
                 },
                 {
                   "name": "Moss",
-                  "odds": 1.74
+                  "odds": 1.7
                 }
               ]
             },
             {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.12
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 4.4
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.46
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 2.32
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 2.1
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.55
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 3.38
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.21
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 5.25
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.07
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Grorud lub remis",
-                  "odds": 1.49
-                },
-                {
-                  "name": "Grorud lub Moss",
-                  "odds": 1.24
-                },
-                {
-                  "name": "Remis lub Moss",
-                  "odds": 1.43
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Grorud",
+              "name": "Gole w dogrywce Powyżej/Poniżej",
               "suspended": false,
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.18
+                  "odds": 3.95
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 4.25
+                  "odds": 1.08
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.89
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.69
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 4.1
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.19
+                  "odds": 20.0
                 }
               ]
             },
             {
-              "name": "Liczba goli - Moss",
+              "name": "Dogrywka Handicap (2-drożny)",
               "suspended": false,
               "selections": [
                 {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.16
+                  "name": "Grorud (-0,5)",
+                  "odds": 10.5
                 },
                 {
-                  "name": "Poniżej 0,5",
-                  "odds": 4.5
+                  "name": "Moss (-0.5)",
+                  "odds": 9.25
                 },
                 {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.82
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.75
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 3.83
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.21
+                  "name": "Moss (-1.5)",
+                  "odds": 25.0
                 }
               ]
             }
@@ -815,15 +504,15 @@
               "selections": [
                 {
                   "name": "VV Zwaluwen Vlaardingen",
-                  "odds": 2.3
+                  "odds": 3.85
                 },
                 {
                   "name": "Remis ",
-                  "odds": 3.78
+                  "odds": 3.55
                 },
                 {
                   "name": "Purmersteijn",
-                  "odds": 2.25
+                  "odds": 1.55
                 }
               ]
             },
@@ -833,57 +522,11 @@
               "selections": [
                 {
                   "name": "VV Zwaluwen Vlaardingen",
-                  "odds": 1.79
+                  "odds": 2.45
                 },
                 {
                   "name": "Purmersteijn",
-                  "odds": 1.79
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.1
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 4.65
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.4
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 2.48
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 2.0
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.61
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 3.13
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.25
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 4.95
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.09
+                  "odds": 1.32
                 }
               ]
             },
@@ -893,15 +536,61 @@
               "selections": [
                 {
                   "name": "VV Zwaluwen Vlaardingen lub remis",
-                  "odds": 1.49
+                  "odds": 1.85
                 },
                 {
                   "name": "Vla. lub Purmersteijn",
-                  "odds": 1.2
+                  "odds": 1.1
                 },
                 {
                   "name": "Remis lub Purmersteijn",
-                  "odds": 1.49
+                  "odds": 1.08
+                }
+              ]
+            },
+            {
+              "name": "Gole Powyżej/Poniżej",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Powyżej 1,5",
+                  "odds": 1.02
+                },
+                {
+                  "name": "Poniżej 1,5",
+                  "odds": 5.25
+                },
+                {
+                  "name": "Powyżej 2,5",
+                  "odds": 1.2
+                },
+                {
+                  "name": "Poniżej 2,5",
+                  "odds": 2.95
+                },
+                {
+                  "name": "Powyżej 3,5",
+                  "odds": 1.65
+                },
+                {
+                  "name": "Poniżej 3,5",
+                  "odds": 1.77
+                },
+                {
+                  "name": "Powyżej 4,5",
+                  "odds": 2.55
+                },
+                {
+                  "name": "Poniżej 4,5",
+                  "odds": 1.28
+                },
+                {
+                  "name": "Powyżej 5,5",
+                  "odds": 3.95
+                },
+                {
+                  "name": "Poniżej 5,5",
+                  "odds": 1.09
                 }
               ]
             },
@@ -911,27 +600,27 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.16
+                  "odds": 1.18
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 4.6
+                  "odds": 3.0
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.79
+                  "odds": 1.85
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.79
+                  "odds": 1.52
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 3.68
+                  "odds": 3.35
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.22
+                  "odds": 1.12
                 }
               ]
             },
@@ -940,28 +629,82 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.16
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 4.6
-                },
-                {
                   "name": "Powyżej 1,5",
-                  "odds": 1.78
+                  "odds": 1.25
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.79
+                  "odds": 2.55
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 3.68
+                  "odds": 2.15
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.22
+                  "odds": 1.37
+                },
+                {
+                  "name": "Powyżej 3,5",
+                  "odds": 3.9
+                },
+                {
+                  "name": "Poniżej 3,5",
+                  "odds": 1.07
+                }
+              ]
+            },
+            {
+              "name": "Handicap",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "VV Zwaluwen Vlaardingen (-2)",
+                  "odds": 14.5
+                },
+                {
+                  "name": "Remis (VV Zwaluwen Vlaardingen -2)",
+                  "odds": 7.25
+                },
+                {
+                  "name": "Purmersteijn (+2)",
+                  "odds": 1.03
+                },
+                {
+                  "name": "VV Zwaluwen Vlaardingen (-1)",
+                  "odds": 8.25
+                },
+                {
+                  "name": "Remis (VV Zwaluwen Vlaardingen -1)",
+                  "odds": 5.2
+                },
+                {
+                  "name": "Purmersteijn (+1)",
+                  "odds": 1.16
+                },
+                {
+                  "name": "VV Zwaluwen Vlaardingen (+2)",
+                  "odds": 1.35
+                },
+                {
+                  "name": "Remis (VV Zwaluwen Vlaardingen +2)",
+                  "odds": 4.15
+                },
+                {
+                  "name": "Purmersteijn (-2)",
+                  "odds": 5.4
+                },
+                {
+                  "name": "VV Zwaluwen Vlaardingen (+3)",
+                  "odds": 1.08
+                },
+                {
+                  "name": "Remis (VV Zwaluwen Vlaardingen +3)",
+                  "odds": 6.0
+                },
+                {
+                  "name": "Purmersteijn (-3)",
+                  "odds": 11.5
                 }
               ]
             }
@@ -992,15 +735,15 @@
               "selections": [
                 {
                   "name": "VV IJsselmeervogels",
-                  "odds": 1.24
+                  "odds": 1.8
                 },
                 {
                   "name": "Remis ",
-                  "odds": 4.95
+                  "odds": 3.0
                 },
                 {
                   "name": "Gemert",
-                  "odds": 7.75
+                  "odds": 3.3
                 }
               ]
             },
@@ -1010,57 +753,11 @@
               "selections": [
                 {
                   "name": "VV IJsselmeervogels",
-                  "odds": 1.11
+                  "odds": 1.35
                 },
                 {
                   "name": "Gemert",
-                  "odds": 4.65
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.11
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 4.5
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.42
-                },
-                {
-                  "name": "Poniżej 2,5",
                   "odds": 2.4
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 2.07
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.58
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 3.25
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.23
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 5.1
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.08
                 }
               ]
             },
@@ -1070,15 +767,61 @@
               "selections": [
                 {
                   "name": "VV IJsselmeervogels lub remis",
-                  "odds": 1.06
+                  "odds": 1.12
                 },
                 {
                   "name": "VV IJsselmeervogels lub Gemert",
-                  "odds": 1.1
+                  "odds": 1.16
                 },
                 {
                   "name": "Remis lub Gemert",
-                  "odds": 3.32
+                  "odds": 1.57
+                }
+              ]
+            },
+            {
+              "name": "Gole Powyżej/Poniżej",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Powyżej 1,5",
+                  "odds": 1.02
+                },
+                {
+                  "name": "Poniżej 1,5",
+                  "odds": 5.25
+                },
+                {
+                  "name": "Powyżej 2,5",
+                  "odds": 1.24
+                },
+                {
+                  "name": "Poniżej 2,5",
+                  "odds": 2.75
+                },
+                {
+                  "name": "Powyżej 3,5",
+                  "odds": 1.75
+                },
+                {
+                  "name": "Poniżej 3,5",
+                  "odds": 1.67
+                },
+                {
+                  "name": "Powyżej 4,5",
+                  "odds": 2.8
+                },
+                {
+                  "name": "Poniżej 4,5",
+                  "odds": 1.23
+                },
+                {
+                  "name": "Powyżej 5,5",
+                  "odds": 4.25
+                },
+                {
+                  "name": "Poniżej 5,5",
+                  "odds": 1.07
                 }
               ]
             },
@@ -1088,27 +831,27 @@
               "selections": [
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.3
+                  "odds": 1.42
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 2.83
+                  "odds": 2.05
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 1.98
+                  "odds": 2.25
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.66
+                  "odds": 1.35
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 3.25
+                  "odds": 3.65
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 1.23
+                  "odds": 1.09
                 }
               ]
             },
@@ -1117,213 +860,86 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.65
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 1.98
-                },
-                {
                   "name": "Powyżej 1,5",
-                  "odds": 3.9
+                  "odds": 2.0
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.16
+                  "odds": 1.47
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 17.5
+                  "odds": 4.4
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.02
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1232540637601792,
-          "name": "Sparta Nijkerk - UDI 19",
-          "date": "2026-09-23T18:00:00.0000000Z",
-          "date_warsaw": "2026-09-23T20:00:00+02:00",
-          "competition": "Holandia Puchar",
-          "competition_id": 62,
-          "is_live": false,
-          "teams": [
-            {
-              "name": "Sparta Nijkerk",
-              "short": "Sparta Nijkerk"
-            },
-            {
-              "name": "UDI 19",
-              "short": "UDI"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Sparta Nijkerk",
-                  "odds": 1.89
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 3.98
-                },
-                {
-                  "name": "UDI 19",
-                  "odds": 2.8
-                }
-              ]
-            },
-            {
-              "name": "Zwycięzca rywalizacji",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Sparta Nijkerk",
-                  "odds": 1.54
-                },
-                {
-                  "name": "UDI 19",
-                  "odds": 2.12
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.06
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 5.75
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.26
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 3.08
+                  "odds": 1.04
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 1.67
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.92
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 2.47
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.4
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 3.83
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.17
+                  "odds": 5.2
                 }
               ]
             },
             {
-              "name": "Podwójna Szansa",
+              "name": "Handicap",
               "suspended": false,
               "selections": [
                 {
-                  "name": "Sparta Nijkerk lub remis",
-                  "odds": 1.34
+                  "name": "VV IJsselmeervogels (-3)",
+                  "odds": 11.0
                 },
                 {
-                  "name": "Sparta Nijkerk lub UDI",
-                  "odds": 1.19
-                },
-                {
-                  "name": "Remis lub UDI 19",
-                  "odds": 1.71
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Sparta Nijkerk",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.08
-                },
-                {
-                  "name": "Poniżej 0,5",
+                  "name": "Remis (VV IJsselmeervogels -3)",
                   "odds": 7.0
                 },
                 {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.47
+                  "name": "Gemert (+3)",
+                  "odds": 1.06
                 },
                 {
-                  "name": "Poniżej 1,5",
-                  "odds": 2.28
+                  "name": "VV IJsselmeervogels (-2)",
+                  "odds": 6.25
                 },
                 {
-                  "name": "Powyżej 2,5",
-                  "odds": 2.52
+                  "name": "Remis (VV IJsselmeervogels -2)",
+                  "odds": 5.0
                 },
                 {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.42
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - UDI 19",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.15
+                  "name": "Gemert (+2)",
+                  "odds": 1.22
                 },
                 {
-                  "name": "Poniżej 0,5",
-                  "odds": 4.75
+                  "name": "VV IJsselmeervogels (-1)",
+                  "odds": 3.25
                 },
                 {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.75
+                  "name": "Remis (VV IJsselmeervogels -1)",
+                  "odds": 3.6
                 },
                 {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.82
+                  "name": "Gemert (+1)",
+                  "odds": 1.7
                 },
                 {
-                  "name": "Powyżej 2,5",
-                  "odds": 3.58
+                  "name": "VV IJsselmeervogels (+2)",
+                  "odds": 1.03
                 },
                 {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.24
+                  "name": "Remis (VV IJsselmeervogels +2)",
+                  "odds": 6.25
+                },
+                {
+                  "name": "Gemert (-2)",
+                  "odds": 22.0
                 }
               ]
             }
           ]
         },
         {
-          "id": 1232540686884866,
-          "name": "JOS Watergraafsmeer - TEC",
+          "id": 1232515270459392,
+          "name": "VV Germania Groesbeek - Kozakken Boys",
           "date": "2026-09-23T18:00:00.0000000Z",
           "date_warsaw": "2026-09-23T20:00:00+02:00",
           "competition": "Holandia Puchar",
@@ -1331,12 +947,12 @@
           "is_live": false,
           "teams": [
             {
-              "name": "JOS Watergraafsmeer",
-              "short": "JOS Watergraafsmeer"
+              "name": "VV Germania Groesbeek",
+              "short": "VV Germania Groesbeek"
             },
             {
-              "name": "TEC",
-              "short": "TEC"
+              "name": "Kozakken Boys",
+              "short": "Kozakken"
             }
           ],
           "markets": [
@@ -1345,76 +961,12 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "JOS Watergraafsmeer",
-                  "odds": 3.95
+                  "name": "VV Germania Groesbeek",
+                  "odds": 32.0
                 },
                 {
                   "name": "Remis ",
-                  "odds": 4.9
-                },
-                {
-                  "name": "TEC",
-                  "odds": 1.46
-                }
-              ]
-            },
-            {
-              "name": "Zwycięzca rywalizacji",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "JOS Watergraafsmeer",
-                  "odds": 2.95
-                },
-                {
-                  "name": "TEC",
-                  "odds": 1.28
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.05
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 6.0
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.22
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 3.37
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 1.59
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 2.03
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 2.28
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.47
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 3.53
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.19
+                  "odds": 6.25
                 }
               ]
             },
@@ -1423,76 +975,164 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "JOS Watergraafsmeer lub remis",
-                  "odds": 2.32
-                },
-                {
-                  "name": "JOS Watergraafsmeer lub TEC",
-                  "odds": 1.13
-                },
-                {
-                  "name": "Remis lub TEC",
-                  "odds": 1.18
+                  "name": "VV Germania Groesbeek lub remis",
+                  "odds": 5.2
                 }
               ]
             },
             {
-              "name": "Liczba goli - JOS Watergraafsmeer",
+              "name": "Gole Powyżej/Poniżej",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Powyżej 4,5",
+                  "odds": 1.12
+                },
+                {
+                  "name": "Poniżej 4,5",
+                  "odds": 3.6
+                },
+                {
+                  "name": "Powyżej 5,5",
+                  "odds": 1.38
+                },
+                {
+                  "name": "Poniżej 5,5",
+                  "odds": 2.25
+                },
+                {
+                  "name": "Powyżej 6,5",
+                  "odds": 1.82
+                },
+                {
+                  "name": "Poniżej 6,5",
+                  "odds": 1.62
+                },
+                {
+                  "name": "Powyżej 7,5",
+                  "odds": 2.6
+                },
+                {
+                  "name": "Poniżej 7,5",
+                  "odds": 1.27
+                },
+                {
+                  "name": "Powyżej 8,5",
+                  "odds": 3.75
+                },
+                {
+                  "name": "Poniżej 8,5",
+                  "odds": 1.11
+                }
+              ]
+            },
+            {
+              "name": "Liczba goli - VV Germania Groesbeek",
               "suspended": false,
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.23
+                  "odds": 2.05
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 3.65
+                  "odds": 1.45
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 2.07
+                  "odds": 4.5
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.57
+                  "odds": 1.03
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 4.85
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.14
+                  "odds": 5.2
                 }
               ]
             },
             {
-              "name": "Liczba goli - TEC",
+              "name": "Liczba goli - Kozakken Boys",
               "suspended": false,
               "selections": [
                 {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.29
+                  "name": "Powyżej 4,5",
+                  "odds": 1.2
                 },
                 {
-                  "name": "Poniżej 1,5",
-                  "odds": 2.92
+                  "name": "Poniżej 4,5",
+                  "odds": 2.85
                 },
                 {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.93
+                  "name": "Powyżej 5,5",
+                  "odds": 1.52
                 },
                 {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.69
+                  "name": "Poniżej 5,5",
+                  "odds": 1.85
                 },
                 {
-                  "name": "Powyżej 3,5",
-                  "odds": 3.15
+                  "name": "Powyżej 6,5",
+                  "odds": 2.15
                 },
                 {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.24
+                  "name": "Poniżej 6,5",
+                  "odds": 1.37
+                }
+              ]
+            },
+            {
+              "name": "Handicap",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "VV Germania Groesbeek (+4)",
+                  "odds": 4.35
+                },
+                {
+                  "name": "Remis (VV Germania Groesbeek +4)",
+                  "odds": 4.6
+                },
+                {
+                  "name": "Kozakken Boys (-4)",
+                  "odds": 1.37
+                },
+                {
+                  "name": "VV Germania Groesbeek (+5)",
+                  "odds": 2.5
+                },
+                {
+                  "name": "Remis (VV Germania Groesbeek +5)",
+                  "odds": 4.2
+                },
+                {
+                  "name": "Kozakken Boys (-5)",
+                  "odds": 1.85
+                },
+                {
+                  "name": "VV Germania Groesbeek (+6)",
+                  "odds": 1.65
+                },
+                {
+                  "name": "Remis (VV Germania Groesbeek +6)",
+                  "odds": 4.55
+                },
+                {
+                  "name": "Kozakken Boys (-6)",
+                  "odds": 2.8
+                },
+                {
+                  "name": "VV Germania Groesbeek (+7)",
+                  "odds": 1.3
+                },
+                {
+                  "name": "Remis (VV Germania Groesbeek +7)",
+                  "odds": 5.6
+                },
+                {
+                  "name": "Kozakken Boys (-7)",
+                  "odds": 4.45
                 }
               ]
             }
@@ -1505,7 +1145,7 @@
       "sport": "tennis",
       "source": "direct_betclic",
       "stale": false,
-      "event_count": 13,
+      "event_count": 8,
       "stale_event_ids": [],
       "summary_only_event_ids": [],
       "discovery": {
@@ -1524,901 +1164,10 @@
       "errors": [],
       "events": [
         {
-          "id": 1232511931781120,
-          "name": "Max Wiskandt - Carlos Taberner",
-          "date": "2026-09-23T12:40:00.0000000Z",
-          "date_warsaw": "2026-09-23T14:40:00+02:00",
-          "competition": "Plovdiv 4 Challenger",
-          "competition_id": 41207,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Max Wiskandt",
-              "short": "M. Wiskandt"
-            },
-            {
-              "name": "Carlos Taberner",
-              "short": "C. Taberner"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Max Wiskandt",
-                  "odds": 2.6
-                },
-                {
-                  "name": "Carlos Taberner",
-                  "odds": 1.3
-                }
-              ]
-            },
-            {
-              "name": "2. set - Gem 6 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Max Wiskandt",
-                  "odds": 2.45
-                },
-                {
-                  "name": "Carlos Taberner",
-                  "odds": 1.3
-                }
-              ]
-            },
-            {
-              "name": "2. set - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Max Wiskandt",
-                  "odds": 1.27
-                },
-                {
-                  "name": "Carlos Taberner",
-                  "odds": 2.75
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "0 - 2",
-                  "odds": 3.0
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 2.75
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 2.1
-                }
-              ]
-            },
-            {
-              "name": "2. set - Gem 5 - Punkt 2 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Max Wiskandt",
-                  "odds": 1.55
-                },
-                {
-                  "name": "Carlos Taberner",
-                  "odds": 1.9
-                }
-              ]
-            },
-            {
-              "name": "Max Wiskandt wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.27
-                },
-                {
-                  "name": "Nie",
-                  "odds": 2.75
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Max Wiskandt (+1,5)",
-                  "odds": 1.27
-                },
-                {
-                  "name": "Carlos Taberner (-1.5)",
-                  "odds": 2.75
-                }
-              ]
-            },
-            {
-              "name": "Czy obaj zawodnicy wygrają seta w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.27
-                },
-                {
-                  "name": "Nie",
-                  "odds": 2.75
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1232989239377920,
-          "name": "Dali Blanch - Matthew William Donald",
-          "date": "2026-09-23T14:00:00.0000000Z",
-          "date_warsaw": "2026-09-23T16:00:00+02:00",
-          "competition": "Genova 2 Challenger",
-          "competition_id": 41204,
-          "is_live": false,
-          "teams": [
-            {
-              "name": "Dali Blanch",
-              "short": "D. Blanch"
-            },
-            {
-              "name": "Matthew William Donald",
-              "short": "M. Donald"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Dali Blanch",
-                  "odds": 1.52
-                },
-                {
-                  "name": "Matthew William Donald",
-                  "odds": 2.25
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 4 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Dali Blanch",
-                  "odds": 1.02
-                },
-                {
-                  "name": "Matthew William Donald",
-                  "odds": 5.25
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 5 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Dali Blanch",
-                  "odds": 3.25
-                },
-                {
-                  "name": "Matthew William Donald",
-                  "odds": 1.16
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 2.35
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 3.6
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 3.3
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 4.5
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 4 - Punkt 5 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Dali Blanch",
-                  "odds": 1.33
-                },
-                {
-                  "name": "Matthew William Donald",
-                  "odds": 2.4
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 4 - Punkt 6 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Dali Blanch",
-                  "odds": 1.35
-                },
-                {
-                  "name": "Matthew William Donald",
-                  "odds": 2.35
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 5 - Punkt 1 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Dali Blanch",
-                  "odds": 2.2
-                },
-                {
-                  "name": "Matthew William Donald",
-                  "odds": 1.4
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 5 - Punkt 2 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Dali Blanch",
-                  "odds": 2.2
-                },
-                {
-                  "name": "Matthew William Donald",
-                  "odds": 1.4
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 5 - Punkt 3 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Dali Blanch",
-                  "odds": 2.2
-                },
-                {
-                  "name": "Matthew William Donald",
-                  "odds": 1.4
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 5 - Punkt 4 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Dali Blanch",
-                  "odds": 2.25
-                },
-                {
-                  "name": "Matthew William Donald",
-                  "odds": 1.38
-                }
-              ]
-            },
-            {
-              "name": "Dali Blanch wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.19
-                },
-                {
-                  "name": "Nie",
-                  "odds": 3.35
-                }
-              ]
-            },
-            {
-              "name": "Matthew William Donald wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.42
-                },
-                {
-                  "name": "Nie",
-                  "odds": 2.3
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Dali Blanch (-1,5)",
-                  "odds": 2.3
-                },
-                {
-                  "name": "Matthew William Donald (+1.5)",
-                  "odds": 1.42
-                },
-                {
-                  "name": "Dali Blanch (+1,5)",
-                  "odds": 1.19
-                },
-                {
-                  "name": "Matthew William Donald (-1.5)",
-                  "odds": 3.35
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1232794208448572,
-          "name": "Murkel Alejandro Dellien Velasco - Juan Pablo Varillas",
-          "date": "2026-09-23T15:00:00.0000000Z",
-          "date_warsaw": "2026-09-23T17:00:00+02:00",
-          "competition": "Buenos Aires 2 Challenger",
-          "competition_id": 30560,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Murkel Alejandro Dellien Velasco",
-              "short": "M. Dellien Velasco"
-            },
-            {
-              "name": "Juan Pablo Varillas",
-              "short": "J. Varillas"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Murkel Alejandro Dellien Velasco",
-                  "odds": 4.1
-                },
-                {
-                  "name": "Juan Pablo Varillas",
-                  "odds": 1.15
-                }
-              ]
-            },
-            {
-              "name": "Murkel Alejandro Dellien Velasco wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 2.29
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.51
-                }
-              ]
-            },
-            {
-              "name": "Juan Pablo Varillas wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.06
-                },
-                {
-                  "name": "Nie",
-                  "odds": 6.6
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 8.6
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 1.51
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 8.8
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 3.95
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Murkel Alejandro Dellien Velasco (-1,5)",
-                  "odds": 8.6
-                },
-                {
-                  "name": "Juan Pablo Varillas (+1.5)",
-                  "odds": 1.06
-                },
-                {
-                  "name": "Murkel Alejandro Dellien Velasco (+1,5)",
-                  "odds": 2.29
-                },
-                {
-                  "name": "Juan Pablo Varillas (-1.5)",
-                  "odds": 1.51
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1232693781078016,
-          "name": "Titouan Droguet - Borna Gojo",
-          "date": "2026-09-23T15:30:00.0000000Z",
-          "date_warsaw": "2026-09-23T17:30:00+02:00",
-          "competition": "St. Tropez Challenger",
-          "competition_id": 29331,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Titouan Droguet",
-              "short": "T. Droguet"
-            },
-            {
-              "name": "Borna Gojo",
-              "short": "B. Gojo"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Titouan Droguet",
-                  "odds": 1.58
-                },
-                {
-                  "name": "Borna Gojo",
-                  "odds": 2.1
-                }
-              ]
-            },
-            {
-              "name": "Titouan Droguet wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.23
-                },
-                {
-                  "name": "Nie",
-                  "odds": 3.45
-                }
-              ]
-            },
-            {
-              "name": "Borna Gojo wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.45
-                },
-                {
-                  "name": "Nie",
-                  "odds": 2.43
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 2.45
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 3.65
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 3.85
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 4.6
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Titouan Droguet (-1,5)",
-                  "odds": 2.45
-                },
-                {
-                  "name": "Borna Gojo (+1.5)",
-                  "odds": 1.45
-                },
-                {
-                  "name": "Titouan Droguet (+1,5)",
-                  "odds": 1.23
-                },
-                {
-                  "name": "Borna Gojo (-1.5)",
-                  "odds": 3.65
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1232710095867904,
-          "name": "Facundo Mena - Guido Ivan Justo",
-          "date": "2026-09-23T16:10:00.0000000Z",
-          "date_warsaw": "2026-09-23T18:10:00+02:00",
-          "competition": "Buenos Aires 2 Challenger",
-          "competition_id": 30560,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Facundo Mena",
-              "short": "F. Mena"
-            },
-            {
-              "name": "Guido Ivan Justo",
-              "short": "GI. Justo"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Facundo Mena",
-                  "odds": 1.57
-                },
-                {
-                  "name": "Guido Ivan Justo",
-                  "odds": 2.12
-                }
-              ]
-            },
-            {
-              "name": "Facundo Mena wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.25
-                },
-                {
-                  "name": "Nie",
-                  "odds": 3.35
-                }
-              ]
-            },
-            {
-              "name": "Guido Ivan Justo wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.49
-                },
-                {
-                  "name": "Nie",
-                  "odds": 2.34
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 2.35
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 3.5
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 4.1
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 4.9
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Facundo Mena (-1,5)",
-                  "odds": 2.35
-                },
-                {
-                  "name": "Guido Ivan Justo (+1.5)",
-                  "odds": 1.49
-                },
-                {
-                  "name": "Facundo Mena (+1,5)",
-                  "odds": 1.25
-                },
-                {
-                  "name": "Guido Ivan Justo (-1.5)",
-                  "odds": 3.5
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1232750801596416,
-          "name": "Nicolas Kicker - Hugo Dellien",
-          "date": "2026-09-23T17:20:00.0000000Z",
-          "date_warsaw": "2026-09-23T19:20:00+02:00",
-          "competition": "Buenos Aires 2 Challenger",
-          "competition_id": 30560,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Nicolas Kicker",
-              "short": "N. Kicker"
-            },
-            {
-              "name": "Hugo Dellien",
-              "short": "H. Dellien"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Nicolas Kicker",
-                  "odds": 3.8
-                },
-                {
-                  "name": "Hugo Dellien",
-                  "odds": 1.18
-                }
-              ]
-            },
-            {
-              "name": "Nicolas Kicker wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 2.19
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.55
-                }
-              ]
-            },
-            {
-              "name": "Hugo Dellien wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.07
-                },
-                {
-                  "name": "Nie",
-                  "odds": 6.0
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 7.4
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 1.55
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 8.2
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 4.0
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Nicolas Kicker (-1,5)",
-                  "odds": 7.4
-                },
-                {
-                  "name": "Hugo Dellien (+1.5)",
-                  "odds": 1.07
-                },
-                {
-                  "name": "Nicolas Kicker (+1,5)",
-                  "odds": 2.19
-                },
-                {
-                  "name": "Hugo Dellien (-1.5)",
-                  "odds": 1.55
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1232597112860675,
-          "name": "Lukas Neumayer - Juan Cruz Martin Manzano",
-          "date": "2026-09-23T18:00:00.0000000Z",
-          "date_warsaw": "2026-09-23T20:00:00+02:00",
-          "competition": "Genova 2 Challenger",
-          "competition_id": 41204,
-          "is_live": false,
-          "teams": [
-            {
-              "name": "Lukas Neumayer",
-              "short": "L. Neumayer"
-            },
-            {
-              "name": "Juan Cruz Martin Manzano",
-              "short": "J. Martin Manzano"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Lukas Neumayer",
-                  "odds": 1.25
-                },
-                {
-                  "name": "Juan Cruz Martin Manzano",
-                  "odds": 3.25
-                }
-              ]
-            },
-            {
-              "name": "Lukas Neumayer wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.1
-                },
-                {
-                  "name": "Nie",
-                  "odds": 5.2
-                }
-              ]
-            },
-            {
-              "name": "Juan Cruz Martin Manzano wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.93
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.72
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 1.72
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 6.2
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 3.85
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 7.0
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Lukas Neumayer (-1,5)",
-                  "odds": 1.72
-                },
-                {
-                  "name": "Juan Cruz Martin Manzano (+1.5)",
-                  "odds": 1.93
-                },
-                {
-                  "name": "Lukas Neumayer (+1,5)",
-                  "odds": 1.1
-                },
-                {
-                  "name": "Juan Cruz Martin Manzano (-1.5)",
-                  "odds": 6.2
-                }
-              ]
-            }
-          ]
-        },
-        {
           "id": 1230709919342717,
           "name": "Abedallah Shelbayh - Andres Andrade",
-          "date": "2026-09-23T18:00:00.0000000Z",
-          "date_warsaw": "2026-09-23T20:00:00+02:00",
+          "date": "2026-09-23T18:05:00.0000000Z",
+          "date_warsaw": "2026-09-23T20:05:00+02:00",
           "competition": "San Diego 2 Challenger",
           "competition_id": 41201,
           "is_live": true,
@@ -2439,39 +1188,35 @@
               "selections": [
                 {
                   "name": "Abedallah Shelbayh",
-                  "odds": 1.63
+                  "odds": 1.45
                 },
                 {
                   "name": "Andres Andrade",
-                  "odds": 2.02
+                  "odds": 2.2
                 }
               ]
             },
             {
-              "name": "Abedallah Shelbayh wygra seta",
+              "name": "1. set - Gem 3 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
-                  "name": "Tak",
-                  "odds": 1.27
-                },
-                {
-                  "name": "Nie",
-                  "odds": 3.2
+                  "name": "Andres Andrade",
+                  "odds": 5.5
                 }
               ]
             },
             {
-              "name": "Andres Andrade wygra seta",
+              "name": "1. set - Gem 4 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
-                  "name": "Tak",
-                  "odds": 1.44
+                  "name": "Abedallah Shelbayh",
+                  "odds": 2.6
                 },
                 {
-                  "name": "Nie",
-                  "odds": 2.46
+                  "name": "Andres Andrade",
+                  "odds": 1.25
                 }
               ]
             },
@@ -2481,19 +1226,61 @@
               "selections": [
                 {
                   "name": "2 - 0",
-                  "odds": 2.48
+                  "odds": 2.0
                 },
                 {
                   "name": "0 - 2",
-                  "odds": 3.3
+                  "odds": 3.7
                 },
                 {
                   "name": "2 - 1",
-                  "odds": 4.1
+                  "odds": 3.75
                 },
                 {
                   "name": "1 - 2",
-                  "odds": 4.7
+                  "odds": 4.5
+                }
+              ]
+            },
+            {
+              "name": "1. set - Gem 4 - Punkt 1 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Abedallah Shelbayh",
+                  "odds": 2.0
+                },
+                {
+                  "name": "Andres Andrade",
+                  "odds": 1.47
+                }
+              ]
+            },
+            {
+              "name": "Abedallah Shelbayh wygra seta",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 1.16
+                },
+                {
+                  "name": "Nie",
+                  "odds": 3.35
+                }
+              ]
+            },
+            {
+              "name": "Andres Andrade wygra seta",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 1.52
+                },
+                {
+                  "name": "Nie",
+                  "odds": 2.0
                 }
               ]
             },
@@ -2503,19 +1290,33 @@
               "selections": [
                 {
                   "name": "Abedallah Shelbayh (-1,5)",
-                  "odds": 2.48
+                  "odds": 2.0
                 },
                 {
                   "name": "Andres Andrade (+1.5)",
-                  "odds": 1.44
+                  "odds": 1.52
                 },
                 {
                   "name": "Abedallah Shelbayh (+1,5)",
-                  "odds": 1.27
+                  "odds": 1.16
                 },
                 {
                   "name": "Andres Andrade (-1.5)",
-                  "odds": 3.3
+                  "odds": 3.4
+                }
+              ]
+            },
+            {
+              "name": "Czy obaj zawodnicy wygrają seta w meczu",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 2.2
+                },
+                {
+                  "name": "Nie",
+                  "odds": 1.42
                 }
               ]
             }
@@ -2524,8 +1325,8 @@
         {
           "id": 1232847055626240,
           "name": "Patrick Maloney - Igor Ribeiro Marcondes",
-          "date": "2026-09-23T18:00:00.0000000Z",
-          "date_warsaw": "2026-09-23T20:00:00+02:00",
+          "date": "2026-09-23T18:05:00.0000000Z",
+          "date_warsaw": "2026-09-23T20:05:00+02:00",
           "competition": "San Diego 2 Challenger",
           "competition_id": 41201,
           "is_live": true,
@@ -2546,39 +1347,25 @@
               "selections": [
                 {
                   "name": "Patrick Maloney",
-                  "odds": 1.99
+                  "odds": 1.45
                 },
                 {
                   "name": "Igor Ribeiro Marcondes",
-                  "odds": 1.65
+                  "odds": 2.15
                 }
               ]
             },
             {
-              "name": "Patrick Maloney wygra seta",
+              "name": "1. set - Gem 7 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
-                  "name": "Tak",
-                  "odds": 1.42
+                  "name": "Patrick Maloney",
+                  "odds": 3.6
                 },
                 {
-                  "name": "Nie",
-                  "odds": 2.55
-                }
-              ]
-            },
-            {
-              "name": "Igor Ribeiro Marcondes wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.28
-                },
-                {
-                  "name": "Nie",
-                  "odds": 3.15
+                  "name": "Igor Ribeiro Marcondes",
+                  "odds": 1.1
                 }
               ]
             },
@@ -2588,19 +1375,61 @@
               "selections": [
                 {
                   "name": "2 - 0",
-                  "odds": 3.25
+                  "odds": 1.95
                 },
                 {
                   "name": "0 - 2",
-                  "odds": 2.55
+                  "odds": 6.25
                 },
                 {
                   "name": "2 - 1",
-                  "odds": 4.6
+                  "odds": 4.05
                 },
                 {
                   "name": "1 - 2",
-                  "odds": 4.1
+                  "odds": 2.95
+                }
+              ]
+            },
+            {
+              "name": "1. set - Gem 6 - Punkt 2 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Patrick Maloney",
+                  "odds": 1.35
+                },
+                {
+                  "name": "Igor Ribeiro Marcondes",
+                  "odds": 2.3
+                }
+              ]
+            },
+            {
+              "name": "Patrick Maloney wygra seta",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 1.07
+                },
+                {
+                  "name": "Nie",
+                  "odds": 4.5
+                }
+              ]
+            },
+            {
+              "name": "Igor Ribeiro Marcondes wygra seta",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 1.55
+                },
+                {
+                  "name": "Nie",
+                  "odds": 1.95
                 }
               ]
             },
@@ -2610,19 +1439,33 @@
               "selections": [
                 {
                   "name": "Patrick Maloney (-1,5)",
-                  "odds": 3.25
+                  "odds": 2.0
                 },
                 {
                   "name": "Igor Ribeiro Marcondes (+1.5)",
-                  "odds": 1.28
+                  "odds": 1.55
                 },
                 {
                   "name": "Patrick Maloney (+1,5)",
-                  "odds": 1.42
+                  "odds": 1.07
                 },
                 {
                   "name": "Igor Ribeiro Marcondes (-1.5)",
-                  "odds": 2.55
+                  "odds": 4.65
+                }
+              ]
+            },
+            {
+              "name": "Czy obaj zawodnicy wygrają seta w meczu",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 1.85
+                },
+                {
+                  "name": "Nie",
+                  "odds": 1.6
                 }
               ]
             }
@@ -2631,8 +1474,8 @@
         {
           "id": 1232963565002752,
           "name": "Henry Searle - Liam Draxl",
-          "date": "2026-09-23T18:00:00.0000000Z",
-          "date_warsaw": "2026-09-23T20:00:00+02:00",
+          "date": "2026-09-23T18:05:00.0000000Z",
+          "date_warsaw": "2026-09-23T20:05:00+02:00",
           "competition": "San Diego 2 Challenger",
           "competition_id": 41201,
           "is_live": true,
@@ -2653,38 +1496,24 @@
               "selections": [
                 {
                   "name": "Henry Searle",
-                  "odds": 2.11
+                  "odds": 2.1
                 },
                 {
                   "name": "Liam Draxl",
-                  "odds": 1.57
-                }
-              ]
-            },
-            {
-              "name": "Henry Searle wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
                   "odds": 1.47
-                },
-                {
-                  "name": "Nie",
-                  "odds": 2.38
                 }
               ]
             },
             {
-              "name": "Liam Draxl wygra seta",
+              "name": "1. set - Gem 8 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
-                  "name": "Tak",
-                  "odds": 1.25
+                  "name": "Henry Searle",
+                  "odds": 1.14
                 },
                 {
-                  "name": "Nie",
+                  "name": "Liam Draxl",
                   "odds": 3.35
                 }
               ]
@@ -2695,19 +1524,61 @@
               "selections": [
                 {
                   "name": "2 - 0",
-                  "odds": 3.5
+                  "odds": 3.45
                 },
                 {
                   "name": "0 - 2",
-                  "odds": 2.39
+                  "odds": 2.3
                 },
                 {
                   "name": "2 - 1",
-                  "odds": 4.8
+                  "odds": 4.55
                 },
                 {
                   "name": "1 - 2",
-                  "odds": 4.0
+                  "odds": 3.25
+                }
+              ]
+            },
+            {
+              "name": "1. set - Gem 7 - Punkt 3 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Henry Searle",
+                  "odds": 2.35
+                },
+                {
+                  "name": "Liam Draxl",
+                  "odds": 1.32
+                }
+              ]
+            },
+            {
+              "name": "Henry Searle wygra seta",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 1.4
+                },
+                {
+                  "name": "Nie",
+                  "odds": 2.25
+                }
+              ]
+            },
+            {
+              "name": "Liam Draxl wygra seta",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 1.18
+                },
+                {
+                  "name": "Nie",
+                  "odds": 3.15
                 }
               ]
             },
@@ -2717,19 +1588,168 @@
               "selections": [
                 {
                   "name": "Henry Searle (-1,5)",
-                  "odds": 3.5
+                  "odds": 3.2
                 },
                 {
                   "name": "Liam Draxl (+1.5)",
-                  "odds": 1.25
+                  "odds": 1.2
                 },
                 {
                   "name": "Henry Searle (+1,5)",
-                  "odds": 1.47
+                  "odds": 1.4
                 },
                 {
                   "name": "Liam Draxl (-1.5)",
-                  "odds": 2.39
+                  "odds": 2.3
+                }
+              ]
+            },
+            {
+              "name": "Czy obaj zawodnicy wygrają seta w meczu",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 2.0
+                },
+                {
+                  "name": "Nie",
+                  "odds": 1.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1232710095867904,
+          "name": "Facundo Mena - Guido Ivan Justo",
+          "date": "2026-09-23T18:10:00.0000000Z",
+          "date_warsaw": "2026-09-23T20:10:00+02:00",
+          "competition": "Buenos Aires 2 Challenger",
+          "competition_id": 30560,
+          "is_live": true,
+          "teams": [
+            {
+              "name": "Facundo Mena",
+              "short": "F. Mena"
+            },
+            {
+              "name": "Guido Ivan Justo",
+              "short": "GI. Justo"
+            }
+          ],
+          "markets": [
+            {
+              "name": "Zwycięzca meczu",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Facundo Mena",
+                  "odds": 1.27
+                },
+                {
+                  "name": "Guido Ivan Justo",
+                  "odds": 2.75
+                }
+              ]
+            },
+            {
+              "name": "1. set - Gem 3 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Facundo Mena",
+                  "odds": 2.15
+                },
+                {
+                  "name": "Guido Ivan Justo",
+                  "odds": 1.4
+                }
+              ]
+            },
+            {
+              "name": "Wynik w setach",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "2 - 0",
+                  "odds": 1.6
+                },
+                {
+                  "name": "0 - 2",
+                  "odds": 5.8
+                },
+                {
+                  "name": "2 - 1",
+                  "odds": 4.0
+                },
+                {
+                  "name": "1 - 2",
+                  "odds": 4.6
+                }
+              ]
+            },
+            {
+              "name": "Facundo Mena wygra seta",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 1.07
+                },
+                {
+                  "name": "Nie",
+                  "odds": 4.45
+                }
+              ]
+            },
+            {
+              "name": "Guido Ivan Justo wygra seta",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 1.8
+                },
+                {
+                  "name": "Nie",
+                  "odds": 1.65
+                }
+              ]
+            },
+            {
+              "name": "Handicap setowy",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Facundo Mena (-1,5)",
+                  "odds": 1.65
+                },
+                {
+                  "name": "Guido Ivan Justo (+1.5)",
+                  "odds": 1.85
+                },
+                {
+                  "name": "Facundo Mena (+1,5)",
+                  "odds": 1.07
+                },
+                {
+                  "name": "Guido Ivan Justo (-1.5)",
+                  "odds": 4.6
+                }
+              ]
+            },
+            {
+              "name": "Czy obaj zawodnicy wygrają seta w meczu",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 2.35
+                },
+                {
+                  "name": "Nie",
+                  "odds": 1.37
                 }
               ]
             }
@@ -2738,8 +1758,8 @@
         {
           "id": 1232901279588352,
           "name": "Trevor Svajda - Federico Agustin Gomez",
-          "date": "2026-09-23T19:10:00.0000000Z",
-          "date_warsaw": "2026-09-23T21:10:00+02:00",
+          "date": "2026-09-23T19:15:00.0000000Z",
+          "date_warsaw": "2026-09-23T21:15:00+02:00",
           "competition": "San Diego 2 Challenger",
           "competition_id": 41201,
           "is_live": true,
@@ -2843,6 +1863,113 @@
           ]
         },
         {
+          "id": 1232750801596416,
+          "name": "Nicolas Kicker - Hugo Dellien",
+          "date": "2026-09-23T19:25:00.0000000Z",
+          "date_warsaw": "2026-09-23T21:25:00+02:00",
+          "competition": "Buenos Aires 2 Challenger",
+          "competition_id": 30560,
+          "is_live": true,
+          "teams": [
+            {
+              "name": "Nicolas Kicker",
+              "short": "N. Kicker"
+            },
+            {
+              "name": "Hugo Dellien",
+              "short": "H. Dellien"
+            }
+          ],
+          "markets": [
+            {
+              "name": "Zwycięzca meczu",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Nicolas Kicker",
+                  "odds": 3.65
+                },
+                {
+                  "name": "Hugo Dellien",
+                  "odds": 1.19
+                }
+              ]
+            },
+            {
+              "name": "Nicolas Kicker wygra seta",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 2.14
+                },
+                {
+                  "name": "Nie",
+                  "odds": 1.58
+                }
+              ]
+            },
+            {
+              "name": "Hugo Dellien wygra seta",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 1.08
+                },
+                {
+                  "name": "Nie",
+                  "odds": 5.8
+                }
+              ]
+            },
+            {
+              "name": "Wynik w setach",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "2 - 0",
+                  "odds": 7.2
+                },
+                {
+                  "name": "0 - 2",
+                  "odds": 1.58
+                },
+                {
+                  "name": "2 - 1",
+                  "odds": 8.0
+                },
+                {
+                  "name": "1 - 2",
+                  "odds": 4.0
+                }
+              ]
+            },
+            {
+              "name": "Handicap setowy",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Nicolas Kicker (-1,5)",
+                  "odds": 7.2
+                },
+                {
+                  "name": "Hugo Dellien (+1.5)",
+                  "odds": 1.08
+                },
+                {
+                  "name": "Nicolas Kicker (+1,5)",
+                  "odds": 2.14
+                },
+                {
+                  "name": "Hugo Dellien (-1.5)",
+                  "odds": 1.58
+                }
+              ]
+            }
+          ]
+        },
+        {
           "id": 1232835848450048,
           "name": "Francisco Comesana - Joaquin Aguilar Cardozo",
           "date": "2026-09-23T21:30:00.0000000Z",
@@ -2867,11 +1994,11 @@
               "selections": [
                 {
                   "name": "Francisco Comesana",
-                  "odds": 1.43
+                  "odds": 1.42
                 },
                 {
                   "name": "Joaquin Aguilar Cardozo",
-                  "odds": 2.44
+                  "odds": 2.48
                 }
               ]
             },
@@ -2885,7 +2012,7 @@
                 },
                 {
                   "name": "Nie",
-                  "odds": 3.9
+                  "odds": 3.95
                 }
               ]
             },
@@ -2895,11 +2022,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.62
+                  "odds": 1.64
                 },
                 {
                   "name": "Nie",
-                  "odds": 2.07
+                  "odds": 2.04
                 }
               ]
             },
@@ -2909,11 +2036,11 @@
               "selections": [
                 {
                   "name": "2 - 0",
-                  "odds": 2.07
+                  "odds": 2.04
                 },
                 {
                   "name": "0 - 2",
-                  "odds": 4.2
+                  "odds": 4.3
                 },
                 {
                   "name": "2 - 1",
@@ -2921,7 +2048,7 @@
                 },
                 {
                   "name": "1 - 2",
-                  "odds": 5.4
+                  "odds": 5.6
                 }
               ]
             },
@@ -2931,11 +2058,11 @@
               "selections": [
                 {
                   "name": "Francisco Comesana (-1,5)",
-                  "odds": 2.07
+                  "odds": 2.04
                 },
                 {
                   "name": "Joaquin Aguilar Cardozo (+1.5)",
-                  "odds": 1.62
+                  "odds": 1.64
                 },
                 {
                   "name": "Francisco Comesana (+1,5)",
@@ -2943,7 +2070,7 @@
                 },
                 {
                   "name": "Joaquin Aguilar Cardozo (-1.5)",
-                  "odds": 4.2
+                  "odds": 4.3
                 }
               ]
             }
@@ -2952,8 +2079,8 @@
         {
           "id": 1232512774836224,
           "name": "Keegan Smith - Dylan Dietrich",
-          "date": "2026-09-23T21:30:00.0000000Z",
-          "date_warsaw": "2026-09-23T23:30:00+02:00",
+          "date": "2026-09-23T21:35:00.0000000Z",
+          "date_warsaw": "2026-09-23T23:35:00+02:00",
           "competition": "San Diego 2 Challenger",
           "competition_id": 41201,
           "is_live": true,
@@ -2974,11 +2101,11 @@
               "selections": [
                 {
                   "name": "Keegan Smith",
-                  "odds": 1.98
+                  "odds": 2.1
                 },
                 {
                   "name": "Dylan Dietrich",
-                  "odds": 1.65
+                  "odds": 1.58
                 }
               ]
             },
@@ -2988,11 +2115,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.41
+                  "odds": 1.46
                 },
                 {
                   "name": "Nie",
-                  "odds": 2.55
+                  "odds": 2.41
                 }
               ]
             },
@@ -3002,11 +2129,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.27
+                  "odds": 1.24
                 },
                 {
                   "name": "Nie",
-                  "odds": 3.15
+                  "odds": 3.4
                 }
               ]
             },
@@ -3016,19 +2143,19 @@
               "selections": [
                 {
                   "name": "2 - 0",
-                  "odds": 3.3
+                  "odds": 3.55
                 },
                 {
                   "name": "0 - 2",
-                  "odds": 2.55
+                  "odds": 2.43
                 },
                 {
                   "name": "2 - 1",
-                  "odds": 4.6
+                  "odds": 4.7
                 },
                 {
                   "name": "1 - 2",
-                  "odds": 4.1
+                  "odds": 3.95
                 }
               ]
             },
@@ -3038,19 +2165,19 @@
               "selections": [
                 {
                   "name": "Keegan Smith (-1,5)",
-                  "odds": 3.3
+                  "odds": 3.55
                 },
                 {
                   "name": "Dylan Dietrich (+1.5)",
-                  "odds": 1.27
+                  "odds": 1.24
                 },
                 {
                   "name": "Keegan Smith (+1,5)",
-                  "odds": 1.41
+                  "odds": 1.46
                 },
                 {
                   "name": "Dylan Dietrich (-1.5)",
-                  "odds": 2.55
+                  "odds": 2.43
                 }
               ]
             }
