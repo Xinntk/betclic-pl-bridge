@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "source": "direct_betclic",
-  "generated_at_warsaw": "2026-09-25T01:31:57.635345+02:00",
+  "generated_at_warsaw": "2026-09-25T01:48:22.270024+02:00",
   "date_warsaw": "2026-09-25",
   "fallback_max_age_seconds": 5400,
   "sports": {
@@ -172,13 +172,6 @@
           {
             "id": 21,
             "name": "Holandia Eredivisie",
-            "category": "",
-            "country_code": "NL",
-            "country_name": "Holandia"
-          },
-          {
-            "id": 62,
-            "name": "Holandia Puchar",
             "category": "",
             "country_code": "NL",
             "country_name": "Holandia"
@@ -369,7 +362,6 @@
           47,
           7,
           21,
-          62,
           539,
           1,
           5,
@@ -395,20 +387,10 @@
           30
         ],
         "filtered_out": 0,
-        "partial": true,
-        "errors": [
-          {
-            "competition_id": 62,
-            "detail": "Incomplete gRPC-web frame"
-          }
-        ]
+        "partial": false,
+        "errors": []
       },
       "errors": [
-        {
-          "stage": "discovery",
-          "competition_id": 62,
-          "detail": "Incomplete gRPC-web frame"
-        },
         {
           "stage": "validation",
           "detail": "dropped 1 malformed event row(s)",
