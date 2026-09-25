@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "source": "direct_betclic",
-  "generated_at_warsaw": "2026-09-26T01:28:26.376087+02:00",
+  "generated_at_warsaw": "2026-09-26T01:34:18.928694+02:00",
   "date_warsaw": "2026-09-26",
   "fallback_max_age_seconds": 5400,
   "sports": {
@@ -9,8 +9,10 @@
       "sport": "football",
       "source": "direct_betclic",
       "stale": false,
-      "event_count": 23,
-      "stale_event_ids": [],
+      "event_count": 24,
+      "stale_event_ids": [
+        1206141365272576
+      ],
       "summary_only_event_ids": [],
       "discovery": {
         "source": "competitions",
@@ -413,6 +415,13 @@
           "stage": "validation",
           "detail": "dropped 1 malformed event row(s)",
           "malformed_event_count": 1
+        },
+        {
+          "stage": "discovery_missing",
+          "event_id": 1206141365272576,
+          "detail": "event missing from current discovery; reused recent same-day snapshot",
+          "reused_previous": true,
+          "fallback_age_seconds": 352.5
         }
       ],
       "events": [
@@ -4200,8 +4209,8 @@
           ]
         },
         {
-          "id": 1206141365272576,
-          "name": "Czechy - Chorwacja",
+          "id": 1206142564843520,
+          "name": "Anglia - Hiszpania",
           "date": "2026-09-26T18:45:00.0000000Z",
           "date_warsaw": "2026-09-26T20:45:00+02:00",
           "competition": "UEFA Liga Narodów",
@@ -4209,12 +4218,12 @@
           "is_live": false,
           "teams": [
             {
-              "name": "Czechy",
-              "short": "Czechy"
+              "name": "Anglia",
+              "short": "Anglia"
             },
             {
-              "name": "Chorwacja",
-              "short": "Chorwacja"
+              "name": "Hiszpania",
+              "short": "Hiszpania"
             }
           ],
           "markets": [
@@ -4223,16 +4232,16 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "Czechy",
-                  "odds": 3.23
+                  "name": "Anglia",
+                  "odds": 3.03
                 },
                 {
                   "name": "Remis ",
-                  "odds": 3.45
+                  "odds": 3.42
                 },
                 {
-                  "name": "Chorwacja",
-                  "odds": 2.12
+                  "name": "Hiszpania",
+                  "odds": 2.23
                 }
               ]
             },
@@ -4241,12 +4250,12 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "Czechy",
-                  "odds": 2.55
+                  "name": "Anglia",
+                  "odds": 2.38
                 },
                 {
-                  "name": "Chorwacja",
-                  "odds": 1.71
+                  "name": "Hiszpania",
+                  "odds": 1.79
                 }
               ]
             },
@@ -4260,47 +4269,47 @@
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 9.25
+                  "odds": 9.5
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.25
+                  "odds": 1.23
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 3.73
+                  "odds": 3.93
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 1.79
+                  "odds": 1.74
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.95
+                  "odds": 2.02
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 2.92
+                  "odds": 2.77
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 1.38
+                  "odds": 1.41
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 5.25
+                  "odds": 5.0
                 },
                 {
                   "name": "Poniżej 4,5",
-                  "odds": 1.13
+                  "odds": 1.15
                 },
                 {
                   "name": "Powyżej 5,5",
-                  "odds": 9.0
+                  "odds": 8.75
                 },
                 {
                   "name": "Poniżej 5,5",
-                  "odds": 1.04
+                  "odds": 1.05
                 }
               ]
             },
@@ -4309,16 +4318,16 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "Czechy lub remis",
-                  "odds": 1.66
+                  "name": "Anglia lub remis",
+                  "odds": 1.6
                 },
                 {
-                  "name": "Czechy lub Chorwacja",
-                  "odds": 1.29
+                  "name": "Anglia lub Hiszpania",
+                  "odds": 1.3
                 },
                 {
-                  "name": "Remis lub Chorwacja",
-                  "odds": 1.33
+                  "name": "Remis lub Hiszpania",
+                  "odds": 1.36
                 }
               ]
             },
@@ -4328,54 +4337,62 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.38
+                  "odds": 1.42
                 },
                 {
                   "name": "Nie",
-                  "odds": 2.7
+                  "odds": 2.55
                 }
               ]
             },
             {
-              "name": "Liczba goli - Czechy",
+              "name": "Liczba goli - Anglia",
               "suspended": false,
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.35
+                  "odds": 1.3
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 3.03
+                  "odds": 3.3
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 2.62
+                  "odds": 2.42
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.43
+                  "odds": 1.5
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 7.0
+                  "odds": 6.1
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.1
+                  "odds": 1.12
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 10.75
+                  "odds": 10.25
                 },
                 {
                   "name": "Poniżej 3,5",
+                  "odds": 1.02
+                },
+                {
+                  "name": "Powyżej 4,5",
+                  "odds": 12.25
+                },
+                {
+                  "name": "Poniżej 4,5",
                   "odds": 1.01
                 }
               ]
             },
             {
-              "name": "Liczba goli - Chorwacja",
+              "name": "Liczba goli - Hiszpania",
               "suspended": false,
               "selections": [
                 {
@@ -4392,11 +4409,11 @@
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.72
+                  "odds": 1.71
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 4.35
+                  "odds": 4.4
                 },
                 {
                   "name": "Poniżej 2,5",
@@ -5044,6 +5061,236 @@
               ]
             }
           ]
+        },
+        {
+          "id": 1206141365272576,
+          "name": "Czechy - Chorwacja",
+          "date": "2026-09-26T18:45:00.0000000Z",
+          "date_warsaw": "2026-09-26T20:45:00+02:00",
+          "competition": "UEFA Liga Narodów",
+          "competition_id": 22676,
+          "is_live": false,
+          "teams": [
+            {
+              "name": "Czechy",
+              "short": "Czechy"
+            },
+            {
+              "name": "Chorwacja",
+              "short": "Chorwacja"
+            }
+          ],
+          "markets": [
+            {
+              "name": "Wynik meczu (z wyłączeniem dogrywki)",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Czechy",
+                  "odds": 3.23
+                },
+                {
+                  "name": "Remis ",
+                  "odds": 3.45
+                },
+                {
+                  "name": "Chorwacja",
+                  "odds": 2.12
+                }
+              ]
+            },
+            {
+              "name": "Wynik meczu - Xtra Wygrana",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Czechy",
+                  "odds": 2.55
+                },
+                {
+                  "name": "Chorwacja",
+                  "odds": 1.71
+                }
+              ]
+            },
+            {
+              "name": "Gole Powyżej/Poniżej",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Powyżej 0,5",
+                  "odds": 1.04
+                },
+                {
+                  "name": "Poniżej 0,5",
+                  "odds": 9.25
+                },
+                {
+                  "name": "Powyżej 1,5",
+                  "odds": 1.25
+                },
+                {
+                  "name": "Poniżej 1,5",
+                  "odds": 3.73
+                },
+                {
+                  "name": "Powyżej 2,5",
+                  "odds": 1.79
+                },
+                {
+                  "name": "Poniżej 2,5",
+                  "odds": 1.95
+                },
+                {
+                  "name": "Powyżej 3,5",
+                  "odds": 2.92
+                },
+                {
+                  "name": "Poniżej 3,5",
+                  "odds": 1.38
+                },
+                {
+                  "name": "Powyżej 4,5",
+                  "odds": 5.25
+                },
+                {
+                  "name": "Poniżej 4,5",
+                  "odds": 1.13
+                },
+                {
+                  "name": "Powyżej 5,5",
+                  "odds": 9.0
+                },
+                {
+                  "name": "Poniżej 5,5",
+                  "odds": 1.04
+                }
+              ]
+            },
+            {
+              "name": "Podwójna Szansa",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Czechy lub remis",
+                  "odds": 1.66
+                },
+                {
+                  "name": "Czechy lub Chorwacja",
+                  "odds": 1.29
+                },
+                {
+                  "name": "Remis lub Chorwacja",
+                  "odds": 1.33
+                }
+              ]
+            },
+            {
+              "name": "Oba zespoły strzelą gola lub Powyżej 2,5 gola w meczu",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 1.38
+                },
+                {
+                  "name": "Nie",
+                  "odds": 2.7
+                }
+              ]
+            },
+            {
+              "name": "Liczba goli - Czechy",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Powyżej 0,5",
+                  "odds": 1.35
+                },
+                {
+                  "name": "Poniżej 0,5",
+                  "odds": 3.03
+                },
+                {
+                  "name": "Powyżej 1,5",
+                  "odds": 2.62
+                },
+                {
+                  "name": "Poniżej 1,5",
+                  "odds": 1.43
+                },
+                {
+                  "name": "Powyżej 2,5",
+                  "odds": 7.0
+                },
+                {
+                  "name": "Poniżej 2,5",
+                  "odds": 1.1
+                },
+                {
+                  "name": "Powyżej 3,5",
+                  "odds": 10.75
+                },
+                {
+                  "name": "Poniżej 3,5",
+                  "odds": 1.01
+                }
+              ]
+            },
+            {
+              "name": "Liczba goli - Chorwacja",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Powyżej 0,5",
+                  "odds": 1.21
+                },
+                {
+                  "name": "Poniżej 0,5",
+                  "odds": 4.15
+                },
+                {
+                  "name": "Powyżej 1,5",
+                  "odds": 2.02
+                },
+                {
+                  "name": "Poniżej 1,5",
+                  "odds": 1.72
+                },
+                {
+                  "name": "Powyżej 2,5",
+                  "odds": 4.35
+                },
+                {
+                  "name": "Poniżej 2,5",
+                  "odds": 1.2
+                },
+                {
+                  "name": "Powyżej 3,5",
+                  "odds": 8.25
+                },
+                {
+                  "name": "Poniżej 3,5",
+                  "odds": 1.04
+                },
+                {
+                  "name": "Powyżej 4,5",
+                  "odds": 11.75
+                },
+                {
+                  "name": "Poniżej 4,5",
+                  "odds": 1.01
+                }
+              ]
+            }
+          ],
+          "_snapshot_meta": {
+            "stale": true,
+            "reason": "missing_from_discovery",
+            "stale_since_warsaw": "2026-09-26T01:28:26.376087+02:00",
+            "fallback_age_seconds": 352.5,
+            "max_fallback_age_seconds": 5400
+          }
         }
       ],
       "fallback_max_age_seconds": 5400
@@ -5073,8 +5320,8 @@
         {
           "id": 1234113858138112,
           "name": "Dylan Dietrich - Henry Searle",
-          "date": "2026-09-25T23:40:00.0000000Z",
-          "date_warsaw": "2026-09-26T01:40:00+02:00",
+          "date": "2026-09-25T23:50:00.0000000Z",
+          "date_warsaw": "2026-09-26T01:50:00+02:00",
           "competition": "San Diego 2 Challenger",
           "competition_id": 41201,
           "is_live": true,
@@ -5180,8 +5427,8 @@
         {
           "id": 1234990562041856,
           "name": "Nishesh Basavareddy - Andres Andrade",
-          "date": "2026-09-26T00:50:00.0000000Z",
-          "date_warsaw": "2026-09-26T02:50:00+02:00",
+          "date": "2026-09-26T01:00:00.0000000Z",
+          "date_warsaw": "2026-09-26T03:00:00+02:00",
           "competition": "San Diego 2 Challenger",
           "competition_id": 41201,
           "is_live": true,
