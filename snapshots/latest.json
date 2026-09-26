@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "source": "direct_betclic",
-  "generated_at_warsaw": "2026-09-26T17:08:21.390974+02:00",
+  "generated_at_warsaw": "2026-09-26T20:33:59.431266+02:00",
   "date_warsaw": "2026-09-26",
   "fallback_max_age_seconds": 5400,
   "sports": {
@@ -9,7 +9,7 @@
       "sport": "football",
       "source": "direct_betclic",
       "stale": false,
-      "event_count": 23,
+      "event_count": 15,
       "stale_event_ids": [],
       "summary_only_event_ids": [],
       "discovery": {
@@ -23,11 +23,11 @@
             "country_name": "Europa"
           },
           {
-            "id": 229,
-            "name": "Anglia League 1",
+            "id": 539,
+            "name": "Holandia 2. liga",
             "category": "",
-            "country_code": "EN",
-            "country_name": "Anglia"
+            "country_code": "NL",
+            "country_name": "Holandia"
           },
           {
             "id": 3,
@@ -53,6 +53,13 @@
           {
             "id": 28,
             "name": "Anglia Championship",
+            "category": "",
+            "country_code": "EN",
+            "country_name": "Anglia"
+          },
+          {
+            "id": 229,
+            "name": "Anglia League 1",
             "category": "",
             "country_code": "EN",
             "country_name": "Anglia"
@@ -186,13 +193,6 @@
           {
             "id": 62,
             "name": "Holandia Puchar",
-            "category": "",
-            "country_code": "NL",
-            "country_name": "Holandia"
-          },
-          {
-            "id": 539,
-            "name": "Holandia 2. liga",
             "category": "",
             "country_code": "NL",
             "country_name": "Holandia"
@@ -361,11 +361,12 @@
         ],
         "selected_competition_ids": [
           22676,
-          229,
+          539,
           3,
           44,
           41,
           28,
+          229,
           35,
           1875,
           54,
@@ -385,7 +386,6 @@
           7,
           21,
           62,
-          539,
           1,
           5,
           55,
@@ -437,21 +437,21 @@
       ],
       "events": [
         {
-          "id": 1229939076530176,
-          "name": "Stockport - Peterborough United",
-          "date": "2026-09-26T14:00:00.0000000Z",
-          "date_warsaw": "2026-09-26T16:00:00+02:00",
-          "competition": "Anglia League 1",
-          "competition_id": 229,
-          "is_live": false,
+          "id": 1230111504355328,
+          "name": "Volendam - VVV Venlo",
+          "date": "2026-09-26T18:00:00.0000000Z",
+          "date_warsaw": "2026-09-26T20:00:00+02:00",
+          "competition": "Holandia 2. liga",
+          "competition_id": 539,
+          "is_live": true,
           "teams": [
             {
-              "name": "Stockport",
-              "short": "Stockport"
+              "name": "Volendam",
+              "short": "Volendam"
             },
             {
-              "name": "Peterborough United",
-              "short": "Peterborough United"
+              "name": "VVV Venlo",
+              "short": "VVV Venlo"
             }
           ],
           "markets": [
@@ -460,16 +460,16 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "Stockport",
-                  "odds": 1.1
+                  "name": "Volendam",
+                  "odds": 1.45
                 },
                 {
                   "name": "Remis ",
-                  "odds": 5.0
+                  "odds": 3.7
                 },
                 {
-                  "name": "Peterborough United",
-                  "odds": 12.0
+                  "name": "VVV Venlo",
+                  "odds": 4.8
                 }
               ]
             },
@@ -478,12 +478,16 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "Stockport lub Peterborough United",
-                  "odds": 1.04
+                  "name": "Volendam lub remis",
+                  "odds": 1.07
                 },
                 {
-                  "name": "Remis lub Peterborough United",
-                  "odds": 3.5
+                  "name": "Volendam lub VVV Venlo",
+                  "odds": 1.12
+                },
+                {
+                  "name": "Remis lub VVV Venlo",
+                  "odds": 1.95
                 }
               ]
             },
@@ -492,121 +496,141 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.04
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 4.8
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.57
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.88
-                },
-                {
                   "name": "Powyżej 3,5",
-                  "odds": 2.8
+                  "odds": 1.01
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 1.23
+                  "odds": 10.0
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 5.0
+                  "odds": 1.2
                 },
                 {
                   "name": "Poniżej 4,5",
-                  "odds": 1.03
+                  "odds": 3.15
                 },
                 {
                   "name": "Powyżej 5,5",
-                  "odds": 9.0
+                  "odds": 1.73
+                },
+                {
+                  "name": "Poniżej 5,5",
+                  "odds": 1.73
+                },
+                {
+                  "name": "Powyżej 6,5",
+                  "odds": 2.85
+                },
+                {
+                  "name": "Poniżej 6,5",
+                  "odds": 1.25
+                },
+                {
+                  "name": "Powyżej 7,5",
+                  "odds": 4.9
+                },
+                {
+                  "name": "Poniżej 7,5",
+                  "odds": 1.06
+                },
+                {
+                  "name": "Powyżej 8,5",
+                  "odds": 6.75
+                },
+                {
+                  "name": "Powyżej 9,5",
+                  "odds": 20.0
                 }
               ]
             },
             {
-              "name": "Liczba goli - Stockport",
+              "name": "Liczba goli - Volendam",
               "suspended": false,
               "selections": [
                 {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.21
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 2.75
-                },
-                {
                   "name": "Powyżej 2,5",
-                  "odds": 2.15
+                  "odds": 1.2
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.38
+                  "odds": 2.95
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 4.25
+                  "odds": 2.15
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 1.05
+                  "odds": 1.45
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 8.0
+                  "odds": 4.1
+                },
+                {
+                  "name": "Poniżej 4,5",
+                  "odds": 1.08
+                },
+                {
+                  "name": "Powyżej 5,5",
+                  "odds": 6.0
                 }
               ]
             },
             {
-              "name": "Liczba goli - Peterborough United",
+              "name": "Liczba goli - VVV Venlo",
               "suspended": false,
               "selections": [
                 {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.95
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 1.58
-                },
-                {
                   "name": "Powyżej 1,5",
-                  "odds": 4.6
+                  "odds": 1.16
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.03
+                  "odds": 3.25
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 15.0
+                  "odds": 2.1
+                },
+                {
+                  "name": "Poniżej 2,5",
+                  "odds": 1.45
+                },
+                {
+                  "name": "Powyżej 3,5",
+                  "odds": 5.5
+                },
+                {
+                  "name": "Poniżej 3,5",
+                  "odds": 1.01
+                },
+                {
+                  "name": "Powyżej 4,5",
+                  "odds": 7.0
                 }
               ]
             }
           ]
         },
         {
-          "id": 1229939094360064,
-          "name": "Wycombe - Reading",
-          "date": "2026-09-26T14:00:00.0000000Z",
-          "date_warsaw": "2026-09-26T16:00:00+02:00",
-          "competition": "Anglia League 1",
-          "competition_id": 229,
+          "id": 1230111541067776,
+          "name": "Roda - RKC Waalwijk",
+          "date": "2026-09-26T18:00:00.0000000Z",
+          "date_warsaw": "2026-09-26T20:00:00+02:00",
+          "competition": "Holandia 2. liga",
+          "competition_id": 539,
           "is_live": true,
           "teams": [
             {
-              "name": "Wycombe",
-              "short": "Wycombe"
+              "name": "Roda",
+              "short": "Roda"
             },
             {
-              "name": "Reading",
-              "short": "Reading"
+              "name": "RKC Waalwijk",
+              "short": "RKC Waalwijk"
             }
           ],
           "markets": [
@@ -615,16 +639,16 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "Wycombe",
-                  "odds": 8.0
+                  "name": "Roda",
+                  "odds": 1.38
                 },
                 {
                   "name": "Remis ",
                   "odds": 3.4
                 },
                 {
-                  "name": "Reading",
-                  "odds": 1.3
+                  "name": "RKC Waalwijk",
+                  "odds": 6.5
                 }
               ]
             },
@@ -633,16 +657,16 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "Wycombe lub remis",
-                  "odds": 2.2
+                  "name": "Roda lub remis",
+                  "odds": 1.04
                 },
                 {
-                  "name": "Wycombe lub Reading",
-                  "odds": 1.12
+                  "name": "Roda lub RKC Waalwijk",
+                  "odds": 1.14
                 },
                 {
-                  "name": "Remis lub Reading",
-                  "odds": 1.01
+                  "name": "Remis lub RKC Waalwijk",
+                  "odds": 2.05
                 }
               ]
             },
@@ -652,108 +676,128 @@
               "selections": [
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.12
+                  "odds": 1.03
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 3.6
+                  "odds": 5.5
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 1.9
+                  "odds": 1.53
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.55
+                  "odds": 2.0
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 3.75
+                  "odds": 2.85
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 1.11
+                  "odds": 1.25
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 5.9
+                  "odds": 4.9
+                },
+                {
+                  "name": "Poniżej 4,5",
+                  "odds": 1.06
                 },
                 {
                   "name": "Powyżej 5,5",
+                  "odds": 6.75
+                },
+                {
+                  "name": "Powyżej 6,5",
+                  "odds": 20.0
+                }
+              ]
+            },
+            {
+              "name": "Liczba goli - Roda",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Powyżej 1,5",
+                  "odds": 1.38
+                },
+                {
+                  "name": "Poniżej 1,5",
+                  "odds": 2.25
+                },
+                {
+                  "name": "Powyżej 2,5",
+                  "odds": 2.9
+                },
+                {
+                  "name": "Poniżej 2,5",
+                  "odds": 1.21
+                },
+                {
+                  "name": "Powyżej 3,5",
+                  "odds": 9.0
+                },
+                {
+                  "name": "Powyżej 4,5",
                   "odds": 15.0
                 }
               ]
             },
             {
-              "name": "Liczba goli - Wycombe",
+              "name": "Liczba goli - RKC Waalwijk",
               "suspended": false,
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.65
+                  "odds": 1.42
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 1.85
+                  "odds": 2.3
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 3.8
+                  "odds": 2.95
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.08
+                  "odds": 1.2
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 9.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Reading",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.57
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.8
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 3.55
+                  "odds": 5.6
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.1
+                  "odds": 1.01
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 6.0
+                  "odds": 28.0
                 }
               ]
             }
           ]
         },
         {
-          "id": 1229939235917829,
-          "name": "Cambridge United - AFC Wimbledon",
-          "date": "2026-09-26T14:00:00.0000000Z",
-          "date_warsaw": "2026-09-26T16:00:00+02:00",
-          "competition": "Anglia League 1",
-          "competition_id": 229,
-          "is_live": false,
+          "id": 1230111569379328,
+          "name": "MVV Maastricht - Helmond Sport",
+          "date": "2026-09-26T18:00:00.0000000Z",
+          "date_warsaw": "2026-09-26T20:00:00+02:00",
+          "competition": "Holandia 2. liga",
+          "competition_id": 539,
+          "is_live": true,
           "teams": [
             {
-              "name": "Cambridge United",
-              "short": "Cambridge Utd"
+              "name": "MVV Maastricht",
+              "short": "MVV Maastricht"
             },
             {
-              "name": "AFC Wimbledon",
-              "short": "AFC Wimbledon"
+              "name": "Helmond Sport",
+              "short": "Helmond Sport"
             }
           ],
           "markets": [
@@ -762,16 +806,16 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "Cambridge United",
-                  "odds": 4.0
+                  "name": "MVV Maastricht",
+                  "odds": 2.4
                 },
                 {
                   "name": "Remis ",
                   "odds": 2.65
                 },
                 {
-                  "name": "AFC Wimbledon",
-                  "odds": 1.78
+                  "name": "Helmond Sport",
+                  "odds": 2.65
                 }
               ]
             },
@@ -780,16 +824,16 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "Cambridge United lub remis",
-                  "odds": 1.55
+                  "name": "MVV Maastricht lub remis",
+                  "odds": 1.27
                 },
                 {
-                  "name": "Cambridge Utd lub AFC Wimbledon",
-                  "odds": 1.22
+                  "name": "MVV Maastricht lub Helmond Sport",
+                  "odds": 1.25
                 },
                 {
-                  "name": "Remis lub AFC Wimbledon",
-                  "odds": 1.1
+                  "name": "Remis lub Helmond Sport",
+                  "odds": 1.32
                 }
               ]
             },
@@ -798,32 +842,40 @@
               "suspended": false,
               "selections": [
                 {
+                  "name": "Powyżej 0,5",
+                  "odds": 1.04
+                },
+                {
+                  "name": "Poniżej 0,5",
+                  "odds": 5.25
+                },
+                {
                   "name": "Powyżej 1,5",
-                  "odds": 1.13
+                  "odds": 1.45
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 3.5
+                  "odds": 2.15
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 1.95
+                  "odds": 2.55
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.52
+                  "odds": 1.35
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 3.75
+                  "odds": 5.5
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 1.11
+                  "odds": 1.03
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 5.9
+                  "odds": 6.75
                 },
                 {
                   "name": "Powyżej 5,5",
@@ -832,20 +884,54 @@
               ]
             },
             {
-              "name": "Liczba goli - Cambridge United",
+              "name": "Liczba goli - MVV Maastricht",
               "suspended": false,
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.35
+                  "odds": 1.38
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 2.45
+                  "odds": 2.35
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 2.7
+                  "odds": 2.6
+                },
+                {
+                  "name": "Poniżej 1,5",
+                  "odds": 1.27
+                },
+                {
+                  "name": "Powyżej 2,5",
+                  "odds": 5.6
+                },
+                {
+                  "name": "Poniżej 2,5",
+                  "odds": 1.01
+                },
+                {
+                  "name": "Powyżej 3,5",
+                  "odds": 22.0
+                }
+              ]
+            },
+            {
+              "name": "Liczba goli - Helmond Sport",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Powyżej 0,5",
+                  "odds": 1.43
+                },
+                {
+                  "name": "Poniżej 0,5",
+                  "odds": 2.2
+                },
+                {
+                  "name": "Powyżej 1,5",
+                  "odds": 2.85
                 },
                 {
                   "name": "Poniżej 1,5",
@@ -853,7 +939,7 @@
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 5.0
+                  "odds": 5.6
                 },
                 {
                   "name": "Poniżej 2,5",
@@ -861,50 +947,543 @@
                 },
                 {
                   "name": "Powyżej 3,5",
+                  "odds": 25.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1230111768600576,
+          "name": "Emmen - FC Oss",
+          "date": "2026-09-26T18:00:00.0000000Z",
+          "date_warsaw": "2026-09-26T20:00:00+02:00",
+          "competition": "Holandia 2. liga",
+          "competition_id": 539,
+          "is_live": true,
+          "teams": [
+            {
+              "name": "Emmen",
+              "short": "Emmen"
+            },
+            {
+              "name": "FC Oss",
+              "short": "FC Oss"
+            }
+          ],
+          "markets": [
+            {
+              "name": "Wynik meczu (z wyłączeniem dogrywki)",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Emmen",
+                  "odds": 1.15
+                },
+                {
+                  "name": "Remis ",
+                  "odds": 4.8
+                },
+                {
+                  "name": "FC Oss",
+                  "odds": 10.5
+                }
+              ]
+            },
+            {
+              "name": "Podwójna Szansa",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Emmen lub remis",
+                  "odds": 1.01
+                },
+                {
+                  "name": "Emmen lub FC Oss",
+                  "odds": 1.06
+                },
+                {
+                  "name": "Remis lub FC Oss",
+                  "odds": 3.05
+                }
+              ]
+            },
+            {
+              "name": "Gole Powyżej/Poniżej",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Poniżej 1,5",
+                  "odds": 6.75
+                },
+                {
+                  "name": "Powyżej 2,5",
+                  "odds": 1.4
+                },
+                {
+                  "name": "Poniżej 2,5",
+                  "odds": 2.3
+                },
+                {
+                  "name": "Powyżej 3,5",
+                  "odds": 2.4
+                },
+                {
+                  "name": "Poniżej 3,5",
+                  "odds": 1.37
+                },
+                {
+                  "name": "Powyżej 4,5",
+                  "odds": 4.2
+                },
+                {
+                  "name": "Poniżej 4,5",
+                  "odds": 1.1
+                },
+                {
+                  "name": "Powyżej 5,5",
+                  "odds": 6.25
+                },
+                {
+                  "name": "Poniżej 5,5",
+                  "odds": 1.01
+                },
+                {
+                  "name": "Powyżej 6,5",
                   "odds": 15.0
                 }
               ]
             },
             {
-              "name": "Liczba goli - AFC Wimbledon",
+              "name": "Liczba goli - Emmen",
               "suspended": false,
               "selections": [
+                {
+                  "name": "Powyżej 1,5",
+                  "odds": 1.14
+                },
+                {
+                  "name": "Poniżej 1,5",
+                  "odds": 3.4
+                },
+                {
+                  "name": "Powyżej 2,5",
+                  "odds": 2.05
+                },
+                {
+                  "name": "Poniżej 2,5",
+                  "odds": 1.47
+                },
+                {
+                  "name": "Powyżej 3,5",
+                  "odds": 4.9
+                },
+                {
+                  "name": "Poniżej 3,5",
+                  "odds": 1.03
+                },
+                {
+                  "name": "Powyżej 4,5",
+                  "odds": 5.9
+                },
+                {
+                  "name": "Powyżej 5,5",
+                  "odds": 20.0
+                }
+              ]
+            },
+            {
+              "name": "Liczba goli - FC Oss",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Powyżej 0,5",
+                  "odds": 1.63
+                },
+                {
+                  "name": "Poniżej 0,5",
+                  "odds": 1.88
+                },
+                {
+                  "name": "Powyżej 1,5",
+                  "odds": 3.75
+                },
+                {
+                  "name": "Poniżej 1,5",
+                  "odds": 1.11
+                },
+                {
+                  "name": "Powyżej 2,5",
+                  "odds": 8.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1230882911326208,
+          "name": "NAC Breda - FC Eindhoven",
+          "date": "2026-09-26T18:00:00.0000000Z",
+          "date_warsaw": "2026-09-26T20:00:00+02:00",
+          "competition": "Holandia 2. liga",
+          "competition_id": 539,
+          "is_live": true,
+          "teams": [
+            {
+              "name": "NAC Breda",
+              "short": "NAC Breda"
+            },
+            {
+              "name": "FC Eindhoven",
+              "short": "Eindhoven"
+            }
+          ],
+          "markets": [
+            {
+              "name": "Wynik meczu (z wyłączeniem dogrywki)",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "NAC Breda",
+                  "odds": 1.05
+                },
+                {
+                  "name": "Remis ",
+                  "odds": 6.75
+                },
+                {
+                  "name": "FC Eindhoven",
+                  "odds": 14.0
+                }
+              ]
+            },
+            {
+              "name": "Podwójna Szansa",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "NAC Breda lub Eindhoven",
+                  "odds": 1.02
+                },
+                {
+                  "name": "Remis lub FC Eindhoven",
+                  "odds": 4.75
+                }
+              ]
+            },
+            {
+              "name": "Gole Powyżej/Poniżej",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Poniżej 1,5",
+                  "odds": 10.5
+                },
+                {
+                  "name": "Powyżej 2,5",
+                  "odds": 1.21
+                },
+                {
+                  "name": "Poniżej 2,5",
+                  "odds": 3.1
+                },
+                {
+                  "name": "Powyżej 3,5",
+                  "odds": 1.8
+                },
+                {
+                  "name": "Poniżej 3,5",
+                  "odds": 1.68
+                },
+                {
+                  "name": "Powyżej 4,5",
+                  "odds": 2.9
+                },
+                {
+                  "name": "Poniżej 4,5",
+                  "odds": 1.24
+                },
+                {
+                  "name": "Powyżej 5,5",
+                  "odds": 5.0
+                },
+                {
+                  "name": "Poniżej 5,5",
+                  "odds": 1.05
+                },
+                {
+                  "name": "Powyżej 6,5",
+                  "odds": 6.75
+                },
+                {
+                  "name": "Powyżej 7,5",
+                  "odds": 20.0
+                }
+              ]
+            },
+            {
+              "name": "Liczba goli - NAC Breda",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Poniżej 1,5",
+                  "odds": 6.0
+                },
+                {
+                  "name": "Powyżej 2,5",
+                  "odds": 1.47
+                },
+                {
+                  "name": "Poniżej 2,5",
+                  "odds": 2.05
+                },
+                {
+                  "name": "Powyżej 3,5",
+                  "odds": 2.65
+                },
+                {
+                  "name": "Poniżej 3,5",
+                  "odds": 1.25
+                },
+                {
+                  "name": "Powyżej 4,5",
+                  "odds": 4.4
+                },
+                {
+                  "name": "Poniżej 4,5",
+                  "odds": 1.06
+                },
+                {
+                  "name": "Powyżej 5,5",
+                  "odds": 6.0
+                }
+              ]
+            },
+            {
+              "name": "Liczba goli - FC Eindhoven",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Powyżej 0,5",
+                  "odds": 1.8
+                },
+                {
+                  "name": "Poniżej 0,5",
+                  "odds": 1.72
+                },
+                {
+                  "name": "Powyżej 1,5",
+                  "odds": 4.1
+                },
+                {
+                  "name": "Poniżej 1,5",
+                  "odds": 1.08
+                },
+                {
+                  "name": "Powyżej 2,5",
+                  "odds": 10.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1234932736225280,
+          "name": "SK Roeselare - Patro Eisden Maasmechelen",
+          "date": "2026-09-26T18:00:00.0000000Z",
+          "date_warsaw": "2026-09-26T20:00:00+02:00",
+          "competition": "Belgia Puchar",
+          "competition_id": 54,
+          "is_live": false,
+          "teams": [
+            {
+              "name": "SK Roeselare",
+              "short": "SK Roeselare"
+            },
+            {
+              "name": "Patro Eisden Maasmechelen",
+              "short": "Patro Eisden Maasmechelen"
+            }
+          ],
+          "markets": [
+            {
+              "name": "Wynik meczu (z wyłączeniem dogrywki)",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "SK Roeselare",
+                  "odds": 3.25
+                },
+                {
+                  "name": "Remis ",
+                  "odds": 2.85
+                },
+                {
+                  "name": "Patro Eisden Maasmechelen",
+                  "odds": 1.95
+                }
+              ]
+            },
+            {
+              "name": "Zwycięzca rywalizacji",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "SK Roeselare",
+                  "odds": 2.2
+                },
+                {
+                  "name": "Patro Eisden Maasmechelen",
+                  "odds": 1.43
+                }
+              ]
+            },
+            {
+              "name": "Podwójna Szansa",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "SK Roeselare lub remis",
+                  "odds": 1.5
+                },
+                {
+                  "name": "SK Roeselare lub Patro Eisden Maasmechelen",
+                  "odds": 1.22
+                },
+                {
+                  "name": "Remis lub Patro Eisden Maasmechelen",
+                  "odds": 1.17
+                }
+              ]
+            },
+            {
+              "name": "Gole Powyżej/Poniżej",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Powyżej 0,5",
+                  "odds": 1.01
+                },
+                {
+                  "name": "Poniżej 0,5",
+                  "odds": 6.0
+                },
+                {
+                  "name": "Powyżej 1,5",
+                  "odds": 1.38
+                },
+                {
+                  "name": "Poniżej 1,5",
+                  "odds": 2.35
+                },
+                {
+                  "name": "Powyżej 2,5",
+                  "odds": 2.25
+                },
+                {
+                  "name": "Poniżej 2,5",
+                  "odds": 1.42
+                },
+                {
+                  "name": "Powyżej 3,5",
+                  "odds": 4.9
+                },
+                {
+                  "name": "Poniżej 3,5",
+                  "odds": 1.06
+                },
+                {
+                  "name": "Powyżej 4,5",
+                  "odds": 6.25
+                },
+                {
+                  "name": "Poniżej 4,5",
+                  "odds": 1.01
+                },
+                {
+                  "name": "Powyżej 5,5",
+                  "odds": 15.0
+                }
+              ]
+            },
+            {
+              "name": "Liczba goli - SK Roeselare",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Powyżej 0,5",
+                  "odds": 1.5
+                },
+                {
+                  "name": "Poniżej 0,5",
+                  "odds": 2.05
+                },
+                {
+                  "name": "Powyżej 1,5",
+                  "odds": 3.1
+                },
+                {
+                  "name": "Poniżej 1,5",
+                  "odds": 1.18
+                },
+                {
+                  "name": "Powyżej 2,5",
+                  "odds": 5.9
+                }
+              ]
+            },
+            {
+              "name": "Liczba goli - Patro Eisden Maasmechelen",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Powyżej 0,5",
+                  "odds": 1.25
+                },
+                {
+                  "name": "Poniżej 0,5",
+                  "odds": 2.85
+                },
                 {
                   "name": "Powyżej 1,5",
                   "odds": 2.15
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.38
+                  "odds": 1.42
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 5.0
+                  "odds": 4.4
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.01
+                  "odds": 1.06
+                },
+                {
+                  "name": "Powyżej 3,5",
+                  "odds": 15.0
                 }
               ]
             }
           ]
         },
         {
-          "id": 1229943256141824,
-          "name": "Plymouth Argyle - Burton Albion",
-          "date": "2026-09-26T14:00:00.0000000Z",
-          "date_warsaw": "2026-09-26T16:00:00+02:00",
-          "competition": "Anglia League 1",
-          "competition_id": 229,
+          "id": 1234935750881280,
+          "name": "ROC de Charleroi-Marchienne - RSC Habay",
+          "date": "2026-09-26T18:00:00.0000000Z",
+          "date_warsaw": "2026-09-26T20:00:00+02:00",
+          "competition": "Belgia Puchar",
+          "competition_id": 54,
           "is_live": false,
           "teams": [
             {
-              "name": "Plymouth Argyle",
-              "short": "Plymouth Argyle"
+              "name": "ROC de Charleroi-Marchienne",
+              "short": "ROCCM"
             },
             {
-              "name": "Burton Albion",
-              "short": "Burton Albion"
+              "name": "RSC Habay",
+              "short": "RSC Habay"
             }
           ],
           "markets": [
@@ -913,167 +1492,30 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "Plymouth Argyle",
-                  "odds": 1.7
+                  "name": "ROC de Charleroi-Marchienne",
+                  "odds": 1.6
                 },
                 {
                   "name": "Remis ",
-                  "odds": 2.45
+                  "odds": 3.3
                 },
                 {
-                  "name": "Burton Albion",
-                  "odds": 5.25
+                  "name": "RSC Habay",
+                  "odds": 4.1
                 }
               ]
             },
             {
-              "name": "Podwójna Szansa",
+              "name": "Zwycięzca rywalizacji",
               "suspended": false,
               "selections": [
                 {
-                  "name": "Plymouth Argyle lub remis",
-                  "odds": 1.05
-                },
-                {
-                  "name": "Plymouth Argyle lub Burton Albion",
-                  "odds": 1.25
-                },
-                {
-                  "name": "Remis lub Burton Albion",
-                  "odds": 1.6
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.12
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 3.6
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.9
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.55
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 3.5
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.13
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 5.6
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.01
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 15.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Plymouth Argyle",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
+                  "name": "ROC de Charleroi-Marchienne",
                   "odds": 1.33
                 },
                 {
-                  "name": "Poniżej 0,5",
-                  "odds": 2.4
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 2.55
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.25
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 4.75
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.02
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 15.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Burton Albion",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 2.35
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 1.35
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 5.25
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1229976895524864,
-          "name": "Heracles - Vitesse",
-          "date": "2026-09-26T14:30:00.0000000Z",
-          "date_warsaw": "2026-09-26T16:30:00+02:00",
-          "competition": "Holandia 2. liga",
-          "competition_id": 539,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Heracles",
-              "short": "Heracles"
-            },
-            {
-              "name": "Vitesse",
-              "short": "Vitesse"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Heracles",
-                  "odds": 1.08
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 6.0
-                },
-                {
-                  "name": "Vitesse",
-                  "odds": 13.0
+                  "name": "RSC Habay",
+                  "odds": 2.5
                 }
               ]
             },
@@ -1082,12 +1524,16 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "Heracles lub Vitesse",
-                  "odds": 1.03
+                  "name": "ROC de Charleroi-Marchienne lub remis",
+                  "odds": 1.11
                 },
                 {
-                  "name": "Remis lub Vitesse",
-                  "odds": 4.0
+                  "name": "ROCCM lub RSC Habay",
+                  "odds": 1.15
+                },
+                {
+                  "name": "Remis lub RSC Habay",
+                  "odds": 1.75
                 }
               ]
             },
@@ -1097,7 +1543,7 @@
               "selections": [
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 7.75
+                  "odds": 7.5
                 },
                 {
                   "name": "Powyżej 2,5",
@@ -1138,1290 +1584,32 @@
               ]
             },
             {
-              "name": "Liczba goli - Heracles",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.06
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 4.4
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.7
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.7
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 3.6
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.12
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 5.6
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.01
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 10.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Vitesse",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.82
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 1.7
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 4.25
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.07
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 10.0
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1206170888962048,
-          "name": "San Marino - Finlandia",
-          "date": "2026-09-26T16:00:00.0000000Z",
-          "date_warsaw": "2026-09-26T18:00:00+02:00",
-          "competition": "UEFA Liga Narodów",
-          "competition_id": 22676,
-          "is_live": false,
-          "teams": [
-            {
-              "name": "San Marino",
-              "short": "San Marino"
-            },
-            {
-              "name": "Finlandia",
-              "short": "Finlandia"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "San Marino",
-                  "odds": 35.0
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 10.25
-                },
-                {
-                  "name": "Finlandia",
-                  "odds": 1.06
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.01
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 12.25
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.13
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 5.4
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.44
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 2.67
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 2.1
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.68
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 3.43
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.28
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 5.9
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.11
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "San Marino lub remis",
-                  "odds": 9.0
-                },
-                {
-                  "name": "San Marino lub Finlandia",
-                  "odds": 1.03
-                },
-                {
-                  "name": "Remis lub Finlandia",
-                  "odds": 1.01
-                }
-              ]
-            },
-            {
-              "name": "Oba zespoły strzelą gola lub Powyżej 2,5 gola w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.5
-                },
-                {
-                  "name": "Nie",
-                  "odds": 2.3
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - San Marino",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 3.28
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 1.29
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 10.5
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.02
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Finlandia",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.18
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 4.35
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.58
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 2.23
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 2.45
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.49
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 4.2
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.19
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 7.25
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.06
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1206176952877447,
-          "name": "Bułgaria - Luksemburg",
-          "date": "2026-09-26T16:00:00.0000000Z",
-          "date_warsaw": "2026-09-26T18:00:00+02:00",
-          "competition": "UEFA Liga Narodów",
-          "competition_id": 22676,
-          "is_live": false,
-          "teams": [
-            {
-              "name": "Bułgaria",
-              "short": "Bułgaria"
-            },
-            {
-              "name": "Luksemburg",
-              "short": "Luksemburg"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Bułgaria",
-                  "odds": 2.37
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 2.82
-                },
-                {
-                  "name": "Luksemburg",
-                  "odds": 3.42
-                }
-              ]
-            },
-            {
-              "name": "Wynik meczu - Xtra Wygrana",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Bułgaria",
-                  "odds": 1.98
-                },
-                {
-                  "name": "Luksemburg",
-                  "odds": 2.85
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.13
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 5.5
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.58
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 2.28
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 2.82
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.4
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 5.4
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.13
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 10.0
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.03
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 38.0
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.01
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Bułgaria lub remis",
-                  "odds": 1.3
-                },
-                {
-                  "name": "Bułgaria lub Luksemburg",
-                  "odds": 1.39
-                },
-                {
-                  "name": "Remis lub Luksemburg",
-                  "odds": 1.54
-                }
-              ]
-            },
-            {
-              "name": "Oba zespoły strzelą gola lub Powyżej 2,5 gola w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.7
-                },
-                {
-                  "name": "Nie",
-                  "odds": 2.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Bułgaria",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.41
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 2.7
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 2.92
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.35
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 8.75
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.07
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 11.5
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.01
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Luksemburg",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.6
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 2.2
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 3.85
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.22
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 14.5
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.03
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 12.25
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.01
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1206177886109696,
-          "name": "Islandia - Estonia",
-          "date": "2026-09-26T16:00:00.0000000Z",
-          "date_warsaw": "2026-09-26T18:00:00+02:00",
-          "competition": "UEFA Liga Narodów",
-          "competition_id": 22676,
-          "is_live": false,
-          "teams": [
-            {
-              "name": "Islandia",
-              "short": "Islandia"
-            },
-            {
-              "name": "Estonia",
-              "short": "Estonia"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Islandia",
-                  "odds": 1.25
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 5.6
-                },
-                {
-                  "name": "Estonia",
-                  "odds": 11.25
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.03
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 14.75
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.24
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 3.9
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.74
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 2.03
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 2.83
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.4
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 5.1
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.15
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 12.5
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.04
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Islandia lub remis",
-                  "odds": 1.05
-                },
-                {
-                  "name": "Islandia lub Estonia",
-                  "odds": 1.12
-                },
-                {
-                  "name": "Remis lub Estonia",
-                  "odds": 3.83
-                }
-              ]
-            },
-            {
-              "name": "Oba zespoły strzelą gola lub Powyżej 2,5 gola w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.45
-                },
-                {
-                  "name": "Nie",
-                  "odds": 2.4
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Islandia",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.07
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 8.5
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.42
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 2.67
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 2.27
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.57
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 4.15
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.19
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 7.75
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.05
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Estonia",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 2.15
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 1.63
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 6.5
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.08
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 43.0
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.01
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 12.5
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.01
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 12.5
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.01
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1229797987475458,
-          "name": "Wyspy Owcze - Kazachstan",
-          "date": "2026-09-26T16:00:00.0000000Z",
-          "date_warsaw": "2026-09-26T18:00:00+02:00",
-          "competition": "UEFA Liga Narodów",
-          "competition_id": 22676,
-          "is_live": false,
-          "teams": [
-            {
-              "name": "Wyspy Owcze",
-              "short": "Wyspy Owcze"
-            },
-            {
-              "name": "Kazachstan",
-              "short": "Kazachstan"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Wyspy Owcze",
-                  "odds": 1.97
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 3.3
-                },
-                {
-                  "name": "Kazachstan",
-                  "odds": 3.88
-                }
-              ]
-            },
-            {
-              "name": "Wynik meczu - Xtra Wygrana",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Wyspy Owcze",
-                  "odds": 1.63
-                },
-                {
-                  "name": "Kazachstan",
-                  "odds": 3.17
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Wyspy Owcze lub remis",
-                  "odds": 1.25
-                },
-                {
-                  "name": "Wyspy Owcze lub Kazachstan",
-                  "odds": 1.31
-                },
-                {
-                  "name": "Remis lub Kazachstan",
-                  "odds": 1.77
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.07
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 7.5
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.38
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 2.92
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 2.17
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.65
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 3.85
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.23
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 7.25
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.07
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 11.5
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.02
-                }
-              ]
-            },
-            {
-              "name": "Oba zespoły strzelą gola lub Powyżej 2,5 gola w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.7
-                },
-                {
-                  "name": "Nie",
-                  "odds": 2.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Wyspy Owcze",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.25
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 3.73
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 2.18
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.61
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 5.0
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.16
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 9.0
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.03
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 12.0
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.01
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Kazachstan",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.54
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 2.33
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 3.5
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.26
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 12.25
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.04
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 12.0
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.01
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1234932736225280,
-          "name": "SK Roeselare - Patro Eisden Maasmechelen",
-          "date": "2026-09-26T18:00:00.0000000Z",
-          "date_warsaw": "2026-09-26T20:00:00+02:00",
-          "competition": "Belgia Puchar",
-          "competition_id": 54,
-          "is_live": false,
-          "teams": [
-            {
-              "name": "SK Roeselare",
-              "short": "SK Roeselare"
-            },
-            {
-              "name": "Patro Eisden Maasmechelen",
-              "short": "Patro Eisden Maasmechelen"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "SK Roeselare",
-                  "odds": 3.02
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 4.0
-                },
-                {
-                  "name": "Patro Eisden Maasmechelen",
-                  "odds": 1.93
-                }
-              ]
-            },
-            {
-              "name": "Zwycięzca rywalizacji",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "SK Roeselare",
-                  "odds": 2.2
-                },
-                {
-                  "name": "Patro Eisden Maasmechelen",
-                  "odds": 1.54
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.15
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 4.4
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.5
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 2.3
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 2.25
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.52
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 3.68
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.21
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 6.1
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.07
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "SK Roeselare lub remis",
-                  "odds": 1.74
-                },
-                {
-                  "name": "SK Roeselare lub Patro Eisden Maasmechelen",
-                  "odds": 1.21
-                },
-                {
-                  "name": "Remis lub Patro Eisden Maasmechelen",
-                  "odds": 1.33
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - SK Roeselare",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.26
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 3.43
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 2.22
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.54
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 5.4
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.13
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 8.25
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.02
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 9.75
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.01
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Patro Eisden Maasmechelen",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.14
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 5.1
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.72
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.93
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 3.32
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.28
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 6.0
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.07
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 9.0
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.01
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1234935750881280,
-          "name": "ROC de Charleroi-Marchienne - RSC Habay",
-          "date": "2026-09-26T18:00:00.0000000Z",
-          "date_warsaw": "2026-09-26T20:00:00+02:00",
-          "competition": "Belgia Puchar",
-          "competition_id": 54,
-          "is_live": false,
-          "teams": [
-            {
-              "name": "ROC de Charleroi-Marchienne",
-              "short": "ROCCM"
-            },
-            {
-              "name": "RSC Habay",
-              "short": "RSC Habay"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "ROC de Charleroi-Marchienne",
-                  "odds": 2.82
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 3.8
-                },
-                {
-                  "name": "RSC Habay",
-                  "odds": 2.08
-                }
-              ]
-            },
-            {
-              "name": "Zwycięzca rywalizacji",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "ROC de Charleroi-Marchienne",
-                  "odds": 2.07
-                },
-                {
-                  "name": "RSC Habay",
-                  "odds": 1.63
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.14
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 4.45
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.5
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 2.32
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 2.23
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.53
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 3.65
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.21
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 6.0
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.07
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "ROC de Charleroi-Marchienne lub remis",
-                  "odds": 1.64
-                },
-                {
-                  "name": "ROCCM lub RSC Habay",
-                  "odds": 1.23
-                },
-                {
-                  "name": "Remis lub RSC Habay",
-                  "odds": 1.38
-                }
-              ]
-            },
-            {
               "name": "Liczba goli - ROC de Charleroi-Marchienne",
               "suspended": false,
               "selections": [
                 {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.23
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 3.7
-                },
-                {
                   "name": "Powyżej 1,5",
-                  "odds": 2.1
+                  "odds": 1.35
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.6
+                  "odds": 2.35
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 4.85
+                  "odds": 2.85
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.15
+                  "odds": 1.22
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 8.0
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.03
+                  "odds": 9.0
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 9.75
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.01
+                  "odds": 15.0
                 }
               ]
             },
@@ -2431,43 +1619,31 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.16
+                  "odds": 1.23
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 4.8
+                  "odds": 3.1
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.78
+                  "odds": 2.15
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.86
+                  "odds": 1.42
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 3.53
+                  "odds": 4.4
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.25
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 6.4
-                },
-                {
-                  "name": "Poniżej 3,5",
                   "odds": 1.06
                 },
                 {
-                  "name": "Powyżej 4,5",
-                  "odds": 9.25
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.01
+                  "name": "Powyżej 3,5",
+                  "odds": 16.0
                 }
               ]
             }
@@ -2498,15 +1674,15 @@
               "selections": [
                 {
                   "name": "SC Lokeren-Temse",
-                  "odds": 1.35
+                  "odds": 1.01
                 },
                 {
                   "name": "Remis ",
-                  "odds": 5.0
+                  "odds": 8.5
                 },
                 {
                   "name": "KVC Houtvenne",
-                  "odds": 6.25
+                  "odds": 16.0
                 }
               ]
             },
@@ -2515,58 +1691,8 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "SC Lokeren-Temse",
-                  "odds": 1.21
-                },
-                {
                   "name": "KVC Houtvenne",
-                  "odds": 3.65
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.11
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 4.95
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.4
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 2.6
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 2.03
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.65
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 3.2
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.27
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 5.25
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.1
+                  "odds": 9.0
                 }
               ]
             },
@@ -2575,16 +1701,58 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "SC Lokeren-Temse lub remis",
-                  "odds": 1.1
-                },
-                {
-                  "name": "SC Lokeren-Temse lub KVC Houtvenne",
-                  "odds": 1.1
-                },
-                {
                   "name": "Remis lub KVC Houtvenne",
-                  "odds": 2.87
+                  "odds": 7.0
+                }
+              ]
+            },
+            {
+              "name": "Gole Powyżej/Poniżej",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Poniżej 2,5",
+                  "odds": 11.0
+                },
+                {
+                  "name": "Powyżej 3,5",
+                  "odds": 1.2
+                },
+                {
+                  "name": "Poniżej 3,5",
+                  "odds": 3.35
+                },
+                {
+                  "name": "Powyżej 4,5",
+                  "odds": 1.68
+                },
+                {
+                  "name": "Poniżej 4,5",
+                  "odds": 1.8
+                },
+                {
+                  "name": "Powyżej 5,5",
+                  "odds": 2.75
+                },
+                {
+                  "name": "Poniżej 5,5",
+                  "odds": 1.27
+                },
+                {
+                  "name": "Powyżej 6,5",
+                  "odds": 4.6
+                },
+                {
+                  "name": "Poniżej 6,5",
+                  "odds": 1.07
+                },
+                {
+                  "name": "Powyżej 7,5",
+                  "odds": 6.75
+                },
+                {
+                  "name": "Powyżej 8,5",
+                  "odds": 15.0
                 }
               ]
             },
@@ -2593,44 +1761,40 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.06
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 8.5
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.32
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 2.58
-                },
-                {
                   "name": "Powyżej 2,5",
-                  "odds": 2.15
+                  "odds": 1.08
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.58
+                  "odds": 4.1
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 3.8
+                  "odds": 1.6
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 1.19
+                  "odds": 1.9
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 6.6
+                  "odds": 2.8
                 },
                 {
                   "name": "Poniżej 4,5",
-                  "odds": 1.05
+                  "odds": 1.23
+                },
+                {
+                  "name": "Powyżej 5,5",
+                  "odds": 5.0
+                },
+                {
+                  "name": "Poniżej 5,5",
+                  "odds": 1.03
+                },
+                {
+                  "name": "Powyżej 6,5",
+                  "odds": 8.0
                 }
               ]
             },
@@ -2640,35 +1804,27 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.44
+                  "odds": 1.48
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 2.5
+                  "odds": 2.15
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 2.98
+                  "odds": 3.05
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.31
+                  "odds": 1.19
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 9.25
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.06
+                  "odds": 5.9
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 9.5
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.01
+                  "odds": 28.0
                 }
               ]
             }
@@ -2699,15 +1855,15 @@
               "selections": [
                 {
                   "name": "Mandel United",
-                  "odds": 4.45
+                  "odds": 10.0
                 },
                 {
                   "name": "Remis ",
-                  "odds": 4.15
+                  "odds": 4.4
                 },
                 {
                   "name": "Kermt-Hasselt",
-                  "odds": 1.58
+                  "odds": 1.19
                 }
               ]
             },
@@ -2717,65 +1873,11 @@
               "selections": [
                 {
                   "name": "Mandel United",
-                  "odds": 3.0
+                  "odds": 4.6
                 },
                 {
                   "name": "Kermt-Hasselt",
-                  "odds": 1.3
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.02
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 8.5
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.16
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 4.2
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.55
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 2.2
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 2.35
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.48
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 3.88
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.19
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 6.4
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.06
+                  "odds": 1.07
                 }
               ]
             },
@@ -2785,15 +1887,61 @@
               "selections": [
                 {
                   "name": "Mandel United lub remis",
-                  "odds": 2.18
+                  "odds": 2.8
                 },
                 {
                   "name": "Mandel United lub Kermt-Hasselt",
-                  "odds": 1.19
+                  "odds": 1.08
                 },
                 {
                   "name": "Remis lub Kermt-Hasselt",
-                  "odds": 1.17
+                  "odds": 1.01
+                }
+              ]
+            },
+            {
+              "name": "Gole Powyżej/Poniżej",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Poniżej 1,5",
+                  "odds": 7.0
+                },
+                {
+                  "name": "Powyżej 2,5",
+                  "odds": 1.38
+                },
+                {
+                  "name": "Poniżej 2,5",
+                  "odds": 2.35
+                },
+                {
+                  "name": "Powyżej 3,5",
+                  "odds": 2.35
+                },
+                {
+                  "name": "Poniżej 3,5",
+                  "odds": 1.38
+                },
+                {
+                  "name": "Powyżej 4,5",
+                  "odds": 4.0
+                },
+                {
+                  "name": "Poniżej 4,5",
+                  "odds": 1.11
+                },
+                {
+                  "name": "Powyżej 5,5",
+                  "odds": 6.25
+                },
+                {
+                  "name": "Poniżej 5,5",
+                  "odds": 1.01
+                },
+                {
+                  "name": "Powyżej 6,5",
+                  "odds": 15.0
                 }
               ]
             },
@@ -2803,35 +1951,23 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.42
+                  "odds": 1.57
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 2.58
+                  "odds": 2.0
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 2.92
+                  "odds": 3.4
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.32
+                  "odds": 1.14
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 9.0
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.06
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 9.5
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.01
+                  "odds": 6.0
                 }
               ]
             },
@@ -2840,989 +1976,201 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.1
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 6.25
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.56
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 2.18
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 2.73
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.38
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 5.0
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.11
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 8.25
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.02
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1230111504355328,
-          "name": "Volendam - VVV Venlo",
-          "date": "2026-09-26T18:00:00.0000000Z",
-          "date_warsaw": "2026-09-26T20:00:00+02:00",
-          "competition": "Holandia 2. liga",
-          "competition_id": 539,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Volendam",
-              "short": "Volendam"
-            },
-            {
-              "name": "VVV Venlo",
-              "short": "VVV Venlo"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Volendam",
-                  "odds": 1.77
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 3.75
-                },
-                {
-                  "name": "VVV Venlo",
-                  "odds": 3.05
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Volendam lub remis",
-                  "odds": 1.27
-                },
-                {
-                  "name": "Volendam lub VVV Venlo",
-                  "odds": 1.17
-                },
-                {
-                  "name": "Remis lub VVV Venlo",
-                  "odds": 1.76
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.28
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 2.82
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 1.71
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.8
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 2.55
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.34
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Volendam",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.07
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 4.85
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.44
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 2.23
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 2.33
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.41
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - VVV Venlo",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.17
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 3.5
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.86
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.66
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 3.47
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.17
-                }
-              ]
-            },
-            {
-              "name": "Handicap",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Volendam (-2)",
-                  "odds": 5.1
-                },
-                {
-                  "name": "Remis (Volendam -2)",
-                  "odds": 5.1
-                },
-                {
-                  "name": "VVV Venlo (+2)",
-                  "odds": 1.3
-                },
-                {
-                  "name": "Volendam (-1)",
-                  "odds": 2.87
-                },
-                {
-                  "name": "Remis (Volendam -1)",
-                  "odds": 4.1
-                },
-                {
-                  "name": "VVV Venlo (+1)",
-                  "odds": 1.76
-                },
-                {
-                  "name": "Volendam (+1)",
-                  "odds": 1.27
-                },
-                {
-                  "name": "Remis (Volendam +1)",
-                  "odds": 5.0
-                },
-                {
-                  "name": "VVV Venlo (-1)",
-                  "odds": 5.75
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1230111541067776,
-          "name": "Roda - RKC Waalwijk",
-          "date": "2026-09-26T18:00:00.0000000Z",
-          "date_warsaw": "2026-09-26T20:00:00+02:00",
-          "competition": "Holandia 2. liga",
-          "competition_id": 539,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Roda",
-              "short": "Roda"
-            },
-            {
-              "name": "RKC Waalwijk",
-              "short": "RKC Waalwijk"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Roda",
-                  "odds": 2.08
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 3.28
-                },
-                {
-                  "name": "RKC Waalwijk",
-                  "odds": 2.67
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Roda lub remis",
-                  "odds": 1.35
-                },
-                {
-                  "name": "Roda lub RKC Waalwijk",
-                  "odds": 1.21
-                },
-                {
-                  "name": "Remis lub RKC Waalwijk",
-                  "odds": 1.54
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
                   "name": "Powyżej 1,5",
                   "odds": 1.15
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 3.65
+                  "odds": 3.3
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 1.55
+                  "odds": 2.05
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 2.02
+                  "odds": 1.47
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 2.33
+                  "odds": 5.0
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 1.41
+                  "odds": 1.03
+                },
+                {
+                  "name": "Powyżej 4,5",
+                  "odds": 6.0
                 }
               ]
+            }
+          ]
+        },
+        {
+          "id": 1235291113295872,
+          "name": "KSV Diksmuide - Lommel United",
+          "date": "2026-09-26T18:00:00.0000000Z",
+          "date_warsaw": "2026-09-26T20:00:00+02:00",
+          "competition": "Belgia Puchar",
+          "competition_id": 54,
+          "is_live": false,
+          "teams": [
+            {
+              "name": "KSV Diksmuide",
+              "short": "KSV Diksmuide"
             },
             {
-              "name": "Liczba goli - Roda",
+              "name": "Lommel United",
+              "short": "Lommel Utd"
+            }
+          ],
+          "markets": [
+            {
+              "name": "Wynik meczu (z wyłączeniem dogrywki)",
               "suspended": false,
               "selections": [
                 {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.17
+                  "name": "KSV Diksmuide",
+                  "odds": 12.0
                 },
                 {
-                  "name": "Poniżej 0,5",
-                  "odds": 3.53
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.85
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.67
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 3.43
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.18
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - RKC Waalwijk",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.23
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 3.05
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 2.12
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.5
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 4.15
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.11
-                }
-              ]
-            },
-            {
-              "name": "Handicap",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Roda (-2)",
-                  "odds": 8.0
-                },
-                {
-                  "name": "Remis (Roda -2)",
-                  "odds": 5.5
-                },
-                {
-                  "name": "RKC Waalwijk (+2)",
-                  "odds": 1.17
-                },
-                {
-                  "name": "Roda (-1)",
-                  "odds": 3.85
-                },
-                {
-                  "name": "Remis (Roda -1)",
-                  "odds": 3.95
-                },
-                {
-                  "name": "RKC Waalwijk (+1)",
-                  "odds": 1.54
-                },
-                {
-                  "name": "Roda (+1)",
-                  "odds": 1.35
-                },
-                {
-                  "name": "Remis (Roda +1)",
-                  "odds": 4.4
-                },
-                {
-                  "name": "RKC Waalwijk (-1)",
+                  "name": "Remis ",
                   "odds": 5.25
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1230111569379328,
-          "name": "MVV Maastricht - Helmond Sport",
-          "date": "2026-09-26T18:00:00.0000000Z",
-          "date_warsaw": "2026-09-26T20:00:00+02:00",
-          "competition": "Holandia 2. liga",
-          "competition_id": 539,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "MVV Maastricht",
-              "short": "MVV Maastricht"
-            },
-            {
-              "name": "Helmond Sport",
-              "short": "Helmond Sport"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "MVV Maastricht",
-                  "odds": 2.0
                 },
                 {
-                  "name": "Remis ",
-                  "odds": 3.23
-                },
-                {
-                  "name": "Helmond Sport",
-                  "odds": 2.85
+                  "name": "Lommel United",
+                  "odds": 1.12
                 }
               ]
             },
             {
-              "name": "Podwójna Szansa",
+              "name": "Zwycięzca rywalizacji",
               "suspended": false,
               "selections": [
                 {
-                  "name": "MVV Maastricht lub remis",
-                  "odds": 1.31
-                },
-                {
-                  "name": "MVV Maastricht lub Helmond Sport",
-                  "odds": 1.22
-                },
-                {
-                  "name": "Remis lub Helmond Sport",
-                  "odds": 1.58
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.14
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 3.8
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.52
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 2.07
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 2.25
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.44
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - MVV Maastricht",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.15
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 3.75
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.77
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.74
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 3.22
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.21
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Helmond Sport",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.23
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 3.05
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 2.13
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.49
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 4.15
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.11
-                }
-              ]
-            },
-            {
-              "name": "Handicap",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "MVV Maastricht (-2)",
-                  "odds": 7.25
-                },
-                {
-                  "name": "Remis (MVV Maastricht -2)",
-                  "odds": 5.4
-                },
-                {
-                  "name": "Helmond Sport (+2)",
-                  "odds": 1.19
-                },
-                {
-                  "name": "MVV Maastricht (-1)",
-                  "odds": 3.6
-                },
-                {
-                  "name": "Remis (MVV Maastricht -1)",
-                  "odds": 3.98
-                },
-                {
-                  "name": "Helmond Sport (+1)",
-                  "odds": 1.58
-                },
-                {
-                  "name": "MVV Maastricht (+1)",
-                  "odds": 1.31
-                },
-                {
-                  "name": "Remis (MVV Maastricht +1)",
-                  "odds": 4.55
-                },
-                {
-                  "name": "Helmond Sport (-1)",
-                  "odds": 5.6
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1230111768600576,
-          "name": "Emmen - FC Oss",
-          "date": "2026-09-26T18:00:00.0000000Z",
-          "date_warsaw": "2026-09-26T20:00:00+02:00",
-          "competition": "Holandia 2. liga",
-          "competition_id": 539,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Emmen",
-              "short": "Emmen"
-            },
-            {
-              "name": "FC Oss",
-              "short": "FC Oss"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Emmen",
-                  "odds": 1.49
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 3.95
-                },
-                {
-                  "name": "FC Oss",
-                  "odds": 4.2
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Emmen lub remis",
-                  "odds": 1.15
-                },
-                {
-                  "name": "Emmen lub FC Oss",
-                  "odds": 1.15
-                },
-                {
-                  "name": "Remis lub FC Oss",
-                  "odds": 2.17
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.4
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 2.35
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 2.0
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.56
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 3.1
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.22
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Emmen",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.07
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 4.85
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.43
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 2.27
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 2.3
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.42
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - FC Oss",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.33
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 2.57
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 2.53
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.34
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 5.0
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.06
-                }
-              ]
-            },
-            {
-              "name": "Handicap",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Emmen (-2)",
-                  "odds": 4.15
-                },
-                {
-                  "name": "Remis (Emmen -2)",
-                  "odds": 4.45
-                },
-                {
-                  "name": "FC Oss (+2)",
-                  "odds": 1.44
-                },
-                {
-                  "name": "Emmen (-1)",
-                  "odds": 2.33
-                },
-                {
-                  "name": "Remis (Emmen -1)",
-                  "odds": 3.73
-                },
-                {
-                  "name": "FC Oss (+1)",
-                  "odds": 2.17
-                },
-                {
-                  "name": "Emmen (+1)",
-                  "odds": 1.15
-                },
-                {
-                  "name": "Remis (Emmen +1)",
+                  "name": "KSV Diksmuide",
                   "odds": 5.6
                 },
                 {
-                  "name": "FC Oss (-1)",
-                  "odds": 9.0
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1230882911326208,
-          "name": "NAC Breda - FC Eindhoven",
-          "date": "2026-09-26T18:00:00.0000000Z",
-          "date_warsaw": "2026-09-26T20:00:00+02:00",
-          "competition": "Holandia 2. liga",
-          "competition_id": 539,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "NAC Breda",
-              "short": "NAC Breda"
-            },
-            {
-              "name": "FC Eindhoven",
-              "short": "Eindhoven"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "NAC Breda",
-                  "odds": 1.3
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 4.55
-                },
-                {
-                  "name": "FC Eindhoven",
-                  "odds": 5.9
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "NAC Breda lub remis",
-                  "odds": 1.08
-                },
-                {
-                  "name": "NAC Breda lub Eindhoven",
-                  "odds": 1.11
-                },
-                {
-                  "name": "Remis lub FC Eindhoven",
-                  "odds": 2.8
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.35
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 2.52
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 1.88
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.64
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 2.87
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.26
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - NAC Breda",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.3
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 2.7
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.93
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.61
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 3.2
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.21
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - FC Eindhoven",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.45
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 2.23
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 3.0
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.24
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 5.75
-                },
-                {
-                  "name": "Poniżej 2,5",
+                  "name": "Lommel United",
                   "odds": 1.03
                 }
               ]
             },
             {
-              "name": "Handicap",
+              "name": "Podwójna Szansa",
               "suspended": false,
               "selections": [
                 {
-                  "name": "NAC Breda (-2)",
-                  "odds": 3.03
+                  "name": "KSV Diksmuide lub remis",
+                  "odds": 3.4
                 },
                 {
-                  "name": "Remis (NAC Breda -2)",
-                  "odds": 4.05
+                  "name": "KSV Diksmuide lub Lommel Utd",
+                  "odds": 1.05
+                }
+              ]
+            },
+            {
+              "name": "Gole Powyżej/Poniżej",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Powyżej 1,5",
+                  "odds": 1.04
                 },
                 {
-                  "name": "FC Eindhoven (+2)",
-                  "odds": 1.71
+                  "name": "Poniżej 1,5",
+                  "odds": 5.25
                 },
                 {
-                  "name": "NAC Breda (-1)",
-                  "odds": 1.86
+                  "name": "Powyżej 2,5",
+                  "odds": 1.53
                 },
                 {
-                  "name": "Remis (NAC Breda -1)",
-                  "odds": 3.8
+                  "name": "Poniżej 2,5",
+                  "odds": 2.0
                 },
                 {
-                  "name": "FC Eindhoven (+1)",
-                  "odds": 2.8
+                  "name": "Powyżej 3,5",
+                  "odds": 2.95
                 },
                 {
-                  "name": "NAC Breda (+1)",
-                  "odds": 1.08
+                  "name": "Poniżej 3,5",
+                  "odds": 1.23
                 },
                 {
-                  "name": "Remis (NAC Breda +1)",
-                  "odds": 6.5
+                  "name": "Powyżej 4,5",
+                  "odds": 5.0
                 },
                 {
-                  "name": "FC Eindhoven (-1)",
-                  "odds": 12.75
+                  "name": "Poniżej 4,5",
+                  "odds": 1.05
+                },
+                {
+                  "name": "Powyżej 5,5",
+                  "odds": 7.0
+                }
+              ]
+            },
+            {
+              "name": "Liczba goli - KSV Diksmuide",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Powyżej 0,5",
+                  "odds": 1.9
+                },
+                {
+                  "name": "Poniżej 0,5",
+                  "odds": 1.62
+                },
+                {
+                  "name": "Powyżej 1,5",
+                  "odds": 4.6
+                },
+                {
+                  "name": "Poniżej 1,5",
+                  "odds": 1.05
+                },
+                {
+                  "name": "Powyżej 2,5",
+                  "odds": 15.0
+                }
+              ]
+            },
+            {
+              "name": "Liczba goli - Lommel United",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Powyżej 1,5",
+                  "odds": 1.19
+                },
+                {
+                  "name": "Poniżej 1,5",
+                  "odds": 3.05
+                },
+                {
+                  "name": "Powyżej 2,5",
+                  "odds": 2.2
+                },
+                {
+                  "name": "Poniżej 2,5",
+                  "odds": 1.4
+                },
+                {
+                  "name": "Powyżej 3,5",
+                  "odds": 5.5
+                },
+                {
+                  "name": "Poniżej 3,5",
+                  "odds": 1.01
+                },
+                {
+                  "name": "Powyżej 4,5",
+                  "odds": 7.0
                 }
               ]
             }
@@ -3853,15 +2201,15 @@
               "selections": [
                 {
                   "name": "Czechy",
-                  "odds": 3.48
+                  "odds": 3.63
                 },
                 {
                   "name": "Remis ",
-                  "odds": 3.43
+                  "odds": 3.37
                 },
                 {
                   "name": "Chorwacja",
-                  "odds": 2.03
+                  "odds": 1.98
                 }
               ]
             },
@@ -3871,11 +2219,11 @@
               "selections": [
                 {
                   "name": "Czechy",
-                  "odds": 2.78
+                  "odds": 2.95
                 },
                 {
                   "name": "Chorwacja",
-                  "odds": 1.63
+                  "odds": 1.6
                 }
               ]
             },
@@ -3889,31 +2237,31 @@
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 12.75
+                  "odds": 12.0
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.24
+                  "odds": 1.25
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 3.83
+                  "odds": 3.7
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 1.78
+                  "odds": 1.8
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.97
+                  "odds": 1.9
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 2.87
+                  "odds": 2.92
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 1.38
+                  "odds": 1.36
                 },
                 {
                   "name": "Powyżej 4,5",
@@ -3921,15 +2269,15 @@
                 },
                 {
                   "name": "Poniżej 4,5",
-                  "odds": 1.14
+                  "odds": 1.12
                 },
                 {
                   "name": "Powyżej 5,5",
-                  "odds": 13.0
+                  "odds": 13.75
                 },
                 {
                   "name": "Poniżej 5,5",
-                  "odds": 1.04
+                  "odds": 1.03
                 }
               ]
             },
@@ -3939,15 +2287,15 @@
               "selections": [
                 {
                   "name": "Czechy lub remis",
-                  "odds": 1.73
+                  "odds": 1.75
                 },
                 {
                   "name": "Czechy lub Chorwacja",
-                  "odds": 1.29
+                  "odds": 1.27
                 },
                 {
                   "name": "Remis lub Chorwacja",
-                  "odds": 1.29
+                  "odds": 1.26
                 }
               ]
             },
@@ -3971,31 +2319,31 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.37
+                  "odds": 1.39
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 2.93
+                  "odds": 2.8
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 2.7
+                  "odds": 2.85
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.41
+                  "odds": 1.37
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 7.5
+                  "odds": 8.25
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.09
+                  "odds": 1.08
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 11.0
+                  "odds": 11.25
                 },
                 {
                   "name": "Poniżej 3,5",
@@ -4084,15 +2432,15 @@
               "selections": [
                 {
                   "name": "Anglia",
-                  "odds": 3.9
+                  "odds": 3.17
                 },
                 {
                   "name": "Remis ",
-                  "odds": 3.3
+                  "odds": 3.27
                 },
                 {
                   "name": "Hiszpania",
-                  "odds": 1.9
+                  "odds": 2.18
                 }
               ]
             },
@@ -4102,11 +2450,11 @@
               "selections": [
                 {
                   "name": "Anglia",
-                  "odds": 2.95
+                  "odds": 2.53
                 },
                 {
                   "name": "Hiszpania",
-                  "odds": 1.56
+                  "odds": 1.74
                 }
               ]
             },
@@ -4120,27 +2468,27 @@
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 14.0
+                  "odds": 13.5
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.22
+                  "odds": 1.21
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 4.15
+                  "odds": 4.2
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 1.7
+                  "odds": 1.69
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 2.07
+                  "odds": 2.05
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 2.68
+                  "odds": 2.63
                 },
                 {
                   "name": "Poniżej 3,5",
@@ -4148,15 +2496,15 @@
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 4.8
+                  "odds": 4.7
                 },
                 {
                   "name": "Poniżej 4,5",
-                  "odds": 1.16
+                  "odds": 1.15
                 },
                 {
                   "name": "Powyżej 5,5",
-                  "odds": 11.25
+                  "odds": 11.0
                 },
                 {
                   "name": "Poniżej 5,5",
@@ -4170,7 +2518,7 @@
               "selections": [
                 {
                   "name": "Anglia lub remis",
-                  "odds": 1.8
+                  "odds": 1.62
                 },
                 {
                   "name": "Anglia lub Hiszpania",
@@ -4178,7 +2526,7 @@
                 },
                 {
                   "name": "Remis lub Hiszpania",
-                  "odds": 1.27
+                  "odds": 1.33
                 }
               ]
             },
@@ -4202,39 +2550,39 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.36
+                  "odds": 1.3
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 2.95
+                  "odds": 3.3
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 2.68
+                  "odds": 2.42
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.41
+                  "odds": 1.5
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 7.5
+                  "odds": 6.25
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.09
+                  "odds": 1.12
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 11.0
+                  "odds": 10.25
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 1.01
+                  "odds": 1.02
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 12.5
+                  "odds": 12.25
                 },
                 {
                   "name": "Poniżej 4,5",
@@ -4248,39 +2596,39 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.16
+                  "odds": 1.19
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 4.95
+                  "odds": 4.5
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.81
+                  "odds": 1.93
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.9
+                  "odds": 1.78
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 3.58
+                  "odds": 4.05
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.27
+                  "odds": 1.22
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 6.9
+                  "odds": 7.75
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 1.07
+                  "odds": 1.05
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 11.0
+                  "odds": 11.5
                 },
                 {
                   "name": "Poniżej 4,5",
@@ -4319,11 +2667,11 @@
                 },
                 {
                   "name": "Remis ",
-                  "odds": 4.85
+                  "odds": 4.95
                 },
                 {
                   "name": "Szwajcaria",
-                  "odds": 1.31
+                  "odds": 1.28
                 }
               ]
             },
@@ -4333,11 +2681,7 @@
               "selections": [
                 {
                   "name": "Macedonia Północna",
-                  "odds": 9.75
-                },
-                {
-                  "name": "Szwajcaria",
-                  "odds": 1.16
+                  "odds": 10.0
                 }
               ]
             },
@@ -4347,51 +2691,51 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.06
+                  "odds": 1.04
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 10.75
+                  "odds": 12.5
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.33
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 3.13
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 2.0
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.75
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 3.53
-                },
-                {
-                  "name": "Poniżej 3,5",
                   "odds": 1.27
                 },
                 {
+                  "name": "Poniżej 1,5",
+                  "odds": 3.53
+                },
+                {
+                  "name": "Powyżej 2,5",
+                  "odds": 1.83
+                },
+                {
+                  "name": "Poniżej 2,5",
+                  "odds": 1.87
+                },
+                {
+                  "name": "Powyżej 3,5",
+                  "odds": 3.05
+                },
+                {
+                  "name": "Poniżej 3,5",
+                  "odds": 1.33
+                },
+                {
                   "name": "Powyżej 4,5",
-                  "odds": 6.6
+                  "odds": 5.5
                 },
                 {
                   "name": "Poniżej 4,5",
-                  "odds": 1.09
+                  "odds": 1.11
                 },
                 {
                   "name": "Powyżej 5,5",
-                  "odds": 19.5
+                  "odds": 15.25
                 },
                 {
                   "name": "Poniżej 5,5",
-                  "odds": 1.02
+                  "odds": 1.03
                 }
               ]
             },
@@ -4401,15 +2745,15 @@
               "selections": [
                 {
                   "name": "Macedonia Północna lub remis",
-                  "odds": 3.35
+                  "odds": 3.4
                 },
                 {
                   "name": "Macedonia Północna lub Szwajcaria",
-                  "odds": 1.15
+                  "odds": 1.13
                 },
                 {
                   "name": "Remis lub Szwajcaria",
-                  "odds": 1.06
+                  "odds": 1.05
                 }
               ]
             },
@@ -4433,19 +2777,19 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 2.28
+                  "odds": 2.15
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 1.56
+                  "odds": 1.62
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 7.0
+                  "odds": 6.5
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.06
+                  "odds": 1.08
                 },
                 {
                   "name": "Powyżej 3,5",
@@ -4471,43 +2815,43 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.11
+                  "odds": 1.09
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 6.5
+                  "odds": 7.25
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.57
+                  "odds": 1.49
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 2.27
+                  "odds": 2.45
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 2.75
+                  "odds": 2.5
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.41
+                  "odds": 1.48
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 5.25
+                  "odds": 4.65
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 1.12
+                  "odds": 1.15
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 9.5
+                  "odds": 8.5
                 },
                 {
                   "name": "Poniżej 4,5",
-                  "odds": 1.03
+                  "odds": 1.04
                 }
               ]
             }
@@ -4538,15 +2882,15 @@
               "selections": [
                 {
                   "name": "Słowacja",
-                  "odds": 1.13
+                  "odds": 1.15
                 },
                 {
                   "name": "Remis ",
-                  "odds": 7.75
+                  "odds": 6.9
                 },
                 {
                   "name": "Mołdawia",
-                  "odds": 19.0
+                  "odds": 15.5
                 }
               ]
             },
@@ -4560,47 +2904,47 @@
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 11.5
+                  "odds": 10.5
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.17
+                  "odds": 1.16
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 4.7
+                  "odds": 4.55
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 1.54
+                  "odds": 1.53
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 2.37
-                },
-                {
-                  "name": "Powyżej 3,5",
                   "odds": 2.35
                 },
                 {
+                  "name": "Powyżej 3,5",
+                  "odds": 2.33
+                },
+                {
                   "name": "Poniżej 3,5",
-                  "odds": 1.55
+                  "odds": 1.54
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 4.0
+                  "odds": 3.9
                 },
                 {
                   "name": "Poniżej 4,5",
-                  "odds": 1.22
+                  "odds": 1.21
                 },
                 {
                   "name": "Powyżej 5,5",
-                  "odds": 7.0
+                  "odds": 6.75
                 },
                 {
                   "name": "Poniżej 5,5",
-                  "odds": 1.08
+                  "odds": 1.07
                 }
               ]
             },
@@ -4610,7 +2954,7 @@
               "selections": [
                 {
                   "name": "Słowacja lub remis",
-                  "odds": 1.02
+                  "odds": 1.03
                 },
                 {
                   "name": "Słowacja lub Mołdawia",
@@ -4618,7 +2962,7 @@
                 },
                 {
                   "name": "Remis lub Mołdawia",
-                  "odds": 5.75
+                  "odds": 4.95
                 }
               ]
             },
@@ -4646,39 +2990,39 @@
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 12.5
+                  "odds": 11.75
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.26
+                  "odds": 1.28
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 3.45
+                  "odds": 3.33
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 1.83
+                  "odds": 1.88
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.87
+                  "odds": 1.82
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 3.07
+                  "odds": 3.18
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 1.33
+                  "odds": 1.31
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 5.5
+                  "odds": 5.75
                 },
                 {
                   "name": "Poniżej 4,5",
-                  "odds": 1.11
+                  "odds": 1.1
                 }
               ]
             },
@@ -4688,23 +3032,23 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 2.5
+                  "odds": 2.3
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 1.47
+                  "odds": 1.55
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 8.0
+                  "odds": 7.25
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.05
+                  "odds": 1.06
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 75.0
+                  "odds": 55.0
                 },
                 {
                   "name": "Poniżej 2,5",
@@ -4739,15 +3083,15 @@
               "selections": [
                 {
                   "name": "Albania",
-                  "odds": 1.59
+                  "odds": 1.63
                 },
                 {
                   "name": "Remis ",
-                  "odds": 3.85
+                  "odds": 3.68
                 },
                 {
                   "name": "Białoruś",
-                  "odds": 5.5
+                  "odds": 5.1
                 }
               ]
             },
@@ -4757,11 +3101,11 @@
               "selections": [
                 {
                   "name": "Albania",
-                  "odds": 1.34
+                  "odds": 1.38
                 },
                 {
                   "name": "Białoruś",
-                  "odds": 4.7
+                  "odds": 4.4
                 }
               ]
             },
@@ -4779,7 +3123,7 @@
                 },
                 {
                   "name": "Remis lub Białoruś",
-                  "odds": 2.27
+                  "odds": 2.15
                 }
               ]
             },
@@ -4793,43 +3137,43 @@
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 10.25
+                  "odds": 10.0
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.33
+                  "odds": 1.34
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 3.13
+                  "odds": 3.05
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 2.02
+                  "odds": 2.03
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.74
+                  "odds": 1.7
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 3.5
+                  "odds": 3.53
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 1.27
+                  "odds": 1.25
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 6.6
+                  "odds": 6.5
                 },
                 {
                   "name": "Poniżej 4,5",
-                  "odds": 1.09
+                  "odds": 1.08
                 },
                 {
                   "name": "Powyżej 5,5",
-                  "odds": 19.5
+                  "odds": 21.0
                 },
                 {
                   "name": "Poniżej 5,5",
@@ -4857,39 +3201,39 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.16
+                  "odds": 1.18
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 4.95
+                  "odds": 4.7
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.8
+                  "odds": 1.85
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.91
+                  "odds": 1.85
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 3.53
+                  "odds": 3.73
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.27
+                  "odds": 1.25
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 6.9
+                  "odds": 7.25
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 1.07
+                  "odds": 1.06
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 11.0
+                  "odds": 11.25
                 },
                 {
                   "name": "Poniżej 4,5",
@@ -4903,15 +3247,15 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.71
+                  "odds": 1.69
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 2.02
+                  "odds": 2.05
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 4.35
+                  "odds": 4.25
                 },
                 {
                   "name": "Poniżej 1,5",
@@ -4919,7 +3263,7 @@
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 18.5
+                  "odds": 17.75
                 },
                 {
                   "name": "Poniżej 2,5",
@@ -4952,13 +3296,17 @@
       "sport": "tennis",
       "source": "direct_betclic",
       "stale": false,
-      "event_count": 5,
+      "event_count": 3,
       "stale_event_ids": [],
       "summary_only_event_ids": [],
       "discovery": {
         "source": "competitions",
         "competition_ids": [
+          29927,
           30560,
+          41204,
+          18899,
+          19838,
           41207,
           41201,
           29331
@@ -4970,296 +3318,10 @@
       "errors": [],
       "events": [
         {
-          "id": 1235500879859712,
-          "name": "Adrian Andreev - Jonas Forejtek",
-          "date": "2026-09-26T13:50:00.0000000Z",
-          "date_warsaw": "2026-09-26T15:50:00+02:00",
-          "competition": "Plovdiv 4 Challenger",
-          "competition_id": 41207,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Adrian Andreev",
-              "short": "A. Andreev"
-            },
-            {
-              "name": "Jonas Forejtek",
-              "short": "J. Forejtek"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Adrian Andreev",
-                  "odds": 4.85
-                },
-                {
-                  "name": "Jonas Forejtek",
-                  "odds": 1.06
-                }
-              ]
-            },
-            {
-              "name": "2. set - Gem 9 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Adrian Andreev",
-                  "odds": 1.35
-                },
-                {
-                  "name": "Jonas Forejtek",
-                  "odds": 2.35
-                }
-              ]
-            },
-            {
-              "name": "2. set - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Adrian Andreev",
-                  "odds": 3.45
-                },
-                {
-                  "name": "Jonas Forejtek",
-                  "odds": 1.15
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "0 - 2",
-                  "odds": 1.15
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 5.9
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 7.25
-                }
-              ]
-            },
-            {
-              "name": "2. set - Gem 8 - Punkt 8 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Adrian Andreev",
-                  "odds": 2.05
-                },
-                {
-                  "name": "Jonas Forejtek",
-                  "odds": 1.45
-                }
-              ]
-            },
-            {
-              "name": "Adrian Andreev wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 3.45
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.15
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Adrian Andreev (+1,5)",
-                  "odds": 3.55
-                },
-                {
-                  "name": "Jonas Forejtek (-1.5)",
-                  "odds": 1.15
-                }
-              ]
-            },
-            {
-              "name": "Czy obaj zawodnicy wygrają seta w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 3.45
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.15
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1235546178355203,
-          "name": "Titouan Droguet - Dino Prizmic",
-          "date": "2026-09-26T14:30:00.0000000Z",
-          "date_warsaw": "2026-09-26T16:30:00+02:00",
-          "competition": "St. Tropez Challenger",
-          "competition_id": 29331,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Titouan Droguet",
-              "short": "T. Droguet"
-            },
-            {
-              "name": "Dino Prizmic",
-              "short": "D. Prizmic"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Titouan Droguet",
-                  "odds": 1.75
-                },
-                {
-                  "name": "Dino Prizmic",
-                  "odds": 1.75
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 6 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Titouan Droguet",
-                  "odds": 2.95
-                },
-                {
-                  "name": "Dino Prizmic",
-                  "odds": 1.18
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 2.6
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 2.8
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 4.05
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 3.7
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 5 - Punkt 3 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Titouan Droguet",
-                  "odds": 1.45
-                },
-                {
-                  "name": "Dino Prizmic",
-                  "odds": 2.1
-                }
-              ]
-            },
-            {
-              "name": "Titouan Droguet wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.27
-                },
-                {
-                  "name": "Nie",
-                  "odds": 2.65
-                }
-              ]
-            },
-            {
-              "name": "Dino Prizmic wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.3
-                },
-                {
-                  "name": "Nie",
-                  "odds": 2.5
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Titouan Droguet (-1,5)",
-                  "odds": 2.55
-                },
-                {
-                  "name": "Dino Prizmic (+1.5)",
-                  "odds": 1.32
-                },
-                {
-                  "name": "Titouan Droguet (+1,5)",
-                  "odds": 1.27
-                },
-                {
-                  "name": "Dino Prizmic (-1.5)",
-                  "odds": 2.7
-                }
-              ]
-            },
-            {
-              "name": "Czy obaj zawodnicy wygrają seta w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 2.05
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.47
-                }
-              ]
-            }
-          ]
-        },
-        {
           "id": 1235562457493504,
           "name": "Pedro Boscardin Dias - Facundo Mena",
-          "date": "2026-09-26T17:10:00.0000000Z",
-          "date_warsaw": "2026-09-26T19:10:00+02:00",
+          "date": "2026-09-26T17:50:00.0000000Z",
+          "date_warsaw": "2026-09-26T19:50:00+02:00",
           "competition": "Buenos Aires 2 Challenger",
           "competition_id": 30560,
           "is_live": true,
@@ -5280,39 +3342,25 @@
               "selections": [
                 {
                   "name": "Pedro Boscardin Dias",
-                  "odds": 2.45
+                  "odds": 1.3
                 },
                 {
                   "name": "Facundo Mena",
-                  "odds": 1.47
+                  "odds": 2.6
                 }
               ]
             },
             {
-              "name": "Pedro Boscardin Dias wygra seta",
+              "name": "1. set - Gem 6 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
-                  "name": "Tak",
-                  "odds": 1.59
+                  "name": "Pedro Boscardin Dias",
+                  "odds": 1.14
                 },
                 {
-                  "name": "Nie",
-                  "odds": 2.13
-                }
-              ]
-            },
-            {
-              "name": "Facundo Mena wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.19
-                },
-                {
-                  "name": "Nie",
-                  "odds": 3.85
+                  "name": "Facundo Mena",
+                  "odds": 3.25
                 }
               ]
             },
@@ -5322,19 +3370,57 @@
               "selections": [
                 {
                   "name": "2 - 0",
-                  "odds": 4.1
+                  "odds": 1.65
                 },
                 {
                   "name": "0 - 2",
-                  "odds": 2.13
+                  "odds": 28.0
                 },
                 {
                   "name": "2 - 1",
-                  "odds": 5.4
+                  "odds": 4.1
                 },
                 {
                   "name": "1 - 2",
-                  "odds": 3.9
+                  "odds": 2.75
+                }
+              ]
+            },
+            {
+              "name": "1. set - Gem 5 - Punkt 8 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Pedro Boscardin Dias",
+                  "odds": 2.05
+                },
+                {
+                  "name": "Facundo Mena",
+                  "odds": 1.45
+                }
+              ]
+            },
+            {
+              "name": "Pedro Boscardin Dias wygra seta",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Nie",
+                  "odds": 6.25
+                }
+              ]
+            },
+            {
+              "name": "Facundo Mena wygra seta",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 1.75
+                },
+                {
+                  "name": "Nie",
+                  "odds": 1.7
                 }
               ]
             },
@@ -5344,19 +3430,29 @@
               "selections": [
                 {
                   "name": "Pedro Boscardin Dias (-1,5)",
-                  "odds": 4.1
+                  "odds": 1.7
                 },
                 {
                   "name": "Facundo Mena (+1.5)",
-                  "odds": 1.19
-                },
-                {
-                  "name": "Pedro Boscardin Dias (+1,5)",
-                  "odds": 1.59
+                  "odds": 1.8
                 },
                 {
                   "name": "Facundo Mena (-1.5)",
-                  "odds": 2.13
+                  "odds": 6.5
+                }
+              ]
+            },
+            {
+              "name": "Czy obaj zawodnicy wygrają seta w meczu",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 1.85
+                },
+                {
+                  "name": "Nie",
+                  "odds": 1.6
                 }
               ]
             }
@@ -5365,8 +3461,8 @@
         {
           "id": 1235704725143552,
           "name": "Joaquin Aguilar Cardozo - Alex Barrena",
-          "date": "2026-09-26T18:20:00.0000000Z",
-          "date_warsaw": "2026-09-26T20:20:00+02:00",
+          "date": "2026-09-26T19:00:00.0000000Z",
+          "date_warsaw": "2026-09-26T21:00:00+02:00",
           "competition": "Buenos Aires 2 Challenger",
           "competition_id": 30560,
           "is_live": true,
@@ -5494,11 +3590,11 @@
               "selections": [
                 {
                   "name": "Timo Legout",
-                  "odds": 1.46
+                  "odds": 1.43
                 },
                 {
                   "name": "Igor Ribeiro Marcondes",
-                  "odds": 2.47
+                  "odds": 2.55
                 }
               ]
             },
@@ -5508,11 +3604,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.19
+                  "odds": 1.18
                 },
                 {
                   "name": "Nie",
-                  "odds": 3.85
+                  "odds": 4.0
                 }
               ]
             },
@@ -5522,11 +3618,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.61
+                  "odds": 1.64
                 },
                 {
                   "name": "Nie",
-                  "odds": 2.09
+                  "odds": 2.04
                 }
               ]
             },
@@ -5536,11 +3632,11 @@
               "selections": [
                 {
                   "name": "2 - 0",
-                  "odds": 2.09
+                  "odds": 2.04
                 },
                 {
                   "name": "0 - 2",
-                  "odds": 4.1
+                  "odds": 4.3
                 },
                 {
                   "name": "2 - 1",
@@ -5548,7 +3644,7 @@
                 },
                 {
                   "name": "1 - 2",
-                  "odds": 5.4
+                  "odds": 5.6
                 }
               ]
             },
@@ -5558,19 +3654,19 @@
               "selections": [
                 {
                   "name": "Timo Legout (-1,5)",
-                  "odds": 2.09
+                  "odds": 2.04
                 },
                 {
                   "name": "Igor Ribeiro Marcondes (+1.5)",
-                  "odds": 1.61
+                  "odds": 1.64
                 },
                 {
                   "name": "Timo Legout (+1,5)",
-                  "odds": 1.19
+                  "odds": 1.18
                 },
                 {
                   "name": "Igor Ribeiro Marcondes (-1.5)",
-                  "odds": 4.1
+                  "odds": 4.3
                 }
               ]
             }
