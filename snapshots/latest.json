@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "source": "direct_betclic",
-  "generated_at_warsaw": "2026-10-11T20:11:23.607669+02:00",
+  "generated_at_warsaw": "2026-10-11T23:05:01.479682+02:00",
   "date_warsaw": "2026-10-11",
   "fallback_max_age_seconds": 5400,
   "sports": {
@@ -9,19 +9,12 @@
       "sport": "football",
       "source": "direct_betclic",
       "stale": false,
-      "event_count": 16,
+      "event_count": 1,
       "stale_event_ids": [],
       "summary_only_event_ids": [],
       "discovery": {
         "source": "competitions",
         "selected_competitions": [
-          {
-            "id": 7,
-            "name": "La Liga",
-            "category": "",
-            "country_code": "ES",
-            "country_name": "Hiszpania"
-          },
           {
             "id": 8,
             "name": "Liga Mistrzów",
@@ -30,25 +23,25 @@
             "country_name": "Europa"
           },
           {
-            "id": 221,
-            "name": "Ekstraklasa",
+            "id": 28946,
+            "name": "Liga Konferencji",
             "category": "",
-            "country_code": "PL",
-            "country_name": "Polska"
+            "country_code": "EU",
+            "country_name": "Europa"
           },
           {
-            "id": 32,
-            "name": "Liga Betclic",
+            "id": 3453,
+            "name": "Liga Europy",
             "category": "",
-            "country_code": "PT",
-            "country_name": "Portugalia"
+            "country_code": "EU",
+            "country_name": "Europa"
           },
           {
-            "id": 6,
-            "name": "Serie A",
+            "id": 7,
+            "name": "La Liga",
             "category": "",
-            "country_code": "IT",
-            "country_name": "Włochy"
+            "country_code": "ES",
+            "country_name": "Hiszpania"
           },
           {
             "id": 3,
@@ -107,13 +100,6 @@
             "country_name": "Belgia"
           },
           {
-            "id": 500,
-            "name": "Belgia 2. liga",
-            "category": "",
-            "country_code": "BE",
-            "country_name": "Belgia"
-          },
-          {
             "id": 220,
             "name": "Czechy 1. liga",
             "category": "",
@@ -144,20 +130,6 @@
           {
             "id": 22676,
             "name": "UEFA Liga Narodów",
-            "category": "",
-            "country_code": "EU",
-            "country_name": "Europa"
-          },
-          {
-            "id": 3453,
-            "name": "Liga Europy",
-            "category": "",
-            "country_code": "EU",
-            "country_name": "Europa"
-          },
-          {
-            "id": 28946,
-            "name": "Liga Konferencji",
             "category": "",
             "country_code": "EU",
             "country_name": "Europa"
@@ -289,6 +261,13 @@
             "country_name": "Norwegia"
           },
           {
+            "id": 221,
+            "name": "Ekstraklasa",
+            "category": "",
+            "country_code": "PL",
+            "country_name": "Polska"
+          },
+          {
             "id": 1146,
             "name": "Puchar Polski",
             "category": "",
@@ -308,6 +287,13 @@
             "category": "",
             "country_code": "PL",
             "country_name": "Polska"
+          },
+          {
+            "id": 32,
+            "name": "Liga Betclic",
+            "category": "",
+            "country_code": "PT",
+            "country_name": "Portugalia"
           },
           {
             "id": 939,
@@ -380,6 +366,13 @@
             "country_name": "Turcja"
           },
           {
+            "id": 6,
+            "name": "Serie A",
+            "category": "",
+            "country_code": "IT",
+            "country_name": "Włochy"
+          },
+          {
             "id": 30,
             "name": "Włochy Serie B",
             "category": "",
@@ -388,11 +381,10 @@
           }
         ],
         "selected_competition_ids": [
-          7,
           8,
-          221,
-          32,
-          6,
+          28946,
+          3453,
+          7,
           3,
           44,
           41,
@@ -401,14 +393,11 @@
           35,
           1875,
           26,
-          500,
           220,
           4219,
           88,
           536,
           22676,
-          3453,
-          28946,
           122,
           36,
           4,
@@ -427,9 +416,11 @@
           1711,
           156,
           492,
+          221,
           1146,
           1749,
           2836,
+          32,
           939,
           63,
           33,
@@ -440,11 +431,16 @@
           493,
           37,
           4625,
+          6,
           30
         ],
-        "filtered_out": 1,
+        "filtered_out": 0,
         "partial": true,
         "errors": [
+          {
+            "competition_id": 26,
+            "detail": "Incomplete gRPC-web frame"
+          },
           {
             "competition_id": 27,
             "detail": "Incomplete gRPC-web frame"
@@ -454,2766 +450,16 @@
       "errors": [
         {
           "stage": "discovery",
+          "competition_id": 26,
+          "detail": "Incomplete gRPC-web frame"
+        },
+        {
+          "stage": "discovery",
           "competition_id": 27,
           "detail": "Incomplete gRPC-web frame"
         }
       ],
       "events": [
-        {
-          "id": 1228048288485376,
-          "name": "Betis - Osasuna",
-          "date": "2026-10-11T16:30:00.0000000Z",
-          "date_warsaw": "2026-10-11T18:30:00+02:00",
-          "competition": "La Liga",
-          "competition_id": 7,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Betis",
-              "short": "Betis"
-            },
-            {
-              "name": "Osasuna",
-              "short": "Osasuna"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Remis ",
-                  "odds": 27.0
-                },
-                {
-                  "name": "Osasuna",
-                  "odds": 100.0
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Remis lub Osasuna",
-                  "odds": 18.0
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 6,5",
-                  "odds": 1.84
-                },
-                {
-                  "name": "Poniżej 6,5",
-                  "odds": 1.8
-                },
-                {
-                  "name": "Powyżej 7,5",
-                  "odds": 5.75
-                },
-                {
-                  "name": "Poniżej 7,5",
-                  "odds": 1.08
-                },
-                {
-                  "name": "Powyżej 8,5",
-                  "odds": 18.0
-                },
-                {
-                  "name": "Powyżej 9,5",
-                  "odds": 18.0
-                },
-                {
-                  "name": "Powyżej 10,5",
-                  "odds": 25.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Betis",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 2.5
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.42
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 9.5
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.02
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Osasuna",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 4.0
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.17
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 18.0
-                }
-              ]
-            },
-            {
-              "name": "Handicap",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Betis (-4)",
-                  "odds": 45.0
-                },
-                {
-                  "name": "Remis (Betis -4)",
-                  "odds": 12.0
-                },
-                {
-                  "name": "Osasuna (+4)",
-                  "odds": 1.03
-                },
-                {
-                  "name": "Betis (-3)",
-                  "odds": 14.0
-                },
-                {
-                  "name": "Remis (Betis -3)",
-                  "odds": 3.6
-                },
-                {
-                  "name": "Osasuna (+3)",
-                  "odds": 1.35
-                },
-                {
-                  "name": "Betis (-2)",
-                  "odds": 3.0
-                },
-                {
-                  "name": "Remis (Betis -2)",
-                  "odds": 1.68
-                },
-                {
-                  "name": "Osasuna (+2)",
-                  "odds": 6.25
-                },
-                {
-                  "name": "Betis (-1)",
-                  "odds": 1.11
-                },
-                {
-                  "name": "Remis (Betis -1)",
-                  "odds": 6.25
-                },
-                {
-                  "name": "Osasuna (+1)",
-                  "odds": 35.0
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1232457091268608,
-          "name": "Westerlo - Antwerp",
-          "date": "2026-10-11T16:30:00.0000000Z",
-          "date_warsaw": "2026-10-11T18:30:00+02:00",
-          "competition": "Belgia 1. liga",
-          "competition_id": 26,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Westerlo",
-              "short": "Westerlo"
-            },
-            {
-              "name": "Antwerp",
-              "short": "Antwerp"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Remis lub Antwerp",
-                  "odds": 14.0
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 1.82
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.72
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 5.3
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.06
-                },
-                {
-                  "name": "Powyżej 6,5",
-                  "odds": 15.0
-                },
-                {
-                  "name": "Powyżej 8,5",
-                  "odds": 7.75
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Westerlo",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 2.3
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.38
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 6.75
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.01
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Antwerp",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 3.75
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.12
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 15.0
-                }
-              ]
-            },
-            {
-              "name": "Handicap",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Westerlo (-4)",
-                  "odds": 25.0
-                },
-                {
-                  "name": "Remis (Westerlo -4)",
-                  "odds": 8.5
-                },
-                {
-                  "name": "Antwerp (+4)",
-                  "odds": 1.01
-                },
-                {
-                  "name": "Westerlo (-3)",
-                  "odds": 12.0
-                },
-                {
-                  "name": "Remis (Westerlo -3)",
-                  "odds": 3.05
-                },
-                {
-                  "name": "Antwerp (+3)",
-                  "odds": 1.35
-                },
-                {
-                  "name": "Westerlo (-2)",
-                  "odds": 2.7
-                },
-                {
-                  "name": "Remis (Westerlo -2)",
-                  "odds": 1.62
-                },
-                {
-                  "name": "Antwerp (+2)",
-                  "odds": 6.25
-                },
-                {
-                  "name": "Westerlo (-1)",
-                  "odds": 1.07
-                },
-                {
-                  "name": "Remis (Westerlo -1)",
-                  "odds": 5.75
-                },
-                {
-                  "name": "Antwerp (+1)",
-                  "odds": 25.0
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1232353612533760,
-          "name": "Benfica - Vitoria Guimaraes",
-          "date": "2026-10-11T17:00:00.0000000Z",
-          "date_warsaw": "2026-10-11T19:00:00+02:00",
-          "competition": "Liga Betclic",
-          "competition_id": 32,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Benfica",
-              "short": "Benfica"
-            },
-            {
-              "name": "Vitoria Guimaraes",
-              "short": "Vitoria Guimaraes"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Benfica",
-                  "odds": 1.05
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 8.75
-                },
-                {
-                  "name": "Vitoria Guimaraes",
-                  "odds": 27.0
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Benfica lub Vitoria Guimaraes",
-                  "odds": 1.02
-                },
-                {
-                  "name": "Remis lub Vitoria Guimaraes",
-                  "odds": 6.0
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.07
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 6.5
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.52
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 2.25
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 3.05
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.28
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 6.0
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.08
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 12.0
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.01
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Benfica",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.14
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 4.4
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.95
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.7
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 4.7
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.12
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 9.5
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.02
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 20.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Vitoria Guimaraes",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 2.7
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 1.42
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 9.0
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.03
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1243659599114242,
-          "name": "Uniao De Leiria - Academica Coimbra",
-          "date": "2026-10-11T17:00:00.0000000Z",
-          "date_warsaw": "2026-10-11T19:00:00+02:00",
-          "competition": "Portugalia Segunda Liga",
-          "competition_id": 939,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Uniao De Leiria",
-              "short": "Uniao De Leiria"
-            },
-            {
-              "name": "Academica Coimbra",
-              "short": "Academica Coimbra"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Uniao De Leiria",
-                  "odds": 5.75
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 3.15
-                },
-                {
-                  "name": "Academica Coimbra",
-                  "odds": 1.5
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Uniao De Leiria lub remis",
-                  "odds": 1.9
-                },
-                {
-                  "name": "Uniao De Leiria lub Academica Coimbra",
-                  "odds": 1.17
-                },
-                {
-                  "name": "Remis lub Academica Coimbra",
-                  "odds": 1.06
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.16
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 3.7
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 2.0
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.58
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 4.5
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.1
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 7.75
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.01
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 17.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Uniao De Leiria",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.53
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 2.15
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 3.25
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.17
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 7.25
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Academica Coimbra",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.77
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.68
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 4.6
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.06
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 21.0
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1232462889889792,
-          "name": "Mechelen - Sint-Truidense VV",
-          "date": "2026-10-11T17:15:00.0000000Z",
-          "date_warsaw": "2026-10-11T19:15:00+02:00",
-          "competition": "Belgia 1. liga",
-          "competition_id": 26,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Mechelen",
-              "short": "Mechelen"
-            },
-            {
-              "name": "Sint-Truidense VV",
-              "short": "St Truiden"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Mechelen",
-                  "odds": 1.12
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 5.5
-                },
-                {
-                  "name": "Sint-Truidense VV",
-                  "odds": 11.5
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Mechelen lub St Truiden",
-                  "odds": 1.04
-                },
-                {
-                  "name": "Remis lub Sint-Truidense VV",
-                  "odds": 3.25
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 1.07
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 5.0
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 1.67
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.87
-                },
-                {
-                  "name": "Powyżej 6,5",
-                  "odds": 3.0
-                },
-                {
-                  "name": "Poniżej 6,5",
-                  "odds": 1.25
-                },
-                {
-                  "name": "Powyżej 7,5",
-                  "odds": 6.0
-                },
-                {
-                  "name": "Poniżej 7,5",
-                  "odds": 1.04
-                },
-                {
-                  "name": "Powyżej 8,5",
-                  "odds": 9.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Mechelen",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 1.62
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.85
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 3.85
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.11
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 7.25
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Sint-Truidense VV",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.38
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 2.3
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 2.8
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.25
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 5.9
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.02
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 15.0
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1231747756851200,
-          "name": "Lillestrøm SK - Molde",
-          "date": "2026-10-11T17:15:00.0000000Z",
-          "date_warsaw": "2026-10-11T19:15:00+02:00",
-          "competition": "Norwegia Eliteserien",
-          "competition_id": 156,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Lillestrøm SK",
-              "short": "Lillestrøm"
-            },
-            {
-              "name": "Molde",
-              "short": "Molde"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Lillestrøm SK",
-                  "odds": 5.75
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 3.4
-                },
-                {
-                  "name": "Molde",
-                  "odds": 1.45
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Lillestrøm SK lub remis",
-                  "odds": 2.0
-                },
-                {
-                  "name": "Lillestrøm lub Molde",
-                  "odds": 1.15
-                },
-                {
-                  "name": "Remis lub Molde",
-                  "odds": 1.05
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 1.09
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 5.75
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 1.53
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 2.1
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 2.75
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.3
-                },
-                {
-                  "name": "Powyżej 6,5",
-                  "odds": 5.3
-                },
-                {
-                  "name": "Poniżej 6,5",
-                  "odds": 1.06
-                },
-                {
-                  "name": "Powyżej 7,5",
-                  "odds": 8.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Lillestrøm SK",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.35
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 2.4
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 2.95
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.22
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 9.75
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 15.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Molde",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.43
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 2.15
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 3.25
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.2
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 6.75
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.01
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 20.0
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1232381580165120,
-          "name": "Fortuna Dusseldorf - Verl",
-          "date": "2026-10-11T17:30:00.0000000Z",
-          "date_warsaw": "2026-10-11T19:30:00+02:00",
-          "competition": "Niemcy 3. liga",
-          "competition_id": 1711,
-          "is_live": false,
-          "teams": [
-            {
-              "name": "Fortuna Dusseldorf",
-              "short": "Fortuna Dusseldorf"
-            },
-            {
-              "name": "Verl",
-              "short": "Verl"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Fortuna Dusseldorf",
-                  "odds": 1.24
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 3.7
-                },
-                {
-                  "name": "Verl",
-                  "odds": 8.75
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Fortuna Dusseldorf lub remis",
-                  "odds": 1.01
-                },
-                {
-                  "name": "Fortuna Dusseldorf lub Verl",
-                  "odds": 1.1
-                },
-                {
-                  "name": "Remis lub Verl",
-                  "odds": 2.4
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.02
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 5.25
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.52
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.95
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 2.7
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.25
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 4.8
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.04
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 7.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Fortuna Dusseldorf",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.3
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 2.4
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 2.5
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.27
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 4.75
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.02
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 10.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Verl",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.55
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 2.0
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 3.55
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.1
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 7.0
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1221055602524161,
-          "name": "Zawisza Bydgoszcz - Znicz Pruszków",
-          "date": "2026-10-11T17:30:00.0000000Z",
-          "date_warsaw": "2026-10-11T19:30:00+02:00",
-          "competition": "Betclic 2. Liga",
-          "competition_id": 2836,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Zawisza Bydgoszcz",
-              "short": "Zawisza Bydgoszcz"
-            },
-            {
-              "name": "Znicz Pruszków",
-              "short": "Znicz Pruszków"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Zawisza Bydgoszcz",
-                  "odds": 2.75
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 2.85
-                },
-                {
-                  "name": "Znicz Pruszków",
-                  "odds": 2.2
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Zawisza Bydgoszcz lub remis",
-                  "odds": 1.4
-                },
-                {
-                  "name": "Zawisza Bydgoszcz lub Znicz Pruszków",
-                  "odds": 1.22
-                },
-                {
-                  "name": "Remis lub Znicz Pruszków",
-                  "odds": 1.25
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.06
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 4.6
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.38
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 2.3
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 2.2
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.42
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 3.6
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.13
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 5.5
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.03
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Zawisza Bydgoszcz",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.4
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 2.2
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 2.75
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.24
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 5.0
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.03
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Znicz Pruszków",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.3
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 2.5
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 2.35
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.35
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 4.4
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.06
-                }
-              ]
-            },
-            {
-              "name": "Handicap",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Zawisza Bydgoszcz (-2)",
-                  "odds": 15.5
-                },
-                {
-                  "name": "Remis (Zawisza Bydgoszcz -2)",
-                  "odds": 6.5
-                },
-                {
-                  "name": "Znicz Pruszków (+2)",
-                  "odds": 1.06
-                },
-                {
-                  "name": "Zawisza Bydgoszcz (-1)",
-                  "odds": 6.5
-                },
-                {
-                  "name": "Remis (Zawisza Bydgoszcz -1)",
-                  "odds": 4.0
-                },
-                {
-                  "name": "Znicz Pruszków (+1)",
-                  "odds": 1.32
-                },
-                {
-                  "name": "Zawisza Bydgoszcz (+1)",
-                  "odds": 1.5
-                },
-                {
-                  "name": "Remis (Zawisza Bydgoszcz +1)",
-                  "odds": 3.6
-                },
-                {
-                  "name": "Znicz Pruszków (-1)",
-                  "odds": 4.65
-                },
-                {
-                  "name": "Zawisza Bydgoszcz (+2)",
-                  "odds": 1.12
-                },
-                {
-                  "name": "Remis (Zawisza Bydgoszcz +2)",
-                  "odds": 5.6
-                },
-                {
-                  "name": "Znicz Pruszków (-2)",
-                  "odds": 11.0
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1231679426400256,
-          "name": "Modena - Hellas Verona",
-          "date": "2026-10-11T17:30:00.0000000Z",
-          "date_warsaw": "2026-10-11T19:30:00+02:00",
-          "competition": "Włochy Serie B",
-          "competition_id": 30,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Modena",
-              "short": "Modena"
-            },
-            {
-              "name": "Hellas Verona",
-              "short": "Verona"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Modena",
-                  "odds": 3.7
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 2.95
-                },
-                {
-                  "name": "Hellas Verona",
-                  "odds": 1.82
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Modena lub remis",
-                  "odds": 1.62
-                },
-                {
-                  "name": "Modena lub Verona",
-                  "odds": 1.22
-                },
-                {
-                  "name": "Remis lub Hellas Verona",
-                  "odds": 1.14
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 1.11
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 5.25
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 1.58
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 2.0
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 2.85
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.28
-                },
-                {
-                  "name": "Powyżej 6,5",
-                  "odds": 5.3
-                },
-                {
-                  "name": "Poniżej 6,5",
-                  "odds": 1.06
-                },
-                {
-                  "name": "Powyżej 7,5",
-                  "odds": 8.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Modena",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.22
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 2.95
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 2.4
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.35
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 6.5
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.01
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 9.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Hellas Verona",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.75
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.7
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 4.7
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.08
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 9.0
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1228042984787968,
-          "name": "Olympiakos - Panathinaikos",
-          "date": "2026-10-11T18:00:00.0000000Z",
-          "date_warsaw": "2026-10-11T20:00:00+02:00",
-          "competition": "Grecja 1. liga",
-          "competition_id": 38,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Olympiakos",
-              "short": "Olympiakos"
-            },
-            {
-              "name": "Panathinaikos",
-              "short": "Panathinaikos"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Olympiakos",
-                  "odds": 2.05
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 2.8
-                },
-                {
-                  "name": "Panathinaikos",
-                  "odds": 3.1
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Olympiakos lub remis",
-                  "odds": 1.19
-                },
-                {
-                  "name": "Olympiakos lub Panathinaikos",
-                  "odds": 1.23
-                },
-                {
-                  "name": "Remis lub Panathinaikos",
-                  "odds": 1.45
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 6.5
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.35
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 2.55
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 2.1
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.48
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 4.1
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.1
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 5.9
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.02
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 9.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Olympiakos",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.25
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 2.85
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 2.1
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.45
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 4.25
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.07
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 13.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Panathinaikos",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.43
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 2.2
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 2.8
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.23
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 5.6
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.01
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 23.0
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1231521693339648,
-          "name": "Legia Warszawa - Wisła Kraków",
-          "date": "2026-10-11T18:15:00.0000000Z",
-          "date_warsaw": "2026-10-11T20:15:00+02:00",
-          "competition": "Ekstraklasa",
-          "competition_id": 221,
-          "is_live": false,
-          "teams": [
-            {
-              "name": "Legia Warszawa",
-              "short": "Legia Warszawa"
-            },
-            {
-              "name": "Wisła Kraków",
-              "short": "Wisła Kraków"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Legia Warszawa",
-                  "odds": 2.23
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 3.3
-                },
-                {
-                  "name": "Wisła Kraków",
-                  "odds": 3.05
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.04
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 8.25
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.28
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 3.37
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.88
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.82
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 3.12
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.32
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 5.6
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.11
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 9.25
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.03
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Legia Warszawa lub remis",
-                  "odds": 1.34
-                },
-                {
-                  "name": "Legia Warszawa lub Wisła Kraków",
-                  "odds": 1.28
-                },
-                {
-                  "name": "Remis lub Wisła Kraków",
-                  "odds": 1.58
-                }
-              ]
-            },
-            {
-              "name": "Oba zespoły strzelą gola lub Powyżej 2,5 gola w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.33
-                },
-                {
-                  "name": "Nie",
-                  "odds": 3.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Legia Warszawa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.25
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 3.75
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 2.17
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.61
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 5.0
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.16
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 9.0
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.03
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 12.0
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.01
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Wisła Kraków",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.36
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 2.98
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 2.65
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.42
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 7.25
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.09
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 11.0
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.01
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1232593433411584,
-          "name": "Odra Opole - Miedź Legnica",
-          "date": "2026-10-11T18:15:00.0000000Z",
-          "date_warsaw": "2026-10-11T20:15:00+02:00",
-          "competition": "Betclic 1. Liga",
-          "competition_id": 1749,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Odra Opole",
-              "short": "Odra Opole"
-            },
-            {
-              "name": "Miedź Legnica",
-              "short": "Miedź Legnica"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Odra Opole",
-                  "odds": 2.4
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 3.4
-                },
-                {
-                  "name": "Miedź Legnica",
-                  "odds": 2.7
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.03
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 9.0
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.22
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 3.8
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.73
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 2.0
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 2.75
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.39
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 4.9
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.14
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 8.25
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.04
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Odra Opole lub remis",
-                  "odds": 1.42
-                },
-                {
-                  "name": "Odra Opole lub Miedź Legnica",
-                  "odds": 1.27
-                },
-                {
-                  "name": "Remis lub Miedź Legnica",
-                  "odds": 1.5
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Odra Opole",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.24
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 3.83
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 2.15
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.63
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 4.9
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.17
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 9.0
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.03
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 12.0
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.01
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Miedź Legnica",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.27
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 3.5
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 2.28
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.56
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 5.5
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.14
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 9.75
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.02
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 12.25
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.01
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1227196402257920,
-          "name": "Cagliari - Juventus",
-          "date": "2026-10-11T18:45:00.0000000Z",
-          "date_warsaw": "2026-10-11T20:45:00+02:00",
-          "competition": "Serie A",
-          "competition_id": 6,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Cagliari",
-              "short": "Cagliari"
-            },
-            {
-              "name": "Juventus",
-              "short": "Juventus"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Cagliari",
-                  "odds": 6.5
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 3.88
-                },
-                {
-                  "name": "Juventus",
-                  "odds": 1.52
-                }
-              ]
-            },
-            {
-              "name": "Wynik meczu - Xtra Wygrana",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Cagliari",
-                  "odds": 5.6
-                },
-                {
-                  "name": "Juventus",
-                  "odds": 1.3
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Cagliari lub remis",
-                  "odds": 2.42
-                },
-                {
-                  "name": "Cagliari lub Juventus",
-                  "odds": 1.23
-                },
-                {
-                  "name": "Remis lub Juventus",
-                  "odds": 1.12
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.06
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 8.0
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.33
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 3.15
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 2.02
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.74
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 3.5
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.28
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 6.5
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.09
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 10.75
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.02
-                }
-              ]
-            },
-            {
-              "name": "Oba zespoły strzelą gola lub Powyżej 2,5 gola w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.55
-                },
-                {
-                  "name": "Nie",
-                  "odds": 2.2
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Cagliari",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.81
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 1.9
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 4.85
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.14
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 23.0
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.01
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Juventus",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.15
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 5.25
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.75
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.97
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 3.35
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.3
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 6.5
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.08
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 10.75
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.01
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1227201264521216,
-          "name": "Troyes - Marsylia",
-          "date": "2026-10-11T18:45:00.0000000Z",
-          "date_warsaw": "2026-10-11T20:45:00+02:00",
-          "competition": "Ligue 1",
-          "competition_id": 4,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Troyes",
-              "short": "Troyes"
-            },
-            {
-              "name": "Marsylia",
-              "short": "Marsylia"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Troyes",
-                  "odds": 3.43
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 3.6
-                },
-                {
-                  "name": "Marsylia",
-                  "odds": 2.0
-                }
-              ]
-            },
-            {
-              "name": "Wynik meczu - Xtra Wygrana",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Troyes",
-                  "odds": 2.68
-                },
-                {
-                  "name": "Marsylia",
-                  "odds": 1.6
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Troyes lub remis",
-                  "odds": 1.75
-                },
-                {
-                  "name": "Troyes lub Marsylia",
-                  "odds": 1.27
-                },
-                {
-                  "name": "Remis lub Marsylia",
-                  "odds": 1.3
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.03
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 10.5
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.18
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 4.45
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.61
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 2.22
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 2.47
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.5
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 4.3
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.19
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 7.5
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.07
-                }
-              ]
-            },
-            {
-              "name": "Oba zespoły strzelą gola lub Powyżej 2,5 gola w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.3
-                },
-                {
-                  "name": "Nie",
-                  "odds": 3.1
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Troyes",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.31
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 3.27
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 2.43
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.49
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 6.25
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.12
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 10.25
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.02
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 12.25
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.01
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Marsylia",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.16
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 5.1
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.78
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.92
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 3.5
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.28
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 6.75
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.07
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 11.0
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.01
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1228049084346368,
-          "name": "Racing Santander - Valencia",
-          "date": "2026-10-11T19:00:00.0000000Z",
-          "date_warsaw": "2026-10-11T21:00:00+02:00",
-          "competition": "La Liga",
-          "competition_id": 7,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Racing Santander",
-              "short": "Racing Santander"
-            },
-            {
-              "name": "Valencia",
-              "short": "Valencia"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Racing Santander",
-                  "odds": 2.32
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 3.43
-                },
-                {
-                  "name": "Valencia",
-                  "odds": 2.9
-                }
-              ]
-            },
-            {
-              "name": "Wynik meczu - Xtra Wygrana",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Racing Santander",
-                  "odds": 1.84
-                },
-                {
-                  "name": "Valencia",
-                  "odds": 2.25
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Racing Santander lub remis",
-                  "odds": 1.39
-                },
-                {
-                  "name": "Racing Santander lub Valencia",
-                  "odds": 1.29
-                },
-                {
-                  "name": "Remis lub Valencia",
-                  "odds": 1.56
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.03
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 10.0
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.2
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 4.25
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.65
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 2.15
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 2.55
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.47
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 4.5
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.18
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 7.75
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.06
-                }
-              ]
-            },
-            {
-              "name": "Oba zespoły strzelą gola lub Powyżej 2,5 gola w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.33
-                },
-                {
-                  "name": "Nie",
-                  "odds": 3.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Racing Santander",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.2
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 4.3
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.98
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.74
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 4.25
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.21
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 8.0
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.05
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 11.75
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.01
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Valencia",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.26
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 3.63
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 2.23
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.58
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 5.4
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.15
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 9.5
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.03
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 12.25
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.01
-                }
-              ]
-            }
-          ]
-        },
         {
           "id": 1232353175273472,
           "name": "Arouca - Estrela",
@@ -3239,15 +485,15 @@
               "selections": [
                 {
                   "name": "Arouca",
-                  "odds": 2.12
+                  "odds": 1.32
                 },
                 {
                   "name": "Remis ",
-                  "odds": 3.4
+                  "odds": 3.75
                 },
                 {
                   "name": "Estrela",
-                  "odds": 3.3
+                  "odds": 13.0
                 }
               ]
             },
@@ -3257,15 +503,15 @@
               "selections": [
                 {
                   "name": "Arouca lub remis",
-                  "odds": 1.32
+                  "odds": 1.02
                 },
                 {
                   "name": "Arouca lub Estrela",
-                  "odds": 1.3
+                  "odds": 1.18
                 },
                 {
                   "name": "Remis lub Estrela",
-                  "odds": 1.66
+                  "odds": 2.7
                 }
               ]
             },
@@ -3274,66 +520,24 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.04
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 9.25
-                },
-                {
                   "name": "Powyżej 1,5",
-                  "odds": 1.25
+                  "odds": 1.55
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 3.7
+                  "odds": 2.2
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 1.81
+                  "odds": 3.75
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.94
+                  "odds": 1.2
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 2.93
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.37
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 5.4
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.13
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 9.25
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.04
-                }
-              ]
-            },
-            {
-              "name": "Oba zespoły strzelą gola lub Powyżej 2,5 gola w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.42
-                },
-                {
-                  "name": "Nie",
-                  "odds": 2.55
+                  "odds": 15.0
                 }
               ]
             },
@@ -3342,44 +546,20 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.21
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 4.15
-                },
-                {
                   "name": "Powyżej 1,5",
-                  "odds": 2.02
+                  "odds": 2.55
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.71
+                  "odds": 1.4
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 4.4
+                  "odds": 10.0
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.2
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 8.25
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.04
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 11.75
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.01
+                  "odds": 1.02
                 }
               ]
             },
@@ -3389,35 +569,73 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.35
+                  "odds": 2.35
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 3.0
+                  "odds": 1.53
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 2.65
+                  "odds": 8.5
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.43
+                  "odds": 1.04
+                }
+              ]
+            },
+            {
+              "name": "Handicap",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Arouca (-3)",
+                  "odds": 50.0
                 },
                 {
-                  "name": "Powyżej 2,5",
-                  "odds": 7.25
+                  "name": "Remis (Arouca -3)",
+                  "odds": 15.0
                 },
                 {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.09
+                  "name": "Estrela (+3)",
+                  "odds": 1.02
                 },
                 {
-                  "name": "Powyżej 3,5",
-                  "odds": 11.0
+                  "name": "Arouca (-2)",
+                  "odds": 18.0
                 },
                 {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.01
+                  "name": "Remis (Arouca -2)",
+                  "odds": 4.7
+                },
+                {
+                  "name": "Estrela (+2)",
+                  "odds": 1.22
+                },
+                {
+                  "name": "Arouca (-1)",
+                  "odds": 4.1
+                },
+                {
+                  "name": "Remis (Arouca -1)",
+                  "odds": 1.88
+                },
+                {
+                  "name": "Estrela (+1)",
+                  "odds": 3.2
+                },
+                {
+                  "name": "Arouca (+1)",
+                  "odds": 1.03
+                },
+                {
+                  "name": "Remis (Arouca +1)",
+                  "odds": 12.0
+                },
+                {
+                  "name": "Estrela (-1)",
+                  "odds": 45.0
                 }
               ]
             }
@@ -3430,10 +648,8 @@
       "sport": "tennis",
       "source": "direct_betclic",
       "stale": false,
-      "event_count": 10,
-      "stale_event_ids": [
-        1249081086185472
-      ],
+      "event_count": 1,
+      "stale_event_ids": [],
       "summary_only_event_ids": [],
       "discovery": {
         "source": "competitions",
@@ -3455,997 +671,13 @@
         "partial": false,
         "errors": []
       },
-      "errors": [
-        {
-          "stage": "discovery_missing",
-          "event_id": 1249081086185472,
-          "detail": "event missing from current discovery; reused recent same-day snapshot",
-          "reused_previous": true,
-          "fallback_age_seconds": 1431.2
-        }
-      ],
+      "errors": [],
       "events": [
-        {
-          "id": 1249586188398592,
-          "name": "Federico Zeballos - Samuel Heredia",
-          "date": "2026-10-11T16:10:00.0000000Z",
-          "date_warsaw": "2026-10-11T18:10:00+02:00",
-          "competition": "Santa Cruz 2 Challenger Kwalifikacje",
-          "competition_id": 30435,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Federico Zeballos",
-              "short": "F. Zeballos"
-            },
-            {
-              "name": "Samuel Heredia",
-              "short": "S. Heredia"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Federico Zeballos",
-                  "odds": 2.4
-                },
-                {
-                  "name": "Samuel Heredia",
-                  "odds": 1.37
-                }
-              ]
-            },
-            {
-              "name": "3. set - Gem 6 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Federico Zeballos",
-                  "odds": 1.32
-                },
-                {
-                  "name": "Samuel Heredia",
-                  "odds": 2.35
-                }
-              ]
-            },
-            {
-              "name": "3. set - Gem 5 - Punkt 3 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Federico Zeballos",
-                  "odds": 2.1
-                },
-                {
-                  "name": "Samuel Heredia",
-                  "odds": 1.42
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1249124500385792,
-          "name": "Diogo Marques - Oleksii Krutykh",
-          "date": "2026-10-11T17:30:00.0000000Z",
-          "date_warsaw": "2026-10-11T19:30:00+02:00",
-          "competition": "Maia Challenger Kwalifikacje",
-          "competition_id": 26258,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Diogo Marques",
-              "short": "D. Marques"
-            },
-            {
-              "name": "Oleksii Krutykh",
-              "short": "O. Krutykh"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Diogo Marques",
-                  "odds": 6.5
-                },
-                {
-                  "name": "Oleksii Krutykh",
-                  "odds": 1.01
-                }
-              ]
-            },
-            {
-              "name": "2. set - Gem 2 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Diogo Marques",
-                  "odds": 4.95
-                },
-                {
-                  "name": "Oleksii Krutykh",
-                  "odds": 1.02
-                }
-              ]
-            },
-            {
-              "name": "2. set - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Diogo Marques",
-                  "odds": 4.2
-                },
-                {
-                  "name": "Oleksii Krutykh",
-                  "odds": 1.08
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "0 - 2",
-                  "odds": 1.08
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 15.5
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 5.3
-                }
-              ]
-            },
-            {
-              "name": "2. set - Gem 1 - Punkt 2 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Diogo Marques",
-                  "odds": 1.47
-                },
-                {
-                  "name": "Oleksii Krutykh",
-                  "odds": 2.0
-                }
-              ]
-            },
-            {
-              "name": "Diogo Marques wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 4.2
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.08
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Diogo Marques (+1,5)",
-                  "odds": 4.35
-                },
-                {
-                  "name": "Oleksii Krutykh (-1.5)",
-                  "odds": 1.09
-                }
-              ]
-            },
-            {
-              "name": "Czy obaj zawodnicy wygrają seta w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 4.2
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.08
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1249586188398593,
-          "name": "Santiago Fa Rodriguez Taverna - Nicolas Ciancaglini",
-          "date": "2026-10-11T17:30:00.0000000Z",
-          "date_warsaw": "2026-10-11T19:30:00+02:00",
-          "competition": "Santa Cruz 2 Challenger Kwalifikacje",
-          "competition_id": 30435,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Santiago Fa Rodriguez Taverna",
-              "short": "S. F. Rodriguez Taverna"
-            },
-            {
-              "name": "Nicolas Ciancaglini",
-              "short": "Nicolas Ciancaglini"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Nicolas Ciancaglini",
-                  "odds": 6.75
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 8 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Santiago Fa Rodriguez Taverna",
-                  "odds": 1.04
-                },
-                {
-                  "name": "Nicolas Ciancaglini",
-                  "odds": 4.55
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 1.01
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 100.0
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 4.55
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 18.0
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 7 - Punkt 4 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Santiago Fa Rodriguez Taverna",
-                  "odds": 1.65
-                },
-                {
-                  "name": "Nicolas Ciancaglini",
-                  "odds": 1.75
-                }
-              ]
-            },
-            {
-              "name": "Santiago Fa Rodriguez Taverna wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Nie",
-                  "odds": 6.25
-                }
-              ]
-            },
-            {
-              "name": "Nicolas Ciancaglini wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 5.5
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.02
-                }
-              ]
-            },
-            {
-              "name": "Czy obaj zawodnicy wygrają seta w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 5.5
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.02
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1249586402304000,
-          "name": "Hernan Casanova - Alexandre Bobiere",
-          "date": "2026-10-11T17:30:00.0000000Z",
-          "date_warsaw": "2026-10-11T19:30:00+02:00",
-          "competition": "Santa Cruz 2 Challenger Kwalifikacje",
-          "competition_id": 30435,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Hernan Casanova",
-              "short": "H. Casanova"
-            },
-            {
-              "name": "Alexandre Bobiere",
-              "short": "A. Bobiere"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Alexandre Bobiere",
-                  "odds": 6.75
-                }
-              ]
-            },
-            {
-              "name": "2. set - Gem 4 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Hernan Casanova",
-                  "odds": 1.04
-                },
-                {
-                  "name": "Alexandre Bobiere",
-                  "odds": 4.5
-                }
-              ]
-            },
-            {
-              "name": "2. set - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Alexandre Bobiere",
-                  "odds": 6.25
-                }
-              ]
-            },
-            {
-              "name": "2. set - Gem 3 - Punkt 2 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Hernan Casanova",
-                  "odds": 1.42
-                },
-                {
-                  "name": "Alexandre Bobiere",
-                  "odds": 2.1
-                }
-              ]
-            },
-            {
-              "name": "Alexandre Bobiere wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 6.25
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Alexandre Bobiere (+1.5)",
-                  "odds": 6.75
-                }
-              ]
-            },
-            {
-              "name": "Czy obaj zawodnicy wygrają seta w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 6.25
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1249081086189568,
-          "name": "Gabriel Gomez - Robin Catry",
-          "date": "2026-10-11T17:35:00.0000000Z",
-          "date_warsaw": "2026-10-11T19:35:00+02:00",
-          "competition": "Roanne Challenger Kwalifikacje",
-          "competition_id": 29805,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Gabriel Gomez",
-              "short": "G. Gomez"
-            },
-            {
-              "name": "Robin Catry",
-              "short": "R. Catry"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Gabriel Gomez",
-                  "odds": 6.75
-                }
-              ]
-            },
-            {
-              "name": "2. set - Gem 1 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Gabriel Gomez",
-                  "odds": 5.6
-                }
-              ]
-            },
-            {
-              "name": "2. set - Gem 2 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Gabriel Gomez",
-                  "odds": 1.6
-                },
-                {
-                  "name": "Robin Catry",
-                  "odds": 1.8
-                }
-              ]
-            },
-            {
-              "name": "2. set - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Gabriel Gomez",
-                  "odds": 6.25
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 1",
-                  "odds": 33.0
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 6.5
-                }
-              ]
-            },
-            {
-              "name": "2. set - Gem 1 - Punkt 4 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Gabriel Gomez",
-                  "odds": 3.0
-                },
-                {
-                  "name": "Robin Catry",
-                  "odds": 1.18
-                }
-              ]
-            },
-            {
-              "name": "Gabriel Gomez wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 6.25
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Gabriel Gomez (+1,5)",
-                  "odds": 6.5
-                }
-              ]
-            },
-            {
-              "name": "Czy obaj zawodnicy wygrają seta w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 6.25
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1249081086185472,
-          "name": "Oleg Prihodko - Patrick Brady",
-          "date": "2026-10-11T18:00:00.0000000Z",
-          "date_warsaw": "2026-10-11T20:00:00+02:00",
-          "competition": "Roanne Challenger Kwalifikacje",
-          "competition_id": 29805,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Oleg Prihodko",
-              "short": "O. Prihodko"
-            },
-            {
-              "name": "Patrick Brady",
-              "short": "P. Brady"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Oleg Prihodko",
-                  "odds": 2.26
-                },
-                {
-                  "name": "Patrick Brady",
-                  "odds": 1.55
-                }
-              ]
-            },
-            {
-              "name": "Oleg Prihodko wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.51
-                },
-                {
-                  "name": "Nie",
-                  "odds": 2.28
-                }
-              ]
-            },
-            {
-              "name": "Patrick Brady wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.22
-                },
-                {
-                  "name": "Nie",
-                  "odds": 3.55
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 3.7
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 2.28
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 5.0
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 3.95
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Oleg Prihodko (-1,5)",
-                  "odds": 3.7
-                },
-                {
-                  "name": "Patrick Brady (+1.5)",
-                  "odds": 1.22
-                },
-                {
-                  "name": "Oleg Prihodko (+1,5)",
-                  "odds": 1.51
-                },
-                {
-                  "name": "Patrick Brady (-1.5)",
-                  "odds": 2.28
-                }
-              ]
-            }
-          ],
-          "_snapshot_meta": {
-            "stale": true,
-            "reason": "missing_from_discovery",
-            "stale_since_warsaw": "2026-10-11T19:47:23.507199+02:00",
-            "fallback_age_seconds": 1431.2,
-            "max_fallback_age_seconds": 5400
-          }
-        },
-        {
-          "id": 1249586189447169,
-          "name": "Lorenzo Joaquin Rodriguez - Agustin Eduardo Cuellar Lorberg",
-          "date": "2026-10-11T18:20:00.0000000Z",
-          "date_warsaw": "2026-10-11T20:20:00+02:00",
-          "competition": "Santa Cruz 2 Challenger Kwalifikacje",
-          "competition_id": 30435,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Lorenzo Joaquin Rodriguez",
-              "short": "L. Rodriguez"
-            },
-            {
-              "name": "Agustin Eduardo Cuellar Lorberg",
-              "short": "A. Cuellar Lorberg"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Lorenzo Joaquin Rodriguez",
-                  "odds": 1.01
-                },
-                {
-                  "name": "Agustin Eduardo Cuellar Lorberg",
-                  "odds": 9.8
-                }
-              ]
-            },
-            {
-              "name": "Lorenzo Joaquin Rodriguez wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.01
-                },
-                {
-                  "name": "Nie",
-                  "odds": 9.8
-                }
-              ]
-            },
-            {
-              "name": "Agustin Eduardo Cuellar Lorberg wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 5.0
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.11
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 1.11
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 40.0
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 5.4
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 26.0
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Lorenzo Joaquin Rodriguez (-1,5)",
-                  "odds": 1.11
-                },
-                {
-                  "name": "Agustin Eduardo Cuellar Lorberg (+1.5)",
-                  "odds": 5.0
-                },
-                {
-                  "name": "Lorenzo Joaquin Rodriguez (+1,5)",
-                  "odds": 1.01
-                },
-                {
-                  "name": "Agustin Eduardo Cuellar Lorberg (-1.5)",
-                  "odds": 40.0
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1249586189447168,
-          "name": "Paulo Andre Saraiva Dos Santos - Santiago De La Fuente",
-          "date": "2026-10-11T18:40:00.0000000Z",
-          "date_warsaw": "2026-10-11T20:40:00+02:00",
-          "competition": "Santa Cruz 2 Challenger Kwalifikacje",
-          "competition_id": 30435,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Paulo Andre Saraiva Dos Santos",
-              "short": "P. A. Saraiva Dos Santos"
-            },
-            {
-              "name": "Santiago De La Fuente",
-              "short": "S. De La Fuente"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Paulo Andre Saraiva Dos Santos",
-                  "odds": 1.52
-                },
-                {
-                  "name": "Santiago De La Fuente",
-                  "odds": 2.3
-                }
-              ]
-            },
-            {
-              "name": "Paulo Andre Saraiva Dos Santos wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.22
-                },
-                {
-                  "name": "Nie",
-                  "odds": 3.55
-                }
-              ]
-            },
-            {
-              "name": "Santiago De La Fuente wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.55
-                },
-                {
-                  "name": "Nie",
-                  "odds": 2.19
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 2.19
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 3.75
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 4.1
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 5.2
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Paulo Andre Saraiva Dos Santos (-1,5)",
-                  "odds": 2.19
-                },
-                {
-                  "name": "Santiago De La Fuente (+1.5)",
-                  "odds": 1.55
-                },
-                {
-                  "name": "Paulo Andre Saraiva Dos Santos (+1,5)",
-                  "odds": 1.22
-                },
-                {
-                  "name": "Santiago De La Fuente (-1.5)",
-                  "odds": 3.75
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1249586189451264,
-          "name": "Franco Ribero - Maximo Zeitune",
-          "date": "2026-10-11T18:40:00.0000000Z",
-          "date_warsaw": "2026-10-11T20:40:00+02:00",
-          "competition": "Santa Cruz 2 Challenger Kwalifikacje",
-          "competition_id": 30435,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Franco Ribero",
-              "short": "F. Ribero"
-            },
-            {
-              "name": "Maximo Zeitune",
-              "short": "M. Zeitune"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Franco Ribero",
-                  "odds": 4.1
-                },
-                {
-                  "name": "Maximo Zeitune",
-                  "odds": 1.18
-                }
-              ]
-            },
-            {
-              "name": "Franco Ribero wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 2.17
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.56
-                }
-              ]
-            },
-            {
-              "name": "Maximo Zeitune wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.06
-                },
-                {
-                  "name": "Nie",
-                  "odds": 6.2
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 8.0
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 1.56
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 8.2
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 3.85
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Franco Ribero (-1,5)",
-                  "odds": 8.0
-                },
-                {
-                  "name": "Maximo Zeitune (+1.5)",
-                  "odds": 1.06
-                },
-                {
-                  "name": "Franco Ribero (+1,5)",
-                  "odds": 2.17
-                },
-                {
-                  "name": "Maximo Zeitune (-1.5)",
-                  "odds": 1.56
-                }
-              ]
-            }
-          ]
-        },
         {
           "id": 1249586188390400,
           "name": "Boris Arias - Thiago Cigarran",
-          "date": "2026-10-11T19:30:00.0000000Z",
-          "date_warsaw": "2026-10-11T21:30:00+02:00",
+          "date": "2026-10-11T20:05:00.0000000Z",
+          "date_warsaw": "2026-10-11T22:05:00+02:00",
           "competition": "Santa Cruz 2 Challenger Kwalifikacje",
           "competition_id": 30435,
           "is_live": true,
@@ -4466,11 +698,67 @@
               "selections": [
                 {
                   "name": "Boris Arias",
-                  "odds": 5.4
+                  "odds": 6.5
+                }
+              ]
+            },
+            {
+              "name": "2. set - Gem 5 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Boris Arias",
+                  "odds": 1.6
                 },
                 {
                   "name": "Thiago Cigarran",
-                  "odds": 1.11
+                  "odds": 1.8
+                }
+              ]
+            },
+            {
+              "name": "2. set - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Boris Arias",
+                  "odds": 5.5
+                },
+                {
+                  "name": "Thiago Cigarran",
+                  "odds": 1.02
+                }
+              ]
+            },
+            {
+              "name": "Wynik w setach",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "0 - 2",
+                  "odds": 1.02
+                },
+                {
+                  "name": "2 - 1",
+                  "odds": 18.5
+                },
+                {
+                  "name": "1 - 2",
+                  "odds": 6.75
+                }
+              ]
+            },
+            {
+              "name": "2. set - Gem 4 - Punkt 2 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Boris Arias",
+                  "odds": 2.25
+                },
+                {
+                  "name": "Thiago Cigarran",
+                  "odds": 1.35
                 }
               ]
             },
@@ -4480,47 +768,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 2.7
+                  "odds": 5.5
                 },
                 {
                   "name": "Nie",
-                  "odds": 1.37
-                }
-              ]
-            },
-            {
-              "name": "Thiago Cigarran wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.03
-                },
-                {
-                  "name": "Nie",
-                  "odds": 7.6
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 11.0
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 1.37
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 11.0
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 4.3
+                  "odds": 1.02
                 }
               ]
             },
@@ -4529,20 +781,26 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "Boris Arias (-1,5)",
-                  "odds": 11.0
-                },
-                {
-                  "name": "Thiago Cigarran (+1.5)",
-                  "odds": 1.03
-                },
-                {
                   "name": "Boris Arias (+1,5)",
-                  "odds": 2.7
+                  "odds": 5.8
                 },
                 {
                   "name": "Thiago Cigarran (-1.5)",
-                  "odds": 1.37
+                  "odds": 1.02
+                }
+              ]
+            },
+            {
+              "name": "Czy obaj zawodnicy wygrają seta w meczu",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 5.5
+                },
+                {
+                  "name": "Nie",
+                  "odds": 1.02
                 }
               ]
             }
