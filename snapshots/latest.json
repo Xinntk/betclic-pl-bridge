@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "source": "direct_betclic",
-  "generated_at_warsaw": "2026-10-11T23:05:01.479682+02:00",
+  "generated_at_warsaw": "2026-10-11T23:55:33.361280+02:00",
   "date_warsaw": "2026-10-11",
   "fallback_max_age_seconds": 5400,
   "sports": {
@@ -9,7 +9,7 @@
       "sport": "football",
       "source": "direct_betclic",
       "stale": false,
-      "event_count": 1,
+      "event_count": 0,
       "stale_event_ids": [],
       "summary_only_event_ids": [],
       "discovery": {
@@ -91,13 +91,6 @@
             "category": "",
             "country_code": "AT",
             "country_name": "Austria"
-          },
-          {
-            "id": 26,
-            "name": "Belgia 1. liga",
-            "category": "",
-            "country_code": "BE",
-            "country_name": "Belgia"
           },
           {
             "id": 220,
@@ -331,13 +324,6 @@
             "country_name": "Szkocja"
           },
           {
-            "id": 27,
-            "name": "Szwajcaria Superliga",
-            "category": "",
-            "country_code": "CH",
-            "country_name": "Szwajcaria"
-          },
-          {
             "id": 145,
             "name": "Szwecja Allsvenskan",
             "category": "",
@@ -392,7 +378,6 @@
           229,
           35,
           1875,
-          26,
           220,
           4219,
           88,
@@ -426,7 +411,6 @@
           33,
           551,
           56,
-          27,
           145,
           493,
           37,
@@ -435,213 +419,11 @@
           30
         ],
         "filtered_out": 0,
-        "partial": true,
-        "errors": [
-          {
-            "competition_id": 26,
-            "detail": "Incomplete gRPC-web frame"
-          },
-          {
-            "competition_id": 27,
-            "detail": "Incomplete gRPC-web frame"
-          }
-        ]
+        "partial": false,
+        "errors": []
       },
-      "errors": [
-        {
-          "stage": "discovery",
-          "competition_id": 26,
-          "detail": "Incomplete gRPC-web frame"
-        },
-        {
-          "stage": "discovery",
-          "competition_id": 27,
-          "detail": "Incomplete gRPC-web frame"
-        }
-      ],
-      "events": [
-        {
-          "id": 1232353175273472,
-          "name": "Arouca - Estrela",
-          "date": "2026-10-11T19:30:00.0000000Z",
-          "date_warsaw": "2026-10-11T21:30:00+02:00",
-          "competition": "Liga Betclic",
-          "competition_id": 32,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Arouca",
-              "short": "Arouca"
-            },
-            {
-              "name": "Estrela",
-              "short": "Estrela"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Arouca",
-                  "odds": 1.32
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 3.75
-                },
-                {
-                  "name": "Estrela",
-                  "odds": 13.0
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Arouca lub remis",
-                  "odds": 1.02
-                },
-                {
-                  "name": "Arouca lub Estrela",
-                  "odds": 1.18
-                },
-                {
-                  "name": "Remis lub Estrela",
-                  "odds": 2.7
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.55
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 2.2
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 3.75
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.2
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 15.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Arouca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 2.55
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.4
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 10.0
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.02
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Estrela",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 2.35
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 1.53
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 8.5
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.04
-                }
-              ]
-            },
-            {
-              "name": "Handicap",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Arouca (-3)",
-                  "odds": 50.0
-                },
-                {
-                  "name": "Remis (Arouca -3)",
-                  "odds": 15.0
-                },
-                {
-                  "name": "Estrela (+3)",
-                  "odds": 1.02
-                },
-                {
-                  "name": "Arouca (-2)",
-                  "odds": 18.0
-                },
-                {
-                  "name": "Remis (Arouca -2)",
-                  "odds": 4.7
-                },
-                {
-                  "name": "Estrela (+2)",
-                  "odds": 1.22
-                },
-                {
-                  "name": "Arouca (-1)",
-                  "odds": 4.1
-                },
-                {
-                  "name": "Remis (Arouca -1)",
-                  "odds": 1.88
-                },
-                {
-                  "name": "Estrela (+1)",
-                  "odds": 3.2
-                },
-                {
-                  "name": "Arouca (+1)",
-                  "odds": 1.03
-                },
-                {
-                  "name": "Remis (Arouca +1)",
-                  "odds": 12.0
-                },
-                {
-                  "name": "Estrela (-1)",
-                  "odds": 45.0
-                }
-              ]
-            }
-          ]
-        }
-      ],
+      "errors": [],
+      "events": [],
       "fallback_max_age_seconds": 5400
     },
     "tennis": {
@@ -698,109 +480,39 @@
               "selections": [
                 {
                   "name": "Boris Arias",
-                  "odds": 6.5
+                  "odds": 2.85
+                },
+                {
+                  "name": "Thiago Cigarran",
+                  "odds": 1.25
                 }
               ]
             },
             {
-              "name": "2. set - Gem 5 - Zwycięzca",
+              "name": "3. set - Gem 6 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
                   "name": "Boris Arias",
-                  "odds": 1.6
+                  "odds": 1.47
                 },
                 {
                   "name": "Thiago Cigarran",
-                  "odds": 1.8
+                  "odds": 2.0
                 }
               ]
             },
             {
-              "name": "2. set - Zwycięzca",
+              "name": "3. set - Gem 5 - Punkt 2 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
                   "name": "Boris Arias",
-                  "odds": 5.5
+                  "odds": 2.15
                 },
                 {
                   "name": "Thiago Cigarran",
-                  "odds": 1.02
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "0 - 2",
-                  "odds": 1.02
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 18.5
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 6.75
-                }
-              ]
-            },
-            {
-              "name": "2. set - Gem 4 - Punkt 2 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Boris Arias",
-                  "odds": 2.25
-                },
-                {
-                  "name": "Thiago Cigarran",
-                  "odds": 1.35
-                }
-              ]
-            },
-            {
-              "name": "Boris Arias wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 5.5
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.02
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Boris Arias (+1,5)",
-                  "odds": 5.8
-                },
-                {
-                  "name": "Thiago Cigarran (-1.5)",
-                  "odds": 1.02
-                }
-              ]
-            },
-            {
-              "name": "Czy obaj zawodnicy wygrają seta w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 5.5
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.02
+                  "odds": 1.4
                 }
               ]
             }
