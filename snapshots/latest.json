@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "source": "direct_betclic",
-  "generated_at_warsaw": "2026-10-13T00:36:57.255582+02:00",
+  "generated_at_warsaw": "2026-10-13T00:54:50.807668+02:00",
   "date_warsaw": "2026-10-13",
   "fallback_max_age_seconds": 5400,
   "sports": {
@@ -10,7 +10,9 @@
       "source": "direct_betclic",
       "stale": false,
       "event_count": 26,
-      "stale_event_ids": [],
+      "stale_event_ids": [
+        1222405563375616
+      ],
       "summary_only_event_ids": [],
       "discovery": {
         "source": "competitions",
@@ -432,6 +434,18 @@
           "stage": "discovery",
           "competition_id": 62,
           "detail": "Incomplete gRPC-web frame"
+        },
+        {
+          "stage": "validation",
+          "detail": "dropped 1 malformed event row(s)",
+          "malformed_event_count": 1
+        },
+        {
+          "stage": "discovery_missing",
+          "event_id": 1222405563375616,
+          "detail": "event missing from current discovery; reused recent same-day snapshot",
+          "reused_previous": true,
+          "fallback_age_seconds": 1046.5
         }
       ],
       "events": [
@@ -3940,237 +3954,6 @@
           ]
         },
         {
-          "id": 1222405563375616,
-          "name": "Atletico Madryt - Manchester United",
-          "date": "2026-10-13T19:00:00.0000000Z",
-          "date_warsaw": "2026-10-13T21:00:00+02:00",
-          "competition": "Liga Mistrzów",
-          "competition_id": 8,
-          "is_live": false,
-          "teams": [
-            {
-              "name": "Atletico Madryt",
-              "short": "Atletico Madryt"
-            },
-            {
-              "name": "Manchester United",
-              "short": "Manchester Utd"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Atletico Madryt",
-                  "odds": 1.9
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 3.8
-                },
-                {
-                  "name": "Manchester United",
-                  "odds": 3.55
-                }
-              ]
-            },
-            {
-              "name": "Wynik meczu - Xtra Wygrana",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Atletico Madryt",
-                  "odds": 1.52
-                },
-                {
-                  "name": "Manchester United",
-                  "odds": 2.73
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.02
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 11.5
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.14
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 5.1
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.49
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 2.52
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 2.18
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.64
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 3.63
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.26
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 6.25
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.1
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Atletico Madryt lub remis",
-                  "odds": 1.28
-                },
-                {
-                  "name": "Atletico Madryt lub Manchester Utd",
-                  "odds": 1.25
-                },
-                {
-                  "name": "Remis lub Manchester United",
-                  "odds": 1.83
-                }
-              ]
-            },
-            {
-              "name": "Oba zespoły strzelą gola lub Powyżej 2,5 gola w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.25
-                },
-                {
-                  "name": "Nie",
-                  "odds": 3.4
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Atletico Madryt",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.12
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 6.0
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.64
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 2.13
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 2.98
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.36
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 5.75
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.1
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 10.0
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.02
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Manchester United",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.28
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 3.5
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 2.28
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.56
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 5.6
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.14
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 9.75
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.02
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 12.25
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.01
-                }
-              ]
-            }
-          ]
-        },
-        {
           "id": 1222406847881328,
           "name": "Galatasaray - Barcelona",
           "date": "2026-10-13T19:00:00.0000000Z",
@@ -5588,6 +5371,244 @@
               ]
             }
           ]
+        },
+        {
+          "id": 1222405563375616,
+          "name": "Atletico Madryt - Manchester United",
+          "date": "2026-10-13T19:00:00.0000000Z",
+          "date_warsaw": "2026-10-13T21:00:00+02:00",
+          "competition": "Liga Mistrzów",
+          "competition_id": 8,
+          "is_live": false,
+          "teams": [
+            {
+              "name": "Atletico Madryt",
+              "short": "Atletico Madryt"
+            },
+            {
+              "name": "Manchester United",
+              "short": "Manchester Utd"
+            }
+          ],
+          "markets": [
+            {
+              "name": "Wynik meczu (z wyłączeniem dogrywki)",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Atletico Madryt",
+                  "odds": 1.9
+                },
+                {
+                  "name": "Remis ",
+                  "odds": 3.8
+                },
+                {
+                  "name": "Manchester United",
+                  "odds": 3.55
+                }
+              ]
+            },
+            {
+              "name": "Wynik meczu - Xtra Wygrana",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Atletico Madryt",
+                  "odds": 1.52
+                },
+                {
+                  "name": "Manchester United",
+                  "odds": 2.73
+                }
+              ]
+            },
+            {
+              "name": "Gole Powyżej/Poniżej",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Powyżej 0,5",
+                  "odds": 1.02
+                },
+                {
+                  "name": "Poniżej 0,5",
+                  "odds": 11.5
+                },
+                {
+                  "name": "Powyżej 1,5",
+                  "odds": 1.14
+                },
+                {
+                  "name": "Poniżej 1,5",
+                  "odds": 5.1
+                },
+                {
+                  "name": "Powyżej 2,5",
+                  "odds": 1.49
+                },
+                {
+                  "name": "Poniżej 2,5",
+                  "odds": 2.52
+                },
+                {
+                  "name": "Powyżej 3,5",
+                  "odds": 2.18
+                },
+                {
+                  "name": "Poniżej 3,5",
+                  "odds": 1.64
+                },
+                {
+                  "name": "Powyżej 4,5",
+                  "odds": 3.63
+                },
+                {
+                  "name": "Poniżej 4,5",
+                  "odds": 1.26
+                },
+                {
+                  "name": "Powyżej 5,5",
+                  "odds": 6.25
+                },
+                {
+                  "name": "Poniżej 5,5",
+                  "odds": 1.1
+                }
+              ]
+            },
+            {
+              "name": "Podwójna Szansa",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Atletico Madryt lub remis",
+                  "odds": 1.28
+                },
+                {
+                  "name": "Atletico Madryt lub Manchester Utd",
+                  "odds": 1.25
+                },
+                {
+                  "name": "Remis lub Manchester United",
+                  "odds": 1.83
+                }
+              ]
+            },
+            {
+              "name": "Oba zespoły strzelą gola lub Powyżej 2,5 gola w meczu",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 1.25
+                },
+                {
+                  "name": "Nie",
+                  "odds": 3.4
+                }
+              ]
+            },
+            {
+              "name": "Liczba goli - Atletico Madryt",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Powyżej 0,5",
+                  "odds": 1.12
+                },
+                {
+                  "name": "Poniżej 0,5",
+                  "odds": 6.0
+                },
+                {
+                  "name": "Powyżej 1,5",
+                  "odds": 1.64
+                },
+                {
+                  "name": "Poniżej 1,5",
+                  "odds": 2.13
+                },
+                {
+                  "name": "Powyżej 2,5",
+                  "odds": 2.98
+                },
+                {
+                  "name": "Poniżej 2,5",
+                  "odds": 1.36
+                },
+                {
+                  "name": "Powyżej 3,5",
+                  "odds": 5.75
+                },
+                {
+                  "name": "Poniżej 3,5",
+                  "odds": 1.1
+                },
+                {
+                  "name": "Powyżej 4,5",
+                  "odds": 10.0
+                },
+                {
+                  "name": "Poniżej 4,5",
+                  "odds": 1.02
+                }
+              ]
+            },
+            {
+              "name": "Liczba goli - Manchester United",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Powyżej 0,5",
+                  "odds": 1.28
+                },
+                {
+                  "name": "Poniżej 0,5",
+                  "odds": 3.5
+                },
+                {
+                  "name": "Powyżej 1,5",
+                  "odds": 2.28
+                },
+                {
+                  "name": "Poniżej 1,5",
+                  "odds": 1.56
+                },
+                {
+                  "name": "Powyżej 2,5",
+                  "odds": 5.6
+                },
+                {
+                  "name": "Poniżej 2,5",
+                  "odds": 1.14
+                },
+                {
+                  "name": "Powyżej 3,5",
+                  "odds": 9.75
+                },
+                {
+                  "name": "Poniżej 3,5",
+                  "odds": 1.02
+                },
+                {
+                  "name": "Powyżej 4,5",
+                  "odds": 12.25
+                },
+                {
+                  "name": "Poniżej 4,5",
+                  "odds": 1.01
+                }
+              ]
+            }
+          ],
+          "_snapshot_meta": {
+            "stale": true,
+            "reason": "missing_from_discovery",
+            "stale_since_warsaw": "2026-10-13T00:36:57.255582+02:00",
+            "fallback_age_seconds": 1046.5,
+            "max_fallback_age_seconds": 5400
+          }
         }
       ],
       "fallback_max_age_seconds": 5400
@@ -5597,7 +5618,10 @@
       "source": "direct_betclic",
       "stale": false,
       "event_count": 62,
-      "stale_event_ids": [],
+      "stale_event_ids": [
+        1249729284419616,
+        1249730508095517
+      ],
       "summary_only_event_ids": [],
       "discovery": {
         "source": "competitions",
@@ -5614,7 +5638,22 @@
         "partial": false,
         "errors": []
       },
-      "errors": [],
+      "errors": [
+        {
+          "stage": "discovery_missing",
+          "event_id": 1249729284419616,
+          "detail": "event missing from current discovery; reused recent same-day snapshot",
+          "reused_previous": true,
+          "fallback_age_seconds": 1073.5
+        },
+        {
+          "stage": "discovery_missing",
+          "event_id": 1249730508095517,
+          "detail": "event missing from current discovery; reused recent same-day snapshot",
+          "reused_previous": true,
+          "fallback_age_seconds": 1073.5
+        }
+      ],
       "events": [
         {
           "id": 1249730477699073,
@@ -5641,25 +5680,25 @@
               "selections": [
                 {
                   "name": "Juan Bautista Torres",
-                  "odds": 1.7
+                  "odds": 1.37
                 },
                 {
                   "name": "Alex Barrena",
-                  "odds": 1.8
+                  "odds": 2.35
                 }
               ]
             },
             {
-              "name": "1. set - Gem 5 - Zwycięzca",
+              "name": "1. set - Gem 9 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
                   "name": "Juan Bautista Torres",
-                  "odds": 1.52
+                  "odds": 1.4
                 },
                 {
                   "name": "Alex Barrena",
-                  "odds": 1.9
+                  "odds": 2.15
                 }
               ]
             },
@@ -5669,33 +5708,33 @@
               "selections": [
                 {
                   "name": "2 - 0",
-                  "odds": 2.35
+                  "odds": 1.75
                 },
                 {
                   "name": "0 - 2",
-                  "odds": 3.15
+                  "odds": 12.0
                 },
                 {
                   "name": "2 - 1",
-                  "odds": 4.55
+                  "odds": 4.25
                 },
                 {
                   "name": "1 - 2",
-                  "odds": 3.35
+                  "odds": 2.7
                 }
               ]
             },
             {
-              "name": "1. set - Gem 5 - Punkt 1 - Zwycięzca",
+              "name": "1. set - Gem 8 - Punkt 3 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
                   "name": "Juan Bautista Torres",
-                  "odds": 1.6
+                  "odds": 1.8
                 },
                 {
                   "name": "Alex Barrena",
-                  "odds": 1.8
+                  "odds": 1.6
                 }
               ]
             },
@@ -5705,11 +5744,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.22
+                  "odds": 1.02
                 },
                 {
                   "name": "Nie",
-                  "odds": 2.95
+                  "odds": 5.6
                 }
               ]
             },
@@ -5719,11 +5758,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.37
+                  "odds": 1.65
                 },
                 {
                   "name": "Nie",
-                  "odds": 2.35
+                  "odds": 1.8
                 }
               ]
             },
@@ -5733,19 +5772,19 @@
               "selections": [
                 {
                   "name": "Juan Bautista Torres (-1,5)",
-                  "odds": 2.35
+                  "odds": 1.8
                 },
                 {
                   "name": "Alex Barrena (+1.5)",
-                  "odds": 1.37
+                  "odds": 1.7
                 },
                 {
                   "name": "Juan Bautista Torres (+1,5)",
-                  "odds": 1.22
+                  "odds": 1.02
                 },
                 {
                   "name": "Alex Barrena (-1.5)",
-                  "odds": 3.0
+                  "odds": 5.9
                 }
               ]
             },
@@ -5755,11 +5794,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 2.05
+                  "odds": 1.85
                 },
                 {
                   "name": "Nie",
-                  "odds": 1.47
+                  "odds": 1.6
                 }
               ]
             }
@@ -5790,25 +5829,25 @@
               "selections": [
                 {
                   "name": "Bernardo Munk Mesa",
-                  "odds": 4.85
+                  "odds": 5.2
                 },
                 {
                   "name": "Hugo Dellien",
-                  "odds": 1.06
+                  "odds": 1.04
                 }
               ]
             },
             {
-              "name": "1. set - Gem 4 - Zwycięzca",
+              "name": "1. set - Gem 7 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
                   "name": "Bernardo Munk Mesa",
-                  "odds": 1.42
+                  "odds": 3.6
                 },
                 {
                   "name": "Hugo Dellien",
-                  "odds": 2.1
+                  "odds": 1.1
                 }
               ]
             },
@@ -5818,33 +5857,33 @@
               "selections": [
                 {
                   "name": "2 - 0",
-                  "odds": 12.0
+                  "odds": 15.5
                 },
                 {
                   "name": "0 - 2",
-                  "odds": 1.25
+                  "odds": 1.2
                 },
                 {
                   "name": "2 - 1",
-                  "odds": 10.0
+                  "odds": 10.5
                 },
                 {
                   "name": "1 - 2",
-                  "odds": 3.65
+                  "odds": 3.8
                 }
               ]
             },
             {
-              "name": "1. set - Gem 3 - Punkt 5 - Zwycięzca",
+              "name": "1. set - Gem 6 - Punkt 8 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
                   "name": "Bernardo Munk Mesa",
-                  "odds": 2.3
+                  "odds": 1.6
                 },
                 {
                   "name": "Hugo Dellien",
-                  "odds": 1.35
+                  "odds": 1.8
                 }
               ]
             },
@@ -5854,11 +5893,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 2.65
+                  "odds": 2.9
                 },
                 {
                   "name": "Nie",
-                  "odds": 1.27
+                  "odds": 1.22
                 }
               ]
             },
@@ -5872,7 +5911,7 @@
                 },
                 {
                   "name": "Nie",
-                  "odds": 5.8
+                  "odds": 6.0
                 }
               ]
             },
@@ -5882,7 +5921,7 @@
               "selections": [
                 {
                   "name": "Bernardo Munk Mesa (-1,5)",
-                  "odds": 6.0
+                  "odds": 6.25
                 },
                 {
                   "name": "Hugo Dellien (+1.5)",
@@ -5890,11 +5929,11 @@
                 },
                 {
                   "name": "Bernardo Munk Mesa (+1,5)",
-                  "odds": 2.65
+                  "odds": 2.95
                 },
                 {
                   "name": "Hugo Dellien (-1.5)",
-                  "odds": 1.3
+                  "odds": 1.22
                 }
               ]
             },
@@ -5904,11 +5943,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 3.0
+                  "odds": 3.2
                 },
                 {
                   "name": "Nie",
-                  "odds": 1.2
+                  "odds": 1.18
                 }
               ]
             }
@@ -6024,8 +6063,8 @@
         {
           "id": 1249730358157312,
           "name": "Francisco Comesana - Nick Hardt",
-          "date": "2026-10-12T23:35:00.0000000Z",
-          "date_warsaw": "2026-10-13T01:35:00+02:00",
+          "date": "2026-10-12T23:25:00.0000000Z",
+          "date_warsaw": "2026-10-13T01:25:00+02:00",
           "competition": "Santa Cruz 2 Challenger",
           "competition_id": 30433,
           "is_live": true,
@@ -6902,7 +6941,7 @@
               "selections": [
                 {
                   "name": "Massimo Giunta",
-                  "odds": 1.45
+                  "odds": 1.44
                 },
                 {
                   "name": "Henry Searle",
@@ -6930,11 +6969,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.58
+                  "odds": 1.59
                 },
                 {
                   "name": "Nie",
-                  "odds": 2.14
+                  "odds": 2.13
                 }
               ]
             },
@@ -6944,7 +6983,7 @@
               "selections": [
                 {
                   "name": "2 - 0",
-                  "odds": 2.14
+                  "odds": 2.13
                 },
                 {
                   "name": "0 - 2",
@@ -6966,11 +7005,11 @@
               "selections": [
                 {
                   "name": "Massimo Giunta (-1,5)",
-                  "odds": 2.14
+                  "odds": 2.13
                 },
                 {
                   "name": "Henry Searle (+1.5)",
-                  "odds": 1.58
+                  "odds": 1.59
                 },
                 {
                   "name": "Massimo Giunta (+1,5)",
@@ -8179,11 +8218,11 @@
               "selections": [
                 {
                   "name": "Federico Iannaccone",
-                  "odds": 1.66
+                  "odds": 1.69
                 },
                 {
                   "name": "Filip Cristian Jianu",
-                  "odds": 2.05
+                  "odds": 2.01
                 }
               ]
             },
@@ -8193,11 +8232,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.28
+                  "odds": 1.29
                 },
                 {
                   "name": "Nie",
-                  "odds": 3.15
+                  "odds": 3.1
                 }
               ]
             },
@@ -8207,11 +8246,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.44
+                  "odds": 1.43
                 },
                 {
                   "name": "Nie",
-                  "odds": 2.46
+                  "odds": 2.5
                 }
               ]
             },
@@ -8221,11 +8260,11 @@
               "selections": [
                 {
                   "name": "2 - 0",
-                  "odds": 2.48
+                  "odds": 2.55
                 },
                 {
                   "name": "0 - 2",
-                  "odds": 3.25
+                  "odds": 3.2
                 },
                 {
                   "name": "2 - 1",
@@ -8233,7 +8272,7 @@
                 },
                 {
                   "name": "1 - 2",
-                  "odds": 4.8
+                  "odds": 4.7
                 }
               ]
             },
@@ -8257,19 +8296,19 @@
               "selections": [
                 {
                   "name": "Federico Iannaccone (-1,5)",
-                  "odds": 2.48
+                  "odds": 2.55
                 },
                 {
                   "name": "Filip Cristian Jianu (+1.5)",
-                  "odds": 1.44
+                  "odds": 1.43
                 },
                 {
                   "name": "Federico Iannaccone (+1,5)",
-                  "odds": 1.28
+                  "odds": 1.29
                 },
                 {
                   "name": "Filip Cristian Jianu (-1.5)",
-                  "odds": 3.25
+                  "odds": 3.2
                 }
               ]
             },
@@ -8293,7 +8332,7 @@
               "selections": [
                 {
                   "name": "F. Iannaccone / F. Iannaccone",
-                  "odds": 1.92
+                  "odds": 1.95
                 },
                 {
                   "name": "F. Iannaccone / F.C. Jianu",
@@ -8301,11 +8340,11 @@
                 },
                 {
                   "name": "F.C. Jianu / F. Iannaccone",
-                  "odds": 7.0
+                  "odds": 7.2
                 },
                 {
                   "name": "F.C. Jianu / F.C. Jianu",
-                  "odds": 2.4
+                  "odds": 2.35
                 }
               ]
             }
@@ -8443,11 +8482,11 @@
               "selections": [
                 {
                   "name": "Laurent Lokoli",
-                  "odds": 1.99
+                  "odds": 1.96
                 },
                 {
                   "name": "Georgii Kravchenko",
-                  "odds": 1.7
+                  "odds": 1.72
                 }
               ]
             },
@@ -8457,11 +8496,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.41
+                  "odds": 1.4
                 },
                 {
                   "name": "Nie",
-                  "odds": 2.55
+                  "odds": 2.6
                 }
               ]
             },
@@ -8471,11 +8510,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.3
+                  "odds": 1.31
                 },
                 {
                   "name": "Nie",
-                  "odds": 3.05
+                  "odds": 2.95
                 }
               ]
             },
@@ -8485,19 +8524,19 @@
               "selections": [
                 {
                   "name": "2 - 0",
-                  "odds": 3.1
+                  "odds": 3.05
                 },
                 {
                   "name": "0 - 2",
-                  "odds": 2.55
+                  "odds": 2.6
                 },
                 {
                   "name": "2 - 1",
-                  "odds": 4.7
+                  "odds": 4.6
                 },
                 {
                   "name": "1 - 2",
-                  "odds": 4.2
+                  "odds": 4.3
                 }
               ]
             },
@@ -8507,19 +8546,19 @@
               "selections": [
                 {
                   "name": "Laurent Lokoli (-1,5)",
-                  "odds": 3.1
+                  "odds": 3.05
                 },
                 {
                   "name": "Georgii Kravchenko (+1.5)",
-                  "odds": 1.3
+                  "odds": 1.31
                 },
                 {
                   "name": "Laurent Lokoli (+1,5)",
-                  "odds": 1.41
+                  "odds": 1.4
                 },
                 {
                   "name": "Georgii Kravchenko (-1.5)",
-                  "odds": 2.55
+                  "odds": 2.6
                 }
               ]
             }
@@ -11617,11 +11656,11 @@
               "selections": [
                 {
                   "name": "Carlo Alberto Caniato",
-                  "odds": 1.19
+                  "odds": 1.22
                 },
                 {
                   "name": "Daniel Siniakov",
-                  "odds": 4.0
+                  "odds": 3.75
                 }
               ]
             },
@@ -11631,11 +11670,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.07
+                  "odds": 1.08
                 },
                 {
                   "name": "Nie",
-                  "odds": 6.2
+                  "odds": 5.8
                 }
               ]
             },
@@ -11645,11 +11684,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 2.18
+                  "odds": 2.07
                 },
                 {
                   "name": "Nie",
-                  "odds": 1.56
+                  "odds": 1.62
                 }
               ]
             },
@@ -11659,19 +11698,19 @@
               "selections": [
                 {
                   "name": "2 - 0",
-                  "odds": 1.54
+                  "odds": 1.59
                 },
                 {
                   "name": "0 - 2",
-                  "odds": 7.8
+                  "odds": 7.0
                 },
                 {
                   "name": "2 - 1",
-                  "odds": 3.9
+                  "odds": 3.85
                 },
                 {
                   "name": "1 - 2",
-                  "odds": 8.2
+                  "odds": 7.6
                 }
               ]
             },
@@ -11681,11 +11720,11 @@
               "selections": [
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 2.65
+                  "odds": 2.55
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.32
+                  "odds": 1.34
                 }
               ]
             },
@@ -11695,19 +11734,19 @@
               "selections": [
                 {
                   "name": "Carlo Alberto Caniato (-1,5)",
-                  "odds": 1.54
+                  "odds": 1.59
                 },
                 {
                   "name": "Daniel Siniakov (+1.5)",
-                  "odds": 2.13
+                  "odds": 2.03
                 },
                 {
                   "name": "Carlo Alberto Caniato (+1,5)",
-                  "odds": 1.06
+                  "odds": 1.07
                 },
                 {
                   "name": "Daniel Siniakov (-1.5)",
-                  "odds": 7.8
+                  "odds": 7.0
                 }
               ]
             },
@@ -11717,11 +11756,11 @@
               "selections": [
                 {
                   "name": "2",
-                  "odds": 1.32
+                  "odds": 1.34
                 },
                 {
                   "name": "3",
-                  "odds": 2.65
+                  "odds": 2.55
                 }
               ]
             },
@@ -11731,11 +11770,11 @@
               "selections": [
                 {
                   "name": "C. Caniato / C. Caniato",
-                  "odds": 1.31
+                  "odds": 1.35
                 },
                 {
                   "name": "C. Caniato / D. Siniakov",
-                  "odds": 14.0
+                  "odds": 13.0
                 },
                 {
                   "name": "D. Siniakov / C. Caniato",
@@ -11743,7 +11782,7 @@
                 },
                 {
                   "name": "D. Siniakov / D. Siniakov",
-                  "odds": 4.9
+                  "odds": 4.5
                 }
               ]
             }
@@ -11774,11 +11813,11 @@
               "selections": [
                 {
                   "name": "Mili Poljicak",
-                  "odds": 2.22
+                  "odds": 2.19
                 },
                 {
                   "name": "Francesco Maestrelli",
-                  "odds": 1.56
+                  "odds": 1.58
                 }
               ]
             },
@@ -11788,11 +11827,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.49
+                  "odds": 1.48
                 },
                 {
                   "name": "Nie",
-                  "odds": 2.32
+                  "odds": 2.35
                 }
               ]
             },
@@ -11802,11 +11841,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.23
+                  "odds": 1.24
                 },
                 {
                   "name": "Nie",
-                  "odds": 3.5
+                  "odds": 3.4
                 }
               ]
             },
@@ -11816,11 +11855,11 @@
               "selections": [
                 {
                   "name": "2 - 0",
-                  "odds": 3.65
+                  "odds": 3.6
                 },
                 {
                   "name": "0 - 2",
-                  "odds": 2.32
+                  "odds": 2.36
                 },
                 {
                   "name": "2 - 1",
@@ -11828,7 +11867,7 @@
                 },
                 {
                   "name": "1 - 2",
-                  "odds": 3.95
+                  "odds": 4.0
                 }
               ]
             },
@@ -11838,7 +11877,7 @@
               "selections": [
                 {
                   "name": "Mili Poljicak (-1,5)",
-                  "odds": 3.65
+                  "odds": 3.6
                 },
                 {
                   "name": "Francesco Maestrelli (+1.5)",
@@ -11846,11 +11885,11 @@
                 },
                 {
                   "name": "Mili Poljicak (+1,5)",
-                  "odds": 1.47
+                  "odds": 1.46
                 },
                 {
                   "name": "Francesco Maestrelli (-1.5)",
-                  "odds": 2.32
+                  "odds": 2.36
                 }
               ]
             }
@@ -12178,220 +12217,6 @@
           ]
         },
         {
-          "id": 1249729284419616,
-          "name": "Eduardo Ribeiro - Juan Carlos Prado Angelo",
-          "date": "2026-10-13T18:00:00.0000000Z",
-          "date_warsaw": "2026-10-13T20:00:00+02:00",
-          "competition": "Santa Cruz 2 Challenger",
-          "competition_id": 30433,
-          "is_live": false,
-          "teams": [
-            {
-              "name": "Eduardo Ribeiro",
-              "short": "E. Ribeiro"
-            },
-            {
-              "name": "Juan Carlos Prado Angelo",
-              "short": "J. Prado Angelo"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Eduardo Ribeiro",
-                  "odds": 3.5
-                },
-                {
-                  "name": "Juan Carlos Prado Angelo",
-                  "odds": 1.24
-                }
-              ]
-            },
-            {
-              "name": "Eduardo Ribeiro wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.99
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.67
-                }
-              ]
-            },
-            {
-              "name": "Juan Carlos Prado Angelo wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.09
-                },
-                {
-                  "name": "Nie",
-                  "odds": 5.4
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 6.4
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 1.65
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 7.2
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 3.85
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Eduardo Ribeiro (-1,5)",
-                  "odds": 6.4
-                },
-                {
-                  "name": "Juan Carlos Prado Angelo (+1.5)",
-                  "odds": 1.08
-                },
-                {
-                  "name": "Eduardo Ribeiro (+1,5)",
-                  "odds": 1.95
-                },
-                {
-                  "name": "Juan Carlos Prado Angelo (-1.5)",
-                  "odds": 1.65
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1249729289662528,
-          "name": "Luis Guto Miguel - Murkel Alejandro Dellien Velasco",
-          "date": "2026-10-13T18:00:00.0000000Z",
-          "date_warsaw": "2026-10-13T20:00:00+02:00",
-          "competition": "Santa Cruz 2 Challenger",
-          "competition_id": 30433,
-          "is_live": false,
-          "teams": [
-            {
-              "name": "Luis Guto Miguel",
-              "short": "M. Guto"
-            },
-            {
-              "name": "Murkel Alejandro Dellien Velasco",
-              "short": "M. Dellien Velasco"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Luis Guto Miguel",
-                  "odds": 1.33
-                },
-                {
-                  "name": "Murkel Alejandro Dellien Velasco",
-                  "odds": 2.95
-                }
-              ]
-            },
-            {
-              "name": "Luis Guto Miguel wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.13
-                },
-                {
-                  "name": "Nie",
-                  "odds": 4.6
-                }
-              ]
-            },
-            {
-              "name": "Murkel Alejandro Dellien Velasco wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.81
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.83
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 1.81
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 5.2
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 3.95
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 6.4
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Luis Guto Miguel (-1,5)",
-                  "odds": 1.81
-                },
-                {
-                  "name": "Murkel Alejandro Dellien Velasco (+1.5)",
-                  "odds": 1.77
-                },
-                {
-                  "name": "Luis Guto Miguel (+1,5)",
-                  "odds": 1.12
-                },
-                {
-                  "name": "Murkel Alejandro Dellien Velasco (-1.5)",
-                  "odds": 5.2
-                }
-              ]
-            }
-          ]
-        },
-        {
           "id": 1249729350479872,
           "name": "Valerio Aboian - Franco Roncadelli",
           "date": "2026-10-13T18:00:00.0000000Z",
@@ -12549,8 +12374,8 @@
           ]
         },
         {
-          "id": 1249730033102848,
-          "name": "Pedro Boscardin Dias - Facundo Mena",
+          "id": 1249729284419616,
+          "name": "Eduardo Ribeiro - Juan Carlos Prado Angelo",
           "date": "2026-10-13T18:00:00.0000000Z",
           "date_warsaw": "2026-10-13T20:00:00+02:00",
           "competition": "Santa Cruz 2 Challenger",
@@ -12558,12 +12383,12 @@
           "is_live": false,
           "teams": [
             {
-              "name": "Pedro Boscardin Dias",
-              "short": "P. Boscardin Dias"
+              "name": "Eduardo Ribeiro",
+              "short": "E. Ribeiro"
             },
             {
-              "name": "Facundo Mena",
-              "short": "F. Mena"
+              "name": "Juan Carlos Prado Angelo",
+              "short": "J. Prado Angelo"
             }
           ],
           "markets": [
@@ -12572,40 +12397,40 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "Pedro Boscardin Dias",
-                  "odds": 1.86
+                  "name": "Eduardo Ribeiro",
+                  "odds": 3.5
                 },
                 {
-                  "name": "Facundo Mena",
-                  "odds": 1.77
+                  "name": "Juan Carlos Prado Angelo",
+                  "odds": 1.24
                 }
               ]
             },
             {
-              "name": "Pedro Boscardin Dias wygra seta",
+              "name": "Eduardo Ribeiro wygra seta",
               "suspended": false,
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.37
+                  "odds": 1.99
                 },
                 {
                   "name": "Nie",
-                  "odds": 2.7
+                  "odds": 1.67
                 }
               ]
             },
             {
-              "name": "Facundo Mena wygra seta",
+              "name": "Juan Carlos Prado Angelo wygra seta",
               "suspended": false,
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.33
+                  "odds": 1.09
                 },
                 {
                   "name": "Nie",
-                  "odds": 2.9
+                  "odds": 5.4
                 }
               ]
             },
@@ -12615,19 +12440,19 @@
               "selections": [
                 {
                   "name": "2 - 0",
-                  "odds": 2.95
+                  "odds": 6.4
                 },
                 {
                   "name": "0 - 2",
-                  "odds": 2.75
+                  "odds": 1.65
                 },
                 {
                   "name": "2 - 1",
-                  "odds": 4.4
+                  "odds": 7.2
                 },
                 {
                   "name": "1 - 2",
-                  "odds": 4.3
+                  "odds": 3.85
                 }
               ]
             },
@@ -12636,24 +12461,31 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "Pedro Boscardin Dias (-1,5)",
-                  "odds": 2.95
+                  "name": "Eduardo Ribeiro (-1,5)",
+                  "odds": 6.4
                 },
                 {
-                  "name": "Facundo Mena (+1.5)",
-                  "odds": 1.31
+                  "name": "Juan Carlos Prado Angelo (+1.5)",
+                  "odds": 1.08
                 },
                 {
-                  "name": "Pedro Boscardin Dias (+1,5)",
-                  "odds": 1.35
+                  "name": "Eduardo Ribeiro (+1,5)",
+                  "odds": 1.95
                 },
                 {
-                  "name": "Facundo Mena (-1.5)",
-                  "odds": 2.75
+                  "name": "Juan Carlos Prado Angelo (-1.5)",
+                  "odds": 1.65
                 }
               ]
             }
-          ]
+          ],
+          "_snapshot_meta": {
+            "stale": true,
+            "reason": "missing_from_discovery",
+            "stale_since_warsaw": "2026-10-13T00:36:57.255582+02:00",
+            "fallback_age_seconds": 1073.5,
+            "max_fallback_age_seconds": 5400
+          }
         },
         {
           "id": 1249730508095517,
@@ -12757,6 +12589,227 @@
                 {
                   "name": "Carlos Maria Zarate (-1.5)",
                   "odds": 4.6
+                }
+              ]
+            }
+          ],
+          "_snapshot_meta": {
+            "stale": true,
+            "reason": "missing_from_discovery",
+            "stale_since_warsaw": "2026-10-13T00:36:57.255582+02:00",
+            "fallback_age_seconds": 1073.5,
+            "max_fallback_age_seconds": 5400
+          }
+        },
+        {
+          "id": 1249729289662528,
+          "name": "Luis Guto Miguel - Murkel Alejandro Dellien Velasco",
+          "date": "2026-10-13T19:10:00.0000000Z",
+          "date_warsaw": "2026-10-13T21:10:00+02:00",
+          "competition": "Santa Cruz 2 Challenger",
+          "competition_id": 30433,
+          "is_live": false,
+          "teams": [
+            {
+              "name": "Luis Guto Miguel",
+              "short": "M. Guto"
+            },
+            {
+              "name": "Murkel Alejandro Dellien Velasco",
+              "short": "M. Dellien Velasco"
+            }
+          ],
+          "markets": [
+            {
+              "name": "Zwycięzca meczu",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Luis Guto Miguel",
+                  "odds": 1.33
+                },
+                {
+                  "name": "Murkel Alejandro Dellien Velasco",
+                  "odds": 2.95
+                }
+              ]
+            },
+            {
+              "name": "Luis Guto Miguel wygra seta",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 1.13
+                },
+                {
+                  "name": "Nie",
+                  "odds": 4.6
+                }
+              ]
+            },
+            {
+              "name": "Murkel Alejandro Dellien Velasco wygra seta",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 1.81
+                },
+                {
+                  "name": "Nie",
+                  "odds": 1.83
+                }
+              ]
+            },
+            {
+              "name": "Wynik w setach",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "2 - 0",
+                  "odds": 1.81
+                },
+                {
+                  "name": "0 - 2",
+                  "odds": 5.2
+                },
+                {
+                  "name": "2 - 1",
+                  "odds": 3.95
+                },
+                {
+                  "name": "1 - 2",
+                  "odds": 6.4
+                }
+              ]
+            },
+            {
+              "name": "Handicap setowy",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Luis Guto Miguel (-1,5)",
+                  "odds": 1.81
+                },
+                {
+                  "name": "Murkel Alejandro Dellien Velasco (+1.5)",
+                  "odds": 1.77
+                },
+                {
+                  "name": "Luis Guto Miguel (+1,5)",
+                  "odds": 1.12
+                },
+                {
+                  "name": "Murkel Alejandro Dellien Velasco (-1.5)",
+                  "odds": 5.2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1249730033102848,
+          "name": "Pedro Boscardin Dias - Facundo Mena",
+          "date": "2026-10-13T21:00:00.0000000Z",
+          "date_warsaw": "2026-10-13T23:00:00+02:00",
+          "competition": "Santa Cruz 2 Challenger",
+          "competition_id": 30433,
+          "is_live": false,
+          "teams": [
+            {
+              "name": "Pedro Boscardin Dias",
+              "short": "P. Boscardin Dias"
+            },
+            {
+              "name": "Facundo Mena",
+              "short": "F. Mena"
+            }
+          ],
+          "markets": [
+            {
+              "name": "Zwycięzca meczu",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Pedro Boscardin Dias",
+                  "odds": 1.86
+                },
+                {
+                  "name": "Facundo Mena",
+                  "odds": 1.77
+                }
+              ]
+            },
+            {
+              "name": "Pedro Boscardin Dias wygra seta",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 1.37
+                },
+                {
+                  "name": "Nie",
+                  "odds": 2.7
+                }
+              ]
+            },
+            {
+              "name": "Facundo Mena wygra seta",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 1.33
+                },
+                {
+                  "name": "Nie",
+                  "odds": 2.9
+                }
+              ]
+            },
+            {
+              "name": "Wynik w setach",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "2 - 0",
+                  "odds": 2.95
+                },
+                {
+                  "name": "0 - 2",
+                  "odds": 2.75
+                },
+                {
+                  "name": "2 - 1",
+                  "odds": 4.4
+                },
+                {
+                  "name": "1 - 2",
+                  "odds": 4.3
+                }
+              ]
+            },
+            {
+              "name": "Handicap setowy",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Pedro Boscardin Dias (-1,5)",
+                  "odds": 2.95
+                },
+                {
+                  "name": "Facundo Mena (+1.5)",
+                  "odds": 1.31
+                },
+                {
+                  "name": "Pedro Boscardin Dias (+1,5)",
+                  "odds": 1.35
+                },
+                {
+                  "name": "Facundo Mena (-1.5)",
+                  "odds": 2.75
                 }
               ]
             }
