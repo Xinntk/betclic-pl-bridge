@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "source": "direct_betclic",
-  "generated_at_warsaw": "2026-10-12T17:42:46.240986+02:00",
+  "generated_at_warsaw": "2026-10-12T18:05:26.858811+02:00",
   "date_warsaw": "2026-10-12",
   "fallback_max_age_seconds": 5400,
   "sports": {
@@ -10,7 +10,9 @@
       "source": "direct_betclic",
       "stale": false,
       "event_count": 16,
-      "stale_event_ids": [],
+      "stale_event_ids": [
+        1232353768779776
+      ],
       "summary_only_event_ids": [],
       "discovery": {
         "source": "competitions",
@@ -21,6 +23,13 @@
             "category": "",
             "country_code": "EU",
             "country_name": "Europa"
+          },
+          {
+            "id": 221,
+            "name": "Ekstraklasa",
+            "category": "",
+            "country_code": "PL",
+            "country_name": "Polska"
           },
           {
             "id": 6,
@@ -42,13 +51,6 @@
             "category": "",
             "country_code": "ES",
             "country_name": "Hiszpania"
-          },
-          {
-            "id": 221,
-            "name": "Ekstraklasa",
-            "category": "",
-            "country_code": "PL",
-            "country_name": "Polska"
           },
           {
             "id": 44,
@@ -382,10 +384,10 @@
         ],
         "selected_competition_ids": [
           8,
+          221,
           6,
           3,
           7,
-          221,
           44,
           41,
           28,
@@ -448,6 +450,18 @@
           "stage": "discovery",
           "competition_id": 62,
           "detail": "Incomplete gRPC-web frame"
+        },
+        {
+          "stage": "validation",
+          "detail": "dropped 1 malformed event row(s)",
+          "malformed_event_count": 1
+        },
+        {
+          "stage": "discovery_missing",
+          "event_id": 1232353768779776,
+          "detail": "event missing from current discovery; reused recent same-day snapshot",
+          "reused_previous": true,
+          "fallback_age_seconds": 1360.6
         }
       ],
       "events": [
@@ -476,15 +490,15 @@
               "selections": [
                 {
                   "name": "PAOK",
-                  "odds": 2.35
+                  "odds": 1.48
                 },
                 {
                   "name": "Remis ",
-                  "odds": 2.8
+                  "odds": 2.9
                 },
                 {
                   "name": "Kalamata",
-                  "odds": 2.6
+                  "odds": 6.5
                 }
               ]
             },
@@ -494,15 +508,15 @@
               "selections": [
                 {
                   "name": "PAOK lub remis",
-                  "odds": 1.27
+                  "odds": 1.04
                 },
                 {
                   "name": "PAOK lub Kalamata",
-                  "odds": 1.24
+                  "odds": 1.19
                 },
                 {
                   "name": "Remis lub Kalamata",
-                  "odds": 1.35
+                  "odds": 1.88
                 }
               ]
             },
@@ -511,40 +525,40 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.05
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 5.0
-                },
-                {
                   "name": "Powyżej 2,5",
-                  "odds": 1.57
+                  "odds": 1.08
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.95
+                  "odds": 4.5
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 3.0
+                  "odds": 1.77
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 1.22
+                  "odds": 1.77
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 5.3
+                  "odds": 3.25
                 },
                 {
                   "name": "Poniżej 4,5",
-                  "odds": 1.04
+                  "odds": 1.19
                 },
                 {
                   "name": "Powyżej 5,5",
-                  "odds": 8.0
+                  "odds": 5.9
+                },
+                {
+                  "name": "Poniżej 5,5",
+                  "odds": 1.02
+                },
+                {
+                  "name": "Powyżej 6,5",
+                  "odds": 10.0
                 }
               ]
             },
@@ -553,36 +567,28 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "Powyżej 0,5",
+                  "name": "Powyżej 1,5",
                   "odds": 1.17
                 },
                 {
-                  "name": "Poniżej 0,5",
-                  "odds": 3.7
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.82
-                },
-                {
                   "name": "Poniżej 1,5",
-                  "odds": 1.62
+                  "odds": 3.15
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 3.6
+                  "odds": 2.2
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.12
+                  "odds": 1.4
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 11.0
+                  "odds": 5.75
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 20.0
+                  "odds": 8.0
                 }
               ]
             },
@@ -592,15 +598,15 @@
               "selections": [
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 2.55
+                  "odds": 2.35
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.28
+                  "odds": 1.35
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 6.0
+                  "odds": 5.9
                 }
               ]
             }
@@ -631,69 +637,15 @@
               "selections": [
                 {
                   "name": "RKS Radomiak",
-                  "odds": 2.58
+                  "odds": 2.65
                 },
                 {
                   "name": "Remis ",
-                  "odds": 3.45
+                  "odds": 3.4
                 },
                 {
                   "name": "Motor Lublin",
-                  "odds": 2.48
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.02
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 9.75
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.17
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 4.45
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.58
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 2.23
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 2.38
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.51
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 4.1
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.2
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 7.25
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.03
+                  "odds": 2.35
                 }
               ]
             },
@@ -703,29 +655,15 @@
               "selections": [
                 {
                   "name": "RKS Radomiak lub remis",
-                  "odds": 1.47
+                  "odds": 1.48
                 },
                 {
                   "name": "RKS Radomiak lub Motor Lublin",
-                  "odds": 1.27
+                  "odds": 1.25
                 },
                 {
                   "name": "Remis lub Motor Lublin",
-                  "odds": 1.45
-                }
-              ]
-            },
-            {
-              "name": "Oba zespoły strzelą gola lub Powyżej 2,5 gola w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.28
-                },
-                {
-                  "name": "Nie",
-                  "odds": 3.2
+                  "odds": 1.38
                 }
               ]
             },
@@ -735,43 +673,35 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.22
+                  "odds": 1.28
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 4.1
+                  "odds": 3.4
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 2.03
+                  "odds": 2.2
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.7
+                  "odds": 1.55
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 4.5
+                  "odds": 4.9
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.19
+                  "odds": 1.11
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 8.5
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.04
+                  "odds": 16.0
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 12.0
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.01
+                  "odds": 25.0
                 }
               ]
             },
@@ -781,43 +711,35 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.21
+                  "odds": 1.24
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 4.2
+                  "odds": 3.7
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 2.02
+                  "odds": 2.0
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.72
+                  "odds": 1.65
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 4.4
+                  "odds": 4.25
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.2
+                  "odds": 1.15
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 8.25
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.04
+                  "odds": 14.0
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 11.75
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.01
+                  "odds": 20.0
                 }
               ]
             }
@@ -848,69 +770,15 @@
               "selections": [
                 {
                   "name": "Stal Rzeszów",
-                  "odds": 2.6
+                  "odds": 2.65
                 },
                 {
                   "name": "Remis ",
-                  "odds": 3.6
+                  "odds": 3.4
                 },
                 {
                   "name": "Lechia Gdańsk",
-                  "odds": 2.38
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.02
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 10.25
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.15
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 4.8
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.51
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 2.4
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 2.23
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.58
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 3.73
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.23
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 6.25
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.08
+                  "odds": 2.35
                 }
               ]
             },
@@ -920,7 +788,7 @@
               "selections": [
                 {
                   "name": "Stal Rzeszów lub remis",
-                  "odds": 1.51
+                  "odds": 1.5
                 },
                 {
                   "name": "Stal Rzeszów lub Lechia Gdańsk",
@@ -928,7 +796,53 @@
                 },
                 {
                   "name": "Remis lub Lechia Gdańsk",
+                  "odds": 1.4
+                }
+              ]
+            },
+            {
+              "name": "Gole Powyżej/Poniżej",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Powyżej 1,5",
+                  "odds": 1.18
+                },
+                {
+                  "name": "Poniżej 1,5",
+                  "odds": 3.9
+                },
+                {
+                  "name": "Powyżej 2,5",
+                  "odds": 1.6
+                },
+                {
+                  "name": "Poniżej 2,5",
+                  "odds": 2.1
+                },
+                {
+                  "name": "Powyżej 3,5",
+                  "odds": 2.46
+                },
+                {
+                  "name": "Poniżej 3,5",
                   "odds": 1.44
+                },
+                {
+                  "name": "Powyżej 4,5",
+                  "odds": 4.15
+                },
+                {
+                  "name": "Poniżej 4,5",
+                  "odds": 1.16
+                },
+                {
+                  "name": "Powyżej 5,5",
+                  "odds": 7.5
+                },
+                {
+                  "name": "Poniżej 5,5",
+                  "odds": 1.06
                 }
               ]
             },
@@ -938,43 +852,19 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.2
+                  "odds": 1.24
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 4.3
+                  "odds": 3.4
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.98
+                  "odds": 2.1
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.74
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 4.25
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.21
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 8.0
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.05
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 11.75
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.01
+                  "odds": 1.6
                 }
               ]
             },
@@ -984,43 +874,73 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.19
+                  "odds": 1.2
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 4.55
+                  "odds": 3.7
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.9
+                  "odds": 1.96
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.81
+                  "odds": 1.68
+                }
+              ]
+            },
+            {
+              "name": "Handicap",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Stal Rzeszów (-2)",
+                  "odds": 12.5
                 },
                 {
-                  "name": "Powyżej 2,5",
-                  "odds": 3.95
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.23
-                },
-                {
-                  "name": "Powyżej 3,5",
+                  "name": "Remis (Stal Rzeszów -2)",
                   "odds": 7.5
                 },
                 {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.05
+                  "name": "Lechia Gdańsk (+2)",
+                  "odds": 1.14
                 },
                 {
-                  "name": "Powyżej 4,5",
-                  "odds": 11.5
+                  "name": "Stal Rzeszów (-1)",
+                  "odds": 5.4
                 },
                 {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.01
+                  "name": "Remis (Stal Rzeszów -1)",
+                  "odds": 4.75
+                },
+                {
+                  "name": "Lechia Gdańsk (+1)",
+                  "odds": 1.45
+                },
+                {
+                  "name": "Stal Rzeszów (+1)",
+                  "odds": 1.55
+                },
+                {
+                  "name": "Remis (Stal Rzeszów +1)",
+                  "odds": 4.45
+                },
+                {
+                  "name": "Lechia Gdańsk (-1)",
+                  "odds": 4.55
+                },
+                {
+                  "name": "Stal Rzeszów (+2)",
+                  "odds": 1.18
+                },
+                {
+                  "name": "Remis (Stal Rzeszów +2)",
+                  "odds": 6.75
+                },
+                {
+                  "name": "Lechia Gdańsk (-2)",
+                  "odds": 10.0
                 }
               ]
             }
@@ -1051,15 +971,15 @@
               "selections": [
                 {
                   "name": "Atalanta",
-                  "odds": 1.49
+                  "odds": 1.53
                 },
                 {
                   "name": "Remis ",
-                  "odds": 4.6
+                  "odds": 4.25
                 },
                 {
                   "name": "Venezia",
-                  "odds": 5.6
+                  "odds": 5.25
                 }
               ]
             },
@@ -1069,11 +989,11 @@
               "selections": [
                 {
                   "name": "Atalanta",
-                  "odds": 1.26
+                  "odds": 1.29
                 },
                 {
                   "name": "Venezia",
-                  "odds": 4.5
+                  "odds": 4.3
                 }
               ]
             },
@@ -1091,7 +1011,7 @@
                 },
                 {
                   "name": "Remis lub Venezia",
-                  "odds": 2.52
+                  "odds": 2.35
                 }
               ]
             },
@@ -1105,39 +1025,39 @@
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 11.5
+                  "odds": 10.0
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.15
+                  "odds": 1.16
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 4.9
+                  "odds": 4.65
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 1.51
+                  "odds": 1.53
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 2.45
+                  "odds": 2.35
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 2.27
+                  "odds": 2.3
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 1.59
+                  "odds": 1.55
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 3.78
+                  "odds": 3.85
                 },
                 {
                   "name": "Poniżej 4,5",
-                  "odds": 1.24
+                  "odds": 1.22
                 },
                 {
                   "name": "Powyżej 5,5",
@@ -1145,7 +1065,7 @@
                 },
                 {
                   "name": "Poniżej 5,5",
-                  "odds": 1.09
+                  "odds": 1.08
                 }
               ]
             },
@@ -1173,35 +1093,35 @@
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 7.75
+                  "odds": 7.25
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.46
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 2.52
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 2.4
-                },
-                {
-                  "name": "Poniżej 2,5",
                   "odds": 1.51
                 },
                 {
+                  "name": "Poniżej 1,5",
+                  "odds": 2.4
+                },
+                {
+                  "name": "Powyżej 2,5",
+                  "odds": 2.53
+                },
+                {
+                  "name": "Poniżej 2,5",
+                  "odds": 1.47
+                },
+                {
                   "name": "Powyżej 3,5",
-                  "odds": 4.45
+                  "odds": 4.75
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 1.17
+                  "odds": 1.15
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 8.25
+                  "odds": 8.75
                 },
                 {
                   "name": "Poniżej 4,5",
@@ -1215,15 +1135,15 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.47
+                  "odds": 1.46
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 2.5
+                  "odds": 2.53
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 3.18
+                  "odds": 3.15
                 },
                 {
                   "name": "Poniżej 1,5",
@@ -1231,7 +1151,7 @@
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 10.25
+                  "odds": 10.0
                 },
                 {
                   "name": "Poniżej 2,5",
@@ -1475,15 +1395,15 @@
               "selections": [
                 {
                   "name": "KFUM Oslo",
-                  "odds": 2.72
+                  "odds": 2.57
                 },
                 {
                   "name": "Remis ",
-                  "odds": 3.4
+                  "odds": 3.35
                 },
                 {
                   "name": "Vålerenga",
-                  "odds": 2.1
+                  "odds": 2.2
                 }
               ]
             },
@@ -1493,15 +1413,15 @@
               "selections": [
                 {
                   "name": "KFUM Oslo lub remis",
-                  "odds": 1.57
+                  "odds": 1.51
                 },
                 {
                   "name": "KFUM Oslo lub Vålerenga",
-                  "odds": 1.23
+                  "odds": 1.24
                 },
                 {
                   "name": "Remis lub Vålerenga",
-                  "odds": 1.36
+                  "odds": 1.4
                 }
               ]
             },
@@ -1523,31 +1443,31 @@
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 4.15
+                  "odds": 4.1
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 1.5
+                  "odds": 1.51
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 2.2
+                  "odds": 2.18
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 2.22
+                  "odds": 2.23
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 1.5
+                  "odds": 1.48
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 3.6
+                  "odds": 3.65
                 },
                 {
                   "name": "Poniżej 4,5",
-                  "odds": 1.19
+                  "odds": 1.18
                 }
               ]
             },
@@ -1571,27 +1491,27 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.22
+                  "odds": 1.21
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 3.73
+                  "odds": 3.88
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 2.05
+                  "odds": 2.0
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.58
+                  "odds": 1.61
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 4.85
+                  "odds": 4.6
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.14
+                  "odds": 1.16
                 }
               ]
             },
@@ -1601,27 +1521,27 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.16
+                  "odds": 1.17
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 4.6
+                  "odds": 4.35
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.79
+                  "odds": 1.86
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.78
+                  "odds": 1.72
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 3.73
+                  "odds": 3.98
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.22
+                  "odds": 1.2
                 }
               ]
             }
@@ -1652,15 +1572,15 @@
               "selections": [
                 {
                   "name": "Olimpia Grudziądz",
-                  "odds": 1.9
+                  "odds": 1.91
                 },
                 {
                   "name": "Remis ",
-                  "odds": 3.53
+                  "odds": 3.4
                 },
                 {
                   "name": "Resovia Rzeszów",
-                  "odds": 3.43
+                  "odds": 3.55
                 }
               ]
             },
@@ -1670,51 +1590,51 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.02
+                  "odds": 1.03
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 8.0
+                  "odds": 7.75
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.19
+                  "odds": 1.21
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 3.85
+                  "odds": 3.63
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 1.64
+                  "odds": 1.71
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 2.05
+                  "odds": 1.94
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 2.55
+                  "odds": 2.68
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 1.42
+                  "odds": 1.37
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 4.3
+                  "odds": 4.65
                 },
                 {
                   "name": "Poniżej 4,5",
-                  "odds": 1.15
+                  "odds": 1.13
                 },
                 {
                   "name": "Powyżej 5,5",
-                  "odds": 6.9
+                  "odds": 7.25
                 },
                 {
                   "name": "Poniżej 5,5",
-                  "odds": 1.05
+                  "odds": 1.04
                 }
               ]
             },
@@ -1724,15 +1644,15 @@
               "selections": [
                 {
                   "name": "Olimpia Grudziądz lub remis",
-                  "odds": 1.27
+                  "odds": 1.26
                 },
                 {
                   "name": "Olimpia Grudziądz lub Resovia Rzeszów",
-                  "odds": 1.25
+                  "odds": 1.26
                 },
                 {
                   "name": "Remis lub Resovia Rzeszów",
-                  "odds": 1.77
+                  "odds": 1.76
                 }
               ]
             },
@@ -1742,39 +1662,39 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.16
+                  "odds": 1.17
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 4.75
+                  "odds": 4.55
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.79
-                },
-                {
-                  "name": "Poniżej 1,5",
                   "odds": 1.84
                 },
                 {
+                  "name": "Poniżej 1,5",
+                  "odds": 1.79
+                },
+                {
                   "name": "Powyżej 2,5",
-                  "odds": 3.58
+                  "odds": 3.78
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.25
+                  "odds": 1.23
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 6.4
+                  "odds": 6.6
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 1.06
+                  "odds": 1.05
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 9.25
+                  "odds": 9.5
                 },
                 {
                   "name": "Poniżej 4,5",
@@ -1788,31 +1708,31 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.33
+                  "odds": 1.36
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 2.95
+                  "odds": 2.8
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 2.55
+                  "odds": 2.68
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.41
+                  "odds": 1.37
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 7.0
+                  "odds": 7.75
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.09
+                  "odds": 1.07
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 9.0
+                  "odds": 9.25
                 },
                 {
                   "name": "Poniżej 3,5",
@@ -2092,43 +2012,43 @@
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.18
+                  "odds": 1.17
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 3.98
+                  "odds": 4.05
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 1.61
+                  "odds": 1.59
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 2.08
+                  "odds": 2.12
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 2.47
+                  "odds": 2.42
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 1.44
+                  "odds": 1.46
                 },
                 {
                   "name": "Powyżej 4,5",
-                  "odds": 4.2
+                  "odds": 4.1
                 },
                 {
                   "name": "Poniżej 4,5",
-                  "odds": 1.16
+                  "odds": 1.17
                 },
                 {
                   "name": "Powyżej 5,5",
-                  "odds": 6.75
+                  "odds": 6.9
                 },
                 {
                   "name": "Poniżej 5,5",
-                  "odds": 1.05
+                  "odds": 1.02
                 }
               ]
             },
@@ -2152,31 +2072,31 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.13
+                  "odds": 1.12
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 5.5
+                  "odds": 5.6
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.65
+                  "odds": 1.64
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 2.02
+                  "odds": 2.05
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 3.07
+                  "odds": 3.0
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.32
+                  "odds": 1.33
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 5.6
+                  "odds": 5.5
                 },
                 {
                   "name": "Poniżej 3,5",
@@ -2198,27 +2118,27 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.4
+                  "odds": 1.39
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 2.65
+                  "odds": 2.7
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 2.85
+                  "odds": 2.8
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.34
+                  "odds": 1.35
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 8.75
+                  "odds": 8.25
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.06
+                  "odds": 1.07
                 },
                 {
                   "name": "Powyżej 3,5",
@@ -2683,15 +2603,15 @@
               "selections": [
                 {
                   "name": "Torino",
-                  "odds": 2.47
+                  "odds": 2.5
                 },
                 {
                   "name": "Remis ",
-                  "odds": 3.0
+                  "odds": 2.97
                 },
                 {
                   "name": "Udinese",
-                  "odds": 3.02
+                  "odds": 3.0
                 }
               ]
             },
@@ -2701,11 +2621,11 @@
               "selections": [
                 {
                   "name": "Torino",
-                  "odds": 2.03
+                  "odds": 2.05
                 },
                 {
                   "name": "Udinese",
-                  "odds": 2.43
+                  "odds": 2.42
                 }
               ]
             },
@@ -2723,7 +2643,7 @@
                 },
                 {
                   "name": "Remis lub Udinese",
-                  "odds": 1.5
+                  "odds": 1.49
                 }
               ]
             },
@@ -2741,23 +2661,23 @@
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.36
+                  "odds": 1.37
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 2.97
+                  "odds": 2.95
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 2.15
+                  "odds": 2.17
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.65
+                  "odds": 1.64
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 3.75
+                  "odds": 3.78
                 },
                 {
                   "name": "Poniżej 3,5",
@@ -2805,19 +2725,19 @@
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 3.18
+                  "odds": 3.15
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 2.5
+                  "odds": 2.53
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.47
+                  "odds": 1.46
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 6.5
+                  "odds": 6.6
                 },
                 {
                   "name": "Poniżej 2,5",
@@ -2851,7 +2771,7 @@
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 2.8
+                  "odds": 2.82
                 },
                 {
                   "name": "Powyżej 1,5",
@@ -2859,7 +2779,7 @@
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.37
+                  "odds": 1.38
                 },
                 {
                   "name": "Powyżej 2,5",
@@ -3163,7 +3083,7 @@
                 },
                 {
                   "name": "Remis lub Newcastle",
-                  "odds": 1.33
+                  "odds": 1.32
                 }
               ]
             },
@@ -3185,19 +3105,19 @@
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 4.5
+                  "odds": 4.55
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 1.6
+                  "odds": 1.59
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 2.25
+                  "odds": 2.27
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 2.43
+                  "odds": 2.42
                 },
                 {
                   "name": "Poniżej 3,5",
@@ -3249,7 +3169,7 @@
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 2.33
+                  "odds": 2.32
                 },
                 {
                   "name": "Poniżej 1,5",
@@ -3291,11 +3211,11 @@
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 4.95
+                  "odds": 5.0
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.81
+                  "odds": 1.8
                 },
                 {
                   "name": "Poniżej 1,5",
@@ -3303,7 +3223,7 @@
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 3.6
+                  "odds": 3.58
                 },
                 {
                   "name": "Poniżej 2,5",
@@ -3311,7 +3231,7 @@
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 7.0
+                  "odds": 6.9
                 },
                 {
                   "name": "Poniżej 3,5",
@@ -3775,7 +3695,14 @@
                 }
               ]
             }
-          ]
+          ],
+          "_snapshot_meta": {
+            "stale": true,
+            "reason": "missing_from_discovery",
+            "stale_since_warsaw": "2026-10-12T17:42:46.240986+02:00",
+            "fallback_age_seconds": 1360.6,
+            "max_fallback_age_seconds": 5400
+          }
         }
       ],
       "fallback_max_age_seconds": 5400
@@ -3784,7 +3711,7 @@
       "sport": "tennis",
       "source": "direct_betclic",
       "stale": false,
-      "event_count": 17,
+      "event_count": 16,
       "stale_event_ids": [],
       "summary_only_event_ids": [],
       "discovery": {
@@ -3865,21 +3792,21 @@
               "selections": [
                 {
                   "name": "Sean Cuenin",
-                  "odds": 1.22
+                  "odds": 1.95
                 },
                 {
                   "name": "Izan Almazan Valiente",
-                  "odds": 3.05
+                  "odds": 1.57
                 }
               ]
             },
             {
-              "name": "2. set - Gem 4 - Zwycięzca",
+              "name": "2. set - Gem 10 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
                   "name": "Sean Cuenin",
-                  "odds": 1.32
+                  "odds": 1.35
                 },
                 {
                   "name": "Izan Almazan Valiente",
@@ -3893,11 +3820,11 @@
               "selections": [
                 {
                   "name": "Sean Cuenin",
-                  "odds": 1.6
+                  "odds": 4.5
                 },
                 {
                   "name": "Izan Almazan Valiente",
-                  "odds": 1.85
+                  "odds": 1.07
                 }
               ]
             },
@@ -3907,29 +3834,29 @@
               "selections": [
                 {
                   "name": "2 - 0",
-                  "odds": 1.65
+                  "odds": 6.25
                 },
                 {
                   "name": "1 - 2",
-                  "odds": 3.3
+                  "odds": 1.57
                 },
                 {
                   "name": "2 - 1",
-                  "odds": 3.75
+                  "odds": 2.55
                 }
               ]
             },
             {
-              "name": "2. set - Gem 3 - Punkt 5 - Zwycięzca",
+              "name": "2. set - Gem 9 - Punkt 3 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
                   "name": "Sean Cuenin",
-                  "odds": 1.85
+                  "odds": 2.05
                 },
                 {
                   "name": "Izan Almazan Valiente",
-                  "odds": 1.57
+                  "odds": 1.45
                 }
               ]
             },
@@ -3939,11 +3866,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.85
+                  "odds": 1.07
                 },
                 {
                   "name": "Nie",
-                  "odds": 1.6
+                  "odds": 4.5
                 }
               ]
             },
@@ -3953,11 +3880,11 @@
               "selections": [
                 {
                   "name": "Sean Cuenin (-1,5)",
-                  "odds": 1.65
+                  "odds": 4.65
                 },
                 {
                   "name": "Izan Almazan Valiente (+1.5)",
-                  "odds": 1.85
+                  "odds": 1.07
                 }
               ]
             },
@@ -3967,124 +3894,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.85
+                  "odds": 1.07
                 },
                 {
                   "name": "Nie",
-                  "odds": 1.6
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1249267739017216,
-          "name": "Sascha Gueymard Wayenburg - Liam Broady",
-          "date": "2026-10-12T14:30:00.0000000Z",
-          "date_warsaw": "2026-10-12T16:30:00+02:00",
-          "competition": "Roanne Challenger",
-          "competition_id": 29803,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Sascha Gueymard Wayenburg",
-              "short": "S. Gueymard Wayenburg"
-            },
-            {
-              "name": "Liam Broady",
-              "short": "L. Broady"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Liam Broady",
-                  "odds": 6.75
-                }
-              ]
-            },
-            {
-              "name": "2. set - Gem 10 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Sascha Gueymard Wayenburg",
-                  "odds": 1.03
-                },
-                {
-                  "name": "Liam Broady",
-                  "odds": 4.85
-                }
-              ]
-            },
-            {
-              "name": "2. set - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Liam Broady",
-                  "odds": 6.25
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 1",
-                  "odds": 8.5
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 15.5
-                }
-              ]
-            },
-            {
-              "name": "2. set - Gem 9 - Punkt 3 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Sascha Gueymard Wayenburg",
-                  "odds": 2.05
-                },
-                {
-                  "name": "Liam Broady",
-                  "odds": 1.45
-                }
-              ]
-            },
-            {
-              "name": "Liam Broady wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 6.25
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Liam Broady (+1.5)",
-                  "odds": 6.5
-                }
-              ]
-            },
-            {
-              "name": "Czy obaj zawodnicy wygrają seta w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 6.25
+                  "odds": 4.5
                 }
               ]
             }
@@ -4115,25 +3929,11 @@
               "selections": [
                 {
                   "name": "Mika Brunold",
-                  "odds": 1.05
+                  "odds": 1.18
                 },
                 {
                   "name": "Mathys Domenc",
-                  "odds": 5.1
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 10 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Mika Brunold",
-                  "odds": 1.08
-                },
-                {
-                  "name": "Mathys Domenc",
-                  "odds": 3.95
+                  "odds": 3.35
                 }
               ]
             },
@@ -4143,33 +3943,33 @@
               "selections": [
                 {
                   "name": "2 - 0",
-                  "odds": 1.22
+                  "odds": 2.1
                 },
                 {
                   "name": "0 - 2",
-                  "odds": 14.5
+                  "odds": 5.7
                 },
                 {
                   "name": "2 - 1",
-                  "odds": 3.7
+                  "odds": 2.05
                 },
                 {
                   "name": "1 - 2",
-                  "odds": 10.5
+                  "odds": 8.25
                 }
               ]
             },
             {
-              "name": "1. set - Gem 10 - Punkt 1 - Zwycięzca",
+              "name": "1. set - Gem 12 - Punkt 12 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
                   "name": "Mika Brunold",
-                  "odds": 1.32
+                  "odds": 1.45
                 },
                 {
                   "name": "Mathys Domenc",
-                  "odds": 2.35
+                  "odds": 2.05
                 }
               ]
             },
@@ -4179,11 +3979,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.01
+                  "odds": 1.07
                 },
                 {
                   "name": "Nie",
-                  "odds": 5.9
+                  "odds": 4.4
                 }
               ]
             },
@@ -4193,11 +3993,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 2.75
+                  "odds": 1.45
                 },
                 {
                   "name": "Nie",
-                  "odds": 1.25
+                  "odds": 2.1
                 }
               ]
             },
@@ -4207,19 +4007,19 @@
               "selections": [
                 {
                   "name": "Mika Brunold (-1,5)",
-                  "odds": 1.25
+                  "odds": 2.15
                 },
                 {
                   "name": "Mathys Domenc (+1.5)",
-                  "odds": 2.8
+                  "odds": 1.47
                 },
                 {
                   "name": "Mika Brunold (+1,5)",
-                  "odds": 1.01
+                  "odds": 1.08
                 },
                 {
                   "name": "Mathys Domenc (-1.5)",
-                  "odds": 6.25
+                  "odds": 4.55
                 }
               ]
             },
@@ -4229,11 +4029,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 3.1
+                  "odds": 1.75
                 },
                 {
                   "name": "Nie",
-                  "odds": 1.2
+                  "odds": 1.7
                 }
               ]
             }
@@ -4264,25 +4064,25 @@
               "selections": [
                 {
                   "name": "Francesco Forti",
-                  "odds": 1.35
+                  "odds": 2.15
                 },
                 {
                   "name": "Zdenek Kolar",
-                  "odds": 2.5
+                  "odds": 1.47
                 }
               ]
             },
             {
-              "name": "1. set - Gem 7 - Zwycięzca",
+              "name": "1. set - Gem 12 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
                   "name": "Francesco Forti",
-                  "odds": 1.18
+                  "odds": 2.75
                 },
                 {
                   "name": "Zdenek Kolar",
-                  "odds": 3.05
+                  "odds": 1.22
                 }
               ]
             },
@@ -4292,33 +4092,33 @@
               "selections": [
                 {
                   "name": "2 - 0",
-                  "odds": 1.7
+                  "odds": 3.95
                 },
                 {
                   "name": "0 - 2",
-                  "odds": 8.25
+                  "odds": 2.05
                 },
                 {
                   "name": "2 - 1",
-                  "odds": 4.1
+                  "odds": 3.95
                 },
                 {
                   "name": "1 - 2",
-                  "odds": 3.25
+                  "odds": 3.75
                 }
               ]
             },
             {
-              "name": "1. set - Gem 6 - Punkt 4 - Zwycięzca",
+              "name": "1. set - Gem 11 - Punkt 5 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
                   "name": "Francesco Forti",
-                  "odds": 2.0
+                  "odds": 1.47
                 },
                 {
                   "name": "Zdenek Kolar",
-                  "odds": 1.47
+                  "odds": 2.0
                 }
               ]
             },
@@ -4328,11 +4128,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.04
+                  "odds": 1.5
                 },
                 {
                   "name": "Nie",
-                  "odds": 5.1
+                  "odds": 2.05
                 }
               ]
             },
@@ -4342,11 +4142,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.7
+                  "odds": 1.14
                 },
                 {
                   "name": "Nie",
-                  "odds": 1.75
+                  "odds": 3.5
                 }
               ]
             },
@@ -4356,19 +4156,19 @@
               "selections": [
                 {
                   "name": "Francesco Forti (-1,5)",
-                  "odds": 1.75
+                  "odds": 3.55
                 },
                 {
                   "name": "Zdenek Kolar (+1.5)",
-                  "odds": 1.75
+                  "odds": 1.15
                 },
                 {
                   "name": "Francesco Forti (+1,5)",
-                  "odds": 1.04
+                  "odds": 1.5
                 },
                 {
                   "name": "Zdenek Kolar (-1.5)",
-                  "odds": 5.3
+                  "odds": 2.05
                 }
               ]
             },
@@ -4378,11 +4178,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 2.0
+                  "odds": 2.05
                 },
                 {
                   "name": "Nie",
-                  "odds": 1.52
+                  "odds": 1.47
                 }
               ]
             }
@@ -4413,25 +4213,25 @@
               "selections": [
                 {
                   "name": "Sumit Nagal",
-                  "odds": 4.5
+                  "odds": 4.95
                 },
                 {
                   "name": "Henrique Rocha",
-                  "odds": 1.08
+                  "odds": 1.05
                 }
               ]
             },
             {
-              "name": "1. set - Gem 4 - Zwycięzca",
+              "name": "1. set - Gem 9 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
                   "name": "Sumit Nagal",
-                  "odds": 1.4
+                  "odds": 3.4
                 },
                 {
                   "name": "Henrique Rocha",
-                  "odds": 2.15
+                  "odds": 1.14
                 }
               ]
             },
@@ -4441,33 +4241,33 @@
               "selections": [
                 {
                   "name": "2 - 0",
-                  "odds": 16.0
+                  "odds": 45.0
                 },
                 {
                   "name": "0 - 2",
-                  "odds": 1.22
+                  "odds": 1.2
                 },
                 {
                   "name": "2 - 1",
-                  "odds": 7.0
+                  "odds": 6.5
                 },
                 {
                   "name": "1 - 2",
-                  "odds": 4.15
+                  "odds": 4.1
                 }
               ]
             },
             {
-              "name": "1. set - Gem 3 - Punkt 2 - Zwycięzca",
+              "name": "1. set - Gem 8 - Punkt 4 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
                   "name": "Sumit Nagal",
-                  "odds": 2.2
+                  "odds": 1.55
                 },
                 {
                   "name": "Henrique Rocha",
-                  "odds": 1.37
+                  "odds": 1.85
                 }
               ]
             },
@@ -4477,11 +4277,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 2.7
+                  "odds": 2.9
                 },
                 {
                   "name": "Nie",
-                  "odds": 1.27
+                  "odds": 1.22
                 }
               ]
             },
@@ -4490,12 +4290,8 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "Tak",
-                  "odds": 1.01
-                },
-                {
                   "name": "Nie",
-                  "odds": 6.0
+                  "odds": 6.25
                 }
               ]
             },
@@ -4505,19 +4301,15 @@
               "selections": [
                 {
                   "name": "Sumit Nagal (-1,5)",
-                  "odds": 6.25
-                },
-                {
-                  "name": "Henrique Rocha (+1.5)",
-                  "odds": 1.01
+                  "odds": 6.75
                 },
                 {
                   "name": "Sumit Nagal (+1,5)",
-                  "odds": 2.75
+                  "odds": 2.95
                 },
                 {
                   "name": "Henrique Rocha (-1.5)",
-                  "odds": 1.27
+                  "odds": 1.22
                 }
               ]
             },
@@ -4527,11 +4319,118 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 2.95
+                  "odds": 3.0
                 },
                 {
                   "name": "Nie",
-                  "odds": 1.22
+                  "odds": 1.2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1249245053063168,
+          "name": "Pol Martin Tiffon - Francisco Rocha",
+          "date": "2026-10-12T16:30:00.0000000Z",
+          "date_warsaw": "2026-10-12T18:30:00+02:00",
+          "competition": "Maia Challenger",
+          "competition_id": 26256,
+          "is_live": true,
+          "teams": [
+            {
+              "name": "Pol Martin Tiffon",
+              "short": "P. Martin Tiffon"
+            },
+            {
+              "name": "Francisco Rocha",
+              "short": "F. Rocha"
+            }
+          ],
+          "markets": [
+            {
+              "name": "Zwycięzca meczu",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Pol Martin Tiffon",
+                  "odds": 1.16
+                },
+                {
+                  "name": "Francisco Rocha",
+                  "odds": 4.4
+                }
+              ]
+            },
+            {
+              "name": "Pol Martin Tiffon wygra seta",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 1.05
+                },
+                {
+                  "name": "Nie",
+                  "odds": 6.6
+                }
+              ]
+            },
+            {
+              "name": "Francisco Rocha wygra seta",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 2.37
+                },
+                {
+                  "name": "Nie",
+                  "odds": 1.47
+                }
+              ]
+            },
+            {
+              "name": "Wynik w setach",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "2 - 0",
+                  "odds": 1.47
+                },
+                {
+                  "name": "0 - 2",
+                  "odds": 8.8
+                },
+                {
+                  "name": "2 - 1",
+                  "odds": 4.0
+                },
+                {
+                  "name": "1 - 2",
+                  "odds": 9.2
+                }
+              ]
+            },
+            {
+              "name": "Handicap setowy",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Pol Martin Tiffon (-1,5)",
+                  "odds": 1.47
+                },
+                {
+                  "name": "Francisco Rocha (+1.5)",
+                  "odds": 2.37
+                },
+                {
+                  "name": "Pol Martin Tiffon (+1,5)",
+                  "odds": 1.05
+                },
+                {
+                  "name": "Francisco Rocha (-1.5)",
+                  "odds": 8.8
                 }
               ]
             }
@@ -4639,113 +4538,6 @@
                 {
                   "name": "Daniel Jade (-1.5)",
                   "odds": 8.6
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1249245053063168,
-          "name": "Pol Martin Tiffon - Francisco Rocha",
-          "date": "2026-10-12T16:45:00.0000000Z",
-          "date_warsaw": "2026-10-12T18:45:00+02:00",
-          "competition": "Maia Challenger",
-          "competition_id": 26256,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Pol Martin Tiffon",
-              "short": "P. Martin Tiffon"
-            },
-            {
-              "name": "Francisco Rocha",
-              "short": "F. Rocha"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Pol Martin Tiffon",
-                  "odds": 1.16
-                },
-                {
-                  "name": "Francisco Rocha",
-                  "odds": 4.4
-                }
-              ]
-            },
-            {
-              "name": "Pol Martin Tiffon wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.05
-                },
-                {
-                  "name": "Nie",
-                  "odds": 6.6
-                }
-              ]
-            },
-            {
-              "name": "Francisco Rocha wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 2.37
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.47
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 1.47
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 8.8
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 4.0
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 9.2
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Pol Martin Tiffon (-1,5)",
-                  "odds": 1.47
-                },
-                {
-                  "name": "Francisco Rocha (+1.5)",
-                  "odds": 2.37
-                },
-                {
-                  "name": "Pol Martin Tiffon (+1,5)",
-                  "odds": 1.05
-                },
-                {
-                  "name": "Francisco Rocha (-1.5)",
-                  "odds": 8.8
                 }
               ]
             }
@@ -5468,11 +5260,11 @@
               "selections": [
                 {
                   "name": "Rodrigo Pacheco Mendez",
-                  "odds": 1.28
+                  "odds": 1.25
                 },
                 {
                   "name": "Juan Estevez",
-                  "odds": 3.25
+                  "odds": 3.4
                 }
               ]
             },
@@ -5482,11 +5274,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.11
+                  "odds": 1.1
                 },
                 {
                   "name": "Nie",
-                  "odds": 5.0
+                  "odds": 5.2
                 }
               ]
             },
@@ -5496,11 +5288,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.93
+                  "odds": 1.98
                 },
                 {
                   "name": "Nie",
-                  "odds": 1.72
+                  "odds": 1.68
                 }
               ]
             },
@@ -5510,11 +5302,11 @@
               "selections": [
                 {
                   "name": "2 - 0",
-                  "odds": 1.72
+                  "odds": 1.68
                 },
                 {
                   "name": "0 - 2",
-                  "odds": 5.8
+                  "odds": 6.2
                 },
                 {
                   "name": "2 - 1",
@@ -5522,7 +5314,7 @@
                 },
                 {
                   "name": "1 - 2",
-                  "odds": 7.0
+                  "odds": 7.2
                 }
               ]
             },
@@ -5532,19 +5324,19 @@
               "selections": [
                 {
                   "name": "Rodrigo Pacheco Mendez (-1,5)",
-                  "odds": 1.72
+                  "odds": 1.68
                 },
                 {
                   "name": "Juan Estevez (+1.5)",
-                  "odds": 1.93
+                  "odds": 1.98
                 },
                 {
                   "name": "Rodrigo Pacheco Mendez (+1,5)",
-                  "odds": 1.11
+                  "odds": 1.1
                 },
                 {
                   "name": "Juan Estevez (-1.5)",
-                  "odds": 5.8
+                  "odds": 6.2
                 }
               ]
             }
@@ -5575,11 +5367,11 @@
               "selections": [
                 {
                   "name": "Bernardo Munk Mesa",
-                  "odds": 6.0
+                  "odds": 6.8
                 },
                 {
                   "name": "Hugo Dellien",
-                  "odds": 1.08
+                  "odds": 1.06
                 }
               ]
             },
@@ -5589,11 +5381,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 2.9
+                  "odds": 3.15
                 },
                 {
                   "name": "Nie",
-                  "odds": 1.33
+                  "odds": 1.28
                 }
               ]
             },
@@ -5607,7 +5399,7 @@
                 },
                 {
                   "name": "Nie",
-                  "odds": 8.2
+                  "odds": 8.6
                 }
               ]
             },
@@ -5617,19 +5409,19 @@
               "selections": [
                 {
                   "name": "2 - 0",
-                  "odds": 14.0
+                  "odds": 16.0
                 },
                 {
                   "name": "0 - 2",
-                  "odds": 1.33
+                  "odds": 1.28
                 },
                 {
                   "name": "2 - 1",
-                  "odds": 12.0
+                  "odds": 14.0
                 },
                 {
                   "name": "1 - 2",
-                  "odds": 4.2
+                  "odds": 4.4
                 }
               ]
             },
@@ -5639,7 +5431,7 @@
               "selections": [
                 {
                   "name": "Bernardo Munk Mesa (-1,5)",
-                  "odds": 14.0
+                  "odds": 16.0
                 },
                 {
                   "name": "Hugo Dellien (+1.5)",
@@ -5647,11 +5439,11 @@
                 },
                 {
                   "name": "Bernardo Munk Mesa (+1,5)",
-                  "odds": 2.9
+                  "odds": 3.15
                 },
                 {
                   "name": "Hugo Dellien (-1.5)",
-                  "odds": 1.33
+                  "odds": 1.28
                 }
               ]
             }
