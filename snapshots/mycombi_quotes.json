@@ -2,32 +2,38 @@
   "schema_version": 3,
   "source": "direct_betclic_mycombi_quote",
   "date_warsaw": "2026-10-14",
-  "generated_at_warsaw": "2026-10-14T12:31:21.046086+02:00",
+  "generated_at_warsaw": "2026-10-14T17:23:20.531814+02:00",
   "request_count": 40,
   "results": [
     {
-      "request_id": "auto-1222412307824640-1222412308873229-1222412309913653-1222412308873318-1222412309913886",
+      "request_id": "auto-1222412307824640-1222412308873231-1222412309913653-1222412308873287-1222412309913800",
       "action": "quote",
       "event_id": 1222412307824640,
-      "label": "Auto MyCombi: Powyżej 0,5 + Como",
+      "label": "Auto MyCombi: Powyżej 0,5 + Poniżej 0,5",
       "selections": [
         {
-          "market_id": "1222412308873229",
+          "market_id": "1222412308873231",
           "selection_id": "1222412309913653"
         },
         {
-          "market_id": "1222412308873318",
-          "selection_id": "1222412309913886"
+          "market_id": "1222412308873287",
+          "selection_id": "1222412309913800"
         }
       ],
-      "quoted_at_warsaw": "2026-10-14T12:30:35.353616+02:00",
+      "quoted_at_warsaw": "2026-10-14T17:22:36.078629+02:00",
       "valid": false,
       "odds": null,
       "errors": [
         {
           "code": "SELECTION_UNAVAILABLE",
-          "market_id": "1222412308873229",
+          "market_id": "1222412308873231",
           "selection_id": "1222412309913653",
+          "detail": "Selection is not available for this event's MyCombi"
+        },
+        {
+          "code": "SELECTION_UNAVAILABLE",
+          "market_id": "1222412308873287",
+          "selection_id": "1222412309913800",
           "detail": "Selection is not available for this event's MyCombi"
         }
       ],
@@ -35,28 +41,72 @@
       "fallback": false
     },
     {
-      "request_id": "auto-1222412307824640-1222412308873229-1222412309913653-1249984564436996-1249984564445186",
+      "request_id": "auto-1222412307824640-1222412308873231-1222412309913653-1222412308873292-1222412309913816",
       "action": "quote",
       "event_id": 1222412307824640,
-      "label": "Auto MyCombi: Powyżej 0,5 + Powyżej 9,5",
+      "label": "Auto MyCombi: Powyżej 0,5 + Tak",
       "selections": [
         {
-          "market_id": "1222412308873229",
+          "market_id": "1222412308873231",
           "selection_id": "1222412309913653"
         },
         {
-          "market_id": "1249984564436996",
-          "selection_id": "1249984564445186"
+          "market_id": "1222412308873292",
+          "selection_id": "1222412309913816"
         }
       ],
-      "quoted_at_warsaw": "2026-10-14T12:30:35.970926+02:00",
+      "quoted_at_warsaw": "2026-10-14T17:22:37.358797+02:00",
+      "valid": true,
+      "odds": 2.53,
+      "errors": [],
+      "stale": false,
+      "fallback": false
+    },
+    {
+      "request_id": "auto-1222413966667776-1222413970858033-1222413970862226-1250031837393040-1250031837384778",
+      "action": "quote",
+      "event_id": 1222413966667776,
+      "label": "Auto MyCombi: Remis lub Real Madryt + Powyżej 5,5",
+      "selections": [
+        {
+          "market_id": "1222413970858033",
+          "selection_id": "1222413970862226"
+        },
+        {
+          "market_id": "1250031837393040",
+          "selection_id": "1250031837384778"
+        }
+      ],
+      "quoted_at_warsaw": "2026-10-14T17:22:38.866736+02:00",
+      "valid": true,
+      "odds": 2.5,
+      "errors": [],
+      "stale": false,
+      "fallback": false
+    },
+    {
+      "request_id": "auto-1222413966667776-1250031837393040-1250031837384778-1222413970858068-1222413970862317",
+      "action": "quote",
+      "event_id": 1222413966667776,
+      "label": "Auto MyCombi: Powyżej 5,5 + Real Madryt (+1)",
+      "selections": [
+        {
+          "market_id": "1250031837393040",
+          "selection_id": "1250031837384778"
+        },
+        {
+          "market_id": "1222413970858068",
+          "selection_id": "1222413970862317"
+        }
+      ],
+      "quoted_at_warsaw": "2026-10-14T17:22:39.445201+02:00",
       "valid": false,
       "odds": null,
       "errors": [
         {
           "code": "SELECTION_UNAVAILABLE",
-          "market_id": "1222412308873229",
-          "selection_id": "1222412309913653",
+          "market_id": "1222413970858068",
+          "selection_id": "1222413970862317",
           "detail": "Selection is not available for this event's MyCombi"
         }
       ],
@@ -64,89 +114,45 @@
       "fallback": false
     },
     {
-      "request_id": "auto-1222413127786509-1222413129912333-1222413130932280-1222413129912357-1222413130932344",
-      "action": "quote",
-      "event_id": 1222413127786509,
-      "label": "Auto MyCombi: Poniżej 1,5 + 2. Połowa",
-      "selections": [
-        {
-          "market_id": "1222413129912333",
-          "selection_id": "1222413130932280"
-        },
-        {
-          "market_id": "1222413129912357",
-          "selection_id": "1222413130932344"
-        }
-      ],
-      "quoted_at_warsaw": "2026-10-14T12:30:37.399892+02:00",
-      "valid": true,
-      "odds": 2.58,
-      "errors": [],
-      "stale": false,
-      "fallback": false
-    },
-    {
-      "request_id": "auto-1222413127786509-1222413129912346-1222413130932330-1222413129912357-1222413130932344",
-      "action": "quote",
-      "event_id": 1222413127786509,
-      "label": "Auto MyCombi: Poniżej 4,5 + 2. Połowa",
-      "selections": [
-        {
-          "market_id": "1222413129912346",
-          "selection_id": "1222413130932330"
-        },
-        {
-          "market_id": "1222413129912357",
-          "selection_id": "1222413130932344"
-        }
-      ],
-      "quoted_at_warsaw": "2026-10-14T12:30:39.036532+02:00",
-      "valid": true,
-      "odds": 2.65,
-      "errors": [],
-      "stale": false,
-      "fallback": false
-    },
-    {
-      "request_id": "auto-1222415077117953-1222415079186444-1222415080259658-1222415079186443-1222415080259655",
+      "request_id": "auto-1222415077117953-1222415079186473-1222415080259746-1222415079186443-1222415080259655",
       "action": "quote",
       "event_id": 1222415077117953,
-      "label": "Auto MyCombi: Nieparzyste + 1 - 3",
+      "label": "Auto MyCombi: 2. Połowa + 1 - 3",
       "selections": [
         {
-          "market_id": "1222415079186444",
-          "selection_id": "1222415080259658"
+          "market_id": "1222415079186473",
+          "selection_id": "1222415080259746"
         },
         {
           "market_id": "1222415079186443",
           "selection_id": "1222415080259655"
         }
       ],
-      "quoted_at_warsaw": "2026-10-14T12:30:40.537007+02:00",
+      "quoted_at_warsaw": "2026-10-14T17:22:40.812197+02:00",
       "valid": true,
-      "odds": 2.37,
+      "odds": 2.3,
       "errors": [],
       "stale": false,
       "fallback": false
     },
     {
-      "request_id": "auto-1222415077117953-1222415079186444-1222415080259658-1222415079186491-1222415080259814",
+      "request_id": "auto-1222415077117953-1249890486194205-1249890678079505-1222415079186443-1222415080259655",
       "action": "quote",
       "event_id": 1222415077117953,
-      "label": "Auto MyCombi: Nieparzyste + Nie",
+      "label": "Auto MyCombi: Poniżej 3,5 + 1 - 3",
       "selections": [
         {
-          "market_id": "1222415079186444",
-          "selection_id": "1222415080259658"
+          "market_id": "1249890486194205",
+          "selection_id": "1249890678079505"
         },
         {
-          "market_id": "1222415079186491",
-          "selection_id": "1222415080259814"
+          "market_id": "1222415079186443",
+          "selection_id": "1222415080259655"
         }
       ],
-      "quoted_at_warsaw": "2026-10-14T12:30:41.977081+02:00",
+      "quoted_at_warsaw": "2026-10-14T17:22:42.055025+02:00",
       "valid": true,
-      "odds": 2.73,
+      "odds": 2.5,
       "errors": [],
       "stale": false,
       "fallback": false
@@ -166,7 +172,7 @@
           "selection_id": "1222415942180935"
         }
       ],
-      "quoted_at_warsaw": "2026-10-14T12:30:43.397017+02:00",
+      "quoted_at_warsaw": "2026-10-14T17:22:43.527312+02:00",
       "valid": true,
       "odds": 2.4,
       "errors": [],
@@ -188,10 +194,66 @@
           "selection_id": "1222415942189344"
         }
       ],
-      "quoted_at_warsaw": "2026-10-14T12:30:44.977447+02:00",
+      "quoted_at_warsaw": "2026-10-14T17:22:45.055723+02:00",
       "valid": true,
-      "odds": 2.38,
+      "odds": 2.4,
       "errors": [],
+      "stale": false,
+      "fallback": false
+    },
+    {
+      "request_id": "auto-1222417862135808-1222417976426504-1222417977466907-1222417995304968-1222417996349485",
+      "action": "quote",
+      "event_id": 1222417862135808,
+      "label": "Auto MyCombi: Manchester City lub Paris SG + Powyżej 1,5",
+      "selections": [
+        {
+          "market_id": "1222417976426504",
+          "selection_id": "1222417977466907"
+        },
+        {
+          "market_id": "1222417995304968",
+          "selection_id": "1222417996349485"
+        }
+      ],
+      "quoted_at_warsaw": "2026-10-14T17:22:45.647366+02:00",
+      "valid": false,
+      "odds": null,
+      "errors": [
+        {
+          "code": "SELECTION_UNAVAILABLE",
+          "market_id": "1222417995304968",
+          "selection_id": "1222417996349485",
+          "detail": "Selection is not available for this event's MyCombi"
+        }
+      ],
+      "stale": false,
+      "fallback": false
+    },
+    {
+      "request_id": "auto-1222417862135808-1222417976426504-1222417977466907-1222418300432393-1222418301489217",
+      "action": "quote",
+      "event_id": 1222417862135808,
+      "label": "Auto MyCombi: Manchester City lub Paris SG + 2 - 3",
+      "selections": [
+        {
+          "market_id": "1222417976426504",
+          "selection_id": "1222417977466907"
+        },
+        {
+          "market_id": "1222418300432393",
+          "selection_id": "1222418301489217"
+        }
+      ],
+      "quoted_at_warsaw": "2026-10-14T17:22:47.078347+02:00",
+      "valid": false,
+      "odds": null,
+      "errors": [
+        {
+          "code": "NO_QUOTE",
+          "detail": "Upstream did not return a valid combined price"
+        }
+      ],
       "stale": false,
       "fallback": false
     },
@@ -210,7 +272,7 @@
           "selection_id": "1222418840428846"
         }
       ],
-      "quoted_at_warsaw": "2026-10-14T12:30:46.579526+02:00",
+      "quoted_at_warsaw": "2026-10-14T17:22:48.673739+02:00",
       "valid": true,
       "odds": 2.47,
       "errors": [],
@@ -218,144 +280,50 @@
       "fallback": false
     },
     {
-      "request_id": "auto-1222418838347776-1222418839408694-1222418840428753-1222418839408712-1222418840428846",
+      "request_id": "auto-1222418838347776-1222418839408651-1222418840428615-1222418839408751-1222418840428972",
       "action": "quote",
       "event_id": 1222418838347776,
-      "label": "Auto MyCombi: Betis lub remis + Nieparzyste",
+      "label": "Auto MyCombi: 1 - 3 + Betis",
       "selections": [
         {
-          "market_id": "1222418839408694",
-          "selection_id": "1222418840428753"
+          "market_id": "1222418839408651",
+          "selection_id": "1222418840428615"
         },
         {
-          "market_id": "1222418839408712",
-          "selection_id": "1222418840428846"
+          "market_id": "1222418839408751",
+          "selection_id": "1222418840428972"
         }
       ],
-      "quoted_at_warsaw": "2026-10-14T12:30:48.078506+02:00",
+      "quoted_at_warsaw": "2026-10-14T17:22:50.327984+02:00",
       "valid": true,
-      "odds": 3.2,
+      "odds": 2.07,
       "errors": [],
       "stale": false,
       "fallback": false
     },
     {
-      "request_id": "auto-1241509005377536-1241509592567900-1241509593612635-1241509592567912-1241509593612667",
+      "request_id": "auto-1222419460157440-1222419462250554-1222419463303335-1222419462250584-1222419463303414",
       "action": "quote",
-      "event_id": 1241509005377536,
-      "label": "Auto MyCombi: Śląsk Wrocław ll lub Legia II Warszawa + Poniżej 0,5",
+      "event_id": 1222419460157440,
+      "label": "Auto MyCombi: Slovan Bratislava lub Stuttgart + Powyżej 0,5",
       "selections": [
         {
-          "market_id": "1241509592567900",
-          "selection_id": "1241509593612635"
+          "market_id": "1222419462250554",
+          "selection_id": "1222419463303335"
         },
         {
-          "market_id": "1241509592567912",
-          "selection_id": "1241509593612667"
+          "market_id": "1222419462250584",
+          "selection_id": "1222419463303414"
         }
       ],
-      "quoted_at_warsaw": "2026-10-14T12:30:49.166552+02:00",
-      "valid": true,
-      "odds": 2.67,
-      "errors": [],
-      "stale": false,
-      "fallback": false
-    },
-    {
-      "request_id": "auto-1241509005377536-1241509592567900-1241509593612635-1241509592567919-1241509593612676",
-      "action": "quote",
-      "event_id": 1241509005377536,
-      "label": "Auto MyCombi: Śląsk Wrocław ll lub Legia II Warszawa + Powyżej 0,5",
-      "selections": [
-        {
-          "market_id": "1241509592567900",
-          "selection_id": "1241509593612635"
-        },
-        {
-          "market_id": "1241509592567919",
-          "selection_id": "1241509593612676"
-        }
-      ],
-      "quoted_at_warsaw": "2026-10-14T12:30:50.241347+02:00",
-      "valid": true,
-      "odds": 2.35,
-      "errors": [],
-      "stale": false,
-      "fallback": false
-    },
-    {
-      "request_id": "auto-1246323004153856-1246872038539264-1246872038555648-1246323009388547-1246323009404933",
-      "action": "quote",
-      "event_id": 1246323004153856,
-      "label": "Auto MyCombi: Bohemians 1905 + Bohemians 1905 lub Mlada Boleslav",
-      "selections": [
-        {
-          "market_id": "1246872038539264",
-          "selection_id": "1246872038555648"
-        },
-        {
-          "market_id": "1246323009388547",
-          "selection_id": "1246323009404933"
-        }
-      ],
-      "quoted_at_warsaw": "2026-10-14T12:30:51.552295+02:00",
-      "valid": false,
-      "odds": null,
-      "errors": [
-        {
-          "code": "NOT_COMBINABLE",
-          "title": "Ten wybór nie jest mozliwy",
-          "detail": "Ten zakład nie może zostać dodany do Twojego kuponu."
-        }
-      ],
-      "stale": false,
-      "fallback": false
-    },
-    {
-      "request_id": "auto-1246323004153856-1246872038539264-1246872038555648-1246872031215643-1246872032256070",
-      "action": "quote",
-      "event_id": 1246323004153856,
-      "label": "Auto MyCombi: Bohemians 1905 + 1 - 2",
-      "selections": [
-        {
-          "market_id": "1246872038539264",
-          "selection_id": "1246872038555648"
-        },
-        {
-          "market_id": "1246872031215643",
-          "selection_id": "1246872032256070"
-        }
-      ],
-      "quoted_at_warsaw": "2026-10-14T12:30:52.631961+02:00",
-      "valid": true,
-      "odds": 2.47,
-      "errors": [],
-      "stale": false,
-      "fallback": false
-    },
-    {
-      "request_id": "auto-1246425596821504-1250496251707402-1250496251703341-1248964269572148-1248964269588692",
-      "action": "quote",
-      "event_id": 1246425596821504,
-      "label": "Auto MyCombi: Powyżej 4,5 + Nie",
-      "selections": [
-        {
-          "market_id": "1250496251707402",
-          "selection_id": "1250496251703341"
-        },
-        {
-          "market_id": "1248964269572148",
-          "selection_id": "1248964269588692"
-        }
-      ],
-      "quoted_at_warsaw": "2026-10-14T12:30:53.254195+02:00",
+      "quoted_at_warsaw": "2026-10-14T17:22:50.984242+02:00",
       "valid": false,
       "odds": null,
       "errors": [
         {
           "code": "SELECTION_UNAVAILABLE",
-          "market_id": "1250496251707402",
-          "selection_id": "1250496251703341",
+          "market_id": "1222419462250584",
+          "selection_id": "1222419463303414",
           "detail": "Selection is not available for this event's MyCombi"
         }
       ],
@@ -363,21 +331,87 @@
       "fallback": false
     },
     {
-      "request_id": "auto-1246425596821504-1250496251707407-1250496251703349-1248964269572148-1248964269588692",
+      "request_id": "auto-1222419460157440-1222419462250554-1222419463303335-1222419462250595-1222419463303439",
       "action": "quote",
-      "event_id": 1246425596821504,
-      "label": "Auto MyCombi: Powyżej 1,5 + Nie",
+      "event_id": 1222419460157440,
+      "label": "Auto MyCombi: Slovan Bratislava lub Stuttgart + Nie",
       "selections": [
         {
-          "market_id": "1250496251707407",
-          "selection_id": "1250496251703349"
+          "market_id": "1222419462250554",
+          "selection_id": "1222419463303335"
         },
         {
-          "market_id": "1248964269572148",
-          "selection_id": "1248964269588692"
+          "market_id": "1222419462250595",
+          "selection_id": "1222419463303439"
         }
       ],
-      "quoted_at_warsaw": "2026-10-14T12:30:54.738936+02:00",
+      "quoted_at_warsaw": "2026-10-14T17:22:52.346632+02:00",
+      "valid": true,
+      "odds": 2.62,
+      "errors": [],
+      "stale": false,
+      "fallback": false
+    },
+    {
+      "request_id": "auto-1246323004153856-1246872031215650-1246872032256097-1246872031215641-1246872032256063",
+      "action": "quote",
+      "event_id": 1246323004153856,
+      "label": "Auto MyCombi: Poniżej 1,5 + 1 - 2",
+      "selections": [
+        {
+          "market_id": "1246872031215650",
+          "selection_id": "1246872032256097"
+        },
+        {
+          "market_id": "1246872031215641",
+          "selection_id": "1246872032256063"
+        }
+      ],
+      "quoted_at_warsaw": "2026-10-14T17:22:53.526931+02:00",
+      "valid": true,
+      "odds": 2.62,
+      "errors": [],
+      "stale": false,
+      "fallback": false
+    },
+    {
+      "request_id": "auto-1246323004153856-1246872032264268-1246872032256364-1246872031215650-1246872032256097",
+      "action": "quote",
+      "event_id": 1246323004153856,
+      "label": "Auto MyCombi: Powyżej 0,5 + Poniżej 1,5",
+      "selections": [
+        {
+          "market_id": "1246872032264268",
+          "selection_id": "1246872032256364"
+        },
+        {
+          "market_id": "1246872031215650",
+          "selection_id": "1246872032256097"
+        }
+      ],
+      "quoted_at_warsaw": "2026-10-14T17:22:54.659703+02:00",
+      "valid": true,
+      "odds": 3.1,
+      "errors": [],
+      "stale": false,
+      "fallback": false
+    },
+    {
+      "request_id": "auto-1246417404313600-1249028307169507-1249028309258334-1249427568201756-1249427568209993",
+      "action": "quote",
+      "event_id": 1246417404313600,
+      "label": "Auto MyCombi: Powyżej 0,5 + Poniżej 5,5",
+      "selections": [
+        {
+          "market_id": "1249028307169507",
+          "selection_id": "1249028309258334"
+        },
+        {
+          "market_id": "1249427568201756",
+          "selection_id": "1249427568209993"
+        }
+      ],
+      "quoted_at_warsaw": "2026-10-14T17:22:55.811802+02:00",
       "valid": true,
       "odds": 2.5,
       "errors": [],
@@ -385,52 +419,177 @@
       "fallback": false
     },
     {
-      "request_id": "auto-1247072141447168-1248929579536412-1248929580580977-1248929579536455-1248929580581105",
+      "request_id": "auto-1246417404313600-1249427568201756-1249427568209993-1249028307169541-1249028308222168",
       "action": "quote",
-      "event_id": 1247072141447168,
-      "label": "Auto MyCombi: Poniżej 2,5 + Keciorengucu (+1)",
+      "event_id": 1246417404313600,
+      "label": "Auto MyCombi: Poniżej 5,5 + Nie",
       "selections": [
         {
-          "market_id": "1248929579536412",
-          "selection_id": "1248929580580977"
+          "market_id": "1249427568201756",
+          "selection_id": "1249427568209993"
         },
         {
-          "market_id": "1248929579536455",
-          "selection_id": "1248929580581105"
+          "market_id": "1249028307169541",
+          "selection_id": "1249028308222168"
         }
       ],
-      "quoted_at_warsaw": "2026-10-14T12:30:55.197356+02:00",
-      "valid": false,
-      "odds": null,
-      "errors": [
-        {
-          "code": "SELECTION_UNAVAILABLE",
-          "market_id": "1248929579536412",
-          "selection_id": "1248929580580977",
-          "detail": "Selection is not available for this event's MyCombi"
-        }
-      ],
+      "quoted_at_warsaw": "2026-10-14T17:22:57.162484+02:00",
+      "valid": true,
+      "odds": 2.5,
+      "errors": [],
       "stale": false,
       "fallback": false
     },
     {
-      "request_id": "auto-1247072141447168-1248929579536417-1248929580580989-1248929579536455-1248929580581105",
+      "request_id": "auto-1246425596821504-1248964269572121-1248964269588604-1248964269572148-1248964269588692",
       "action": "quote",
-      "event_id": 1247072141447168,
-      "label": "Auto MyCombi: 2. Połowa + Keciorengucu (+1)",
+      "event_id": 1246425596821504,
+      "label": "Auto MyCombi: QPR + Nie",
       "selections": [
         {
-          "market_id": "1248929579536417",
-          "selection_id": "1248929580580989"
+          "market_id": "1248964269572121",
+          "selection_id": "1248964269588604"
         },
         {
-          "market_id": "1248929579536455",
-          "selection_id": "1248929580581105"
+          "market_id": "1248964269572148",
+          "selection_id": "1248964269588692"
         }
       ],
-      "quoted_at_warsaw": "2026-10-14T12:30:56.332030+02:00",
+      "quoted_at_warsaw": "2026-10-14T17:22:58.346288+02:00",
       "valid": true,
-      "odds": 2.35,
+      "odds": 2.32,
+      "errors": [],
+      "stale": false,
+      "fallback": false
+    },
+    {
+      "request_id": "auto-1246425596821504-1248964269572148-1248964269588692-1248964269572172-1248964270625075",
+      "action": "quote",
+      "event_id": 1246425596821504,
+      "label": "Auto MyCombi: Nie + Tak",
+      "selections": [
+        {
+          "market_id": "1248964269572148",
+          "selection_id": "1248964269588692"
+        },
+        {
+          "market_id": "1248964269572172",
+          "selection_id": "1248964270625075"
+        }
+      ],
+      "quoted_at_warsaw": "2026-10-14T17:22:59.740673+02:00",
+      "valid": true,
+      "odds": 2.48,
+      "errors": [],
+      "stale": false,
+      "fallback": false
+    },
+    {
+      "request_id": "auto-1248170711449600-1248170713563143-1248170713554951-1249775385059343-1249775385059620",
+      "action": "quote",
+      "event_id": 1248170711449600,
+      "label": "Auto MyCombi: Waldhof Mannheim lub remis + Powyżej 3,5",
+      "selections": [
+        {
+          "market_id": "1248170713563143",
+          "selection_id": "1248170713554951"
+        },
+        {
+          "market_id": "1249775385059343",
+          "selection_id": "1249775385059620"
+        }
+      ],
+      "quoted_at_warsaw": "2026-10-14T17:23:00.737055+02:00",
+      "valid": true,
+      "odds": 2.43,
+      "errors": [],
+      "stale": false,
+      "fallback": false
+    },
+    {
+      "request_id": "auto-1248170711449600-1248170713563143-1248170713554951-1249775385059371-1249775385059762",
+      "action": "quote",
+      "event_id": 1248170711449600,
+      "label": "Auto MyCombi: Waldhof Mannheim lub remis + Powyżej 1,5",
+      "selections": [
+        {
+          "market_id": "1248170713563143",
+          "selection_id": "1248170713554951"
+        },
+        {
+          "market_id": "1249775385059371",
+          "selection_id": "1249775385059762"
+        }
+      ],
+      "quoted_at_warsaw": "2026-10-14T17:23:01.766147+02:00",
+      "valid": true,
+      "odds": 2.48,
+      "errors": [],
+      "stale": false,
+      "fallback": false
+    },
+    {
+      "request_id": "auto-1248174094159872-1248174096252940-1248174097309697-1250001335353348-1250001336418309",
+      "action": "quote",
+      "event_id": 1248174094159872,
+      "label": "Auto MyCombi: Preussen Munster lub Fortuna Dusseldorf + Poniżej 2,5",
+      "selections": [
+        {
+          "market_id": "1248174096252940",
+          "selection_id": "1248174097309697"
+        },
+        {
+          "market_id": "1250001335353348",
+          "selection_id": "1250001336418309"
+        }
+      ],
+      "quoted_at_warsaw": "2026-10-14T17:23:02.668867+02:00",
+      "valid": true,
+      "odds": 3.05,
+      "errors": [],
+      "stale": false,
+      "fallback": false
+    },
+    {
+      "request_id": "auto-1248174094159872-1248174096252940-1248174097309697-1250001394085889-1250001395126300",
+      "action": "quote",
+      "event_id": 1248174094159872,
+      "label": "Auto MyCombi: Preussen Munster lub Fortuna Dusseldorf + Powyżej 1,5",
+      "selections": [
+        {
+          "market_id": "1248174096252940",
+          "selection_id": "1248174097309697"
+        },
+        {
+          "market_id": "1250001394085889",
+          "selection_id": "1250001395126300"
+        }
+      ],
+      "quoted_at_warsaw": "2026-10-14T17:23:03.558788+02:00",
+      "valid": true,
+      "odds": 2.28,
+      "errors": [],
+      "stale": false,
+      "fallback": false
+    },
+    {
+      "request_id": "auto-1249907238256640-1249908524843024-1249908524855426-1249908524843043-1249908524851383",
+      "action": "quote",
+      "event_id": 1249907238256640,
+      "label": "Auto MyCombi: Poniżej 3,5 + Odds BK (+1)",
+      "selections": [
+        {
+          "market_id": "1249908524843024",
+          "selection_id": "1249908524855426"
+        },
+        {
+          "market_id": "1249908524843043",
+          "selection_id": "1249908524851383"
+        }
+      ],
+      "quoted_at_warsaw": "2026-10-14T17:23:04.457144+02:00",
+      "valid": true,
+      "odds": 2.42,
       "errors": [],
       "stale": false,
       "fallback": false
@@ -450,46 +609,32 @@
           "selection_id": "1249908524851407"
         }
       ],
-      "quoted_at_warsaw": "2026-10-14T12:30:56.769933+02:00",
-      "valid": false,
-      "odds": null,
-      "errors": [
-        {
-          "code": "SELECTION_UNAVAILABLE",
-          "market_id": "1249908524843024",
-          "selection_id": "1249908524855426",
-          "detail": "Selection is not available for this event's MyCombi"
-        }
-      ],
+      "quoted_at_warsaw": "2026-10-14T17:23:05.327432+02:00",
+      "valid": true,
+      "odds": 2.0,
+      "errors": [],
       "stale": false,
       "fallback": false
     },
     {
-      "request_id": "auto-1249907238256640-1249908524843059-1249908524851427-1249908524843024-1249908524855426",
+      "request_id": "auto-1249907399737344-1249907402878986-1249907402870853-1249907402879000-1249907402870893",
       "action": "quote",
-      "event_id": 1249907238256640,
-      "label": "Auto MyCombi: Sogndal lub Odds BK + Poniżej 3,5",
+      "event_id": 1249907399737344,
+      "label": "Auto MyCombi: Poniżej 2,5 + Strømsgodset IF",
       "selections": [
         {
-          "market_id": "1249908524843059",
-          "selection_id": "1249908524851427"
+          "market_id": "1249907402878986",
+          "selection_id": "1249907402870853"
         },
         {
-          "market_id": "1249908524843024",
-          "selection_id": "1249908524855426"
+          "market_id": "1249907402879000",
+          "selection_id": "1249907402870893"
         }
       ],
-      "quoted_at_warsaw": "2026-10-14T12:30:57.218661+02:00",
-      "valid": false,
-      "odds": null,
-      "errors": [
-        {
-          "code": "SELECTION_UNAVAILABLE",
-          "market_id": "1249908524843024",
-          "selection_id": "1249908524855426",
-          "detail": "Selection is not available for this event's MyCombi"
-        }
-      ],
+      "quoted_at_warsaw": "2026-10-14T17:23:06.262895+02:00",
+      "valid": true,
+      "odds": 2.17,
+      "errors": [],
       "stale": false,
       "fallback": false
     },
@@ -508,82 +653,102 @@
           "selection_id": "1249907402871034"
         }
       ],
-      "quoted_at_warsaw": "2026-10-14T12:30:58.248440+02:00",
+      "quoted_at_warsaw": "2026-10-14T17:23:07.164507+02:00",
       "valid": true,
-      "odds": 2.55,
+      "odds": 2.57,
       "errors": [],
       "stale": false,
       "fallback": false
     },
     {
-      "request_id": "auto-1249907399737344-1249907402879022-1249907402870955-1249907402879000-1249907402870893",
+      "request_id": "auto-1251542747324416-1251589383798791-1251589384831056-1251589383798795-1251589384831096",
       "action": "quote",
-      "event_id": 1249907399737344,
-      "label": "Auto MyCombi: Strømsgodset IF lub remis + Strømsgodset IF",
+      "event_id": 1251542747324416,
+      "label": "Auto MyCombi: 0 - 1, 0 - 2 lub 0 - 3 + 1 - 2",
       "selections": [
         {
-          "market_id": "1249907402879022",
-          "selection_id": "1249907402870955"
+          "market_id": "1251589383798791",
+          "selection_id": "1251589384831056"
         },
         {
-          "market_id": "1249907402879000",
-          "selection_id": "1249907402870893"
+          "market_id": "1251589383798795",
+          "selection_id": "1251589384831096"
         }
       ],
-      "quoted_at_warsaw": "2026-10-14T12:30:59.292953+02:00",
-      "valid": true,
-      "odds": 2.55,
-      "errors": [],
-      "stale": false,
-      "fallback": false
-    },
-    {
-      "request_id": "auto-1222413966667776-1222413970858044-1222413970862251-1222413970858004-1222413970862160",
-      "action": "quote",
-      "event_id": 1222413966667776,
-      "label": "Auto MyCombi: Roma lub Real Madryt + Roma (+1)",
-      "selections": [
-        {
-          "market_id": "1222413970858044",
-          "selection_id": "1222413970862251"
-        },
-        {
-          "market_id": "1222413970858004",
-          "selection_id": "1222413970862160"
-        }
-      ],
-      "quoted_at_warsaw": "2026-10-14T12:30:59.919556+02:00",
+      "quoted_at_warsaw": "2026-10-14T17:23:08.378131+02:00",
       "valid": false,
       "odds": null,
       "errors": [
         {
-          "code": "SELECTION_UNAVAILABLE",
-          "market_id": "1222413970858004",
-          "selection_id": "1222413970862160",
-          "detail": "Selection is not available for this event's MyCombi"
+          "code": "NO_QUOTE",
+          "detail": "Upstream did not return a valid combined price"
         }
       ],
       "stale": false,
       "fallback": false
     },
     {
-      "request_id": "auto-1222413966667776-1222413970858044-1222413970862251-1222413970858089-1222413970862372",
+      "request_id": "auto-1251542747324416-1251589383798794-1251589384831093-1251589383798795-1251589384831096",
       "action": "quote",
-      "event_id": 1222413966667776,
-      "label": "Auto MyCombi: Roma lub Real Madryt + Real Madryt",
+      "event_id": 1251542747324416,
+      "label": "Auto MyCombi: Tak + 1 - 2",
       "selections": [
         {
-          "market_id": "1222413970858044",
-          "selection_id": "1222413970862251"
+          "market_id": "1251589383798794",
+          "selection_id": "1251589384831093"
         },
         {
-          "market_id": "1222413970858089",
-          "selection_id": "1222413970862372"
+          "market_id": "1251589383798795",
+          "selection_id": "1251589384831096"
         }
       ],
-      "quoted_at_warsaw": "2026-10-14T12:31:01.435576+02:00",
+      "quoted_at_warsaw": "2026-10-14T17:23:09.195792+02:00",
       "valid": true,
-      "odds": 2.12,
+      "odds": 2.38,
+      "errors": [],
+      "stale": false,
+      "fallback": false
+    },
+    {
+      "request_id": "auto-1222413127786509-1249994056146952-1249994056151065-1222413129912360-1222413130932351",
+      "action": "quote",
+      "event_id": 1222413127786509,
+      "label": "Auto MyCombi: Liverpool (-2.5) + Nie",
+      "selections": [
+        {
+          "market_id": "1249994056146952",
+          "selection_id": "1249994056151065"
+        },
+        {
+          "market_id": "1222413129912360",
+          "selection_id": "1222413130932351"
+        }
+      ],
+      "quoted_at_warsaw": "2026-10-14T17:23:10.564609+02:00",
+      "valid": true,
+      "odds": 2.5,
+      "errors": [],
+      "stale": false,
+      "fallback": false
+    },
+    {
+      "request_id": "auto-1222413127786509-1249994056146952-1249994056151065-1222413129912387-1222413130932418",
+      "action": "quote",
+      "event_id": 1222413127786509,
+      "label": "Auto MyCombi: Liverpool (-2.5) + Poniżej 1,5",
+      "selections": [
+        {
+          "market_id": "1249994056146952",
+          "selection_id": "1249994056151065"
+        },
+        {
+          "market_id": "1222413129912387",
+          "selection_id": "1222413130932418"
+        }
+      ],
+      "quoted_at_warsaw": "2026-10-14T17:23:11.792182+02:00",
+      "valid": true,
+      "odds": 2.5,
       "errors": [],
       "stale": false,
       "fallback": false
@@ -603,9 +768,9 @@
           "selection_id": "1249028321845767"
         }
       ],
-      "quoted_at_warsaw": "2026-10-14T12:31:02.874123+02:00",
+      "quoted_at_warsaw": "2026-10-14T17:23:13.346454+02:00",
       "valid": true,
-      "odds": 2.42,
+      "odds": 2.4,
       "errors": [],
       "stale": false,
       "fallback": false
@@ -625,7 +790,7 @@
           "selection_id": "1249028321845526"
         }
       ],
-      "quoted_at_warsaw": "2026-10-14T12:31:04.252909+02:00",
+      "quoted_at_warsaw": "2026-10-14T17:23:14.827385+02:00",
       "valid": true,
       "odds": 2.48,
       "errors": [],
@@ -647,7 +812,7 @@
           "selection_id": "1248169109233751"
         }
       ],
-      "quoted_at_warsaw": "2026-10-14T12:31:05.532102+02:00",
+      "quoted_at_warsaw": "2026-10-14T17:23:15.840951+02:00",
       "valid": true,
       "odds": 2.13,
       "errors": [],
@@ -669,7 +834,7 @@
           "selection_id": "1248169109233751"
         }
       ],
-      "quoted_at_warsaw": "2026-10-14T12:31:06.532876+02:00",
+      "quoted_at_warsaw": "2026-10-14T17:23:16.527708+02:00",
       "valid": true,
       "odds": 2.13,
       "errors": [],
@@ -677,265 +842,95 @@
       "fallback": false
     },
     {
-      "request_id": "auto-1248163924021248-1248168017670237-1248168018723183-1248168017670158-1248168018722898",
+      "request_id": "auto-1247072141447168-1247072142503936-1247072143544320-1248929579536452-1248929580581095",
       "action": "quote",
-      "event_id": 1248163924021248,
-      "label": "Auto MyCombi: Powyżej 1,5 + Powyżej 0,5",
+      "event_id": 1247072141447168,
+      "label": "Auto MyCombi: Keciorengucu lub remis + Nieparzyste",
       "selections": [
         {
-          "market_id": "1248168017670237",
-          "selection_id": "1248168018723183"
+          "market_id": "1247072142503936",
+          "selection_id": "1247072143544320"
         },
         {
-          "market_id": "1248168017670158",
-          "selection_id": "1248168018722898"
+          "market_id": "1248929579536452",
+          "selection_id": "1248929580581095"
         }
       ],
-      "quoted_at_warsaw": "2026-10-14T12:31:07.531365+02:00",
+      "quoted_at_warsaw": "2026-10-14T17:23:17.430346+02:00",
       "valid": true,
-      "odds": 2.17,
+      "odds": 3.0,
       "errors": [],
       "stale": false,
       "fallback": false
     },
     {
-      "request_id": "auto-1249907120812033-1249907123945489-1249907123953857-1249907123949589-1249907123949826",
+      "request_id": "auto-1247072141447168-1248929579536403-1248929580580957-1248929579536452-1248929580581095",
       "action": "quote",
-      "event_id": 1249907120812033,
-      "label": "Auto MyCombi: Powyżej 3,5 + Poniżej 2,5",
+      "event_id": 1247072141447168,
+      "label": "Auto MyCombi: Keciorengucu (+1) + Nieparzyste",
       "selections": [
         {
-          "market_id": "1249907123945489",
-          "selection_id": "1249907123953857"
+          "market_id": "1248929579536403",
+          "selection_id": "1248929580580957"
         },
         {
-          "market_id": "1249907123949589",
-          "selection_id": "1249907123949826"
+          "market_id": "1248929579536452",
+          "selection_id": "1248929580581095"
         }
       ],
-      "quoted_at_warsaw": "2026-10-14T12:31:08.603265+02:00",
+      "quoted_at_warsaw": "2026-10-14T17:23:18.383653+02:00",
       "valid": true,
-      "odds": 3.95,
+      "odds": 3.0,
       "errors": [],
       "stale": false,
       "fallback": false
     },
     {
-      "request_id": "auto-1249907120812033-1249907123945489-1249907123953857-1249907123949622-1249907123953959",
+      "request_id": "auto-1249907120812033-1249907127091200-1249907127099394-1249907123949622-1249907123953959",
       "action": "quote",
       "event_id": 1249907120812033,
-      "label": "Auto MyCombi: Powyżej 3,5 + Moss lub remis",
+      "label": "Auto MyCombi: Moss + Moss lub remis",
       "selections": [
         {
-          "market_id": "1249907123945489",
-          "selection_id": "1249907123953857"
+          "market_id": "1249907127091200",
+          "selection_id": "1249907127099394"
         },
         {
           "market_id": "1249907123949622",
           "selection_id": "1249907123953959"
         }
       ],
-      "quoted_at_warsaw": "2026-10-14T12:31:09.585237+02:00",
-      "valid": true,
-      "odds": 2.6,
-      "errors": [],
-      "stale": false,
-      "fallback": false
-    },
-    {
-      "request_id": "auto-1246417404313600-1249028307169561-1249028308222304-1249028307169582-1249028308222438",
-      "action": "quote",
-      "event_id": 1246417404313600,
-      "label": "Auto MyCombi: Remis lub Sheffield United + Parzyste",
-      "selections": [
+      "quoted_at_warsaw": "2026-10-14T17:23:19.276288+02:00",
+      "valid": false,
+      "odds": null,
+      "errors": [
         {
-          "market_id": "1249028307169561",
-          "selection_id": "1249028308222304"
-        },
-        {
-          "market_id": "1249028307169582",
-          "selection_id": "1249028308222438"
+          "code": "NOT_COMBINABLE",
+          "title": "Ten wybór nie jest mozliwy",
+          "detail": "Ten zakład nie może zostać dodany do Twojego kuponu."
         }
       ],
-      "quoted_at_warsaw": "2026-10-14T12:31:11.010585+02:00",
-      "valid": true,
-      "odds": 2.42,
-      "errors": [],
       "stale": false,
       "fallback": false
     },
     {
-      "request_id": "auto-1246417404313600-1249028307169561-1249028308222304-1249427568201739-1249427568209946",
-      "action": "quote",
-      "event_id": 1246417404313600,
-      "label": "Auto MyCombi: Remis lub Sheffield United + Portsmouth (-0,5)",
-      "selections": [
-        {
-          "market_id": "1249028307169561",
-          "selection_id": "1249028308222304"
-        },
-        {
-          "market_id": "1249427568201739",
-          "selection_id": "1249427568209946"
-        }
-      ],
-      "quoted_at_warsaw": "2026-10-14T12:31:12.431929+02:00",
-      "valid": true,
-      "odds": 2.5,
-      "errors": [],
-      "stale": false,
-      "fallback": false
-    },
-    {
-      "request_id": "auto-1246427320696832-1248969936089114-1248969937125509-1248969936089119-1248969937125515",
-      "action": "quote",
-      "event_id": 1246427320696832,
-      "label": "Auto MyCombi: Poniżej 3,5 + Poniżej 1,5",
-      "selections": [
-        {
-          "market_id": "1248969936089114",
-          "selection_id": "1248969937125509"
-        },
-        {
-          "market_id": "1248969936089119",
-          "selection_id": "1248969937125515"
-        }
-      ],
-      "quoted_at_warsaw": "2026-10-14T12:31:13.831985+02:00",
-      "valid": true,
-      "odds": 1.91,
-      "errors": [],
-      "stale": false,
-      "fallback": false
-    },
-    {
-      "request_id": "auto-1246427320696832-1248969936089114-1248969937125509-1250497473282050-1250497473286153",
-      "action": "quote",
-      "event_id": 1246427320696832,
-      "label": "Auto MyCombi: Poniżej 3,5 + 0",
-      "selections": [
-        {
-          "market_id": "1248969936089114",
-          "selection_id": "1248969937125509"
-        },
-        {
-          "market_id": "1250497473282050",
-          "selection_id": "1250497473286153"
-        }
-      ],
-      "quoted_at_warsaw": "2026-10-14T12:31:15.220988+02:00",
-      "valid": true,
-      "odds": 2.5,
-      "errors": [],
-      "stale": false,
-      "fallback": false
-    },
-    {
-      "request_id": "auto-1248163924021248-1248168017670215-1248168018723124-1248168017670240-1248168018723187",
-      "action": "quote",
-      "event_id": 1248163924021248,
-      "label": "Auto MyCombi: Viktoria Köln + Powyżej 0,5",
-      "selections": [
-        {
-          "market_id": "1248168017670215",
-          "selection_id": "1248168018723124"
-        },
-        {
-          "market_id": "1248168017670240",
-          "selection_id": "1248168018723187"
-        }
-      ],
-      "quoted_at_warsaw": "2026-10-14T12:31:16.380055+02:00",
-      "valid": true,
-      "odds": 2.6,
-      "errors": [],
-      "stale": false,
-      "fallback": false
-    },
-    {
-      "request_id": "auto-1248174094159872-1250001394085939-1250001395126434-1250001394085904-1250001395126344",
-      "action": "quote",
-      "event_id": 1248174094159872,
-      "label": "Auto MyCombi: Preussen Munster lub remis + Poniżej 1,5",
-      "selections": [
-        {
-          "market_id": "1250001394085939",
-          "selection_id": "1250001395126434"
-        },
-        {
-          "market_id": "1250001394085904",
-          "selection_id": "1250001395126344"
-        }
-      ],
-      "quoted_at_warsaw": "2026-10-14T12:31:17.367868+02:00",
-      "valid": true,
-      "odds": 2.42,
-      "errors": [],
-      "stale": false,
-      "fallback": false
-    },
-    {
-      "request_id": "auto-1249907418599424-1249907419660313-1249907420700784-1249907419660308-1249907420700776",
-      "action": "quote",
-      "event_id": 1249907418599424,
-      "label": "Auto MyCombi: Powyżej 3,5 + Raufoss (+3)",
-      "selections": [
-        {
-          "market_id": "1249907419660313",
-          "selection_id": "1249907420700784"
-        },
-        {
-          "market_id": "1249907419660308",
-          "selection_id": "1249907420700776"
-        }
-      ],
-      "quoted_at_warsaw": "2026-10-14T12:31:18.519723+02:00",
-      "valid": true,
-      "odds": 3.3,
-      "errors": [],
-      "stale": false,
-      "fallback": false
-    },
-    {
-      "request_id": "auto-1249907418599424-1249907419660313-1249907420700784-1249907446906966-1249907446911536",
-      "action": "quote",
-      "event_id": 1249907418599424,
-      "label": "Auto MyCombi: Powyżej 3,5 + Bryne",
-      "selections": [
-        {
-          "market_id": "1249907419660313",
-          "selection_id": "1249907420700784"
-        },
-        {
-          "market_id": "1249907446906966",
-          "selection_id": "1249907446911536"
-        }
-      ],
-      "quoted_at_warsaw": "2026-10-14T12:31:19.535825+02:00",
-      "valid": true,
-      "odds": 2.23,
-      "errors": [],
-      "stale": false,
-      "fallback": false
-    },
-    {
-      "request_id": "auto-1222416606982144-1222416686669851-1222416687722595-1222416686669878-1222416687722656",
+      "request_id": "auto-1222416606982144-1222416686669876-1222416687722651-1250504215633938-1250504216686631",
       "action": "quote",
       "event_id": 1222416606982144,
-      "label": "Auto MyCombi: Powyżej 0,5 + Nieparzyste",
+      "label": "Auto MyCombi: Szachtar Donieck lub AEK Athens + Szachtar Donieck",
       "selections": [
         {
-          "market_id": "1222416686669851",
-          "selection_id": "1222416687722595"
+          "market_id": "1222416686669876",
+          "selection_id": "1222416687722651"
         },
         {
-          "market_id": "1222416686669878",
-          "selection_id": "1222416687722656"
+          "market_id": "1250504215633938",
+          "selection_id": "1250504216686631"
         }
       ],
-      "quoted_at_warsaw": "2026-10-14T12:31:21.046065+02:00",
+      "quoted_at_warsaw": "2026-10-14T17:23:20.531794+02:00",
       "valid": true,
-      "odds": 2.45,
+      "odds": 2.5,
       "errors": [],
       "stale": false,
       "fallback": false
