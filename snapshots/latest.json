@@ -1,14 +1,14 @@
 {
   "schema_version": 3,
   "source": "direct_betclic",
-  "generated_at_warsaw": "2026-10-15T20:43:27.265055+02:00",
+  "generated_at_warsaw": "2026-10-15T23:47:55.524252+02:00",
   "date_warsaw": "2026-10-15",
   "fallback_max_age_seconds": 5400,
   "sports": {
     "football": {
       "sport": "football",
-      "source": "direct_betclic",
-      "stale": false,
+      "source": "previous_same_day",
+      "stale": true,
       "event_count": 20,
       "stale_event_ids": [],
       "summary_only_event_ids": [],
@@ -467,6 +467,11 @@
           "stage": "validation",
           "detail": "dropped 2 malformed event row(s)",
           "malformed_event_count": 2
+        },
+        {
+          "stage": "discovery",
+          "competition_id": 28946,
+          "detail": "Incomplete gRPC-web frame"
         }
       ],
       "events": [
@@ -4401,7 +4406,7 @@
       "sport": "tennis",
       "source": "direct_betclic",
       "stale": false,
-      "event_count": 6,
+      "event_count": 1,
       "stale_event_ids": [],
       "summary_only_event_ids": [],
       "discovery": {
@@ -4420,462 +4425,6 @@
       },
       "errors": [],
       "events": [
-        {
-          "id": 1252531622658048,
-          "name": "Matej Dodig - Lukas Neumayer",
-          "date": "2026-10-15T16:45:00.0000000Z",
-          "date_warsaw": "2026-10-15T18:45:00+02:00",
-          "competition": "Maia Challenger",
-          "competition_id": 26256,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Matej Dodig",
-              "short": "M. Dodig"
-            },
-            {
-              "name": "Lukas Neumayer",
-              "short": "L. Neumayer"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Matej Dodig",
-                  "odds": 1.18
-                },
-                {
-                  "name": "Lukas Neumayer",
-                  "odds": 3.3
-                }
-              ]
-            },
-            {
-              "name": "3. set - Gem 7 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Matej Dodig",
-                  "odds": 2.6
-                },
-                {
-                  "name": "Lukas Neumayer",
-                  "odds": 1.25
-                }
-              ]
-            },
-            {
-              "name": "3. set - Gem 6 - Punkt 3 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Matej Dodig",
-                  "odds": 1.4
-                },
-                {
-                  "name": "Lukas Neumayer",
-                  "odds": 2.15
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1251937662009344,
-          "name": "Moise Kouamé - Nicolai Budkov Kjaer",
-          "date": "2026-10-15T17:20:00.0000000Z",
-          "date_warsaw": "2026-10-15T19:20:00+02:00",
-          "competition": "Roanne Challenger",
-          "competition_id": 29803,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Moise Kouamé",
-              "short": "M. Kouamé"
-            },
-            {
-              "name": "Nicolai Budkov Kjaer",
-              "short": "N. Budkov Kjaer"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Moise Kouamé",
-                  "odds": 5.4
-                },
-                {
-                  "name": "Nicolai Budkov Kjaer",
-                  "odds": 1.04
-                }
-              ]
-            },
-            {
-              "name": "2. set - Gem 8 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Moise Kouamé",
-                  "odds": 3.3
-                },
-                {
-                  "name": "Nicolai Budkov Kjaer",
-                  "odds": 1.14
-                }
-              ]
-            },
-            {
-              "name": "2. set - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Moise Kouamé",
-                  "odds": 4.25
-                },
-                {
-                  "name": "Nicolai Budkov Kjaer",
-                  "odds": 1.08
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "0 - 2",
-                  "odds": 1.08
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 6.5
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 9.75
-                }
-              ]
-            },
-            {
-              "name": "2. set - Gem 8 - Punkt 1 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Moise Kouamé",
-                  "odds": 2.15
-                },
-                {
-                  "name": "Nicolai Budkov Kjaer",
-                  "odds": 1.4
-                }
-              ]
-            },
-            {
-              "name": "Moise Kouamé wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 4.25
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.08
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Moise Kouamé (+1,5)",
-                  "odds": 4.4
-                },
-                {
-                  "name": "Nicolai Budkov Kjaer (-1.5)",
-                  "odds": 1.08
-                }
-              ]
-            },
-            {
-              "name": "Czy obaj zawodnicy wygrają seta w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 4.25
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.08
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1252015311175680,
-          "name": "Guido Ivan Justo - Juan Manuel La Serna",
-          "date": "2026-10-15T18:00:00.0000000Z",
-          "date_warsaw": "2026-10-15T20:00:00+02:00",
-          "competition": "Santa Cruz 2 Challenger",
-          "competition_id": 30433,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Guido Ivan Justo",
-              "short": "GI. Justo"
-            },
-            {
-              "name": "Juan Manuel La Serna",
-              "short": "J. La Serna"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Guido Ivan Justo",
-                  "odds": 2.2
-                },
-                {
-                  "name": "Juan Manuel La Serna",
-                  "odds": 1.45
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 7 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Guido Ivan Justo",
-                  "odds": 2.6
-                },
-                {
-                  "name": "Juan Manuel La Serna",
-                  "odds": 1.27
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 8.25
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 1.85
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 2.7
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 4.4
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 6 - Punkt 4 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Guido Ivan Justo",
-                  "odds": 1.52
-                },
-                {
-                  "name": "Juan Manuel La Serna",
-                  "odds": 1.9
-                }
-              ]
-            },
-            {
-              "name": "Guido Ivan Justo wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.6
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.9
-                }
-              ]
-            },
-            {
-              "name": "Juan Manuel La Serna wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.04
-                },
-                {
-                  "name": "Nie",
-                  "odds": 5.1
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Guido Ivan Justo (-1,5)",
-                  "odds": 5.3
-                },
-                {
-                  "name": "Juan Manuel La Serna (+1.5)",
-                  "odds": 1.04
-                },
-                {
-                  "name": "Guido Ivan Justo (+1,5)",
-                  "odds": 1.6
-                },
-                {
-                  "name": "Juan Manuel La Serna (-1.5)",
-                  "odds": 1.9
-                }
-              ]
-            },
-            {
-              "name": "Czy obaj zawodnicy wygrają seta w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.85
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.6
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1252163754917888,
-          "name": "Thiago Wild - Carlos Maria Zarate",
-          "date": "2026-10-15T19:30:00.0000000Z",
-          "date_warsaw": "2026-10-15T21:30:00+02:00",
-          "competition": "Santa Cruz 2 Challenger",
-          "competition_id": 30433,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Thiago Wild",
-              "short": "T. Wild"
-            },
-            {
-              "name": "Carlos Maria Zarate",
-              "short": "C. Zarate"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Thiago Wild",
-                  "odds": 1.06
-                },
-                {
-                  "name": "Carlos Maria Zarate",
-                  "odds": 7.0
-                }
-              ]
-            },
-            {
-              "name": "Thiago Wild wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.01
-                },
-                {
-                  "name": "Nie",
-                  "odds": 8.8
-                }
-              ]
-            },
-            {
-              "name": "Carlos Maria Zarate wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 3.2
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.27
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 1.27
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 17.0
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 4.4
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 14.0
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Thiago Wild (-1,5)",
-                  "odds": 1.27
-                },
-                {
-                  "name": "Carlos Maria Zarate (+1.5)",
-                  "odds": 3.2
-                },
-                {
-                  "name": "Thiago Wild (+1,5)",
-                  "odds": 1.01
-                },
-                {
-                  "name": "Carlos Maria Zarate (-1.5)",
-                  "odds": 17.0
-                }
-              ]
-            }
-          ]
-        },
         {
           "id": 1252078172250112,
           "name": "Franco Roncadelli - Juan Carlos Prado Angelo",
@@ -4901,25 +4450,71 @@
               "selections": [
                 {
                   "name": "Franco Roncadelli",
-                  "odds": 2.95
+                  "odds": 1.5
                 },
                 {
                   "name": "Juan Carlos Prado Angelo",
-                  "odds": 1.33
+                  "odds": 2.05
                 }
               ]
             },
             {
-              "name": "Franco Roncadelli wygra seta",
+              "name": "2. set - Gem 2 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
-                  "name": "Tak",
-                  "odds": 1.79
+                  "name": "Franco Roncadelli",
+                  "odds": 2.2
                 },
                 {
-                  "name": "Nie",
-                  "odds": 1.85
+                  "name": "Juan Carlos Prado Angelo",
+                  "odds": 1.4
+                }
+              ]
+            },
+            {
+              "name": "2. set - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Franco Roncadelli",
+                  "odds": 2.0
+                },
+                {
+                  "name": "Juan Carlos Prado Angelo",
+                  "odds": 1.52
+                }
+              ]
+            },
+            {
+              "name": "Wynik w setach",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "2 - 0",
+                  "odds": 2.05
+                },
+                {
+                  "name": "1 - 2",
+                  "odds": 2.1
+                },
+                {
+                  "name": "2 - 1",
+                  "odds": 4.55
+                }
+              ]
+            },
+            {
+              "name": "2. set - Gem 1 - Punkt 4 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Franco Roncadelli",
+                  "odds": 1.6
+                },
+                {
+                  "name": "Juan Carlos Prado Angelo",
+                  "odds": 1.8
                 }
               ]
             },
@@ -4929,33 +4524,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.13
+                  "odds": 1.52
                 },
                 {
                   "name": "Nie",
-                  "odds": 4.6
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 5.2
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 1.85
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 6.2
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 3.85
+                  "odds": 2.0
                 }
               ]
             },
@@ -4965,126 +4538,25 @@
               "selections": [
                 {
                   "name": "Franco Roncadelli (-1,5)",
-                  "odds": 5.2
+                  "odds": 2.05
                 },
                 {
                   "name": "Juan Carlos Prado Angelo (+1.5)",
-                  "odds": 1.13
-                },
-                {
-                  "name": "Franco Roncadelli (+1,5)",
-                  "odds": 1.79
-                },
-                {
-                  "name": "Juan Carlos Prado Angelo (-1.5)",
-                  "odds": 1.85
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1252062442553344,
-          "name": "Nicolas Kicker - Facundo Mena",
-          "date": "2026-10-15T21:40:00.0000000Z",
-          "date_warsaw": "2026-10-15T23:40:00+02:00",
-          "competition": "Santa Cruz 2 Challenger",
-          "competition_id": 30433,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Nicolas Kicker",
-              "short": "N. Kicker"
-            },
-            {
-              "name": "Facundo Mena",
-              "short": "F. Mena"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Nicolas Kicker",
-                  "odds": 2.19
-                },
-                {
-                  "name": "Facundo Mena",
-                  "odds": 1.58
+                  "odds": 1.52
                 }
               ]
             },
             {
-              "name": "Nicolas Kicker wygra seta",
+              "name": "Czy obaj zawodnicy wygrają seta w meczu",
               "suspended": false,
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.49
+                  "odds": 1.52
                 },
                 {
                   "name": "Nie",
-                  "odds": 2.34
-                }
-              ]
-            },
-            {
-              "name": "Facundo Mena wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.24
-                },
-                {
-                  "name": "Nie",
-                  "odds": 3.4
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 3.55
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 2.35
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 4.9
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 4.0
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Nicolas Kicker (-1,5)",
-                  "odds": 3.55
-                },
-                {
-                  "name": "Facundo Mena (+1.5)",
-                  "odds": 1.24
-                },
-                {
-                  "name": "Nicolas Kicker (+1,5)",
-                  "odds": 1.49
-                },
-                {
-                  "name": "Facundo Mena (-1.5)",
-                  "odds": 2.35
+                  "odds": 2.0
                 }
               ]
             }
