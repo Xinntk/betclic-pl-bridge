@@ -1,14 +1,14 @@
 {
   "schema_version": 3,
   "source": "direct_betclic",
-  "generated_at_warsaw": "2026-10-19T19:25:45.270215+02:00",
+  "generated_at_warsaw": "2026-10-19T23:38:44.289694+02:00",
   "date_warsaw": "2026-10-19",
   "fallback_max_age_seconds": 5400,
   "sports": {
     "football": {
       "sport": "football",
-      "source": "direct_betclic",
-      "stale": false,
+      "source": "previous_same_day",
+      "stale": true,
       "event_count": 14,
       "stale_event_ids": [],
       "summary_only_event_ids": [],
@@ -446,7 +446,13 @@
         "partial": false,
         "errors": []
       },
-      "errors": [],
+      "errors": [
+        {
+          "stage": "discovery",
+          "competition_id": 47,
+          "detail": "Incomplete gRPC-web frame"
+        }
+      ],
       "events": [
         {
           "id": 1250893314920448,
@@ -3097,14 +3103,13 @@
       "sport": "tennis",
       "source": "direct_betclic",
       "stale": false,
-      "event_count": 20,
+      "event_count": 7,
       "stale_event_ids": [],
       "summary_only_event_ids": [],
       "discovery": {
         "source": "competitions",
         "competition_ids": [
           18059,
-          18647,
           41399,
           41396,
           41398,
@@ -3153,347 +3158,10 @@
           ]
         },
         {
-          "id": 1256396553224192,
-          "name": "Kenta Miyoshi - Alexander Maarten Jong",
-          "date": "2026-10-19T16:00:00.0000000Z",
-          "date_warsaw": "2026-10-19T18:00:00+02:00",
-          "competition": "Fort Worth Challenger Kwalifikacje",
-          "competition_id": 41398,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Kenta Miyoshi",
-              "short": "K. Miyoshi"
-            },
-            {
-              "name": "Alexander Maarten Jong",
-              "short": "A. Jong"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Kenta Miyoshi",
-                  "odds": 1.25
-                },
-                {
-                  "name": "Alexander Maarten Jong",
-                  "odds": 2.85
-                }
-              ]
-            },
-            {
-              "name": "2. set - Gem 9 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Kenta Miyoshi",
-                  "odds": 2.9
-                },
-                {
-                  "name": "Alexander Maarten Jong",
-                  "odds": 1.2
-                }
-              ]
-            },
-            {
-              "name": "2. set - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Kenta Miyoshi",
-                  "odds": 1.75
-                },
-                {
-                  "name": "Alexander Maarten Jong",
-                  "odds": 1.7
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 1.8
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 3.05
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 3.35
-                }
-              ]
-            },
-            {
-              "name": "2. set - Gem 8 - Punkt 5 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Kenta Miyoshi",
-                  "odds": 1.4
-                },
-                {
-                  "name": "Alexander Maarten Jong",
-                  "odds": 2.15
-                }
-              ]
-            },
-            {
-              "name": "Alexander Maarten Jong wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.7
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.75
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Kenta Miyoshi (-1,5)",
-                  "odds": 1.8
-                },
-                {
-                  "name": "Alexander Maarten Jong (+1.5)",
-                  "odds": 1.7
-                }
-              ]
-            },
-            {
-              "name": "Czy obaj zawodnicy wygrają seta w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.7
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.75
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1256591027359744,
-          "name": "Gavin Young - Duncan Chan",
-          "date": "2026-10-19T16:00:00.0000000Z",
-          "date_warsaw": "2026-10-19T18:00:00+02:00",
-          "competition": "Fort Worth Challenger Kwalifikacje",
-          "competition_id": 41398,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Gavin Young",
-              "short": "G. Young"
-            },
-            {
-              "name": "Duncan Chan",
-              "short": "D. Chan"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Gavin Young",
-                  "odds": 1.6
-                },
-                {
-                  "name": "Duncan Chan",
-                  "odds": 1.85
-                }
-              ]
-            },
-            {
-              "name": "3. set - Gem 2 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Gavin Young",
-                  "odds": 1.18
-                },
-                {
-                  "name": "Duncan Chan",
-                  "odds": 3.0
-                }
-              ]
-            },
-            {
-              "name": "3. set - Gem 1 - Punkt 2 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Gavin Young",
-                  "odds": 2.05
-                },
-                {
-                  "name": "Duncan Chan",
-                  "odds": 1.45
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1256591036805120,
-          "name": "Alex Rybakov - Bor Artnak",
-          "date": "2026-10-19T16:00:00.0000000Z",
-          "date_warsaw": "2026-10-19T18:00:00+02:00",
-          "competition": "Fort Worth Challenger Kwalifikacje",
-          "competition_id": 41398,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Alex Rybakov",
-              "short": "A. Rybakov"
-            },
-            {
-              "name": "Bor Artnak",
-              "short": "B. Artnak"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Alex Rybakov",
-                  "odds": 1.01
-                },
-                {
-                  "name": "Bor Artnak",
-                  "odds": 6.25
-                }
-              ]
-            },
-            {
-              "name": "2. set - Gem 8 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Alex Rybakov",
-                  "odds": 1.08
-                },
-                {
-                  "name": "Bor Artnak",
-                  "odds": 3.95
-                }
-              ]
-            },
-            {
-              "name": "2. set - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Alex Rybakov",
-                  "odds": 1.03
-                },
-                {
-                  "name": "Bor Artnak",
-                  "odds": 5.3
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 1.03
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 9.25
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 10.0
-                }
-              ]
-            },
-            {
-              "name": "2. set - Gem 7 - Punkt 6 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Alex Rybakov",
-                  "odds": 2.05
-                },
-                {
-                  "name": "Bor Artnak",
-                  "odds": 1.45
-                }
-              ]
-            },
-            {
-              "name": "Bor Artnak wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 5.3
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.03
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Alex Rybakov (-1,5)",
-                  "odds": 1.03
-                },
-                {
-                  "name": "Bor Artnak (+1.5)",
-                  "odds": 5.6
-                }
-              ]
-            },
-            {
-              "name": "Czy obaj zawodnicy wygrają seta w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 5.3
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.03
-                }
-              ]
-            }
-          ]
-        },
-        {
           "id": 1256591024218112,
           "name": "Michael Antonius - Albert Pedrico Kravtsov",
-          "date": "2026-10-19T17:40:00.0000000Z",
-          "date_warsaw": "2026-10-19T19:40:00+02:00",
+          "date": "2026-10-19T19:10:00.0000000Z",
+          "date_warsaw": "2026-10-19T21:10:00+02:00",
           "competition": "Fort Worth Challenger Kwalifikacje",
           "competition_id": 41398,
           "is_live": true,
@@ -3514,639 +3182,46 @@
               "selections": [
                 {
                   "name": "Michael Antonius",
-                  "odds": 1.46
+                  "odds": 1.35
                 },
                 {
                   "name": "Albert Pedrico Kravtsov",
-                  "odds": 2.35
+                  "odds": 2.45
                 }
               ]
             },
             {
-              "name": "Michael Antonius wygra seta",
+              "name": "3. set - Gem 11 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
-                  "name": "Tak",
-                  "odds": 1.2
+                  "name": "Michael Antonius",
+                  "odds": 1.16
                 },
                 {
-                  "name": "Nie",
-                  "odds": 3.7
-                }
-              ]
-            },
-            {
-              "name": "Albert Pedrico Kravtsov wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.6
-                },
-                {
-                  "name": "Nie",
-                  "odds": 2.1
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 2.1
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 3.95
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 4.1
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 5.4
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Michael Antonius (-1,5)",
-                  "odds": 2.1
-                },
-                {
-                  "name": "Albert Pedrico Kravtsov (+1.5)",
-                  "odds": 1.6
-                },
-                {
-                  "name": "Michael Antonius (+1,5)",
-                  "odds": 1.2
-                },
-                {
-                  "name": "Albert Pedrico Kravtsov (-1.5)",
-                  "odds": 3.95
+                  "name": "Albert Pedrico Kravtsov",
+                  "odds": 3.15
                 }
               ]
             }
           ]
         },
         {
-          "id": 1256684213272576,
-          "name": "Kaylan Bigun - Patrick Zahraj",
-          "date": "2026-10-19T17:40:00.0000000Z",
-          "date_warsaw": "2026-10-19T19:40:00+02:00",
-          "competition": "Fort Worth Challenger Kwalifikacje",
-          "competition_id": 41398,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Kaylan Bigun",
-              "short": "K. Bigun"
-            },
-            {
-              "name": "Patrick Zahraj",
-              "short": "P. Zahraj"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Kaylan Bigun",
-                  "odds": 1.6
-                },
-                {
-                  "name": "Patrick Zahraj",
-                  "odds": 2.07
-                }
-              ]
-            },
-            {
-              "name": "Kaylan Bigun wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.26
-                },
-                {
-                  "name": "Nie",
-                  "odds": 3.25
-                }
-              ]
-            },
-            {
-              "name": "Patrick Zahraj wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.46
-                },
-                {
-                  "name": "Nie",
-                  "odds": 2.4
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 2.41
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 3.4
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 4.1
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 4.8
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Kaylan Bigun (-1,5)",
-                  "odds": 2.41
-                },
-                {
-                  "name": "Patrick Zahraj (+1.5)",
-                  "odds": 1.46
-                },
-                {
-                  "name": "Kaylan Bigun (+1,5)",
-                  "odds": 1.26
-                },
-                {
-                  "name": "Patrick Zahraj (-1.5)",
-                  "odds": 3.4
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1256684216422400,
-          "name": "Erik Arutiunian - Aidan Mchugh",
-          "date": "2026-10-19T17:40:00.0000000Z",
-          "date_warsaw": "2026-10-19T19:40:00+02:00",
-          "competition": "Fort Worth Challenger Kwalifikacje",
-          "competition_id": 41398,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Erik Arutiunian",
-              "short": "E. Arutiunian"
-            },
-            {
-              "name": "Aidan Mchugh",
-              "short": "A. Mchugh"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Erik Arutiunian",
-                  "odds": 1.85
-                },
-                {
-                  "name": "Aidan Mchugh",
-                  "odds": 1.76
-                }
-              ]
-            },
-            {
-              "name": "Erik Arutiunian wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.37
-                },
-                {
-                  "name": "Nie",
-                  "odds": 2.7
-                }
-              ]
-            },
-            {
-              "name": "Aidan Mchugh wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.33
-                },
-                {
-                  "name": "Nie",
-                  "odds": 2.85
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 2.95
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 2.75
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 4.5
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 4.3
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Erik Arutiunian (-1,5)",
-                  "odds": 2.95
-                },
-                {
-                  "name": "Aidan Mchugh (+1.5)",
-                  "odds": 1.33
-                },
-                {
-                  "name": "Erik Arutiunian (+1,5)",
-                  "odds": 1.37
-                },
-                {
-                  "name": "Aidan Mchugh (-1.5)",
-                  "odds": 2.75
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1256396560560128,
-          "name": "Alan Magadan - Daniel Salazar",
-          "date": "2026-10-19T18:00:00.0000000Z",
-          "date_warsaw": "2026-10-19T20:00:00+02:00",
-          "competition": "Cali Challenger Kwalifikacje",
-          "competition_id": 18647,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Alan Magadan",
-              "short": "A. Magadan"
-            },
-            {
-              "name": "Daniel Salazar",
-              "short": "D. Salazar"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Alan Magadan",
-                  "odds": 1.55
-                },
-                {
-                  "name": "Daniel Salazar",
-                  "odds": 2.15
-                }
-              ]
-            },
-            {
-              "name": "Alan Magadan wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.25
-                },
-                {
-                  "name": "Nie",
-                  "odds": 3.35
-                }
-              ]
-            },
-            {
-              "name": "Daniel Salazar wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.51
-                },
-                {
-                  "name": "Nie",
-                  "odds": 2.27
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 2.27
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 3.5
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 4.2
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 5.2
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Alan Magadan (-1,5)",
-                  "odds": 2.27
-                },
-                {
-                  "name": "Daniel Salazar (+1.5)",
-                  "odds": 1.51
-                },
-                {
-                  "name": "Alan Magadan (+1,5)",
-                  "odds": 1.25
-                },
-                {
-                  "name": "Daniel Salazar (-1.5)",
-                  "odds": 3.5
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1256531843637248,
-          "name": "Diego Dedura-Palomero - Frazier Rengifo",
-          "date": "2026-10-19T18:00:00.0000000Z",
-          "date_warsaw": "2026-10-19T20:00:00+02:00",
-          "competition": "Cali Challenger Kwalifikacje",
-          "competition_id": 18647,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Diego Dedura-Palomero",
-              "short": "D. Dedura-Palomero"
-            },
-            {
-              "name": "Frazier Rengifo",
-              "short": "F. Rengifo"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Diego Dedura-Palomero",
-                  "odds": 1.04
-                },
-                {
-                  "name": "Frazier Rengifo",
-                  "odds": 6.8
-                }
-              ]
-            },
-            {
-              "name": "Diego Dedura-Palomero wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.01
-                },
-                {
-                  "name": "Nie",
-                  "odds": 9.0
-                }
-              ]
-            },
-            {
-              "name": "Frazier Rengifo wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 3.75
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.2
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 1.2
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 19.0
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 5.0
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 17.0
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Diego Dedura-Palomero (-1,5)",
-                  "odds": 1.2
-                },
-                {
-                  "name": "Frazier Rengifo (+1.5)",
-                  "odds": 3.75
-                },
-                {
-                  "name": "Diego Dedura-Palomero (+1,5)",
-                  "odds": 1.01
-                },
-                {
-                  "name": "Frazier Rengifo (-1.5)",
-                  "odds": 19.0
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1256531849928709,
-          "name": "Mateus Alves - Jose Pereira",
-          "date": "2026-10-19T18:00:00.0000000Z",
-          "date_warsaw": "2026-10-19T20:00:00+02:00",
-          "competition": "Cali Challenger Kwalifikacje",
-          "competition_id": 18647,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Mateus Alves",
-              "short": "M. Alves"
-            },
-            {
-              "name": "Jose Pereira",
-              "short": "J. Pereira"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Mateus Alves",
-                  "odds": 1.22
-                },
-                {
-                  "name": "Jose Pereira",
-                  "odds": 3.4
-                }
-              ]
-            },
-            {
-              "name": "Mateus Alves wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.09
-                },
-                {
-                  "name": "Nie",
-                  "odds": 5.6
-                }
-              ]
-            },
-            {
-              "name": "Jose Pereira wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.97
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.69
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 1.69
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 6.6
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 3.75
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 7.2
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Mateus Alves (-1,5)",
-                  "odds": 1.69
-                },
-                {
-                  "name": "Jose Pereira (+1.5)",
-                  "odds": 1.97
-                },
-                {
-                  "name": "Mateus Alves (+1,5)",
-                  "odds": 1.09
-                },
-                {
-                  "name": "Jose Pereira (-1.5)",
-                  "odds": 6.6
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1255939097251840,
-          "name": "Luciano Emanuel Ambrogi - Patrick Maloney",
-          "date": "2026-10-19T19:00:00.0000000Z",
-          "date_warsaw": "2026-10-19T21:00:00+02:00",
+          "id": 1256210905985024,
+          "name": "Daniel Milavsky - Govind Nanda",
+          "date": "2026-10-19T20:10:00.0000000Z",
+          "date_warsaw": "2026-10-19T22:10:00+02:00",
           "competition": "Fort Worth Challenger",
           "competition_id": 41396,
           "is_live": true,
           "teams": [
             {
-              "name": "Luciano Emanuel Ambrogi",
-              "short": "L. Ambrogi"
+              "name": "Daniel Milavsky",
+              "short": "D. Milavsky"
             },
             {
-              "name": "Patrick Maloney",
-              "short": "P. Maloney"
+              "name": "Govind Nanda",
+              "short": "G. Nanda"
             }
           ],
           "markets": [
@@ -4155,40 +3230,111 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "Luciano Emanuel Ambrogi",
-                  "odds": 3.95
-                },
-                {
-                  "name": "Patrick Maloney",
-                  "odds": 1.17
+                  "name": "Govind Nanda",
+                  "odds": 6.75
                 }
               ]
             },
             {
-              "name": "Luciano Emanuel Ambrogi wygra seta",
+              "name": "2. set - Gem 10 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
-                  "name": "Tak",
-                  "odds": 2.23
+                  "name": "Daniel Milavsky",
+                  "odds": 1.03
                 },
                 {
-                  "name": "Nie",
-                  "odds": 1.53
+                  "name": "Govind Nanda",
+                  "odds": 4.8
                 }
               ]
             },
             {
-              "name": "Patrick Maloney wygra seta",
+              "name": "2. set - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Govind Nanda",
+                  "odds": 6.25
+                }
+              ]
+            },
+            {
+              "name": "Govind Nanda wygra seta",
               "suspended": false,
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.06
+                  "odds": 6.25
+                }
+              ]
+            },
+            {
+              "name": "Handicap setowy",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Govind Nanda (+1.5)",
+                  "odds": 6.75
+                }
+              ]
+            },
+            {
+              "name": "Czy obaj zawodnicy wygrają seta w meczu",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 6.25
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1256052375969811,
+          "name": "Hernan Casanova - Gonzalo Bueno",
+          "date": "2026-10-19T21:10:00.0000000Z",
+          "date_warsaw": "2026-10-19T23:10:00+02:00",
+          "competition": "Cali Challenger",
+          "competition_id": 18059,
+          "is_live": true,
+          "teams": [
+            {
+              "name": "Hernan Casanova",
+              "short": "H. Casanova"
+            },
+            {
+              "name": "Gonzalo Bueno",
+              "short": "G. Bueno"
+            }
+          ],
+          "markets": [
+            {
+              "name": "Zwycięzca meczu",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Hernan Casanova",
+                  "odds": 1.75
                 },
                 {
-                  "name": "Nie",
-                  "odds": 6.4
+                  "name": "Gonzalo Bueno",
+                  "odds": 1.75
+                }
+              ]
+            },
+            {
+              "name": "1. set - Gem 6 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Hernan Casanova",
+                  "odds": 1.35
+                },
+                {
+                  "name": "Gonzalo Bueno",
+                  "odds": 2.3
                 }
               ]
             },
@@ -4198,19 +3344,61 @@
               "selections": [
                 {
                   "name": "2 - 0",
-                  "odds": 8.2
+                  "odds": 2.35
                 },
                 {
                   "name": "0 - 2",
-                  "odds": 1.53
+                  "odds": 3.95
                 },
                 {
                   "name": "2 - 1",
-                  "odds": 8.4
+                  "odds": 4.9
                 },
                 {
                   "name": "1 - 2",
-                  "odds": 3.95
+                  "odds": 2.6
+                }
+              ]
+            },
+            {
+              "name": "1. set - Gem 5 - Punkt 6 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Hernan Casanova",
+                  "odds": 1.95
+                },
+                {
+                  "name": "Gonzalo Bueno",
+                  "odds": 1.5
+                }
+              ]
+            },
+            {
+              "name": "Hernan Casanova wygra seta",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 1.15
+                },
+                {
+                  "name": "Nie",
+                  "odds": 3.5
+                }
+              ]
+            },
+            {
+              "name": "Gonzalo Bueno wygra seta",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 1.37
+                },
+                {
+                  "name": "Nie",
+                  "odds": 2.35
                 }
               ]
             },
@@ -4219,20 +3407,183 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "Luciano Emanuel Ambrogi (-1,5)",
-                  "odds": 8.2
+                  "name": "Hernan Casanova (-1,5)",
+                  "odds": 2.35
                 },
                 {
-                  "name": "Patrick Maloney (+1.5)",
-                  "odds": 1.06
+                  "name": "Gonzalo Bueno (+1.5)",
+                  "odds": 1.37
                 },
                 {
-                  "name": "Luciano Emanuel Ambrogi (+1,5)",
-                  "odds": 2.23
+                  "name": "Hernan Casanova (+1,5)",
+                  "odds": 1.15
                 },
                 {
-                  "name": "Patrick Maloney (-1.5)",
-                  "odds": 1.53
+                  "name": "Gonzalo Bueno (-1.5)",
+                  "odds": 3.55
+                }
+              ]
+            },
+            {
+              "name": "Czy obaj zawodnicy wygrają seta w meczu",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 1.85
+                },
+                {
+                  "name": "Nie",
+                  "odds": 1.6
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1255939140243456,
+          "name": "Jenson Brooksby - Mitchell Krueger",
+          "date": "2026-10-19T21:15:00.0000000Z",
+          "date_warsaw": "2026-10-19T23:15:00+02:00",
+          "competition": "Fort Worth Challenger",
+          "competition_id": 41396,
+          "is_live": true,
+          "teams": [
+            {
+              "name": "Jenson Brooksby",
+              "short": "J. Brooksby"
+            },
+            {
+              "name": "Mitchell Krueger",
+              "short": "M. Krueger"
+            }
+          ],
+          "markets": [
+            {
+              "name": "Zwycięzca meczu",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Jenson Brooksby",
+                  "odds": 1.14
+                },
+                {
+                  "name": "Mitchell Krueger",
+                  "odds": 3.75
+                }
+              ]
+            },
+            {
+              "name": "1. set - Gem 6 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Jenson Brooksby",
+                  "odds": 1.05
+                },
+                {
+                  "name": "Mitchell Krueger",
+                  "odds": 4.35
+                }
+              ]
+            },
+            {
+              "name": "Wynik w setach",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "2 - 0",
+                  "odds": 1.47
+                },
+                {
+                  "name": "0 - 2",
+                  "odds": 7.75
+                },
+                {
+                  "name": "2 - 1",
+                  "odds": 3.15
+                },
+                {
+                  "name": "1 - 2",
+                  "odds": 7.75
+                }
+              ]
+            },
+            {
+              "name": "1. set - Gem 5 - Punkt 3 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Jenson Brooksby",
+                  "odds": 2.05
+                },
+                {
+                  "name": "Mitchell Krueger",
+                  "odds": 1.45
+                }
+              ]
+            },
+            {
+              "name": "Jenson Brooksby wygra seta",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 1.04
+                },
+                {
+                  "name": "Nie",
+                  "odds": 5.1
+                }
+              ]
+            },
+            {
+              "name": "Mitchell Krueger wygra seta",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 2.0
+                },
+                {
+                  "name": "Nie",
+                  "odds": 1.5
+                }
+              ]
+            },
+            {
+              "name": "Handicap setowy",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Jenson Brooksby (-1,5)",
+                  "odds": 1.52
+                },
+                {
+                  "name": "Mitchell Krueger (+1.5)",
+                  "odds": 2.05
+                },
+                {
+                  "name": "Jenson Brooksby (+1,5)",
+                  "odds": 1.04
+                },
+                {
+                  "name": "Mitchell Krueger (-1.5)",
+                  "odds": 5.3
+                }
+              ]
+            },
+            {
+              "name": "Czy obaj zawodnicy wygrają seta w meczu",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 2.45
+                },
+                {
+                  "name": "Nie",
+                  "odds": 1.35
                 }
               ]
             }
@@ -4241,8 +3592,8 @@
         {
           "id": 1255939592187904,
           "name": "Edward Winter - Timo Legout",
-          "date": "2026-10-19T19:00:00.0000000Z",
-          "date_warsaw": "2026-10-19T21:00:00+02:00",
+          "date": "2026-10-19T21:50:00.0000000Z",
+          "date_warsaw": "2026-10-19T23:50:00+02:00",
           "competition": "Fort Worth Challenger",
           "competition_id": 41396,
           "is_live": true,
@@ -4346,545 +3697,10 @@
           ]
         },
         {
-          "id": 1256210905985024,
-          "name": "Daniel Milavsky - Govind Nanda",
-          "date": "2026-10-19T19:00:00.0000000Z",
-          "date_warsaw": "2026-10-19T21:00:00+02:00",
-          "competition": "Fort Worth Challenger",
-          "competition_id": 41396,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Daniel Milavsky",
-              "short": "D. Milavsky"
-            },
-            {
-              "name": "Govind Nanda",
-              "short": "G. Nanda"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Daniel Milavsky",
-                  "odds": 1.18
-                },
-                {
-                  "name": "Govind Nanda",
-                  "odds": 3.8
-                }
-              ]
-            },
-            {
-              "name": "Daniel Milavsky wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.07
-                },
-                {
-                  "name": "Nie",
-                  "odds": 6.0
-                }
-              ]
-            },
-            {
-              "name": "Govind Nanda wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 2.18
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.56
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 1.56
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 7.6
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 3.95
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 8.2
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Daniel Milavsky (-1,5)",
-                  "odds": 1.56
-                },
-                {
-                  "name": "Govind Nanda (+1.5)",
-                  "odds": 2.18
-                },
-                {
-                  "name": "Daniel Milavsky (+1,5)",
-                  "odds": 1.07
-                },
-                {
-                  "name": "Govind Nanda (-1.5)",
-                  "odds": 7.6
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1256536908267520,
-          "name": "Felipe Alves - Juan Sebastian Gomez",
-          "date": "2026-10-19T19:10:00.0000000Z",
-          "date_warsaw": "2026-10-19T21:10:00+02:00",
-          "competition": "Cali Challenger Kwalifikacje",
-          "competition_id": 18647,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Felipe Alves",
-              "short": "F. Alves"
-            },
-            {
-              "name": "Juan Sebastian Gomez",
-              "short": "J.S. Gomez"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Felipe Alves",
-                  "odds": 1.05
-                },
-                {
-                  "name": "Juan Sebastian Gomez",
-                  "odds": 6.4
-                }
-              ]
-            },
-            {
-              "name": "Felipe Alves wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.01
-                },
-                {
-                  "name": "Nie",
-                  "odds": 9.0
-                }
-              ]
-            },
-            {
-              "name": "Juan Sebastian Gomez wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 3.45
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.24
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 1.24
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 18.0
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 4.7
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 15.0
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Felipe Alves (-1,5)",
-                  "odds": 1.24
-                },
-                {
-                  "name": "Juan Sebastian Gomez (+1.5)",
-                  "odds": 3.45
-                },
-                {
-                  "name": "Felipe Alves (+1,5)",
-                  "odds": 1.01
-                },
-                {
-                  "name": "Juan Sebastian Gomez (-1.5)",
-                  "odds": 18.0
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1256536914554880,
-          "name": "Juan Alejandro Hernandez Serrano - Franco Ribero",
-          "date": "2026-10-19T19:10:00.0000000Z",
-          "date_warsaw": "2026-10-19T21:10:00+02:00",
-          "competition": "Cali Challenger Kwalifikacje",
-          "competition_id": 18647,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Juan Alejandro Hernandez Serrano",
-              "short": "J. Hernandez Serrano"
-            },
-            {
-              "name": "Franco Ribero",
-              "short": "F. Ribero"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Juan Alejandro Hernandez Serrano",
-                  "odds": 1.52
-                },
-                {
-                  "name": "Franco Ribero",
-                  "odds": 2.21
-                }
-              ]
-            },
-            {
-              "name": "Juan Alejandro Hernandez Serrano wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.23
-                },
-                {
-                  "name": "Nie",
-                  "odds": 3.45
-                }
-              ]
-            },
-            {
-              "name": "Franco Ribero wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.54
-                },
-                {
-                  "name": "Nie",
-                  "odds": 2.22
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 2.22
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 3.6
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 4.1
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 5.2
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Juan Alejandro Hernandez Serrano (-1,5)",
-                  "odds": 2.22
-                },
-                {
-                  "name": "Franco Ribero (+1.5)",
-                  "odds": 1.54
-                },
-                {
-                  "name": "Juan Alejandro Hernandez Serrano (+1,5)",
-                  "odds": 1.23
-                },
-                {
-                  "name": "Franco Ribero (-1.5)",
-                  "odds": 3.6
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1256574530117632,
-          "name": "Santiago Fa Rodriguez Taverna - Sergio Luis Hernandez Ramirez",
-          "date": "2026-10-19T19:10:00.0000000Z",
-          "date_warsaw": "2026-10-19T21:10:00+02:00",
-          "competition": "Cali Challenger Kwalifikacje",
-          "competition_id": 18647,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Santiago Fa Rodriguez Taverna",
-              "short": "S. F. Rodriguez Taverna"
-            },
-            {
-              "name": "Sergio Luis Hernandez Ramirez",
-              "short": "S. L. Hernandez Ramirez"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Santiago Fa Rodriguez Taverna",
-                  "odds": 1.18
-                },
-                {
-                  "name": "Sergio Luis Hernandez Ramirez",
-                  "odds": 3.8
-                }
-              ]
-            },
-            {
-              "name": "Santiago Fa Rodriguez Taverna wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.07
-                },
-                {
-                  "name": "Nie",
-                  "odds": 6.2
-                }
-              ]
-            },
-            {
-              "name": "Sergio Luis Hernandez Ramirez wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 2.11
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.6
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 1.6
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 7.8
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 3.75
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 7.8
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Santiago Fa Rodriguez Taverna (-1,5)",
-                  "odds": 1.6
-                },
-                {
-                  "name": "Sergio Luis Hernandez Ramirez (+1.5)",
-                  "odds": 2.11
-                },
-                {
-                  "name": "Santiago Fa Rodriguez Taverna (+1,5)",
-                  "odds": 1.07
-                },
-                {
-                  "name": "Sergio Luis Hernandez Ramirez (-1.5)",
-                  "odds": 7.8
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1255939140243456,
-          "name": "Jenson Brooksby - Mitchell Krueger",
-          "date": "2026-10-19T20:10:00.0000000Z",
-          "date_warsaw": "2026-10-19T22:10:00+02:00",
-          "competition": "Fort Worth Challenger",
-          "competition_id": 41396,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Jenson Brooksby",
-              "short": "J. Brooksby"
-            },
-            {
-              "name": "Mitchell Krueger",
-              "short": "M. Krueger"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Jenson Brooksby",
-                  "odds": 1.09
-                },
-                {
-                  "name": "Mitchell Krueger",
-                  "odds": 5.2
-                }
-              ]
-            },
-            {
-              "name": "Jenson Brooksby wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.03
-                },
-                {
-                  "name": "Nie",
-                  "odds": 7.8
-                }
-              ]
-            },
-            {
-              "name": "Mitchell Krueger wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 2.7
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.37
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 1.37
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 12.0
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 4.2
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 11.0
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Jenson Brooksby (-1,5)",
-                  "odds": 1.37
-                },
-                {
-                  "name": "Mitchell Krueger (+1.5)",
-                  "odds": 2.7
-                },
-                {
-                  "name": "Jenson Brooksby (+1,5)",
-                  "odds": 1.03
-                },
-                {
-                  "name": "Mitchell Krueger (-1.5)",
-                  "odds": 12.0
-                }
-              ]
-            }
-          ]
-        },
-        {
           "id": 1255941188120576,
           "name": "Max Hans Rehberg - Mees Rottgering",
-          "date": "2026-10-19T20:10:00.0000000Z",
-          "date_warsaw": "2026-10-19T22:10:00+02:00",
+          "date": "2026-10-19T21:50:00.0000000Z",
+          "date_warsaw": "2026-10-19T23:50:00+02:00",
           "competition": "Fort Worth Challenger",
           "competition_id": 41396,
           "is_live": true,
@@ -4982,220 +3798,6 @@
                 {
                   "name": "Mees Rottgering (-1.5)",
                   "odds": 2.47
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1256052375969811,
-          "name": "Hernan Casanova - Gonzalo Bueno",
-          "date": "2026-10-19T20:30:00.0000000Z",
-          "date_warsaw": "2026-10-19T22:30:00+02:00",
-          "competition": "Cali Challenger",
-          "competition_id": 18059,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Hernan Casanova",
-              "short": "H. Casanova"
-            },
-            {
-              "name": "Gonzalo Bueno",
-              "short": "G. Bueno"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Hernan Casanova",
-                  "odds": 2.4
-                },
-                {
-                  "name": "Gonzalo Bueno",
-                  "odds": 1.44
-                }
-              ]
-            },
-            {
-              "name": "Hernan Casanova wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.61
-                },
-                {
-                  "name": "Nie",
-                  "odds": 2.09
-                }
-              ]
-            },
-            {
-              "name": "Gonzalo Bueno wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.19
-                },
-                {
-                  "name": "Nie",
-                  "odds": 3.85
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 4.1
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 2.09
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 5.4
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 3.95
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Hernan Casanova (-1,5)",
-                  "odds": 4.1
-                },
-                {
-                  "name": "Gonzalo Bueno (+1.5)",
-                  "odds": 1.19
-                },
-                {
-                  "name": "Hernan Casanova (+1,5)",
-                  "odds": 1.61
-                },
-                {
-                  "name": "Gonzalo Bueno (-1.5)",
-                  "odds": 2.09
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1256045714366464,
-          "name": "Daniel Elahi Galan Riveros - Juan Pablo Varillas",
-          "date": "2026-10-19T21:30:00.0000000Z",
-          "date_warsaw": "2026-10-19T23:30:00+02:00",
-          "competition": "Cali Challenger",
-          "competition_id": 18059,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Daniel Elahi Galan Riveros",
-              "short": "D.E. Galan Riveros"
-            },
-            {
-              "name": "Juan Pablo Varillas",
-              "short": "J. Varillas"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Daniel Elahi Galan Riveros",
-                  "odds": 1.82
-                },
-                {
-                  "name": "Juan Pablo Varillas",
-                  "odds": 1.79
-                }
-              ]
-            },
-            {
-              "name": "Daniel Elahi Galan Riveros wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.34
-                },
-                {
-                  "name": "Nie",
-                  "odds": 2.8
-                }
-              ]
-            },
-            {
-              "name": "Juan Pablo Varillas wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.33
-                },
-                {
-                  "name": "Nie",
-                  "odds": 2.85
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 2.95
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 2.85
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 4.3
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 4.2
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Daniel Elahi Galan Riveros (-1,5)",
-                  "odds": 2.95
-                },
-                {
-                  "name": "Juan Pablo Varillas (+1.5)",
-                  "odds": 1.33
-                },
-                {
-                  "name": "Daniel Elahi Galan Riveros (+1,5)",
-                  "odds": 1.34
-                },
-                {
-                  "name": "Juan Pablo Varillas (-1.5)",
-                  "odds": 2.85
                 }
               ]
             }
