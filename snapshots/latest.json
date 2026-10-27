@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "source": "direct_betclic",
-  "generated_at_warsaw": "2026-10-27T08:34:35.223904+01:00",
+  "generated_at_warsaw": "2026-10-27T08:41:15.480784+01:00",
   "date_warsaw": "2026-10-27",
   "fallback_max_age_seconds": 5400,
   "sports": {
@@ -10,7 +10,10 @@
       "source": "direct_betclic",
       "stale": false,
       "event_count": 78,
-      "stale_event_ids": [],
+      "stale_event_ids": [
+        1256401285451776,
+        1256401561210880
+      ],
       "summary_only_event_ids": [],
       "discovery": {
         "source": "competitions",
@@ -502,7 +505,27 @@
         "partial": false,
         "errors": []
       },
-      "errors": [],
+      "errors": [
+        {
+          "stage": "validation",
+          "detail": "dropped 2 malformed event row(s)",
+          "malformed_event_count": 2
+        },
+        {
+          "stage": "discovery_missing",
+          "event_id": 1256401285451776,
+          "detail": "event missing from current discovery; reused recent same-day snapshot",
+          "reused_previous": true,
+          "fallback_age_seconds": 400.2
+        },
+        {
+          "stage": "discovery_missing",
+          "event_id": 1256401561210880,
+          "detail": "event missing from current discovery; reused recent same-day snapshot",
+          "reused_previous": true,
+          "fallback_age_seconds": 400.2
+        }
+      ],
       "events": [
         {
           "id": 1263285325266944,
@@ -4282,237 +4305,6 @@
           ]
         },
         {
-          "id": 1256401285451776,
-          "name": "Sassuolo - Lazio",
-          "date": "2026-10-27T17:30:00.0000000Z",
-          "date_warsaw": "2026-10-27T18:30:00+01:00",
-          "competition": "Serie A",
-          "competition_id": 6,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Sassuolo",
-              "short": "Sassuolo"
-            },
-            {
-              "name": "Lazio",
-              "short": "Lazio"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Sassuolo",
-                  "odds": 3.3
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 3.58
-                },
-                {
-                  "name": "Lazio",
-                  "odds": 2.05
-                }
-              ]
-            },
-            {
-              "name": "Wynik meczu - Xtra Wygrana",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Sassuolo",
-                  "odds": 2.53
-                },
-                {
-                  "name": "Lazio",
-                  "odds": 1.63
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Sassuolo lub remis",
-                  "odds": 1.7
-                },
-                {
-                  "name": "Sassuolo lub Lazio",
-                  "odds": 1.28
-                },
-                {
-                  "name": "Remis lub Lazio",
-                  "odds": 1.32
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.02
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 10.5
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.17
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 4.6
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.58
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 2.28
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 2.4
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.53
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 4.15
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.21
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 7.25
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.08
-                }
-              ]
-            },
-            {
-              "name": "Oba zespoły strzelą gola lub Powyżej 2,5 gola w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.33
-                },
-                {
-                  "name": "Nie",
-                  "odds": 3.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Sassuolo",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.28
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 3.47
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 2.32
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.54
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 5.75
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.13
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 9.75
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.02
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 12.25
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.01
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Lazio",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.16
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 5.1
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.79
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.92
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 3.53
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.28
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 6.75
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.07
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 11.0
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.01
-                }
-              ]
-            }
-          ]
-        },
-        {
           "id": 1263260289470464,
           "name": "WSC Hertha Wels - Wolfsberger",
           "date": "2026-10-27T17:30:00.0000000Z",
@@ -5114,6 +4906,244 @@
               ]
             }
           ]
+        },
+        {
+          "id": 1256401285451776,
+          "name": "Sassuolo - Lazio",
+          "date": "2026-10-27T17:30:00.0000000Z",
+          "date_warsaw": "2026-10-27T18:30:00+01:00",
+          "competition": "Serie A",
+          "competition_id": 6,
+          "is_live": true,
+          "teams": [
+            {
+              "name": "Sassuolo",
+              "short": "Sassuolo"
+            },
+            {
+              "name": "Lazio",
+              "short": "Lazio"
+            }
+          ],
+          "markets": [
+            {
+              "name": "Wynik meczu (z wyłączeniem dogrywki)",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Sassuolo",
+                  "odds": 3.3
+                },
+                {
+                  "name": "Remis ",
+                  "odds": 3.58
+                },
+                {
+                  "name": "Lazio",
+                  "odds": 2.05
+                }
+              ]
+            },
+            {
+              "name": "Wynik meczu - Xtra Wygrana",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Sassuolo",
+                  "odds": 2.53
+                },
+                {
+                  "name": "Lazio",
+                  "odds": 1.63
+                }
+              ]
+            },
+            {
+              "name": "Podwójna Szansa",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Sassuolo lub remis",
+                  "odds": 1.7
+                },
+                {
+                  "name": "Sassuolo lub Lazio",
+                  "odds": 1.28
+                },
+                {
+                  "name": "Remis lub Lazio",
+                  "odds": 1.32
+                }
+              ]
+            },
+            {
+              "name": "Gole Powyżej/Poniżej",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Powyżej 0,5",
+                  "odds": 1.02
+                },
+                {
+                  "name": "Poniżej 0,5",
+                  "odds": 10.5
+                },
+                {
+                  "name": "Powyżej 1,5",
+                  "odds": 1.17
+                },
+                {
+                  "name": "Poniżej 1,5",
+                  "odds": 4.6
+                },
+                {
+                  "name": "Powyżej 2,5",
+                  "odds": 1.58
+                },
+                {
+                  "name": "Poniżej 2,5",
+                  "odds": 2.28
+                },
+                {
+                  "name": "Powyżej 3,5",
+                  "odds": 2.4
+                },
+                {
+                  "name": "Poniżej 3,5",
+                  "odds": 1.53
+                },
+                {
+                  "name": "Powyżej 4,5",
+                  "odds": 4.15
+                },
+                {
+                  "name": "Poniżej 4,5",
+                  "odds": 1.21
+                },
+                {
+                  "name": "Powyżej 5,5",
+                  "odds": 7.25
+                },
+                {
+                  "name": "Poniżej 5,5",
+                  "odds": 1.08
+                }
+              ]
+            },
+            {
+              "name": "Oba zespoły strzelą gola lub Powyżej 2,5 gola w meczu",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 1.33
+                },
+                {
+                  "name": "Nie",
+                  "odds": 3.0
+                }
+              ]
+            },
+            {
+              "name": "Liczba goli - Sassuolo",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Powyżej 0,5",
+                  "odds": 1.28
+                },
+                {
+                  "name": "Poniżej 0,5",
+                  "odds": 3.47
+                },
+                {
+                  "name": "Powyżej 1,5",
+                  "odds": 2.32
+                },
+                {
+                  "name": "Poniżej 1,5",
+                  "odds": 1.54
+                },
+                {
+                  "name": "Powyżej 2,5",
+                  "odds": 5.75
+                },
+                {
+                  "name": "Poniżej 2,5",
+                  "odds": 1.13
+                },
+                {
+                  "name": "Powyżej 3,5",
+                  "odds": 9.75
+                },
+                {
+                  "name": "Poniżej 3,5",
+                  "odds": 1.02
+                },
+                {
+                  "name": "Powyżej 4,5",
+                  "odds": 12.25
+                },
+                {
+                  "name": "Poniżej 4,5",
+                  "odds": 1.01
+                }
+              ]
+            },
+            {
+              "name": "Liczba goli - Lazio",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Powyżej 0,5",
+                  "odds": 1.16
+                },
+                {
+                  "name": "Poniżej 0,5",
+                  "odds": 5.1
+                },
+                {
+                  "name": "Powyżej 1,5",
+                  "odds": 1.79
+                },
+                {
+                  "name": "Poniżej 1,5",
+                  "odds": 1.92
+                },
+                {
+                  "name": "Powyżej 2,5",
+                  "odds": 3.53
+                },
+                {
+                  "name": "Poniżej 2,5",
+                  "odds": 1.28
+                },
+                {
+                  "name": "Powyżej 3,5",
+                  "odds": 6.75
+                },
+                {
+                  "name": "Poniżej 3,5",
+                  "odds": 1.07
+                },
+                {
+                  "name": "Powyżej 4,5",
+                  "odds": 11.0
+                },
+                {
+                  "name": "Poniżej 4,5",
+                  "odds": 1.01
+                }
+              ]
+            }
+          ],
+          "_snapshot_meta": {
+            "stale": true,
+            "reason": "missing_from_discovery",
+            "stale_since_warsaw": "2026-10-27T08:34:35.223904+01:00",
+            "fallback_age_seconds": 400.2,
+            "max_fallback_age_seconds": 5400
+          }
         },
         {
           "id": 1263286778601472,
@@ -11346,217 +11376,6 @@
           ]
         },
         {
-          "id": 1256401561210880,
-          "name": "Roma - Cagliari",
-          "date": "2026-10-27T19:45:00.0000000Z",
-          "date_warsaw": "2026-10-27T20:45:00+01:00",
-          "competition": "Serie A",
-          "competition_id": 6,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Roma",
-              "short": "Roma"
-            },
-            {
-              "name": "Cagliari",
-              "short": "Cagliari"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Roma",
-                  "odds": 1.31
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 5.25
-                },
-                {
-                  "name": "Cagliari",
-                  "odds": 8.5
-                }
-              ]
-            },
-            {
-              "name": "Wynik meczu - Xtra Wygrana",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Cagliari",
-                  "odds": 7.5
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Roma lub remis",
-                  "odds": 1.08
-                },
-                {
-                  "name": "Roma lub Cagliari",
-                  "odds": 1.14
-                },
-                {
-                  "name": "Remis lub Cagliari",
-                  "odds": 3.28
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.02
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 10.75
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.18
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 4.45
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.59
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 2.27
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 2.47
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.5
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 4.25
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.2
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 7.5
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.07
-                }
-              ]
-            },
-            {
-              "name": "Oba zespoły strzelą gola lub Powyżej 2,5 gola w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.42
-                },
-                {
-                  "name": "Nie",
-                  "odds": 2.55
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Roma",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.07
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 8.5
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.41
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 2.7
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 2.23
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.58
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 4.05
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.2
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 7.5
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.06
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Cagliari",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.78
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 1.93
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 4.65
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.15
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 21.0
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.02
-                }
-              ]
-            }
-          ]
-        },
-        {
           "id": 1256401628327936,
           "name": "Torino - Como",
           "date": "2026-10-27T19:45:00.0000000Z",
@@ -12696,15 +12515,15 @@
               "selections": [
                 {
                   "name": "Bradford City",
-                  "odds": 1.6
+                  "odds": 1.58
                 },
                 {
                   "name": "Remis ",
-                  "odds": 3.8
+                  "odds": 3.93
                 },
                 {
                   "name": "Peterborough United",
-                  "odds": 4.65
+                  "odds": 4.7
                 }
               ]
             },
@@ -12740,7 +12559,7 @@
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 4.05
+                  "odds": 4.0
                 },
                 {
                   "name": "Powyżej 2,5",
@@ -12786,11 +12605,11 @@
                 },
                 {
                   "name": "Bradford City lub Peterborough United",
-                  "odds": 1.21
+                  "odds": 1.2
                 },
                 {
                   "name": "Remis lub Peterborough United",
-                  "odds": 2.13
+                  "odds": 2.18
                 }
               ]
             },
@@ -12818,19 +12637,19 @@
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 6.0
+                  "odds": 6.1
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.59
+                  "odds": 1.58
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 2.13
+                  "odds": 2.15
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 2.85
+                  "odds": 2.82
                 },
                 {
                   "name": "Poniżej 2,5",
@@ -12842,7 +12661,7 @@
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 1.1
+                  "odds": 1.11
                 },
                 {
                   "name": "Powyżej 4,5",
@@ -12860,23 +12679,23 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.44
+                  "odds": 1.45
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 2.52
+                  "odds": 2.47
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 3.02
+                  "odds": 3.07
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.3
+                  "odds": 1.29
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 9.75
+                  "odds": 10.0
                 },
                 {
                   "name": "Poniżej 2,5",
@@ -14250,6 +14069,224 @@
           ]
         },
         {
+          "id": 1256401561210880,
+          "name": "Roma - Cagliari",
+          "date": "2026-10-27T19:45:00.0000000Z",
+          "date_warsaw": "2026-10-27T20:45:00+01:00",
+          "competition": "Serie A",
+          "competition_id": 6,
+          "is_live": true,
+          "teams": [
+            {
+              "name": "Roma",
+              "short": "Roma"
+            },
+            {
+              "name": "Cagliari",
+              "short": "Cagliari"
+            }
+          ],
+          "markets": [
+            {
+              "name": "Wynik meczu (z wyłączeniem dogrywki)",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Roma",
+                  "odds": 1.31
+                },
+                {
+                  "name": "Remis ",
+                  "odds": 5.25
+                },
+                {
+                  "name": "Cagliari",
+                  "odds": 8.5
+                }
+              ]
+            },
+            {
+              "name": "Wynik meczu - Xtra Wygrana",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Cagliari",
+                  "odds": 7.5
+                }
+              ]
+            },
+            {
+              "name": "Podwójna Szansa",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Roma lub remis",
+                  "odds": 1.08
+                },
+                {
+                  "name": "Roma lub Cagliari",
+                  "odds": 1.14
+                },
+                {
+                  "name": "Remis lub Cagliari",
+                  "odds": 3.28
+                }
+              ]
+            },
+            {
+              "name": "Gole Powyżej/Poniżej",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Powyżej 0,5",
+                  "odds": 1.02
+                },
+                {
+                  "name": "Poniżej 0,5",
+                  "odds": 10.75
+                },
+                {
+                  "name": "Powyżej 1,5",
+                  "odds": 1.18
+                },
+                {
+                  "name": "Poniżej 1,5",
+                  "odds": 4.45
+                },
+                {
+                  "name": "Powyżej 2,5",
+                  "odds": 1.59
+                },
+                {
+                  "name": "Poniżej 2,5",
+                  "odds": 2.27
+                },
+                {
+                  "name": "Powyżej 3,5",
+                  "odds": 2.47
+                },
+                {
+                  "name": "Poniżej 3,5",
+                  "odds": 1.5
+                },
+                {
+                  "name": "Powyżej 4,5",
+                  "odds": 4.25
+                },
+                {
+                  "name": "Poniżej 4,5",
+                  "odds": 1.2
+                },
+                {
+                  "name": "Powyżej 5,5",
+                  "odds": 7.5
+                },
+                {
+                  "name": "Poniżej 5,5",
+                  "odds": 1.07
+                }
+              ]
+            },
+            {
+              "name": "Oba zespoły strzelą gola lub Powyżej 2,5 gola w meczu",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 1.42
+                },
+                {
+                  "name": "Nie",
+                  "odds": 2.55
+                }
+              ]
+            },
+            {
+              "name": "Liczba goli - Roma",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Powyżej 0,5",
+                  "odds": 1.07
+                },
+                {
+                  "name": "Poniżej 0,5",
+                  "odds": 8.5
+                },
+                {
+                  "name": "Powyżej 1,5",
+                  "odds": 1.41
+                },
+                {
+                  "name": "Poniżej 1,5",
+                  "odds": 2.7
+                },
+                {
+                  "name": "Powyżej 2,5",
+                  "odds": 2.23
+                },
+                {
+                  "name": "Poniżej 2,5",
+                  "odds": 1.58
+                },
+                {
+                  "name": "Powyżej 3,5",
+                  "odds": 4.05
+                },
+                {
+                  "name": "Poniżej 3,5",
+                  "odds": 1.2
+                },
+                {
+                  "name": "Powyżej 4,5",
+                  "odds": 7.5
+                },
+                {
+                  "name": "Poniżej 4,5",
+                  "odds": 1.06
+                }
+              ]
+            },
+            {
+              "name": "Liczba goli - Cagliari",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Powyżej 0,5",
+                  "odds": 1.78
+                },
+                {
+                  "name": "Poniżej 0,5",
+                  "odds": 1.93
+                },
+                {
+                  "name": "Powyżej 1,5",
+                  "odds": 4.65
+                },
+                {
+                  "name": "Poniżej 1,5",
+                  "odds": 1.15
+                },
+                {
+                  "name": "Powyżej 2,5",
+                  "odds": 21.0
+                },
+                {
+                  "name": "Poniżej 2,5",
+                  "odds": 1.02
+                }
+              ]
+            }
+          ],
+          "_snapshot_meta": {
+            "stale": true,
+            "reason": "missing_from_discovery",
+            "stale_since_warsaw": "2026-10-27T08:34:35.223904+01:00",
+            "fallback_age_seconds": 400.2,
+            "max_fallback_age_seconds": 5400
+          }
+        },
+        {
           "id": 1227916574740480,
           "name": "Fleetwood - Arsenal",
           "date": "2026-10-27T20:00:00.0000000Z",
@@ -15161,11 +15198,11 @@
               "selections": [
                 {
                   "name": "Manacor",
-                  "odds": 33.0
+                  "odds": 35.0
                 },
                 {
                   "name": "Remis ",
-                  "odds": 11.75
+                  "odds": 11.5
                 },
                 {
                   "name": "Villarreal",
@@ -15495,7 +15532,7 @@
               "selections": [
                 {
                   "name": "Koninklijke HFC",
-                  "odds": 8.0
+                  "odds": 7.75
                 },
                 {
                   "name": "Remis ",
@@ -15503,7 +15540,7 @@
                 },
                 {
                   "name": "Go Ahead Eagles",
-                  "odds": 1.2
+                  "odds": 1.21
                 }
               ]
             },
@@ -15513,11 +15550,11 @@
               "selections": [
                 {
                   "name": "Koninklijke HFC",
-                  "odds": 4.9
+                  "odds": 4.8
                 },
                 {
                   "name": "Go Ahead Eagles",
-                  "odds": 1.09
+                  "odds": 1.1
                 }
               ]
             },
@@ -15573,15 +15610,15 @@
               "selections": [
                 {
                   "name": "Koninklijke HFC lub remis",
-                  "odds": 3.6
+                  "odds": 3.53
                 },
                 {
                   "name": "Koninklijke HFC lub Go Ahead Eagles",
-                  "odds": 1.08
+                  "odds": 1.09
                 },
                 {
                   "name": "Remis lub Go Ahead Eagles",
-                  "odds": 1.05
+                  "odds": 1.06
                 }
               ]
             },
@@ -15591,27 +15628,27 @@
               "selections": [
                 {
                   "name": "Powyżej 0,5",
-                  "odds": 1.56
+                  "odds": 1.54
                 },
                 {
                   "name": "Poniżej 0,5",
-                  "odds": 2.15
+                  "odds": 2.18
                 },
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 3.5
+                  "odds": 3.4
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 1.2
+                  "odds": 1.21
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 13.75
+                  "odds": 13.0
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.02
+                  "odds": 1.03
                 }
               ]
             },
@@ -15621,27 +15658,27 @@
               "selections": [
                 {
                   "name": "Powyżej 1,5",
-                  "odds": 1.22
+                  "odds": 1.23
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 3.3
+                  "odds": 3.27
                 },
                 {
                   "name": "Powyżej 2,5",
-                  "odds": 1.74
+                  "odds": 1.75
                 },
                 {
                   "name": "Poniżej 2,5",
-                  "odds": 1.86
+                  "odds": 1.84
                 },
                 {
                   "name": "Powyżej 3,5",
-                  "odds": 2.75
+                  "odds": 2.78
                 },
                 {
                   "name": "Poniżej 3,5",
-                  "odds": 1.32
+                  "odds": 1.31
                 }
               ]
             }
@@ -15898,8 +15935,12 @@
               "suspended": false,
               "selections": [
                 {
+                  "name": "Jake Delaney",
+                  "odds": 1.01
+                },
+                {
                   "name": "Alexandr Binda",
-                  "odds": 6.75
+                  "odds": 6.25
                 }
               ]
             },
@@ -15909,11 +15950,25 @@
               "selections": [
                 {
                   "name": "Jake Delaney",
-                  "odds": 1.03
+                  "odds": 1.04
                 },
                 {
                   "name": "Alexandr Binda",
-                  "odds": 4.75
+                  "odds": 4.6
+                }
+              ]
+            },
+            {
+              "name": "3. set - Gem 11 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Jake Delaney",
+                  "odds": 3.7
+                },
+                {
+                  "name": "Alexandr Binda",
+                  "odds": 1.1
                 }
               ]
             },
@@ -15923,91 +15978,67 @@
               "selections": [
                 {
                   "name": "Jake Delaney",
-                  "odds": 1.35
+                  "odds": 1.38
                 },
                 {
                   "name": "Alexandr Binda",
+                  "odds": 2.2
+                }
+              ]
+            },
+            {
+              "name": "3. set - Gem 11 - Punkt 1 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Jake Delaney",
                   "odds": 2.3
-                }
-              ]
-            },
-            {
-              "name": "3. set - Gem 10 - Czy dojdzie do równowagi?",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 3.15
                 },
                 {
-                  "name": "Nie",
-                  "odds": 1.19
+                  "name": "Alexandr Binda",
+                  "odds": 1.35
                 }
               ]
             },
             {
-              "name": "3. set - Liczba Gemów - Jake Delaney ",
+              "name": "3. set - Gem 11 - Punkt 2 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
-                  "name": "Powyżej 6,5",
-                  "odds": 7.25
-                }
-              ]
-            },
-            {
-              "name": "3. set - Liczba Gemów - Alexandr Binda ",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 5.25
+                  "name": "Jake Delaney",
+                  "odds": 2.3
                 },
                 {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.03
+                  "name": "Alexandr Binda",
+                  "odds": 1.35
                 }
               ]
             },
             {
-              "name": "Handicap w gemach",
+              "name": "3. set - Gem 11 - Punkt 3 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
-                  "name": "Jake Delaney (-1,5)",
-                  "odds": 1.02
+                  "name": "Jake Delaney",
+                  "odds": 2.3
                 },
                 {
-                  "name": "Alexandr Binda (+1.5)",
-                  "odds": 5.5
+                  "name": "Alexandr Binda",
+                  "odds": 1.35
                 }
               ]
             },
             {
-              "name": "Tie Break - 3. set ",
+              "name": "3. set - Gem 11 - Punkt 4 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
-                  "name": "Tak",
-                  "odds": 6.25
+                  "name": "Jake Delaney",
+                  "odds": 2.35
                 },
                 {
-                  "name": "Nie",
-                  "odds": 1.01
-                }
-              ]
-            },
-            {
-              "name": "Liczba gemów parzysta/nieparzysta - 3. set ",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Nieparzysty",
-                  "odds": 6.25
-                },
-                {
-                  "name": "Parzysty",
-                  "odds": 1.01
+                  "name": "Alexandr Binda",
+                  "odds": 1.33
                 }
               ]
             }
@@ -16231,21 +16262,11 @@
               "selections": [
                 {
                   "name": "Fajing Sun",
-                  "odds": 6.75
-                }
-              ]
-            },
-            {
-              "name": "3. set - Gem 4 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Fajing Sun",
-                  "odds": 4.4
+                  "odds": 4.0
                 },
                 {
                   "name": "Hayato Matsuoka",
-                  "odds": 1.05
+                  "odds": 1.11
                 }
               ]
             },
@@ -16255,16 +16276,58 @@
               "selections": [
                 {
                   "name": "Fajing Sun",
-                  "odds": 1.28
+                  "odds": 1.3
                 },
                 {
                   "name": "Hayato Matsuoka",
-                  "odds": 2.5
+                  "odds": 2.45
                 }
               ]
             },
             {
-              "name": "3. set - Gem 4 - Punkt 5 - Zwycięzca",
+              "name": "3. set - Gem 6 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Fajing Sun",
+                  "odds": 3.1
+                },
+                {
+                  "name": "Hayato Matsuoka",
+                  "odds": 1.17
+                }
+              ]
+            },
+            {
+              "name": "3. set - Gem 5 - Punkt 8 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Fajing Sun",
+                  "odds": 1.47
+                },
+                {
+                  "name": "Hayato Matsuoka",
+                  "odds": 2.0
+                }
+              ]
+            },
+            {
+              "name": "3. set - Gem 6 - Punkt 1 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Fajing Sun",
+                  "odds": 2.1
+                },
+                {
+                  "name": "Hayato Matsuoka",
+                  "odds": 1.42
+                }
+              ]
+            },
+            {
+              "name": "3. set - Gem 6 - Punkt 2 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
@@ -16278,58 +16341,30 @@
               ]
             },
             {
-              "name": "3. set - Gem 5 - Punkt 1 - Zwycięzca",
+              "name": "3. set - Gem 6 - Punkt 3 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
                   "name": "Fajing Sun",
-                  "odds": 1.5
+                  "odds": 2.15
                 },
                 {
                   "name": "Hayato Matsuoka",
-                  "odds": 1.95
+                  "odds": 1.4
                 }
               ]
             },
             {
-              "name": "3. set - Gem 5 - Punkt 2 - Zwycięzca",
+              "name": "3. set - Gem 6 - Punkt 4 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
                   "name": "Fajing Sun",
-                  "odds": 1.5
+                  "odds": 2.15
                 },
                 {
                   "name": "Hayato Matsuoka",
-                  "odds": 1.95
-                }
-              ]
-            },
-            {
-              "name": "3. set - Gem 5 - Punkt 3 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Fajing Sun",
-                  "odds": 1.5
-                },
-                {
-                  "name": "Hayato Matsuoka",
-                  "odds": 1.95
-                }
-              ]
-            },
-            {
-              "name": "3. set - Gem 5 - Punkt 4 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Fajing Sun",
-                  "odds": 1.47
-                },
-                {
-                  "name": "Hayato Matsuoka",
-                  "odds": 2.0
+                  "odds": 1.4
                 }
               ]
             }
@@ -16360,11 +16395,11 @@
               "selections": [
                 {
                   "name": "James McCabe",
-                  "odds": 3.05
+                  "odds": 2.9
                 },
                 {
                   "name": "Hiroki Moriya",
-                  "odds": 1.22
+                  "odds": 1.24
                 }
               ]
             },
@@ -16374,11 +16409,11 @@
               "selections": [
                 {
                   "name": "James McCabe",
-                  "odds": 1.05
+                  "odds": 1.04
                 },
                 {
                   "name": "Hiroki Moriya",
-                  "odds": 4.4
+                  "odds": 4.6
                 }
               ]
             },
@@ -16402,11 +16437,11 @@
               "selections": [
                 {
                   "name": "0 - 2",
-                  "odds": 1.6
+                  "odds": 1.65
                 },
                 {
                   "name": "2 - 1",
-                  "odds": 2.95
+                  "odds": 2.8
                 },
                 {
                   "name": "1 - 2",
@@ -16490,11 +16525,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.85
+                  "odds": 1.82
                 },
                 {
                   "name": "Nie",
-                  "odds": 1.62
+                  "odds": 1.65
                 }
               ]
             },
@@ -16504,11 +16539,11 @@
               "selections": [
                 {
                   "name": "James McCabe (+1,5)",
-                  "odds": 1.85
+                  "odds": 1.82
                 },
                 {
                   "name": "Hiroki Moriya (-1.5)",
-                  "odds": 1.62
+                  "odds": 1.65
                 }
               ]
             }
@@ -16539,11 +16574,11 @@
               "selections": [
                 {
                   "name": "Alibek Kachmazov",
-                  "odds": 1.18
+                  "odds": 1.35
                 },
                 {
                   "name": "Rio Noguchi",
-                  "odds": 3.25
+                  "odds": 2.5
                 }
               ]
             },
@@ -16553,11 +16588,11 @@
               "selections": [
                 {
                   "name": "Alibek Kachmazov",
-                  "odds": 2.4
+                  "odds": 2.35
                 },
                 {
                   "name": "Rio Noguchi",
-                  "odds": 1.3
+                  "odds": 1.32
                 }
               ]
             },
@@ -16567,11 +16602,11 @@
               "selections": [
                 {
                   "name": "Alibek Kachmazov",
-                  "odds": 1.6
+                  "odds": 2.1
                 },
                 {
                   "name": "Rio Noguchi",
-                  "odds": 1.9
+                  "odds": 1.45
                 }
               ]
             },
@@ -16581,29 +16616,29 @@
               "selections": [
                 {
                   "name": "2 - 0",
-                  "odds": 1.6
+                  "odds": 2.2
                 },
                 {
                   "name": "1 - 2",
-                  "odds": 3.6
+                  "odds": 2.65
                 },
                 {
                   "name": "2 - 1",
-                  "odds": 3.55
+                  "odds": 2.85
                 }
               ]
             },
             {
-              "name": "2. set - Gem 2 - Punkt 3 - Zwycięzca",
+              "name": "2. set - Gem 3 - Punkt 1 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
                   "name": "Alibek Kachmazov",
-                  "odds": 1.45
+                  "odds": 1.9
                 },
                 {
                   "name": "Rio Noguchi",
-                  "odds": 2.05
+                  "odds": 1.52
                 }
               ]
             },
@@ -16613,11 +16648,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.9
+                  "odds": 1.45
                 },
                 {
                   "name": "Nie",
-                  "odds": 1.6
+                  "odds": 2.1
                 }
               ]
             },
@@ -16627,11 +16662,11 @@
               "selections": [
                 {
                   "name": "Alibek Kachmazov (-1,5)",
-                  "odds": 1.6
+                  "odds": 2.15
                 },
                 {
                   "name": "Rio Noguchi (+1.5)",
-                  "odds": 1.9
+                  "odds": 1.47
                 }
               ]
             },
@@ -16641,11 +16676,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.9
+                  "odds": 1.45
                 },
                 {
                   "name": "Nie",
-                  "odds": 1.6
+                  "odds": 2.1
                 }
               ]
             }
@@ -16676,25 +16711,25 @@
               "selections": [
                 {
                   "name": "Stefanos Sakellaridis",
-                  "odds": 1.06
+                  "odds": 1.01
                 },
                 {
                   "name": "Timofey Skatov",
-                  "odds": 4.85
+                  "odds": 6.25
                 }
               ]
             },
             {
-              "name": "2. set - Gem 2 - Zwycięzca",
+              "name": "2. set - Gem 4 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
                   "name": "Stefanos Sakellaridis",
-                  "odds": 1.06
+                  "odds": 1.08
                 },
                 {
                   "name": "Timofey Skatov",
-                  "odds": 4.25
+                  "odds": 4.0
                 }
               ]
             },
@@ -16704,11 +16739,11 @@
               "selections": [
                 {
                   "name": "Stefanos Sakellaridis",
-                  "odds": 1.22
+                  "odds": 1.04
                 },
                 {
                   "name": "Timofey Skatov",
-                  "odds": 2.9
+                  "odds": 5.1
                 }
               ]
             },
@@ -16718,29 +16753,29 @@
               "selections": [
                 {
                   "name": "2 - 0",
-                  "odds": 1.22
+                  "odds": 1.04
                 },
                 {
                   "name": "1 - 2",
-                  "odds": 6.25
+                  "odds": 11.0
                 },
                 {
                   "name": "2 - 1",
-                  "odds": 4.9
+                  "odds": 8.0
                 }
               ]
             },
             {
-              "name": "2. set - Gem 1 - Punkt 8 - Zwycięzca",
+              "name": "2. set - Gem 3 - Punkt 2 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
                   "name": "Stefanos Sakellaridis",
-                  "odds": 2.05
+                  "odds": 2.0
                 },
                 {
                   "name": "Timofey Skatov",
-                  "odds": 1.45
+                  "odds": 1.47
                 }
               ]
             },
@@ -16750,11 +16785,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 2.9
+                  "odds": 5.1
                 },
                 {
                   "name": "Nie",
-                  "odds": 1.22
+                  "odds": 1.04
                 }
               ]
             },
@@ -16764,11 +16799,11 @@
               "selections": [
                 {
                   "name": "Stefanos Sakellaridis (-1,5)",
-                  "odds": 1.22
+                  "odds": 1.04
                 },
                 {
                   "name": "Timofey Skatov (+1.5)",
-                  "odds": 2.95
+                  "odds": 5.3
                 }
               ]
             },
@@ -16778,11 +16813,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 2.9
+                  "odds": 5.1
                 },
                 {
                   "name": "Nie",
-                  "odds": 1.22
+                  "odds": 1.04
                 }
               ]
             }
@@ -16791,8 +16826,8 @@
         {
           "id": 1261616888819712,
           "name": "Linang Xiao - Jie Cui",
-          "date": "2026-10-27T07:50:00.0000000Z",
-          "date_warsaw": "2026-10-27T08:50:00+01:00",
+          "date": "2026-10-27T08:00:00.0000000Z",
+          "date_warsaw": "2026-10-27T09:00:00+01:00",
           "competition": "Ningbo Challenger",
           "competition_id": 41464,
           "is_live": false,
@@ -16898,8 +16933,8 @@
         {
           "id": 1261618180657152,
           "name": "Tristan Schoolkate - Masamichi Imamura",
-          "date": "2026-10-27T07:50:00.0000000Z",
-          "date_warsaw": "2026-10-27T08:50:00+01:00",
+          "date": "2026-10-27T08:00:00.0000000Z",
+          "date_warsaw": "2026-10-27T09:00:00+01:00",
           "competition": "Ningbo Challenger",
           "competition_id": 41464,
           "is_live": false,
@@ -16924,7 +16959,7 @@
                 },
                 {
                   "name": "Masamichi Imamura",
-                  "odds": 5.0
+                  "odds": 4.9
                 }
               ]
             },
@@ -16938,7 +16973,7 @@
                 },
                 {
                   "name": "Nie",
-                  "odds": 7.6
+                  "odds": 7.4
                 }
               ]
             },
@@ -17005,8 +17040,8 @@
         {
           "id": 1261618185895936,
           "name": "Sergey Fomin - Liam Broady",
-          "date": "2026-10-27T07:50:00.0000000Z",
-          "date_warsaw": "2026-10-27T08:50:00+01:00",
+          "date": "2026-10-27T08:00:00.0000000Z",
+          "date_warsaw": "2026-10-27T09:00:00+01:00",
           "competition": "Ningbo Challenger",
           "competition_id": 41464,
           "is_live": false,
@@ -17112,8 +17147,8 @@
         {
           "id": 1263390405177344,
           "name": "Naoya Honda - Filip Peliwo",
-          "date": "2026-10-27T09:00:00.0000000Z",
-          "date_warsaw": "2026-10-27T10:00:00+01:00",
+          "date": "2026-10-27T09:10:00.0000000Z",
+          "date_warsaw": "2026-10-27T10:10:00+01:00",
           "competition": "Ningbo Challenger",
           "competition_id": 41464,
           "is_live": false,
@@ -17669,11 +17704,11 @@
               "selections": [
                 {
                   "name": "Matisse Bobichon",
-                  "odds": 2.03
+                  "odds": 1.99
                 },
                 {
                   "name": "Michael Geerts",
-                  "odds": 1.62
+                  "odds": 1.64
                 }
               ]
             },
@@ -17683,11 +17718,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.43
+                  "odds": 1.42
                 },
                 {
                   "name": "Nie",
-                  "odds": 2.48
+                  "odds": 2.5
                 }
               ]
             },
@@ -17697,11 +17732,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.26
+                  "odds": 1.27
                 },
                 {
                   "name": "Nie",
-                  "odds": 3.25
+                  "odds": 3.2
                 }
               ]
             },
@@ -17711,11 +17746,11 @@
               "selections": [
                 {
                   "name": "2 - 0",
-                  "odds": 3.4
+                  "odds": 3.3
                 },
                 {
                   "name": "0 - 2",
-                  "odds": 2.5
+                  "odds": 2.55
                 },
                 {
                   "name": "2 - 1",
@@ -17723,7 +17758,7 @@
                 },
                 {
                   "name": "1 - 2",
-                  "odds": 4.0
+                  "odds": 4.1
                 }
               ]
             },
@@ -17733,19 +17768,19 @@
               "selections": [
                 {
                   "name": "Matisse Bobichon (-1,5)",
-                  "odds": 3.4
+                  "odds": 3.3
                 },
                 {
                   "name": "Michael Geerts (+1.5)",
-                  "odds": 1.26
+                  "odds": 1.27
                 },
                 {
                   "name": "Matisse Bobichon (+1,5)",
-                  "odds": 1.43
+                  "odds": 1.42
                 },
                 {
                   "name": "Michael Geerts (-1.5)",
-                  "odds": 2.5
+                  "odds": 2.55
                 }
               ]
             }
@@ -20164,7 +20199,7 @@
               "selections": [
                 {
                   "name": "2 - 0",
-                  "odds": 1.77
+                  "odds": 1.8
                 },
                 {
                   "name": "0 - 2",
@@ -20186,15 +20221,15 @@
               "selections": [
                 {
                   "name": "Sebastian Dominko (-1,5)",
-                  "odds": 1.77
+                  "odds": 1.8
                 },
                 {
                   "name": "Karl Poling (+1.5)",
-                  "odds": 1.81
+                  "odds": 1.84
                 },
                 {
                   "name": "Sebastian Dominko (+1,5)",
-                  "odds": 1.1
+                  "odds": 1.11
                 },
                 {
                   "name": "Karl Poling (-1.5)",
@@ -20297,11 +20332,11 @@
                 },
                 {
                   "name": "Valentin Royer (+1.5)",
-                  "odds": 1.25
+                  "odds": 1.27
                 },
                 {
                   "name": "Timo Legout (+1,5)",
-                  "odds": 1.42
+                  "odds": 1.44
                 },
                 {
                   "name": "Valentin Royer (-1.5)",
