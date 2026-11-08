@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "source": "direct_betclic",
-  "generated_at_warsaw": "2026-11-08T21:29:23.753506+01:00",
+  "generated_at_warsaw": "2026-11-08T23:24:22.368063+01:00",
   "date_warsaw": "2026-11-08",
   "fallback_max_age_seconds": 5400,
   "sports": {
@@ -9,26 +9,12 @@
       "sport": "football",
       "source": "direct_betclic",
       "stale": false,
-      "event_count": 9,
+      "event_count": 2,
       "stale_event_ids": [],
       "summary_only_event_ids": [],
       "discovery": {
         "source": "competitions",
         "selected_competitions": [
-          {
-            "id": 7,
-            "name": "La Liga",
-            "category": "",
-            "country_code": "ES",
-            "country_name": "Hiszpania"
-          },
-          {
-            "id": 221,
-            "name": "Ekstraklasa",
-            "category": "",
-            "country_code": "PL",
-            "country_name": "Polska"
-          },
           {
             "id": 32,
             "name": "Liga Betclic",
@@ -37,18 +23,11 @@
             "country_name": "Portugalia"
           },
           {
-            "id": 6,
-            "name": "Serie A",
+            "id": 22676,
+            "name": "UEFA Liga Narodów",
             "category": "",
-            "country_code": "IT",
-            "country_name": "Włochy"
-          },
-          {
-            "id": 4,
-            "name": "Ligue 1",
-            "category": "",
-            "country_code": "FR",
-            "country_name": "Francja"
+            "country_code": "EU",
+            "country_name": "Europa"
           },
           {
             "id": 3,
@@ -107,13 +86,6 @@
             "country_name": "Europa"
           },
           {
-            "id": 22676,
-            "name": "UEFA Liga Narodów",
-            "category": "",
-            "country_code": "EU",
-            "country_name": "Europa"
-          },
-          {
             "id": 3453,
             "name": "Liga Europy",
             "category": "",
@@ -142,6 +114,13 @@
             "country_name": "Francja"
           },
           {
+            "id": 4,
+            "name": "Ligue 1",
+            "category": "",
+            "country_code": "FR",
+            "country_name": "Francja"
+          },
+          {
             "id": 38,
             "name": "Grecja 1. liga",
             "category": "",
@@ -161,6 +140,13 @@
             "category": "",
             "country_code": "GR",
             "country_name": "Grecja"
+          },
+          {
+            "id": 7,
+            "name": "La Liga",
+            "category": "",
+            "country_code": "ES",
+            "country_name": "Hiszpania"
           },
           {
             "id": 47,
@@ -226,13 +212,6 @@
             "country_name": "Polska"
           },
           {
-            "id": 1749,
-            "name": "Betclic 1. Liga",
-            "category": "",
-            "country_code": "PL",
-            "country_name": "Polska"
-          },
-          {
             "id": 2836,
             "name": "Betclic 2. Liga",
             "category": "",
@@ -273,14 +252,18 @@
             "category": "",
             "country_code": "ND",
             "country_name": "Szkocja"
+          },
+          {
+            "id": 6,
+            "name": "Serie A",
+            "category": "",
+            "country_code": "IT",
+            "country_name": "Włochy"
           }
         ],
         "selected_competition_ids": [
-          7,
-          221,
           32,
-          6,
-          4,
+          22676,
           3,
           44,
           41,
@@ -289,14 +272,15 @@
           35,
           536,
           8,
-          22676,
           3453,
           28946,
           122,
           36,
+          4,
           38,
           133,
           29001,
+          7,
           47,
           21,
           62,
@@ -306,13 +290,13 @@
           55,
           156,
           1146,
-          1749,
           2836,
           939,
           63,
           33,
           551,
-          56
+          56,
+          6
         ],
         "filtered_out": 0,
         "partial": false,
@@ -320,1233 +304,6 @@
       },
       "errors": [],
       "events": [
-        {
-          "id": 1257094539915264,
-          "name": "Olympiakos - PAOK",
-          "date": "2026-11-08T19:00:00.0000000Z",
-          "date_warsaw": "2026-11-08T20:00:00+01:00",
-          "competition": "Grecja 1. liga",
-          "competition_id": 38,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Olympiakos",
-              "short": "Olympiakos"
-            },
-            {
-              "name": "PAOK",
-              "short": "PAOK"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Olympiakos",
-                  "odds": 1.11
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 4.6
-                },
-                {
-                  "name": "PAOK",
-                  "odds": 18.0
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Olympiakos lub PAOK",
-                  "odds": 1.07
-                },
-                {
-                  "name": "Remis lub PAOK",
-                  "odds": 3.5
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.57
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.95
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 3.65
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.14
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 14.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Olympiakos",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 2.0
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.5
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 5.25
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.02
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 29.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - PAOK",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 3.05
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 1.24
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 8.0
-                }
-              ]
-            },
-            {
-              "name": "Handicap",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Olympiakos (-3)",
-                  "odds": 25.0
-                },
-                {
-                  "name": "Remis (Olympiakos -3)",
-                  "odds": 7.25
-                },
-                {
-                  "name": "PAOK (+3)",
-                  "odds": 1.02
-                },
-                {
-                  "name": "Olympiakos (-2)",
-                  "odds": 9.5
-                },
-                {
-                  "name": "Remis (Olympiakos -2)",
-                  "odds": 3.2
-                },
-                {
-                  "name": "PAOK (+2)",
-                  "odds": 1.35
-                },
-                {
-                  "name": "Olympiakos (-1)",
-                  "odds": 2.65
-                },
-                {
-                  "name": "Remis (Olympiakos -1)",
-                  "odds": 1.75
-                },
-                {
-                  "name": "PAOK (+1)",
-                  "odds": 4.75
-                },
-                {
-                  "name": "Remis (Olympiakos +1)",
-                  "odds": 14.0
-                },
-                {
-                  "name": "PAOK (-1)",
-                  "odds": 30.0
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1262558575067136,
-          "name": "Utrecht - NEC Nijmegen",
-          "date": "2026-11-08T19:00:00.0000000Z",
-          "date_warsaw": "2026-11-08T20:00:00+01:00",
-          "competition": "Holandia Eredivisie",
-          "competition_id": 21,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Utrecht",
-              "short": "Utrecht"
-            },
-            {
-              "name": "NEC Nijmegen",
-              "short": "NEC Nijmegen"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Utrecht",
-                  "odds": 11.0
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 3.6
-                },
-                {
-                  "name": "NEC Nijmegen",
-                  "odds": 1.27
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Utrecht lub remis",
-                  "odds": 2.35
-                },
-                {
-                  "name": "Utrecht lub NEC Nijmegen",
-                  "odds": 1.11
-                },
-                {
-                  "name": "Remis lub NEC Nijmegen",
-                  "odds": 1.01
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 1.35
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 2.55
-                },
-                {
-                  "name": "Powyżej 6,5",
-                  "odds": 2.9
-                },
-                {
-                  "name": "Poniżej 6,5",
-                  "odds": 1.27
-                },
-                {
-                  "name": "Powyżej 7,5",
-                  "odds": 6.75
-                },
-                {
-                  "name": "Poniżej 7,5",
-                  "odds": 1.02
-                },
-                {
-                  "name": "Powyżej 8,5",
-                  "odds": 15.0
-                },
-                {
-                  "name": "Powyżej 9,5",
-                  "odds": 7.75
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Utrecht",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 2.05
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.48
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 5.5
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.02
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 20.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - NEC Nijmegen",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 2.0
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.52
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 5.5
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.02
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 20.0
-                }
-              ]
-            },
-            {
-              "name": "Handicap",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Utrecht (-1)",
-                  "odds": 25.0
-                },
-                {
-                  "name": "Remis (Utrecht -1)",
-                  "odds": 8.5
-                },
-                {
-                  "name": "NEC Nijmegen (+1)",
-                  "odds": 1.01
-                },
-                {
-                  "name": "Utrecht (+1)",
-                  "odds": 3.1
-                },
-                {
-                  "name": "Remis (Utrecht +1)",
-                  "odds": 2.0
-                },
-                {
-                  "name": "NEC Nijmegen (-1)",
-                  "odds": 3.1
-                },
-                {
-                  "name": "Utrecht (+2)",
-                  "odds": 1.27
-                },
-                {
-                  "name": "Remis (Utrecht +2)",
-                  "odds": 3.7
-                },
-                {
-                  "name": "NEC Nijmegen (-2)",
-                  "odds": 11.0
-                },
-                {
-                  "name": "Utrecht (+3)",
-                  "odds": 1.01
-                },
-                {
-                  "name": "Remis (Utrecht +3)",
-                  "odds": 8.5
-                },
-                {
-                  "name": "NEC Nijmegen (-3)",
-                  "odds": 25.0
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1269086720913408,
-          "name": "Lech Poznań - Zagłębie Lubin",
-          "date": "2026-11-08T19:15:00.0000000Z",
-          "date_warsaw": "2026-11-08T20:15:00+01:00",
-          "competition": "Ekstraklasa",
-          "competition_id": 221,
-          "is_live": false,
-          "teams": [
-            {
-              "name": "Lech Poznań",
-              "short": "Lech Poznań"
-            },
-            {
-              "name": "Zagłębie Lubin",
-              "short": "Zagłębie Lubin"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Lech Poznań",
-                  "odds": 2.6
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 2.9
-                },
-                {
-                  "name": "Zagłębie Lubin",
-                  "odds": 2.7
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Lech Poznań lub remis",
-                  "odds": 1.38
-                },
-                {
-                  "name": "Lech Poznań lub Zagłębie Lubin",
-                  "odds": 1.32
-                },
-                {
-                  "name": "Remis lub Zagłębie Lubin",
-                  "odds": 1.4
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.1
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 5.25
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.72
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.94
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 3.6
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.2
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 7.5
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.06
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 15.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Lech Poznań",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.24
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 3.75
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 2.0
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.65
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 4.6
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.13
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 16.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Zagłębie Lubin",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 2.9
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.32
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 11.0
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.01
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1269585159409664,
-          "name": "Stal Mielec - Ruch Chorzów",
-          "date": "2026-11-08T19:15:00.0000000Z",
-          "date_warsaw": "2026-11-08T20:15:00+01:00",
-          "competition": "Betclic 1. Liga",
-          "competition_id": 1749,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Stal Mielec",
-              "short": "Stal Mielec"
-            },
-            {
-              "name": "Ruch Chorzów",
-              "short": "Ruch Chorzów"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Stal Mielec",
-                  "odds": 3.7
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 2.3
-                },
-                {
-                  "name": "Ruch Chorzów",
-                  "odds": 2.55
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Stal Mielec lub remis",
-                  "odds": 1.4
-                },
-                {
-                  "name": "Stal Mielec lub Ruch Chorzów",
-                  "odds": 1.5
-                },
-                {
-                  "name": "Remis lub Ruch Chorzów",
-                  "odds": 1.22
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.26
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 3.25
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 2.25
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.52
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 4.9
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.11
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 17.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Stal Mielec",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 2.1
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 1.65
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 5.75
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.08
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 18.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Ruch Chorzów",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.75
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 1.95
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 4.25
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.15
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 12.0
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.01
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1268762576703488,
-          "name": "Fiorentina - Juventus",
-          "date": "2026-11-08T19:45:00.0000000Z",
-          "date_warsaw": "2026-11-08T20:45:00+01:00",
-          "competition": "Serie A",
-          "competition_id": 6,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Fiorentina",
-              "short": "Fiorentina"
-            },
-            {
-              "name": "Juventus",
-              "short": "Juventus"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Fiorentina",
-                  "odds": 3.7
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 2.8
-                },
-                {
-                  "name": "Juventus",
-                  "odds": 2.1
-                }
-              ]
-            },
-            {
-              "name": "Wynik meczu - Xtra Wygrana",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Fiorentina",
-                  "odds": 3.28
-                },
-                {
-                  "name": "Juventus",
-                  "odds": 1.8
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Fiorentina lub remis",
-                  "odds": 1.58
-                },
-                {
-                  "name": "Fiorentina lub Juventus",
-                  "odds": 1.35
-                },
-                {
-                  "name": "Remis lub Juventus",
-                  "odds": 1.22
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.1
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 5.25
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 1.75
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.95
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 3.25
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.26
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 7.5
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.06
-                },
-                {
-                  "name": "Powyżej 6,5",
-                  "odds": 14.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Fiorentina",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.75
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.9
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 4.75
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.12
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 23.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Juventus",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.36
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 2.7
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 3.0
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.3
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 10.0
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.02
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 20.0
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1262747156221952,
-          "name": "RC Lens - Marsylia",
-          "date": "2026-11-08T19:45:00.0000000Z",
-          "date_warsaw": "2026-11-08T20:45:00+01:00",
-          "competition": "Ligue 1",
-          "competition_id": 4,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "RC Lens",
-              "short": "Lens"
-            },
-            {
-              "name": "Marsylia",
-              "short": "Marsylia"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "RC Lens",
-                  "odds": 2.4
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 2.8
-                },
-                {
-                  "name": "Marsylia",
-                  "odds": 3.05
-                }
-              ]
-            },
-            {
-              "name": "Wynik meczu - Xtra Wygrana",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "RC Lens",
-                  "odds": 2.05
-                },
-                {
-                  "name": "Marsylia",
-                  "odds": 2.63
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "RC Lens lub remis",
-                  "odds": 1.3
-                },
-                {
-                  "name": "Lens lub Marsylia",
-                  "odds": 1.35
-                },
-                {
-                  "name": "Remis lub Marsylia",
-                  "odds": 1.45
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.08
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 5.75
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 1.72
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 2.0
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 3.15
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.28
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 7.5
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.06
-                },
-                {
-                  "name": "Powyżej 6,5",
-                  "odds": 14.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - RC Lens",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.4
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 2.55
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 3.3
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.25
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 12.0
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.01
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 25.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Marsylia",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.55
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 2.2
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 4.0
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.17
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 16.0
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1262759466500096,
-          "name": "Atletico Madryt - Barcelona",
-          "date": "2026-11-08T20:00:00.0000000Z",
-          "date_warsaw": "2026-11-08T21:00:00+01:00",
-          "competition": "La Liga",
-          "competition_id": 7,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Atletico Madryt",
-              "short": "Atletico Madryt"
-            },
-            {
-              "name": "Barcelona",
-              "short": "Barcelona"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Wynik meczu (z wyłączeniem dogrywki)",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Atletico Madryt",
-                  "odds": 1.95
-                },
-                {
-                  "name": "Remis ",
-                  "odds": 3.9
-                },
-                {
-                  "name": "Barcelona",
-                  "odds": 3.1
-                }
-              ]
-            },
-            {
-              "name": "Wynik meczu - Xtra Wygrana",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Atletico Madryt",
-                  "odds": 1.57
-                },
-                {
-                  "name": "Barcelona",
-                  "odds": 2.45
-                }
-              ]
-            },
-            {
-              "name": "Podwójna Szansa",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Atletico Madryt lub remis",
-                  "odds": 1.28
-                },
-                {
-                  "name": "Atletico Madryt lub Barcelona",
-                  "odds": 1.2
-                },
-                {
-                  "name": "Remis lub Barcelona",
-                  "odds": 1.7
-                }
-              ]
-            },
-            {
-              "name": "Gole Powyżej/Poniżej",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 16.0
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.15
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 4.25
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 1.59
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 2.08
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 2.45
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.44
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 4.5
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.14
-                },
-                {
-                  "name": "Powyżej 6,5",
-                  "odds": 8.5
-                },
-                {
-                  "name": "Poniżej 6,5",
-                  "odds": 1.04
-                },
-                {
-                  "name": "Powyżej 7,5",
-                  "odds": 15.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Atletico Madryt",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.28
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 3.1
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 2.55
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.4
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 7.25
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.06
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 12.0
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.01
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Barcelona",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.13
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 5.5
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.62
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 2.05
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 3.15
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.28
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 8.75
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.03
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 14.0
-                }
-              ]
-            }
-          ]
-        },
         {
           "id": 1269139973902336,
           "name": "Rio Ave FC - Sporting Braga",
@@ -1572,15 +329,15 @@
               "selections": [
                 {
                   "name": "Rio Ave FC",
-                  "odds": 5.5
+                  "odds": 100.0
                 },
                 {
                   "name": "Remis ",
-                  "odds": 4.2
+                  "odds": 15.0
                 },
                 {
                   "name": "Sporting Braga",
-                  "odds": 1.48
+                  "odds": 1.01
                 }
               ]
             },
@@ -1590,15 +347,7 @@
               "selections": [
                 {
                   "name": "Rio Ave FC lub remis",
-                  "odds": 2.38
-                },
-                {
-                  "name": "Rio Ave lub Braga",
-                  "odds": 1.16
-                },
-                {
-                  "name": "Remis lub Sporting Braga",
-                  "odds": 1.12
+                  "odds": 13.0
                 }
               ]
             },
@@ -1607,150 +356,12 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.02
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 7.75
-                },
-                {
                   "name": "Powyżej 1,5",
-                  "odds": 1.18
+                  "odds": 8.25
                 },
                 {
                   "name": "Poniżej 1,5",
-                  "odds": 3.83
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.6
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 2.07
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 2.47
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.42
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 4.1
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.15
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 6.5
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.05
-                }
-              ]
-            },
-            {
-              "name": "Oba zespoły strzelą gola lub Powyżej 2,5 gola w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.48
-                },
-                {
-                  "name": "Nie",
-                  "odds": 2.4
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Rio Ave FC",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.54
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 2.22
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 3.48
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.23
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 12.75
-                },
-                {
-                  "name": "Poniżej 2,5",
                   "odds": 1.03
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 9.75
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.01
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Sporting Braga",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.1
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 6.4
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.53
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 2.23
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 2.67
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.4
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 4.85
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.12
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 8.0
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.02
                 }
               ]
             }
@@ -1781,25 +392,11 @@
               "selections": [
                 {
                   "name": "Estrela",
-                  "odds": 10.0
+                  "odds": 100.0
                 },
                 {
                   "name": "Remis ",
-                  "odds": 6.4
-                },
-                {
-                  "name": "Benfica",
-                  "odds": 1.18
-                }
-              ]
-            },
-            {
-              "name": "Wynik meczu - Xtra Wygrana",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Estrela",
-                  "odds": 9.5
+                  "odds": 27.0
                 }
               ]
             },
@@ -1809,15 +406,7 @@
               "selections": [
                 {
                   "name": "Estrela lub remis",
-                  "odds": 4.05
-                },
-                {
-                  "name": "Estrela lub Benfica",
-                  "odds": 1.07
-                },
-                {
-                  "name": "Remis lub Benfica",
-                  "odds": 1.04
+                  "odds": 18.0
                 }
               ]
             },
@@ -1826,142 +415,12 @@
               "suspended": false,
               "selections": [
                 {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.07
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 5.6
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.29
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 2.97
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 1.76
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.84
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 2.65
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.36
-                },
-                {
                   "name": "Powyżej 5,5",
-                  "odds": 4.2
+                  "odds": 9.5
                 },
                 {
                   "name": "Poniżej 5,5",
-                  "odds": 1.15
-                }
-              ]
-            },
-            {
-              "name": "Oba zespoły strzelą gola lub Powyżej 2,5 gola w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.33
-                },
-                {
-                  "name": "Nie",
-                  "odds": 3.0
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Estrela",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 0,5",
-                  "odds": 1.65
-                },
-                {
-                  "name": "Poniżej 0,5",
-                  "odds": 2.03
-                },
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 3.98
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 1.18
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 16.25
-                },
-                {
-                  "name": "Poniżej 2,5",
                   "odds": 1.02
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 10.0
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.01
-                }
-              ]
-            },
-            {
-              "name": "Liczba goli - Benfica",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 1,5",
-                  "odds": 1.21
-                },
-                {
-                  "name": "Poniżej 1,5",
-                  "odds": 3.68
-                },
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 1.67
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 2.0
-                },
-                {
-                  "name": "Powyżej 3,5",
-                  "odds": 2.63
-                },
-                {
-                  "name": "Poniżej 3,5",
-                  "odds": 1.39
-                },
-                {
-                  "name": "Powyżej 4,5",
-                  "odds": 4.5
-                },
-                {
-                  "name": "Poniżej 4,5",
-                  "odds": 1.14
-                },
-                {
-                  "name": "Powyżej 5,5",
-                  "odds": 7.25
-                },
-                {
-                  "name": "Poniżej 5,5",
-                  "odds": 1.04
                 }
               ]
             }
@@ -1974,7 +433,7 @@
       "sport": "tennis",
       "source": "direct_betclic",
       "stale": false,
-      "event_count": 15,
+      "event_count": 3,
       "stale_event_ids": [],
       "summary_only_event_ids": [],
       "discovery": {
@@ -1983,8 +442,6 @@
           36381,
           39032,
           39034,
-          18590,
-          38884,
           38380,
           38382,
           2282,
@@ -2005,1430 +462,10 @@
       "errors": [],
       "events": [
         {
-          "id": 1274626991726592,
-          "name": "Stefan Kozlov - Aidan Mayo",
-          "date": "2026-11-08T18:05:00.0000000Z",
-          "date_warsaw": "2026-11-08T19:05:00+01:00",
-          "competition": "Charlottesville Challenger",
-          "competition_id": 18590,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Stefan Kozlov",
-              "short": "S. Kozlov"
-            },
-            {
-              "name": "Aidan Mayo",
-              "short": "A. Mayo"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Stefan Kozlov",
-                  "odds": 4.3
-                },
-                {
-                  "name": "Aidan Mayo",
-                  "odds": 1.09
-                }
-              ]
-            },
-            {
-              "name": "3. set - Gem 6 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Stefan Kozlov",
-                  "odds": 3.25
-                },
-                {
-                  "name": "Aidan Mayo",
-                  "odds": 1.14
-                }
-              ]
-            },
-            {
-              "name": "3. set - Gem 5 - Punkt 5 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Stefan Kozlov",
-                  "odds": 1.52
-                },
-                {
-                  "name": "Aidan Mayo",
-                  "odds": 1.9
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1274904152375296,
-          "name": "Felipe Alves - Nicolas Jarry",
-          "date": "2026-11-08T18:25:00.0000000Z",
-          "date_warsaw": "2026-11-08T19:25:00+01:00",
-          "competition": "Lima Challenger Kwalifikacje",
-          "competition_id": 19855,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Felipe Alves",
-              "short": "F. Alves"
-            },
-            {
-              "name": "Nicolas Jarry",
-              "short": "N. Jarry"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Felipe Alves",
-                  "odds": 4.0
-                },
-                {
-                  "name": "Nicolas Jarry",
-                  "odds": 1.1
-                }
-              ]
-            },
-            {
-              "name": "2. set - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Felipe Alves",
-                  "odds": 2.45
-                },
-                {
-                  "name": "Nicolas Jarry",
-                  "odds": 1.32
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "0 - 2",
-                  "odds": 1.35
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 4.7
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 4.65
-                }
-              ]
-            },
-            {
-              "name": "2. set - Gem 12 - Punkt 8 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Felipe Alves",
-                  "odds": 1.37
-                },
-                {
-                  "name": "Nicolas Jarry",
-                  "odds": 2.2
-                }
-              ]
-            },
-            {
-              "name": "Felipe Alves wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 2.45
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.32
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Felipe Alves (+1,5)",
-                  "odds": 2.5
-                },
-                {
-                  "name": "Nicolas Jarry (-1.5)",
-                  "odds": 1.35
-                }
-              ]
-            },
-            {
-              "name": "Czy obaj zawodnicy wygrają seta w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 2.45
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.32
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1274623847038976,
-          "name": "Thiago Wild - Camilo Ugo Carabelli",
-          "date": "2026-11-08T19:05:00.0000000Z",
-          "date_warsaw": "2026-11-08T20:05:00+01:00",
-          "competition": "Costa do Sauipe Challenger",
-          "competition_id": 38884,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Thiago Wild",
-              "short": "T. Wild"
-            },
-            {
-              "name": "Camilo Ugo Carabelli",
-              "short": "C. Ugo Carabelli"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Thiago Wild",
-                  "odds": 3.5
-                },
-                {
-                  "name": "Camilo Ugo Carabelli",
-                  "odds": 1.16
-                }
-              ]
-            },
-            {
-              "name": "2. set - Gem 10 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Thiago Wild",
-                  "odds": 3.8
-                },
-                {
-                  "name": "Camilo Ugo Carabelli",
-                  "odds": 1.09
-                }
-              ]
-            },
-            {
-              "name": "2. set - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Thiago Wild",
-                  "odds": 2.0
-                },
-                {
-                  "name": "Camilo Ugo Carabelli",
-                  "odds": 1.52
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "0 - 2",
-                  "odds": 1.52
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 3.95
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 3.65
-                }
-              ]
-            },
-            {
-              "name": "2. set - Gem 9 - Punkt 4 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Thiago Wild",
-                  "odds": 1.4
-                },
-                {
-                  "name": "Camilo Ugo Carabelli",
-                  "odds": 2.15
-                }
-              ]
-            },
-            {
-              "name": "Thiago Wild wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 2.0
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.52
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Thiago Wild (+1,5)",
-                  "odds": 2.05
-                },
-                {
-                  "name": "Camilo Ugo Carabelli (-1.5)",
-                  "odds": 1.52
-                }
-              ]
-            },
-            {
-              "name": "Czy obaj zawodnicy wygrają seta w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 2.0
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.52
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1274599605022720,
-          "name": "Calvin Hemery - Yanis Ghazouani Durand",
-          "date": "2026-11-08T19:25:00.0000000Z",
-          "date_warsaw": "2026-11-08T20:25:00+01:00",
-          "competition": "Orleans Challenger Kwalifikacje",
-          "competition_id": 19769,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Calvin Hemery",
-              "short": "C. Hemery"
-            },
-            {
-              "name": "Yanis Ghazouani Durand",
-              "short": "Y. Ghazouani Durand"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Yanis Ghazouani Durand",
-                  "odds": 6.75
-                }
-              ]
-            },
-            {
-              "name": "2. set - Gem 6 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Calvin Hemery",
-                  "odds": 2.4
-                },
-                {
-                  "name": "Yanis Ghazouani Durand",
-                  "odds": 1.3
-                }
-              ]
-            },
-            {
-              "name": "2. set - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Yanis Ghazouani Durand",
-                  "odds": 6.25
-                }
-              ]
-            },
-            {
-              "name": "2. set - Gem 5 - Punkt 2 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Calvin Hemery",
-                  "odds": 1.3
-                },
-                {
-                  "name": "Yanis Ghazouani Durand",
-                  "odds": 2.45
-                }
-              ]
-            },
-            {
-              "name": "Yanis Ghazouani Durand wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 6.25
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Yanis Ghazouani Durand (+1.5)",
-                  "odds": 6.75
-                }
-              ]
-            },
-            {
-              "name": "Czy obaj zawodnicy wygrają seta w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 6.25
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1274892565614592,
-          "name": "Nicolas Barrientos - Alan Magadan",
-          "date": "2026-11-08T19:55:00.0000000Z",
-          "date_warsaw": "2026-11-08T20:55:00+01:00",
-          "competition": "Lima Challenger Kwalifikacje",
-          "competition_id": 19855,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Nicolas Barrientos",
-              "short": "N. Barrientos"
-            },
-            {
-              "name": "Alan Magadan",
-              "short": "A. Magadan"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Nicolas Barrientos",
-                  "odds": 3.8
-                },
-                {
-                  "name": "Alan Magadan",
-                  "odds": 1.12
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 10 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Nicolas Barrientos",
-                  "odds": 5.1
-                },
-                {
-                  "name": "Alan Magadan",
-                  "odds": 1.02
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 11 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Nicolas Barrientos",
-                  "odds": 1.3
-                },
-                {
-                  "name": "Alan Magadan",
-                  "odds": 2.45
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 45.0
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 1.35
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 4.2
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 3.9
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 10 - Punkt 4 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Nicolas Barrientos",
-                  "odds": 2.1
-                },
-                {
-                  "name": "Alan Magadan",
-                  "odds": 1.42
-                }
-              ]
-            },
-            {
-              "name": "Nicolas Barrientos wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 2.3
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.4
-                }
-              ]
-            },
-            {
-              "name": "Alan Magadan wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Nie",
-                  "odds": 6.25
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Nicolas Barrientos (-1,5)",
-                  "odds": 6.5
-                },
-                {
-                  "name": "Nicolas Barrientos (+1,5)",
-                  "odds": 2.3
-                },
-                {
-                  "name": "Alan Magadan (-1.5)",
-                  "odds": 1.4
-                }
-              ]
-            },
-            {
-              "name": "Czy obaj zawodnicy wygrają seta w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 2.35
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.37
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1274803525787650,
-          "name": "Mitchell Krueger - Samir Banerjee",
-          "date": "2026-11-08T20:00:00.0000000Z",
-          "date_warsaw": "2026-11-08T21:00:00+01:00",
-          "competition": "Knoxville Challenger Kwalifikacje",
-          "competition_id": 19840,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Mitchell Krueger",
-              "short": "M. Krueger"
-            },
-            {
-              "name": "Samir Banerjee",
-              "short": "S. Banerjee"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Mitchell Krueger",
-                  "odds": 1.2
-                },
-                {
-                  "name": "Samir Banerjee",
-                  "odds": 3.2
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 8 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Mitchell Krueger",
-                  "odds": 1.1
-                },
-                {
-                  "name": "Samir Banerjee",
-                  "odds": 3.6
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 1.47
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 14.5
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 3.85
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 4.0
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 7 - Punkt 3 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Mitchell Krueger",
-                  "odds": 2.05
-                },
-                {
-                  "name": "Samir Banerjee",
-                  "odds": 1.45
-                }
-              ]
-            },
-            {
-              "name": "Mitchell Krueger wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.01
-                },
-                {
-                  "name": "Nie",
-                  "odds": 5.8
-                }
-              ]
-            },
-            {
-              "name": "Samir Banerjee wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 2.0
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.5
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Mitchell Krueger (-1,5)",
-                  "odds": 1.52
-                },
-                {
-                  "name": "Samir Banerjee (+1.5)",
-                  "odds": 2.05
-                },
-                {
-                  "name": "Mitchell Krueger (+1,5)",
-                  "odds": 1.01
-                },
-                {
-                  "name": "Samir Banerjee (-1.5)",
-                  "odds": 6.25
-                }
-              ]
-            },
-            {
-              "name": "Czy obaj zawodnicy wygrają seta w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 2.2
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.42
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1274595938156544,
-          "name": "Marta Kostyuk - Linda Noskova",
-          "date": "2026-11-08T20:11:22.0000000Z",
-          "date_warsaw": "2026-11-08T21:11:22+01:00",
-          "competition": "WTA Finals Indian Wells",
-          "competition_id": 36381,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Marta Kostyuk",
-              "short": "M. Kostyuk"
-            },
-            {
-              "name": "Linda Noskova",
-              "short": "L. Noskova"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Marta Kostyuk",
-                  "odds": 2.95
-                },
-                {
-                  "name": "Linda Noskova",
-                  "odds": 1.32
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 4 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Marta Kostyuk",
-                  "odds": 3.05
-                },
-                {
-                  "name": "Linda Noskova",
-                  "odds": 1.19
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 5 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Marta Kostyuk",
-                  "odds": 1.3
-                },
-                {
-                  "name": "Linda Noskova",
-                  "odds": 2.5
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 6.0
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 1.75
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 4.3
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 3.9
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 4 - Punkt 2 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Marta Kostyuk",
-                  "odds": 2.15
-                },
-                {
-                  "name": "Linda Noskova",
-                  "odds": 1.42
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 4 - Punkt 3 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Marta Kostyuk",
-                  "odds": 2.15
-                },
-                {
-                  "name": "Linda Noskova",
-                  "odds": 1.42
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 4 - Punkt 4 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Marta Kostyuk",
-                  "odds": 2.15
-                },
-                {
-                  "name": "Linda Noskova",
-                  "odds": 1.42
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 5 - Punkt 1 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Marta Kostyuk",
-                  "odds": 1.52
-                },
-                {
-                  "name": "Linda Noskova",
-                  "odds": 1.95
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 5 - Punkt 2 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Marta Kostyuk",
-                  "odds": 1.52
-                },
-                {
-                  "name": "Linda Noskova",
-                  "odds": 1.95
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 5 - Punkt 3 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Marta Kostyuk",
-                  "odds": 1.5
-                },
-                {
-                  "name": "Linda Noskova",
-                  "odds": 2.0
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 5 - Punkt 4 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Marta Kostyuk",
-                  "odds": 1.5
-                },
-                {
-                  "name": "Linda Noskova",
-                  "odds": 2.0
-                }
-              ]
-            },
-            {
-              "name": "Marta Kostyuk wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.73
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.77
-                }
-              ]
-            },
-            {
-              "name": "Linda Noskova wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.05
-                },
-                {
-                  "name": "Nie",
-                  "odds": 5.1
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Marta Kostyuk (-1,5)",
-                  "odds": 5.1
-                },
-                {
-                  "name": "Linda Noskova (+1.5)",
-                  "odds": 1.06
-                },
-                {
-                  "name": "Marta Kostyuk (+1,5)",
-                  "odds": 1.75
-                },
-                {
-                  "name": "Linda Noskova (-1.5)",
-                  "odds": 1.75
-                }
-              ]
-            },
-            {
-              "name": "Czy obaj zawodnicy wygrają seta w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 2.25
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.42
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1274803678887936,
-          "name": "Jamie Mackenzie - Lui Maxted",
-          "date": "2026-11-08T20:15:00.0000000Z",
-          "date_warsaw": "2026-11-08T21:15:00+01:00",
-          "competition": "Knoxville Challenger Kwalifikacje",
-          "competition_id": 19840,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Jamie Mackenzie",
-              "short": "Jamie Mackenzie"
-            },
-            {
-              "name": "Lui Maxted",
-              "short": "L. Maxted"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Jamie Mackenzie",
-                  "odds": 2.2
-                },
-                {
-                  "name": "Lui Maxted",
-                  "odds": 1.45
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 4 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Jamie Mackenzie",
-                  "odds": 1.16
-                },
-                {
-                  "name": "Lui Maxted",
-                  "odds": 3.1
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 3.8
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 2.05
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 4.5
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 3.55
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 3 - Punkt 3 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Jamie Mackenzie",
-                  "odds": 2.25
-                },
-                {
-                  "name": "Lui Maxted",
-                  "odds": 1.37
-                }
-              ]
-            },
-            {
-              "name": "Jamie Mackenzie wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.5
-                },
-                {
-                  "name": "Nie",
-                  "odds": 2.05
-                }
-              ]
-            },
-            {
-              "name": "Lui Maxted wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.16
-                },
-                {
-                  "name": "Nie",
-                  "odds": 3.4
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Jamie Mackenzie (-1,5)",
-                  "odds": 3.45
-                },
-                {
-                  "name": "Lui Maxted (+1.5)",
-                  "odds": 1.16
-                },
-                {
-                  "name": "Jamie Mackenzie (+1,5)",
-                  "odds": 1.5
-                },
-                {
-                  "name": "Lui Maxted (-1.5)",
-                  "odds": 2.05
-                }
-              ]
-            },
-            {
-              "name": "Czy obaj zawodnicy wygrają seta w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 2.15
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.45
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1274895405166592,
-          "name": "Oriol Roca Batalla - Emilio Camacho",
-          "date": "2026-11-08T20:20:00.0000000Z",
-          "date_warsaw": "2026-11-08T21:20:00+01:00",
-          "competition": "Lima Challenger Kwalifikacje",
-          "competition_id": 19855,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Oriol Roca Batalla",
-              "short": "O. Roca Batalla"
-            },
-            {
-              "name": "Emilio Camacho",
-              "short": "Emilio Camacho"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Oriol Roca Batalla",
-                  "odds": 1.01
-                },
-                {
-                  "name": "Emilio Camacho",
-                  "odds": 6.5
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 2 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Oriol Roca Batalla",
-                  "odds": 1.06
-                },
-                {
-                  "name": "Emilio Camacho",
-                  "odds": 4.2
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 1.06
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 33.0
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 4.25
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 20.0
-                }
-              ]
-            },
-            {
-              "name": "1. set - Gem 1 - Punkt 4 - Zwycięzca",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Oriol Roca Batalla",
-                  "odds": 1.75
-                },
-                {
-                  "name": "Emilio Camacho",
-                  "odds": 1.65
-                }
-              ]
-            },
-            {
-              "name": "Oriol Roca Batalla wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Nie",
-                  "odds": 6.25
-                }
-              ]
-            },
-            {
-              "name": "Emilio Camacho wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 4.3
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.08
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Oriol Roca Batalla (-1,5)",
-                  "odds": 1.08
-                },
-                {
-                  "name": "Emilio Camacho (+1.5)",
-                  "odds": 4.45
-                },
-                {
-                  "name": "Emilio Camacho (-1.5)",
-                  "odds": 6.75
-                }
-              ]
-            },
-            {
-              "name": "Czy obaj zawodnicy wygrają seta w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 4.5
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.07
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1274895392583680,
-          "name": "Federico Zeballos - Juan Alejandro Hernandez Serrano",
-          "date": "2026-11-08T20:55:00.0000000Z",
-          "date_warsaw": "2026-11-08T21:55:00+01:00",
-          "competition": "Lima Challenger Kwalifikacje",
-          "competition_id": 19855,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Federico Zeballos",
-              "short": "F. Zeballos"
-            },
-            {
-              "name": "Juan Alejandro Hernandez Serrano",
-              "short": "J. Hernandez Serrano"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Federico Zeballos",
-                  "odds": 5.2
-                },
-                {
-                  "name": "Juan Alejandro Hernandez Serrano",
-                  "odds": 1.09
-                }
-              ]
-            },
-            {
-              "name": "Federico Zeballos wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 2.8
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.35
-                }
-              ]
-            },
-            {
-              "name": "Juan Alejandro Hernandez Serrano wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.03
-                },
-                {
-                  "name": "Nie",
-                  "odds": 8.0
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 13.0
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 1.35
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 12.0
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 4.2
-                }
-              ]
-            },
-            {
-              "name": "Liczba setów",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Powyżej 2,5",
-                  "odds": 3.05
-                },
-                {
-                  "name": "Poniżej 2,5",
-                  "odds": 1.23
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Federico Zeballos (-1,5)",
-                  "odds": 13.0
-                },
-                {
-                  "name": "Juan Alejandro Hernandez Serrano (+1.5)",
-                  "odds": 1.03
-                },
-                {
-                  "name": "Federico Zeballos (+1,5)",
-                  "odds": 2.8
-                },
-                {
-                  "name": "Juan Alejandro Hernandez Serrano (-1.5)",
-                  "odds": 1.35
-                }
-              ]
-            },
-            {
-              "name": "Liczba setów",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2",
-                  "odds": 1.23
-                },
-                {
-                  "name": "3",
-                  "odds": 3.05
-                }
-              ]
-            },
-            {
-              "name": "Wygra 1. seta / Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "F. Zeballos / F. Zeballos",
-                  "odds": 7.2
-                },
-                {
-                  "name": "F. Zeballos / J. Hernandez Serrano",
-                  "odds": 6.4
-                },
-                {
-                  "name": "J. Hernandez Serrano / F. Zeballos",
-                  "odds": 19.0
-                },
-                {
-                  "name": "J. Hernandez Serrano / J. Hernandez Serrano",
-                  "odds": 1.18
-                }
-              ]
-            }
-          ]
-        },
-        {
           "id": 1271433202274304,
           "name": "Coco Gauff - Jessica Pegula",
-          "date": "2026-11-08T21:10:00.0000000Z",
-          "date_warsaw": "2026-11-08T22:10:00+01:00",
+          "date": "2026-11-08T22:02:01.0000000Z",
+          "date_warsaw": "2026-11-08T23:02:01+01:00",
           "competition": "WTA Finals Indian Wells",
           "competition_id": 36381,
           "is_live": true,
@@ -3449,25 +486,145 @@
               "selections": [
                 {
                   "name": "Coco Gauff",
-                  "odds": 1.59
+                  "odds": 1.58
                 },
                 {
                   "name": "Jessica Pegula",
-                  "odds": 2.17
+                  "odds": 2.15
                 }
               ]
             },
             {
-              "name": "Zawodnik wygra 1. seta 6-0, 6-1, 6-2 lub wygra mecz",
+              "name": "1. set - Gem 5 - Zwycięzca",
               "suspended": false,
               "selections": [
                 {
                   "name": "Coco Gauff",
-                  "odds": 1.54
+                  "odds": 1.07
                 },
                 {
                   "name": "Jessica Pegula",
-                  "odds": 2.1
+                  "odds": 4.25
+                }
+              ]
+            },
+            {
+              "name": "1. set - Gem 6 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Coco Gauff",
+                  "odds": 2.5
+                },
+                {
+                  "name": "Jessica Pegula",
+                  "odds": 1.3
+                }
+              ]
+            },
+            {
+              "name": "Wynik w setach",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "2 - 0",
+                  "odds": 2.35
+                },
+                {
+                  "name": "0 - 2",
+                  "odds": 3.5
+                },
+                {
+                  "name": "2 - 1",
+                  "odds": 3.7
+                },
+                {
+                  "name": "1 - 2",
+                  "odds": 4.0
+                }
+              ]
+            },
+            {
+              "name": "1. set - Gem 5 - Punkt 7 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Coco Gauff",
+                  "odds": 1.47
+                },
+                {
+                  "name": "Jessica Pegula",
+                  "odds": 2.05
+                }
+              ]
+            },
+            {
+              "name": "1. set - Gem 5 - Punkt 8 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Coco Gauff",
+                  "odds": 1.47
+                },
+                {
+                  "name": "Jessica Pegula",
+                  "odds": 2.05
+                }
+              ]
+            },
+            {
+              "name": "1. set - Gem 6 - Punkt 1 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Coco Gauff",
+                  "odds": 2.0
+                },
+                {
+                  "name": "Jessica Pegula",
+                  "odds": 1.5
+                }
+              ]
+            },
+            {
+              "name": "1. set - Gem 6 - Punkt 2 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Coco Gauff",
+                  "odds": 2.0
+                },
+                {
+                  "name": "Jessica Pegula",
+                  "odds": 1.5
+                }
+              ]
+            },
+            {
+              "name": "1. set - Gem 6 - Punkt 3 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Coco Gauff",
+                  "odds": 2.0
+                },
+                {
+                  "name": "Jessica Pegula",
+                  "odds": 1.5
+                }
+              ]
+            },
+            {
+              "name": "1. set - Gem 6 - Punkt 4 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Coco Gauff",
+                  "odds": 2.0
+                },
+                {
+                  "name": "Jessica Pegula",
+                  "odds": 1.5
                 }
               ]
             },
@@ -3477,11 +634,11 @@
               "selections": [
                 {
                   "name": "Tak",
-                  "odds": 1.29
+                  "odds": 1.2
                 },
                 {
                   "name": "Nie",
-                  "odds": 3.1
+                  "odds": 3.25
                 }
               ]
             },
@@ -3495,43 +652,7 @@
                 },
                 {
                   "name": "Nie",
-                  "odds": 2.5
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 2.6
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 3.25
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 4.1
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 4.9
-                }
-              ]
-            },
-            {
-              "name": "Czy obaj zawodnicy wygrają seta w meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 2.18
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.46
+                  "odds": 2.3
                 }
               ]
             },
@@ -3541,19 +662,33 @@
               "selections": [
                 {
                   "name": "Coco Gauff (-1,5)",
-                  "odds": 2.6
+                  "odds": 2.3
                 },
                 {
                   "name": "Jessica Pegula (+1.5)",
-                  "odds": 1.44
+                  "odds": 1.42
                 },
                 {
                   "name": "Coco Gauff (+1,5)",
-                  "odds": 1.3
+                  "odds": 1.2
                 },
                 {
                   "name": "Jessica Pegula (-1.5)",
                   "odds": 3.25
+                }
+              ]
+            },
+            {
+              "name": "Czy obaj zawodnicy wygrają seta w meczu",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 2.15
+                },
+                {
+                  "name": "Nie",
+                  "odds": 1.47
                 }
               ]
             }
@@ -3562,8 +697,8 @@
         {
           "id": 1274803901177856,
           "name": "Shunsuke Mitsui - Geoffrey Blancaneaux",
-          "date": "2026-11-08T21:10:00.0000000Z",
-          "date_warsaw": "2026-11-08T22:10:00+01:00",
+          "date": "2026-11-08T22:15:00.0000000Z",
+          "date_warsaw": "2026-11-08T23:15:00+01:00",
           "competition": "Knoxville Challenger Kwalifikacje",
           "competition_id": 19840,
           "is_live": true,
@@ -3584,39 +719,25 @@
               "selections": [
                 {
                   "name": "Shunsuke Mitsui",
-                  "odds": 1.66
-                },
-                {
-                  "name": "Geoffrey Blancaneaux",
-                  "odds": 1.97
-                }
-              ]
-            },
-            {
-              "name": "Shunsuke Mitsui wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.29
-                },
-                {
-                  "name": "Nie",
-                  "odds": 3.1
-                }
-              ]
-            },
-            {
-              "name": "Geoffrey Blancaneaux wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
                   "odds": 1.42
                 },
                 {
-                  "name": "Nie",
-                  "odds": 2.55
+                  "name": "Geoffrey Blancaneaux",
+                  "odds": 2.25
+                }
+              ]
+            },
+            {
+              "name": "1. set - Gem 2 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Shunsuke Mitsui",
+                  "odds": 1.18
+                },
+                {
+                  "name": "Geoffrey Blancaneaux",
+                  "odds": 3.05
                 }
               ]
             },
@@ -3626,19 +747,61 @@
               "selections": [
                 {
                   "name": "2 - 0",
-                  "odds": 2.55
+                  "odds": 1.9
                 },
                 {
                   "name": "0 - 2",
-                  "odds": 3.2
+                  "odds": 3.9
                 },
                 {
                   "name": "2 - 1",
-                  "odds": 4.2
+                  "odds": 3.8
                 },
                 {
                   "name": "1 - 2",
-                  "odds": 4.7
+                  "odds": 4.5
+                }
+              ]
+            },
+            {
+              "name": "1. set - Gem 2 - Punkt 1 - Zwycięzca",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Shunsuke Mitsui",
+                  "odds": 1.42
+                },
+                {
+                  "name": "Geoffrey Blancaneaux",
+                  "odds": 2.1
+                }
+              ]
+            },
+            {
+              "name": "Shunsuke Mitsui wygra seta",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 1.15
+                },
+                {
+                  "name": "Nie",
+                  "odds": 3.45
+                }
+              ]
+            },
+            {
+              "name": "Geoffrey Blancaneaux wygra seta",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 1.55
+                },
+                {
+                  "name": "Nie",
+                  "odds": 1.95
                 }
               ]
             },
@@ -3648,19 +811,33 @@
               "selections": [
                 {
                   "name": "Shunsuke Mitsui (-1,5)",
-                  "odds": 2.55
+                  "odds": 1.95
                 },
                 {
                   "name": "Geoffrey Blancaneaux (+1.5)",
-                  "odds": 1.42
+                  "odds": 1.57
                 },
                 {
                   "name": "Shunsuke Mitsui (+1,5)",
-                  "odds": 1.29
+                  "odds": 1.15
                 },
                 {
                   "name": "Geoffrey Blancaneaux (-1.5)",
-                  "odds": 3.2
+                  "odds": 3.55
+                }
+              ]
+            },
+            {
+              "name": "Czy obaj zawodnicy wygrają seta w meczu",
+              "suspended": false,
+              "selections": [
+                {
+                  "name": "Tak",
+                  "odds": 2.2
+                },
+                {
+                  "name": "Nie",
+                  "odds": 1.42
                 }
               ]
             }
@@ -3669,8 +846,8 @@
         {
           "id": 1274803947307008,
           "name": "Andrew Fenty - Kenta Miyoshi",
-          "date": "2026-11-08T21:20:00.0000000Z",
-          "date_warsaw": "2026-11-08T22:20:00+01:00",
+          "date": "2026-11-08T22:40:00.0000000Z",
+          "date_warsaw": "2026-11-08T23:40:00+01:00",
           "competition": "Knoxville Challenger Kwalifikacje",
           "competition_id": 19840,
           "is_live": true,
@@ -3768,220 +945,6 @@
                 {
                   "name": "Kenta Miyoshi (-1.5)",
                   "odds": 2.4
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1274803998699520,
-          "name": "Patrick Zahraj - Sebastian Dominko",
-          "date": "2026-11-08T22:20:00.0000000Z",
-          "date_warsaw": "2026-11-08T23:20:00+01:00",
-          "competition": "Knoxville Challenger Kwalifikacje",
-          "competition_id": 19840,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Patrick Zahraj",
-              "short": "P. Zahraj"
-            },
-            {
-              "name": "Sebastian Dominko",
-              "short": "S. Dominko"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Patrick Zahraj",
-                  "odds": 2.9
-                },
-                {
-                  "name": "Sebastian Dominko",
-                  "odds": 1.3
-                }
-              ]
-            },
-            {
-              "name": "Patrick Zahraj wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.75
-                },
-                {
-                  "name": "Nie",
-                  "odds": 1.9
-                }
-              ]
-            },
-            {
-              "name": "Sebastian Dominko wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.12
-                },
-                {
-                  "name": "Nie",
-                  "odds": 4.8
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 5.6
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 1.9
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 6.0
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 3.6
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Patrick Zahraj (-1,5)",
-                  "odds": 5.6
-                },
-                {
-                  "name": "Sebastian Dominko (+1.5)",
-                  "odds": 1.12
-                },
-                {
-                  "name": "Patrick Zahraj (+1,5)",
-                  "odds": 1.75
-                },
-                {
-                  "name": "Sebastian Dominko (-1.5)",
-                  "odds": 1.9
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": 1274803852947456,
-          "name": "Giles Hussey - Kaylan Bigun",
-          "date": "2026-11-08T22:30:00.0000000Z",
-          "date_warsaw": "2026-11-08T23:30:00+01:00",
-          "competition": "Knoxville Challenger Kwalifikacje",
-          "competition_id": 19840,
-          "is_live": true,
-          "teams": [
-            {
-              "name": "Giles Hussey",
-              "short": "G. Hussey"
-            },
-            {
-              "name": "Kaylan Bigun",
-              "short": "K. Bigun"
-            }
-          ],
-          "markets": [
-            {
-              "name": "Zwycięzca meczu",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Giles Hussey",
-                  "odds": 2.23
-                },
-                {
-                  "name": "Kaylan Bigun",
-                  "odds": 1.51
-                }
-              ]
-            },
-            {
-              "name": "Giles Hussey wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.53
-                },
-                {
-                  "name": "Nie",
-                  "odds": 2.24
-                }
-              ]
-            },
-            {
-              "name": "Kaylan Bigun wygra seta",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Tak",
-                  "odds": 1.22
-                },
-                {
-                  "name": "Nie",
-                  "odds": 3.55
-                }
-              ]
-            },
-            {
-              "name": "Wynik w setach",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "2 - 0",
-                  "odds": 3.75
-                },
-                {
-                  "name": "0 - 2",
-                  "odds": 2.24
-                },
-                {
-                  "name": "2 - 1",
-                  "odds": 5.0
-                },
-                {
-                  "name": "1 - 2",
-                  "odds": 4.0
-                }
-              ]
-            },
-            {
-              "name": "Handicap setowy",
-              "suspended": false,
-              "selections": [
-                {
-                  "name": "Giles Hussey (-1,5)",
-                  "odds": 3.75
-                },
-                {
-                  "name": "Kaylan Bigun (+1.5)",
-                  "odds": 1.22
-                },
-                {
-                  "name": "Giles Hussey (+1,5)",
-                  "odds": 1.53
-                },
-                {
-                  "name": "Kaylan Bigun (-1.5)",
-                  "odds": 2.24
                 }
               ]
             }
