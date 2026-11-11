@@ -2,50 +2,57 @@
   "schema_version": 3,
   "source": "direct_betclic_mycombi_quote",
   "date_warsaw": "2026-11-11",
-  "generated_at_warsaw": "2026-11-11T03:10:35.361649+01:00",
+  "generated_at_warsaw": "2026-11-11T10:18:14.162374+01:00",
   "request_count": 2,
   "results": [
     {
-      "request_id": "auto-1276511514537984-1276549839990912-1276549841027531-1276515816837131-1276515816837188",
+      "request_id": "auto-1276511514537984-1276515816837145-1276515816837204-1276549839990834-1276549841027207",
       "action": "quote",
       "event_id": 1276511514537984,
-      "label": "Auto MyCombi: Artis Brno lub Jablonec + Poniżej 2,5",
+      "label": "Auto MyCombi: Powyżej 0,5 + Poniżej 0,5",
       "selections": [
         {
-          "market_id": "1276549839990912",
-          "selection_id": "1276549841027531"
+          "market_id": "1276515816837145",
+          "selection_id": "1276515816837204"
         },
         {
-          "market_id": "1276515816837131",
-          "selection_id": "1276515816837188"
+          "market_id": "1276549839990834",
+          "selection_id": "1276549841027207"
         }
       ],
-      "quoted_at_warsaw": "2026-11-11T03:10:34.646573+01:00",
+      "quoted_at_warsaw": "2026-11-11T10:18:14.033847+01:00",
       "valid": true,
-      "odds": 2.98,
+      "odds": 4.2,
       "errors": [],
       "stale": false,
       "fallback": false
     },
     {
-      "request_id": "auto-1276511514537984-1276549839990912-1276549841027531-1276549839990832-1276549841027202",
+      "request_id": "auto-1276511514537984-1276515816837131-1276515816837188-1276549839990792-1276549841027109",
       "action": "quote",
       "event_id": 1276511514537984,
-      "label": "Auto MyCombi: Artis Brno lub Jablonec + Powyżej 0,5",
+      "label": "Auto MyCombi: Poniżej 2,5 + Powyżej 0,5",
       "selections": [
         {
-          "market_id": "1276549839990912",
-          "selection_id": "1276549841027531"
+          "market_id": "1276515816837131",
+          "selection_id": "1276515816837188"
         },
         {
-          "market_id": "1276549839990832",
-          "selection_id": "1276549841027202"
+          "market_id": "1276549839990792",
+          "selection_id": "1276549841027109"
         }
       ],
-      "quoted_at_warsaw": "2026-11-11T03:10:35.361630+01:00",
-      "valid": true,
-      "odds": 2.33,
-      "errors": [],
+      "quoted_at_warsaw": "2026-11-11T10:18:14.162358+01:00",
+      "valid": false,
+      "odds": null,
+      "errors": [
+        {
+          "code": "SELECTION_UNAVAILABLE",
+          "market_id": "1276549839990792",
+          "selection_id": "1276549841027109",
+          "detail": "Selection is not available for this event's MyCombi"
+        }
+      ],
       "stale": false,
       "fallback": false
     }
